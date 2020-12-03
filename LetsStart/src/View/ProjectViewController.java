@@ -1,5 +1,10 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+
 public class ProjectViewController {
 
 	private Label titleID;

@@ -1,5 +1,8 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.scene.layout.Region;
+
 public class TeamMemberViewController {
 
 	private Region root;

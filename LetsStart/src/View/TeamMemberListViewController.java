@@ -1,5 +1,10 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
+
 public class TeamMemberListViewController {
 
 	private Label teamMemberListTitle;

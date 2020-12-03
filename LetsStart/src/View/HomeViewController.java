@@ -1,5 +1,10 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.collections.ObservableList;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+
 public class HomeViewController {
 
 	private TextField searchProjectBar;
@@ -13,7 +18,6 @@ public class HomeViewController {
 	private ViewHandler viewHandler;
 
 	private ViewHandler viewHandler;
-
 	private ManagementSystemModel managementSystemModel;
 
 	public HomeViewController() {

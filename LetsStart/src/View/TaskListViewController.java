@@ -1,5 +1,10 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.scene.layout.Region;
+
+import java.util.ArrayList;
+
 public class TaskListViewController {
 
 	private ArrayList<String>,ListView<>ObservableList<String> : taskList;

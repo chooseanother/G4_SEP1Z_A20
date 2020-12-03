@@ -1,5 +1,8 @@
 package View;
 
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+
 public class NewTeamMemberViewController {
 
 	private TextField nameID;

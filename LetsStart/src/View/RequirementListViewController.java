@@ -1,5 +1,9 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.collections.ObservableList;
+import javafx.scene.layout.Region;
+
 public class RequirementListViewController {
 
 	private ObservableList<String> criticalPriorityList;

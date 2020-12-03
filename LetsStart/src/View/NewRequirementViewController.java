@@ -1,8 +1,13 @@
 package View;
 
+import Model.ManagementSystemModel;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+
 public class NewRequirementViewController {
 
-	private label requirementTitleID;
+	private Label requirementTitleID;
 
 	private TextField requirementID;
 
