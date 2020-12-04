@@ -1,13 +1,16 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 
 import java.util.ArrayList;
 
 public class TaskListViewController {
 
-	private ArrayList<String>,ListView<>ObservableList<String> : taskList;
+	private ArrayList<String> questionMark;
+	private ListView<ObservableList<String>> taskList;
 
 	private Region root;
 
@@ -15,9 +18,9 @@ public class TaskListViewController {
 
 	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
-	public void TaskListViewController() {
+
+	public TaskListViewController() {
 
 	}
 
@@ -25,8 +28,8 @@ public class TaskListViewController {
 
 	}
 
-	public void getRoot() {
-
+	public Region getRoot() {
+		return null;
 	}
 
 	public void reset() {

@@ -17,9 +17,7 @@ public class ProjectViewController {
 
 	private ManagementSystemModel managementSystemModel;
 
-	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
 	public ProjectViewController() {
 

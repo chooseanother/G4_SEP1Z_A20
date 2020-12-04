@@ -1,5 +1,6 @@
 package View;
 
+import Model.ManagementSystemModel;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
@@ -13,7 +14,6 @@ public class NewTeamMemberViewController {
 
 	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
 	public void NewTeamMemberViewController() {
 
@@ -47,8 +47,8 @@ public class NewTeamMemberViewController {
 
 	}
 
-	public void getRoot() {
-
+	public Region getRoot() {
+		return null;
 	}
 
 	public void reset() {
