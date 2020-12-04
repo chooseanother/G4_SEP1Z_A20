@@ -1,14 +1,10 @@
+package Model;
+
 public class Customer extends Person
 {
-  private long phone;
-  private Email email;
-  private DriversLicense driversLicense;
 
-  public Customer(Name name, MyDate birthday, char gender, long phone, Email email, DriversLicense driversLicense){
-    super(name, birthday, gender);
-    this.phone = phone;
-    this.email = email;
-    this.driversLicense = driversLicense;
+  public Customer(Name name){
+    super(name);
   }
 
   public Customer(Name name, MyDate birthday, char gender, long phone){
