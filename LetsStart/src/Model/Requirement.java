@@ -28,7 +28,7 @@ public class Requirement
 
 
 
-  public void updateStatus (String status)
+  public void updateStatus (Status status)
   {
     this.status.update(status);
   }
