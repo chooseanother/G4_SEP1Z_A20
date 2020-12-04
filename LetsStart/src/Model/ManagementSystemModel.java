@@ -2,7 +2,7 @@ package Model;
 
 public interface ManagementSystemModel {
 	void addProject(Project project);
-	void addRequierment(Requirement requirement);
+	void addRequirement(Requirement requirement);
 	void addTask(Task task);
 	Project getProject();
 	Requirement getRequirement();
@@ -28,9 +28,9 @@ public interface ManagementSystemModel {
 	Status getTaskStatus(Task task);
 	Status getProjectStatus(Project project);
 	int getTotalTimeSpent(Project project);
-	void setEstimatedTime(MyDate time, Requirement requirement);
-	void setEstimatedTime(MyDate time, Task task);
-	MyDate getEstimatedTime(Requirement requirement);
-	MyDate getEstimatedTime(Task task);
+	void setEstimatedTime(int time, Requirement requirement);
+	void setEstimatedTime(int time, Task task);
+	int getEstimatedTime(Requirement requirement);
+	int getEstimatedTime(Task task);
 
 }
