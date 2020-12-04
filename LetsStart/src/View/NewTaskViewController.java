@@ -26,9 +26,7 @@ public class NewTaskViewController {
 
 	private ManagementSystemModel managementSystemModel;
 
-	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
 	public NewTaskViewController() {
 

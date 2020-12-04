@@ -11,11 +11,7 @@ public class RequirementViewController {
 
 	private ManagementSystemModel managementSystemModel;
 
-	private ManagementSystemModel managementSystemModel;
 
-	private ViewHandler viewHandler;
-
-	private ManagementSystemModel managementSystemModel;
 
 	public RequirementViewController() {
 

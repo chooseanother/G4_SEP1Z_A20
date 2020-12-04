@@ -31,13 +31,13 @@ public class NewRequirementViewController {
 
 	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
-	public void NewRequirementViewController() {
+
+	public NewRequirementViewController() {
 
 	}
 
-	public void init(ViewHandler viewHandler, Region root, ManagementSystemModel model) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
 
 	}
 
@@ -45,8 +45,8 @@ public class NewRequirementViewController {
 
 	}
 
-	public void getRoot() {
-
+	public Region getRoot() {
+		return null;
 	}
 
 	private void cancelButtonPressed() {

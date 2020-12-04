@@ -8,17 +8,11 @@ import javafx.scene.layout.Region;
 public class HomeViewController {
 
 	private TextField searchProjectBar;
-
 	private ObservableList<String> projectList;
-
 	private Region root;
-
 	private ManagementSystemModel managementSystemModel;
-
 	private ViewHandler viewHandler;
 
-	private ViewHandler viewHandler;
-	private ManagementSystemModel managementSystemModel;
 
 	public HomeViewController() {
 
@@ -40,7 +34,7 @@ public class HomeViewController {
 
 	}
 
-	private void searchProjectButtonPressed(void( )) {
+	private void searchProjectButtonPressed() {
 
 	}
 

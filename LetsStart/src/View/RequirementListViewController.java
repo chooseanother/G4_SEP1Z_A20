@@ -20,11 +20,9 @@ public class RequirementListViewController {
 
 	private ManagementSystemModel managementSystemModel;
 
-	private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
 
-	public RequirmentListViewController() {
+	public RequirementListViewController() {
 
 	}
 

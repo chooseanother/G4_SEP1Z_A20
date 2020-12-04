@@ -6,13 +6,7 @@ import javafx.scene.layout.Region;
 public class TeamMemberViewController {
 
 	private Region root;
-
 	private ViewHandler viewHandler;
-
-	private ManagementSystemModel managementSystemModel;
-
-	private ViewHandler viewHandler;
-
 	private ManagementSystemModel managementSystemModel;
 
 	public TeamMemberViewController() {
