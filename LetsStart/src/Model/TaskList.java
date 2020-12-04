@@ -15,6 +15,15 @@ public class TaskList
   public Task getTask(int index){
     return list.get(index);
   }
+  public Task getTask(String taskID)
+  {
+    for(Task task:list)
+    {
+      if(task.getTaskID().equals(taskID))
+        return task;
+    }
+    return null;
+  }
   public void removeTask(Task task)
   {
     list.remove(task);

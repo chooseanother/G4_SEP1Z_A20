@@ -24,12 +24,43 @@ public class Requirement
     this.priority = priority;
     this.responsibleTeamMember = responsibleTeamMember;
   }
-
-
-
-
   public void updateStatus (Status status)
   {
     this.status.update(status);
   }
+  public void addTask(Task task, String reqID){
+    this.reqID=reqID;
+    tasks.addTask(task);
+  }
+  public void removeTask(Task task)
+  {
+    tasks.removeTask(task);
+  }
+  public void removeTask(int index)
+  {
+    tasks.removeTask(index);
+  }
+  public void removeTask(String taskID)
+  {
+        tasks.removeTask(taskID);
+  }
+  public Task getTask(String taskID)
+  {
+    return tasks.getTask(taskID);
+  }
+  public Task getTask(int index)
+  {
+    return tasks.getTask(index);
+  }
+  public void updateTotalHoursSpent(int hoursWorked)
+  {
+    timeSpent+=hoursWorked;
+  }
+  @Override public String toString()
+  {
+    String s="";
+    s+=reqID+" "+description+" "+timeSpent+" "+estimatedTime+" "+deadline.toString()+" "+tasks.toString()+" "+status.toString()+" "+priority.toString()+" "+responsibleTeamMember.toString();
+    return s;
+  }
+
 }
