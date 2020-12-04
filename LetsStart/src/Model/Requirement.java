@@ -69,7 +69,7 @@ public class Requirement
     this.priority = priority;
     this.responsibleTeamMember = responsibleTeamMember;
   }
-  public void updateStatus (Status status)
+  public void updateStatus (String status)
   {
     this.status.update(status);
   }
