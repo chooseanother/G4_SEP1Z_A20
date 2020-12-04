@@ -6,11 +6,11 @@
 <?import javafx.scene.text.*?>
 
 
-<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
+<VBox prefHeight="402.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
    <children>
       <HBox>
          <children>
-            <VBox prefHeight="381.0" prefWidth="225.0">
+            <VBox prefHeight="430.0" prefWidth="232.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -20,7 +20,7 @@
                   </padding>
                   <Label text="Projects" />
                </VBox>
-               <VBox prefHeight="439.0" prefWidth="215.0">
+               <VBox prefHeight="433.0" prefWidth="215.0">
                   <ListView prefHeight="380.0" prefWidth="215.0" />
                </VBox>
             </VBox>
