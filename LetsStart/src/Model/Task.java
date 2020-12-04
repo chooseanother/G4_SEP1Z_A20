@@ -57,7 +57,7 @@ public class Task
     this.status=status;
     totalHoursWorked=0;
   }
-  public void updateStatus(String status)
+  public void updateStatus(Status status)
   {
     this.status.update(status);
   }
