@@ -22,7 +22,7 @@ public class Status
       status=NOT_STARTED_STATUS;
     }
   }
-  public void update(String status){
+  public void update(Status status){
     this.status=status;
   }
   public String getStatus(){
