@@ -1,7 +1,6 @@
 package View;
 
 import Model.ManagementSystemModel;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
