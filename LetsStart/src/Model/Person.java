@@ -14,7 +14,6 @@ public abstract class Person
     this.name = name;
   }
 
-
   public Name getName()
   {
     return name;
@@ -24,29 +23,6 @@ public abstract class Person
   {
     this.name = name;
   }
-
-
-  public String getAgeStatus(){
-    if (getAge() < 0){
-      return "Error";
-    }
-    else if (getAge() <= 12){
-      return "Child";
-    }
-    else if (getAge() <= 19){
-      return "Teenager";
-    }
-    else if (getAge() <= 65){
-      return "Adult";
-    }
-    else{
-      return "Senior citizen";
-    }
-  }
-
-
-
-
 
   @Override public boolean equals(Object o){
     if (this == o){

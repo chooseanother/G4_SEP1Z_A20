@@ -1,17 +1,6 @@
 package Model;
 
-import model.Status;
-import model.Requirement;
-import model.RequirementList;
-import model.TeamMemberList;
-import model.Project;
-import model.ProjectList;
-import model.Task;
-import model.TaskList;
-import model.Priority;
-import model.TeamMember;
-import model.Role;
-import model.MyDateTime;
+
 
 public class ManagementSystem implements ManagementSystemModel
 {
