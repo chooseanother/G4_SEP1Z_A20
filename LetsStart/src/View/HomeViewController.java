@@ -2,12 +2,15 @@ package View;
 
 import Model.ManagementSystemModel;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class HomeViewController {
 
-	private TextField searchProjectBar;
+	@FXML private Button newProject;
+	@FXML private TextField searchProjectBar;
 	private ObservableList<String> projectList;
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
@@ -32,15 +35,15 @@ public class HomeViewController {
 		return root;
 	}
 
-	private void newProjectButtonPressed() {
+	@FXML private void newProjectButtonPressed() {
+		viewHandler.openView("newProject");
+	}
+
+	@FXML private void searchProjectButtonPressed() {
 
 	}
 
-	private void searchProjectButtonPressed() {
-
-	}
-
-	private void projectPressed() {
+	@FXML private void projectPressed() {
 
 	}
 
