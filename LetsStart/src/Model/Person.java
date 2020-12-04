@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class Person
+public class Person
 {
   private Name name;
 
