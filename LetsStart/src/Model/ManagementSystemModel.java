@@ -1,24 +1,5 @@
 package Model;
 
-import view.RequirementViewController;
-import view.ProjectViewController;
-import view.RequirementListViewController;
-import view.TeamMemberListViewController;
-import view.NewProjectViewController;
-import view.TeamMemberViewController;
-import view.NewTaskViewController;
-import model.Project;
-import model.Requirement;
-import model.Task;
-import model.ProjectList;
-import model.RequirementList;
-import model.TaskList;
-import model.Status;
-import model.Priority;
-import model.TeamMember;
-import model.Role;
-import model.MyDateTime;
-
 public interface ManagementSystemModel {
 	void addProject(Project project);
 	void addRequierment(Requirement requirement);
