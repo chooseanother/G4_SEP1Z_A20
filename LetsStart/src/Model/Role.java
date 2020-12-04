@@ -18,7 +18,8 @@ public class Role
   public String getRole(){
     return role;
   }
-  @Override public String toString(){
+  @Override public String toString()
+  {
     return role;
   }
 }
