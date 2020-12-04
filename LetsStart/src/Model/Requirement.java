@@ -2,6 +2,51 @@ package Model;
 
 public class Requirement
 {
+  public String getReqID()
+  {
+    return reqID;
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public int getTimeSpent()
+  {
+    return timeSpent;
+  }
+
+  public int getEstimatedTime()
+  {
+    return estimatedTime;
+  }
+
+  public MyDate getDeadline()
+  {
+    return deadline;
+  }
+
+  public TaskList getTasks()
+  {
+    return tasks;
+  }
+
+  public Status getStatus()
+  {
+    return status;
+  }
+
+  public Priority getPriority()
+  {
+    return priority;
+  }
+
+  public TeamMemberList getResponsibleTeamMember()
+  {
+    return responsibleTeamMember;
+  }
+
   private String reqID;
   private String description;
   private int timeSpent;
