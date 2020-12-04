@@ -46,7 +46,8 @@ public class Task
   private Status status;
   private MyDate deadline;
   private TeamMember responsibleTeamMember;
-  public Task(String requirementID, String taskID, String title,int estimatedHours, MyDate deadline, TeamMember responsibleTeamMember, Status status)
+  private Priority priority;
+  public Task(String requirementID, String taskID, String title,int estimatedHours, MyDate deadline, TeamMember responsibleTeamMember, Status status, Priority priority)
   {
     this.requirementID=requirementID;
     this.taskID=taskID;
@@ -55,11 +56,16 @@ public class Task
     this.deadline=deadline;
     this.responsibleTeamMember=responsibleTeamMember;
     this.status=status;
+    this.priority=priority;
     totalHoursWorked=0;
   }
   public void updateStatus(String status)
   {
     this.status.update(status);
+  }
+  public void setPriority(Priority priority)
+  {
+    this.priority=priority;
   }
   public void updateHoursSpent(int hours)
   {

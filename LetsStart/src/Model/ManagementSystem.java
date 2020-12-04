@@ -6,23 +6,23 @@ public class ManagementSystem implements ManagementSystemModel
 {
 
 	private Status status;
+	private Task task;
 	private Requirement requirement;
 	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
 	//private ManagementSystemFile managementSystemFile;
 	private Project project;
 	private ProjectList projectList;
+	private TaskList taskList;
 	//private ManagementSystemPersistence managementSystemPersistence;
 	public ManagementSystem() {
-
 	}
-
 
 	/**
 	 *
 	 */
 	public void addProject(Project project) {
-
+    projectList.addProject(project);
 	}
 
 
@@ -30,7 +30,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addRequirement(Requirement requirement) {
-
+    requirementList.addRequirement(requirement);
 	}
 
 
@@ -38,7 +38,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTask(Task task) {
-
+   taskList.addTask(task);
 	}
 
 
@@ -46,7 +46,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public Project getProject() {
-		return null;
+		return project;
 	}
 
 
@@ -54,7 +54,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public Requirement getRequirement() {
-		return null;
+		return requirement;
 	}
 
 
@@ -62,7 +62,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public Task getTask() {
-		return null;
+		return task;
 	}
 
 
@@ -70,7 +70,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public ProjectList getAllProjects() {
-		return null;
+		return projectList;
 	}
 
 
@@ -78,7 +78,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public RequirementList getAllRequirements() {
-		return null;
+		return requirementList;
 	}
 
 
@@ -86,7 +86,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public TaskList getAllTasks() {
-		return null;
+		return taskList;
 	}
 
 
@@ -94,7 +94,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void removeProject(Project project) {
-
+  projectList.removeProject(project);
 	}
 
 
@@ -102,39 +102,40 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void removeRequirement(Requirement requirement, Project project) {
-
+  project.getRequirementList().removeRequirement(requirement);
 	}
 
 
 	/**
 	 *
 	 */
-	public void removeTask(Task task, Project project) {
-
+	public void removeTask(Task task,String reqID, Project project) {
+  project.getRequirementList().getRequirement(reqID).getTasks().removeTask(task);
 	}
 
 
 	/**
 	 *
 	 */
-	public void updateRequirementStatus(Status requirementStatus) {
-
+	public void updateRequirementStatus(String requirementStatus) {
+  requirement.updateStatus(requirementStatus);
 	}
 
 
 	/**
 	 *
 	 */
-	public void updateTaskStatus(Status taskStatus) {
-
+	public void updateTaskStatus(String taskStatus) {
+  task.updateStatus(taskStatus);
 	}
 
 
 	/**
 	 *
 	 */
-	public void updateProjectStatus(Status projectStatus) {
-
+	//might be wrong
+	public void updateProjectStatus(String projectStatus) {
+   project.updateProgress();
 	}
 
 
@@ -142,7 +143,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void changeTaskPriority(Priority priority) {
-
+  task.setPriority(priority);
 	}
 
 
@@ -150,7 +151,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void changeRequirementPriority(Priority priority) {
-
+  requirement.setPriority(priority);
 	}
 
 
@@ -158,7 +159,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTeamMember(TeamMember member) {
-
+  project.addTeamMember(member);
 	}
 
 
@@ -166,7 +167,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void removeTeamMember(String ID) {
-
+  project.removeTeamMember(ID);
 	}
 
 
@@ -174,7 +175,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void assignRole(Role role, TeamMember member) {
-
+   member.assignRole(role);
 	}
 
 
@@ -182,7 +183,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public TeamMember getResponsibleTeamMember(Requirement requirement) {
-		return null;
+		return requirement.getResponsibleTeamMember();
 	}
 
 
@@ -190,15 +191,15 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public TeamMember getResponsibleTeamMember(Task task) {
-		return null;
+		return task.getResponsibleTeamMember();
 	}
 
 
 	/**
 	 *
 	 */
+	//for what??
 	public void setDeadline(MyDate date) {
-
 	}
 
 

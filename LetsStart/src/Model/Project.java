@@ -27,6 +27,10 @@ public class Project
     }
     progress=nr*100/requirementList.getNumberOfRequirements();
   }
+  public void removeTeamMember(String ID)
+  {
+    teamMemberList.removeTeamMember(ID);
+  }
   public void addTeamMember(TeamMember member)
   {
     teamMemberList.addTeamMember(member);

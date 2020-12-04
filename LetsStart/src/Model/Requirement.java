@@ -42,7 +42,7 @@ public class Requirement
     return priority;
   }
 
-  public TeamMemberList getResponsibleTeamMember()
+  public TeamMember getResponsibleTeamMember()
   {
     return responsibleTeamMember;
   }
@@ -55,9 +55,9 @@ public class Requirement
   private TaskList tasks;
   private Status status;
   private Priority priority;
-  private TeamMemberList responsibleTeamMember;
+  private TeamMember responsibleTeamMember;
 
-  public Requirement(String reqID, String description, int timeSpent, int estimatedTime, MyDate deadline, TaskList tasks, Status status, Priority priority, TeamMemberList responsibleTeamMember)
+  public Requirement(String reqID, String description, int timeSpent, int estimatedTime, MyDate deadline, TaskList tasks, Status status, Priority priority, TeamMember responsibleTeamMember)
   {
     this.reqID = reqID;
     this.description = description;
@@ -72,6 +72,10 @@ public class Requirement
   public void updateStatus (String status)
   {
     this.status.update(status);
+  }
+  public void setPriority(Priority priority)
+  {
+    this.priority=priority;
   }
   public void addTask(Task task, String reqID){
     this.reqID=reqID;

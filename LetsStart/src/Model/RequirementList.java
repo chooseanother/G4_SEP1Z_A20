@@ -17,6 +17,10 @@ public class RequirementList
   {
     list.remove(index);
   }
+  public void removeRequirement(Requirement requirement)
+  {
+    list.remove(requirement);
+  }
   public Requirement getRequirement(String ID)
   {
     for(Requirement requirement:list)

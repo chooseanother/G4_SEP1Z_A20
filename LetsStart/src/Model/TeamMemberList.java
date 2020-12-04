@@ -34,6 +34,10 @@ public class TeamMemberList
         members.add(member);
     return members;
   }
+  public void removeTeamMember(TeamMember member)
+  {
+    list.remove(member);
+  }
   public TeamMember getTeamMember(Role role)
   {
     for(TeamMember member:list)
