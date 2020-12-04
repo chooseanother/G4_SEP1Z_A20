@@ -19,7 +19,9 @@ public class HomeViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -27,7 +29,7 @@ public class HomeViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
 	private void newProjectButtonPressed() {
