@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.NewProjectViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<VBox prefHeight="258.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.NewProjectViewController">
+   <children>
+       <VBox prefHeight="175.0" prefWidth="250.0" />
+      <VBox alignment="CENTER" prefHeight="57.0" prefWidth="250.0">
+         <children>
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

@@ -42,34 +42,34 @@ public class ViewHandler {
 				root = loadHomeView("HomeView.fxml");
 				break;
 			case "newProject":
-				root = loadNewProjectView("newProjectView.fxml");
+				root = loadNewProjectView("NewProjectView.fxml");
 				break;
 			case "newRequirement":
-				root = loadNewRequirementView("newRequirementView.fxml");
+				root = loadNewRequirementView("NewRequirementView.fxml");
 				break;
 			case "newTask":
-				root = loadNewTaskView("newTaskView.fxml");
+				root = loadNewTaskView("NewTaskView.fxml");
 				break;
 			case "newTeamMember":
-				root = loadNewTeamMemberView("newTeamMemberView.fxml");
+				root = loadNewTeamMemberView("NewTeamMemberView.fxml");
 				break;
 			case "project":
-				root = loadProjectView("projectView.fxml");
+				root = loadProjectView("ProjectView.fxml");
 				break;
 			case "requirementList":
-				root = loadRequirementListView("requirementListView.fxml");
+				root = loadRequirementListView("RequirementListView.fxml");
 				break;
 			case "requirement":
-				root = loadRequirementViewController("requirementView.fxml");
+				root = loadRequirementViewController("RequirementView.fxml");
 				break;
 			case "taskList":
-				root = loadTaskListView("taskListView.fxml");
+				root = loadTaskListView("TaskListView.fxml");
 				break;
 			case "teamMemberList":
-				root = loadTeamMemberListView("teamMemberListView.fxml");
+				root = loadTeamMemberListView("TeamMemberListView.fxml");
 				break;
 			case "teamMember":
-				root = loadTeamMemberView("teamMemberView.fxml");
+				root = loadTeamMemberView("TeamMemberView.fxml");
 				break;
 		}
 
