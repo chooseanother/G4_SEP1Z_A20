@@ -1,34 +1,24 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class NewRequirementViewController {
 
-	private Label requirementTitleID;
-
-	private TextField requirementID;
-
-	private TextField descriptionID;
-
-	private TextField totalHoursWorkedID;
-
-	private TextField estimatedHoursID;
-
-	private TextField statusID;
-
-	private TextField priorityID;
-
-	private TextField deadlineID;
-
-	private TextField responsibleTeamMemberID;
-
+	@FXML private Label requirementTitleID;
+	@FXML private TextField requirementID;
+	@FXML private TextField descriptionID;
+	@FXML private TextField totalHoursWorkedID;
+	@FXML private TextField estimatedHoursID;
+	@FXML private TextField statusID;
+	@FXML private TextField priorityID;
+	@FXML private TextField deadlineID;
+	@FXML private TextField responsibleTeamMemberID;
 	private Region root;
-
 	private ManagementSystemModel managementSystemModel;
-
 	private ViewHandler viewHandler;
 
 
@@ -38,7 +28,9 @@ public class NewRequirementViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -46,18 +38,18 @@ public class NewRequirementViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void cancelButtonPressed() {
-
-	}
-
-	private void saveButtonPressed() {
+	@FXML private void cancelButtonPressed() {
 
 	}
 
-	private void backButtonPressed() {
+	@FXML private void saveButtonPressed() {
+
+	}
+
+	@FXML private void backButtonPressed() {
 
 	}
 

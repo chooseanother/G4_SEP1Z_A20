@@ -1,10 +1,11 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 
 public class TeamMemberViewController {
-
+	//missing stuff here
 	private Region root;
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
@@ -14,7 +15,9 @@ public class TeamMemberViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -22,31 +25,30 @@ public class TeamMemberViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void removeButtonPressed() {
-
-	}
-
-	private void homeButtonPressed() {
+	@FXML private void removeButtonPressed() {
 
 	}
 
-	private void teamMembersPressed() {
+	@FXML private void homeButtonPressed() {
 
 	}
 
-	private void projectOverviewPressed() {
+	@FXML private void teamMembersPressed() {
 
 	}
 
-	private void requirementsPressed() {
+	@FXML private void projectOverviewPressed() {
 
 	}
 
-	private void backButtonPressed() {
+	@FXML private void requirementsPressed() {
 
 	}
 
+	@FXML private void backButtonPressed() {
+
+	}
 }

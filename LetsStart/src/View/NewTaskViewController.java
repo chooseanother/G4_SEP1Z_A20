@@ -1,30 +1,31 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class NewTaskViewController {
 
-	private Region root;
+	@FXML private Region root;
 
-	private TextField taskTitleID;
+	@FXML private TextField taskTitleID;
 
-	private TextField taskID;
+	@FXML private TextField taskID;
 
-	private TextField deadlineID;
+	@FXML private TextField deadlineID;
 
-	private TextField statusID;
+	@FXML private TextField statusID;
 
-	private TextField totalHoursWorkedID;
+	@FXML private TextField totalHoursWorkedID;
 
-	private TextField estimatedHoursID;
+	@FXML private TextField estimatedHoursID;
 
-	private TextField responsibleTeamMembersID;
+	@FXML private TextField responsibleTeamMembersID;
 
-	private ViewHandler viewHandler;
+	@FXML private ViewHandler viewHandler;
 
-	private ManagementSystemModel managementSystemModel;
+	@FXML private ManagementSystemModel managementSystemModel;
 
 
 
@@ -33,7 +34,9 @@ public class NewTaskViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -41,58 +44,58 @@ public class NewTaskViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void taskTitlePressed() {
-
-	}
-
-	private void taskIDPressed() {
+	@FXML private void taskTitlePressed() {
 
 	}
 
-	private void responsibleTeamMembersPressed() {
+	@FXML private void taskIDPressed() {
 
 	}
 
-	private void totalHoursWorkedPressed() {
+	@FXML private void responsibleTeamMembersPressed() {
 
 	}
 
-	private void deadlinePressed() {
+	@FXML private void totalHoursWorkedPressed() {
 
 	}
 
-	private void estimatedHoursPressed() {
+	@FXML private void deadlinePressed() {
 
 	}
 
-	private void cancelButtonPressed() {
+	@FXML private void estimatedHoursPressed() {
 
 	}
 
-	private void saveButtonPressed() {
+	@FXML private void cancelButtonPressed() {
 
 	}
 
-	private void homeButtonPressed() {
+	@FXML private void saveButtonPressed() {
 
 	}
 
-	private void projectOverviewPressed() {
+	@FXML private void homeButtonPressed() {
 
 	}
 
-	private void requirementsPressed() {
+	@FXML private void projectOverviewPressed() {
 
 	}
 
-	private void tasksPressed() {
+	@FXML private void requirementsPressed() {
 
 	}
 
-	private void teamMembersPressed() {
+	@FXML private void tasksPressed() {
+
+	}
+
+	@FXML private void teamMembersPressed() {
 
 	}
 

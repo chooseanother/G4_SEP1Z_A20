@@ -37,19 +37,19 @@ public class NewProjectViewController {
 		viewHandler.openView("home");
 	}
 
-	private void saveButtonPressed() {
+	@FXML private void saveButtonPressed() {
 
 	}
 
-	private void projectNameTyped() {
+	@FXML private void projectNameTyped() {
 
 	}
 
-	private void descriptionTyped() {
+	@FXML private void descriptionTyped() {
 
 	}
 
-	private void backButtonPressed() {
+	@FXML private void backButtonPressed() {
 
 	}
 

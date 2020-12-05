@@ -1,14 +1,13 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 
 public class RequirementViewController {
-
+	//Stuff is missing here...
 	private Region root;
-
 	private ViewHandler viewHandler;
-
 	private ManagementSystemModel managementSystemModel;
 
 
@@ -18,7 +17,9 @@ public class RequirementViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -26,30 +27,30 @@ public class RequirementViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void changePriorityButtonPressed() {
-
-	}
-
-	private void projectOverviewButtonPressed() {
+	@FXML private void changePriorityButtonPressed() {
 
 	}
 
-	private void requirementsButtonPressed() {
+	@FXML private void projectOverviewButtonPressed() {
 
 	}
 
-	private void tasksButtonPressed() {
+	@FXML private void requirementsButtonPressed() {
 
 	}
 
-	private void teamMembersButtonPressed() {
+	@FXML private void tasksButtonPressed() {
 
 	}
 
-	private void homeButtonPressed() {
+	@FXML private void teamMembersButtonPressed() {
+
+	}
+
+	@FXML private void homeButtonPressed() {
 
 	}
 

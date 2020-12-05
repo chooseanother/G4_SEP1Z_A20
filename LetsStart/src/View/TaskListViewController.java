@@ -2,15 +2,16 @@ package View;
 
 import Model.ManagementSystemModel;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 
 import java.util.ArrayList;
 
 public class TaskListViewController {
-
+	//Missing stuff here
 	private ArrayList<String> questionMark;
-	private ListView<ObservableList<String>> taskList;
+	@FXML private ListView<ObservableList<String>> taskList;
 
 	private Region root;
 
@@ -25,34 +26,35 @@ public class TaskListViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
-	}
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
 	public void reset() {
 
 	}
 
-	public void homeButtonPressed() {
+	@FXML private void homeButtonPressed() {
 
 	}
 
-	public void projectOverviewPressed() {
+	@FXML private void projectOverviewPressed() {
 
 	}
 
-	public void requirementsPressed() {
+	@FXML private void requirementsPressed() {
 
 	}
 
-	public void addButtonPressed() {
+	@FXML private void addButtonPressed() {
 
 	}
 
-	public void teamMembersPressed() {
+	@FXML private void teamMembersPressed() {
 
 	}
 

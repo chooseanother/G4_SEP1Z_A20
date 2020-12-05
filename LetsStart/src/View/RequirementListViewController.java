@@ -2,23 +2,18 @@ package View;
 
 import Model.ManagementSystemModel;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 
 public class RequirementListViewController {
 
-	private ObservableList<String> criticalPriorityList;
-
-	private ObservableList<String> hightPriorityList;
-
-	private ObservableList<String> mediumPriorityList;
-
-	private ObservableList<String> lowPriorityList;
-
-	private Region root;
-
-	private ViewHandler viewHandler;
-
-	private ManagementSystemModel managementSystemModel;
+	@FXML private ObservableList<String> criticalPriorityList;
+	@FXML private ObservableList<String> hightPriorityList;
+	@FXML private ObservableList<String> mediumPriorityList;
+	@FXML private ObservableList<String> lowPriorityList;
+	@FXML private Region root;
+	@FXML private ViewHandler viewHandler;
+	@FXML private ManagementSystemModel managementSystemModel;
 
 
 
@@ -27,7 +22,9 @@ public class RequirementListViewController {
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;
 	}
 
 	public void reset() {
@@ -35,18 +32,18 @@ public class RequirementListViewController {
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void addButtonPressed() {
-
-	}
-
-	private void homeButtonPressed() {
+	@FXML private void addButtonPressed() {
 
 	}
 
-	private void projectOverviewPressed() {
+	@FXML private void homeButtonPressed() {
+
+	}
+
+	@FXML private void projectOverviewPressed() {
 
 	}
 

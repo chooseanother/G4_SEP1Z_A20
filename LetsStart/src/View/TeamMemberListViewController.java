@@ -2,48 +2,44 @@ package View;
 
 import Model.ManagementSystemModel;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 
 public class TeamMemberListViewController {
 
-	private Label teamMemberListTitle;
-
-	private ObservableList<String> teamMemberList;
-
+	@FXML private Label teamMemberListTitle;
+	@FXML private ObservableList<String> teamMemberList;
 	private Region root;
-
 	private ViewHandler viewHandler;
-
 	private ManagementSystemModel managementSystemModel;
-
-
 
 	public TeamMemberListViewController() {
 
 	}
 
 	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
-
-	}
+		this.viewHandler = viewHandler;
+		this.managementSystemModel = model;
+		this.root = root;	}
 
 	public void reset() {
 
 	}
 
 	public Region getRoot() {
-		return null;
+		return root;
 	}
 
-	private void teamMemberPressed() {
-
-	}
-
-	private void addButtonPressed() {
+	@FXML private void teamMemberPressed() {
 
 	}
 
-	public void operation35() {
+	@FXML private void addButtonPressed() {
+
+	}
+
+	@FXML public void operation35() {
 
 	}
 
