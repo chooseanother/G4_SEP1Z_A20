@@ -1,7 +1,4 @@
 package Model;
-
-
-
 public class ManagementSystem implements ManagementSystemModel
 {
 	//private ManagementSystemFile managementSystemFile;
@@ -187,7 +184,6 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	//for what??
 	public void setProjectDeadline(MyDate date, String projectID) {
   projectList.getProject(projectID).setDeadline(date);
 	}
@@ -250,7 +246,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public int getEstimatedTime(String requirementID, String projectID) {
+	public int getEstimatedRequirementTime(String requirementID, String projectID) {
 		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getEstimatedTime();
 	}
 
@@ -258,7 +254,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public int getEstimatedTime(String taskID, String requirementID, String projectID) {
+	public int getEstimatedTaskTime(String taskID, String requirementID, String projectID) {
 		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getTasks().getTask(taskID).getEstimatedHours();
 	}
 

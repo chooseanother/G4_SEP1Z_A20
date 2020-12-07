@@ -16,7 +16,7 @@ public class NewProjectViewController {
 	@FXML private Button requirements;
 	@FXML private Button save;
 	@FXML private Button home;
-	@FXML private Label error,
+	@FXML private Label error;
 	private Region root;
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
@@ -47,7 +47,8 @@ public class NewProjectViewController {
 
 	@FXML private void saveButtonPressed() {
 		//Project name is used for what??? where is id???
-		managementSystemModel.addProject(new Project(projectName.getText(),new TeamMemberList(),new RequirementList(),new Customer(),new MyDate(deadline.toString()),description.getText()));
+		managementSystemModel.addProject(new Project(projectName.getText(),new TeamMemberList(),new RequirementList(),new Customer(), new MyDate(deadline.getValue().getDayOfMonth(), deadline.getValue()
+				.getMonthValue(), deadline.getValue().getYear() ),description.getText()));
 	}
 
 	@FXML private void projectNameTyped() {
