@@ -1,7 +1,7 @@
 package Model;
 
 public interface ManagementSystemModel {
-	void addProject(Project project);
+	void addProject(String projectID);
 	void addRequirement(Requirement requirement);
 	void addTask(Task task);
 	Project getProject(String id);
