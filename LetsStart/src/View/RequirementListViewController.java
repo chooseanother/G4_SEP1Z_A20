@@ -53,7 +53,7 @@ public class RequirementListViewController {
 	}
 
 	@FXML private void openButtonPressed(){
-
+		viewHandler.openView("newRequirement");
 	}
 
 	@FXML private void addButtonPressed() {
