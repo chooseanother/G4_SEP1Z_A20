@@ -2,14 +2,14 @@ package View;
 
 import Model.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
+import java.time.LocalDate;
+
 public class NewProjectViewController {
-	@FXML private TextField projectName, description;
+	@FXML private TextField projectName;
+	@FXML private TextArea description;
 	@FXML private DatePicker deadline;
 	@FXML private Button requirements, save, home, cancel;
 	@FXML private Label errorLabel, descriptionLabel, deadlineLabel, nameLabel;
@@ -47,7 +47,14 @@ public class NewProjectViewController {
 		//try and catch exceptions base on if any field is missing,
 		// written name is not accepted or if deadline is before today or
 		//not far enough into the future
-		managementSystemModel.addProject(new Project(projectName.getText(),new TeamMemberList(),new RequirementList(),new Customer(),new MyDate(deadline.toString()),description.getText()));
+		LocalDate dl = deadline.getValue();
+		managementSystemModel.addProject(new Project(
+				projectName.getText(),
+				new TeamMemberList(),
+				new RequirementList(),
+				new Customer(),
+				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
+				description.getText()));
 	}
 
 	@FXML private void projectNameTyped() {
