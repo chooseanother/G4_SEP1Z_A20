@@ -4,7 +4,7 @@ public interface ManagementSystemModel {
 	void addProject(Project project);
 	void addRequirement(Requirement requirement);
 	void addTask(Task task);
-	Project getProject();
+	Project getProject(String id);
 	Requirement getRequirement();
 	Task getTask();
 	ProjectList getAllProjects();

@@ -4,12 +4,8 @@ public class Person
 {
   private Name name;
 
+  public Person(){name = new Name();}
   public Person(Name name)
-  {
-    this.name = name;
-  }
-
-  public Person(Name name, char gender)
   {
     this.name = name;
   }

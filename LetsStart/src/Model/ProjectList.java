@@ -13,9 +13,14 @@ public class ProjectList
   {
     list.add(project);
   }
-  public Project getProject(int index)
+  public Project getProject(String id)
   {
-    return list.get(index);
+    for (Project p : list){
+      if (p.getId().equals(id)){
+        return p;
+      }
+    }
+    return null;
   }
   public void removeProject(Project project)
   {

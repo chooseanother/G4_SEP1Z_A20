@@ -4,18 +4,14 @@ package Model;
 
 public class ManagementSystem implements ManagementSystemModel
 {
-
-	private Status status;
-	private Task task;
-	private Requirement requirement;
-	private RequirementList requirementList;
-	private TeamMemberList teamMemberList;
 	//private ManagementSystemFile managementSystemFile;
-	private Project project;
+
 	private ProjectList projectList;
-	private TaskList taskList;
+
 	//private ManagementSystemPersistence managementSystemPersistence;
+
 	public ManagementSystem() {
+		projectList = new ProjectList();
 	}
 
 	/**
@@ -30,7 +26,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addRequirement(Requirement requirement) {
-    requirementList.addRequirement(requirement);
+    projectList.addRequirement(requirement);
 	}
 
 
@@ -38,15 +34,15 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTask(Task task) {
-   taskList.addTask(task);
+		projectList.addTask(task);
 	}
 
 
 	/**
 	 *
 	 */
-	public Project getProject() {
-		return project;
+	public Project getProject(String id) {
+		return projectList.getProject(id);
 	}
 
 
@@ -105,6 +101,25 @@ public class ManagementSystem implements ManagementSystemModel
   project.getRequirementList().removeRequirement(requirement);
 	}
 
+	@Override public void removeTask(Task task, Project project)
+	{
+
+	}
+
+	@Override public void updateRequirementStatus(Status requirementStatus)
+	{
+
+	}
+
+	@Override public void updateTaskStatus(Status taskStatus)
+	{
+
+	}
+
+	@Override public void updateProjectStatus(Status projectStatus)
+	{
+
+	}
 
 	/**
 	 *

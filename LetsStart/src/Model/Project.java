@@ -8,7 +8,8 @@ public class Project
   private RequirementList requirementList;
   private TeamMemberList teamMemberList;
   private MyDate deadline;
-  public Project(String id, TeamMemberList teamMemberList, RequirementList requirementList, Customer customer, MyDate deadline)
+  private String description;
+  public Project(String id, TeamMemberList teamMemberList, RequirementList requirementList, Customer customer, MyDate deadline, String description)
   {
     this.customer=customer;
     this.deadline=deadline;
@@ -16,6 +17,7 @@ public class Project
     this.teamMemberList=teamMemberList;
     this.id=id;
     this.progress=0;
+    this.description = description
   }
   public void updateProgress()
   {
@@ -46,6 +48,9 @@ public class Project
   public MyDate getDeadline()
   {
     return deadline;
+  }
+  public String getId(){
+    return id;
   }
   public TeamMemberList getTeamMemberList()
   {

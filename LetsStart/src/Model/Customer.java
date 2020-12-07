@@ -2,7 +2,7 @@ package Model;
 
 public class Customer extends Person
 {
-
+  public Customer(){super();}
   public Customer(Name name){
     super(name);
   }
