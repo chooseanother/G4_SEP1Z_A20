@@ -26,7 +26,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addRequirement(Requirement requirement) {
-    projectList.addRequirement(requirement);
+
 	}
 
 
@@ -34,7 +34,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTask(Task task) {
-		projectList.addTask(task);
+
 	}
 
 
@@ -50,7 +50,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public Requirement getRequirement() {
-		return requirement;
+		return null;
 	}
 
 
@@ -58,7 +58,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public Task getTask() {
-		return task;
+		return null;
 	}
 
 
@@ -74,7 +74,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public RequirementList getAllRequirements() {
-		return requirementList;
+		return null;
 	}
 
 
@@ -82,7 +82,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public TaskList getAllTasks() {
-		return taskList;
+		return null;
 	}
 
 
@@ -133,7 +133,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void updateRequirementStatus(String requirementStatus) {
-  requirement.updateStatus(requirementStatus);
+
 	}
 
 
@@ -141,7 +141,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void updateTaskStatus(String taskStatus) {
-  task.updateStatus(taskStatus);
+
 	}
 
 
@@ -150,7 +150,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 */
 	//might be wrong
 	public void updateProjectStatus(String projectStatus) {
-   project.updateProgress();
+
 	}
 
 
@@ -158,7 +158,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void changeTaskPriority(Priority priority) {
-  task.setPriority(priority);
+
 	}
 
 
@@ -166,7 +166,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void changeRequirementPriority(Priority priority) {
-  requirement.setPriority(priority);
+
 	}
 
 
@@ -174,7 +174,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTeamMember(TeamMember member) {
-  project.addTeamMember(member);
+
 	}
 
 
@@ -182,7 +182,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void removeTeamMember(String ID) {
-  project.removeTeamMember(ID);
+
 	}
 
 

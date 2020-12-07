@@ -26,6 +26,7 @@ public class NewProjectViewController {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;
+		errorLabel.setText("");
 	}
 
 	public void reset() {
@@ -47,7 +48,9 @@ public class NewProjectViewController {
 		//try and catch exceptions base on if any field is missing,
 		// written name is not accepted or if deadline is before today or
 		//not far enough into the future
+
 		LocalDate dl = deadline.getValue();
+		//errorLabel.setText(dl.getDayOfMonth()+"/"+dl.getMonthValue()+"/"+dl.getYear());
 		managementSystemModel.addProject(new Project(
 				projectName.getText(),
 				new TeamMemberList(),
@@ -70,9 +73,7 @@ public class NewProjectViewController {
 	}
 
 	@FXML private void requirementsButtonPressed() {
-
 		//requirement list for what project??? pass id??? how???
 		viewHandler.openView("requirementList");
 	}
-
 }
