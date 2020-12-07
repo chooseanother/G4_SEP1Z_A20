@@ -63,6 +63,10 @@ public class Task
   {
     this.status.update(status);
   }
+  public void setDeadline(MyDate date)
+  {
+    deadline=date;
+  }
   public void setPriority(Priority priority)
   {
     this.priority=priority;
@@ -70,6 +74,10 @@ public class Task
   public void updateHoursSpent(int hours)
   {
     totalHoursWorked=hours;
+  }
+  public void setEstimatedTime(int time)
+  {
+    estimatedHours=time;
   }
   public void updateResponsibleTeamMember(TeamMember responsibleTeamMember)
   {
