@@ -56,29 +56,44 @@ public class Task {
   }
 
   public MyDate getDeadline() {
-    return null;
+    return deadline;
   }
 
   public int getEstimatedTime() {
-    return 0;
+    return estimatedHours;
   }
 
   public int getHoursSpent() {
-    return 0;
+    return totalHoursWorked;
   }
 
   public TeamMember getResponsibleTeamMember() {
-    return null;
-  }
-
-  public String toString() {
-    return null;
+    return responsibleTeamMember;
   }
 
   public boolean equals(Object obj) {
-    return false;
+    if (this == obj){
+      return true;
+    }
+    if (obj == null){
+      return false;
+    }
+    if (!(obj instanceof Task)){
+      return false;
+    }
+    Task comp = (Task) obj;
+    return id.equals(comp.id);
   }
 
-
-
+  public String toString() {
+    return title +
+        "\nID: "+id+
+        "\nRequirement Id: "+ reqId+
+        "\nDeadline: "+ deadline.toString()+
+        "\nStatus: "+ status+
+        "\nEstimated time: "+ estimatedHours +
+        "\nHours spend: " + totalHoursWorked +
+        "\nResponsible: " + responsibleTeamMember.toString()+
+        "\nAssigned employees: " + teamMemberList.toString();
+  }
 }
