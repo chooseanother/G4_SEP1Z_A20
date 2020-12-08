@@ -25,10 +25,6 @@ public class Requirement
     this.responsibleTeamMember = responsibleTeamMember;
   }
 
-  public void addTask(Task task){
-    tasks.addTask(task);
-  }
-
   public TaskList getAllTasks()
   {
     return tasks;
@@ -78,6 +74,10 @@ public class Requirement
     this.responsibleTeamMember = teamMember;
   }
 
+  public void setStatus(String status){
+    this.status.setStatus(status);
+  }
+
   public void updateStatus ()
   {
     for (int i = 0; i < tasks.numberOfTasks();i++){
@@ -88,23 +88,12 @@ public class Requirement
     }
     status.setStatus(Status.ENDED);
   }
+
   public void setPriority(Priority priority)
   {
     this.priority=priority;
   }
-  public void removeTask(Task task)
-  {
-    tasks.removeTask(task);
-  }
 
-  public void removeTask(int taskID)
-  {
-        tasks.removeTask(taskID);
-  }
-  public Task getTask(int taskID)
-  {
-    return tasks.getTaskId(taskID);
-  }
   public void updateTotalHoursSpent()
   {
     int total = 0;

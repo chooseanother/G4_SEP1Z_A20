@@ -16,7 +16,7 @@ public class ProjectList
   public Project getProject(int id)
   {
     for (Project p : list){
-      if (p.getId().equals(id)){
+      if (p.getId() == id){
         return p;
       }
     }

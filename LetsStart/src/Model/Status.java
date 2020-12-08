@@ -25,6 +25,12 @@ public class Status
     }
   }
 
+  public Status(boolean isRequirement, String status)
+  {
+    this.isRequirement=isRequirement;
+    this.status = status;
+  }
+
   public void setStatus(String status){
     if (isRequirement && status.equalsIgnoreCase(REJECTED) || status.equalsIgnoreCase(APPROVED) || status.equalsIgnoreCase(ENDED) || status.equalsIgnoreCase(IN_PROGRESS))
       this.status=status;
@@ -48,7 +54,7 @@ public class Status
     if(!(obj instanceof Status))
       return false;
     Status other=(Status) obj;
-    return status.equals(other.getStatus());
+    return status.equals(other.getStatus()) && isRequirement == other.isRequirement;
   }
 
   @Override public String toString()
