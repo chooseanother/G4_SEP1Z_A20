@@ -60,6 +60,10 @@ public class Project
   {
     return requirementList;
   }
+  public void setDeadline(MyDate date)
+  {
+    deadline=date;
+  }
   public int getTotalHoursSpent()
   {
     int sum=0;

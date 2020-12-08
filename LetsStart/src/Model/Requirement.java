@@ -105,6 +105,14 @@ public class Requirement
   {
     timeSpent+=hoursWorked;
   }
+  public void setEstimatedTime(int time)
+  {
+    estimatedTime=time;
+  }
+  public void setDeadline(MyDate date)
+  {
+    deadline=date;
+  }
   @Override public String toString()
   {
     String s="";

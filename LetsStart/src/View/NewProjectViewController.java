@@ -2,17 +2,21 @@ package View;
 
 import Model.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
-import java.time.LocalDate;
-
 public class NewProjectViewController {
+	@FXML private Button cancel;
 	@FXML private TextField projectName;
-	@FXML private TextArea description;
+	@FXML private TextField description;
 	@FXML private DatePicker deadline;
-	@FXML private Button requirements, save, home, cancel;
-	@FXML private Label errorLabel, descriptionLabel, deadlineLabel, nameLabel;
+	@FXML private Button requirements;
+	@FXML private Button save;
+	@FXML private Button home;
+	@FXML private Label error;
 	private Region root;
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
@@ -26,13 +30,11 @@ public class NewProjectViewController {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;
-		errorLabel.setText("");
 	}
 
 	public void reset() {
 		projectName.setText("");
 		description.setText("");
-		errorLabel.setText("");
 	}
 
 	public Region getRoot() {
@@ -45,19 +47,8 @@ public class NewProjectViewController {
 
 	@FXML private void saveButtonPressed() {
 		//Project name is used for what??? where is id???
-		//try and catch exceptions base on if any field is missing,
-		// written name is not accepted or if deadline is before today or
-		//not far enough into the future
-
-		LocalDate dl = deadline.getValue();
-		//errorLabel.setText(dl.getDayOfMonth()+"/"+dl.getMonthValue()+"/"+dl.getYear());
-		managementSystemModel.addProject(new Project(
-				projectName.getText(),
-				new TeamMemberList(),
-				new RequirementList(),
-				new Customer(),
-				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
-				description.getText()));
+		managementSystemModel.addProject(new Project(projectName.getText(),new TeamMemberList(),new RequirementList(),new Customer(), new MyDate(deadline.getValue().getDayOfMonth(), deadline.getValue()
+				.getMonthValue(), deadline.getValue().getYear() ),description.getText()));
 	}
 
 	@FXML private void projectNameTyped() {
@@ -73,7 +64,7 @@ public class NewProjectViewController {
 	}
 
 	@FXML private void requirementsButtonPressed() {
-		//requirement list for what project??? pass id??? how???
 		viewHandler.openView("requirementList");
 	}
+
 }
