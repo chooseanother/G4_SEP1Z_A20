@@ -13,7 +13,7 @@ public interface ManagementSystemModel {
 	void removeProject(Project project);
 	void removeRequirement(Requirement requirement, int projectID);
 	void removeTask(Task task, int reqID, int projectID);
-	void updateRequirementStatus(String requirementStatus, int projectID, int reqID);
+	void updateRequirementStatus(int projectID, int reqID);
 	void updateTaskStatus(String taskStatus, int taskID, int reqID, int projectID);
 	void updateProjectProgress(int projectID);
 	void removeTask(int taskID,int reqID, int projectID);

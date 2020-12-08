@@ -16,14 +16,23 @@ public class TeamMemberList
     list.add(teamMember);
   }
 
-  public TeamMember getTeamMember (String ID)
+  public TeamMember getTeamMember (String name)
   {
     for(TeamMember teamMember : list)
-      if(teamMember.getID().equals(ID))
+      if(teamMember.getName().equals(new Name(name)))
       {
         return teamMember;
       }
     return null;
+  }
+
+  public int numberOfTeamMembers(){
+    return list.size();
+  }
+
+  public TeamMember getTeamMember (int index)
+  {
+    return list.get(index);
   }
 
   public ArrayList<TeamMember> getTeamMembersByRole(Role role)
@@ -45,15 +54,14 @@ public class TeamMemberList
         return member;
     return null;
   }
-  public void removeTeamMember(String ID){
-    for(TeamMember member:list)
-      if(member.getID().equals(ID))
-        list.remove(member);
+  public void removeTeamMember(String name){
+    list.removeIf(member -> member.getName().equals(new Name(name)));
   }
   public void removeTeamMember(int index)
   {
      list.remove(index);
   }
+
   @Override public String toString()
   {
     String s="";

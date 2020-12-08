@@ -39,6 +39,14 @@ public class Task {
     teamMemberList.addTeamMember(teamMember);
   }
 
+  public void removeTeamMember(String name){
+    teamMemberList.removeTeamMember(name);
+  }
+
+  public void removeTeamMember(TeamMember teamMember){
+    teamMemberList.removeTeamMember(teamMember);
+  }
+
   public int getId() {
     return id.getId();
   }

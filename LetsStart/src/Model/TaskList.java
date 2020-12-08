@@ -48,7 +48,7 @@ public class TaskList
   public ArrayList<Task> getTaskByStatus(String status){
     ArrayList<Task> tasks=new ArrayList<>();
     for(Task task:list)
-      if(task.getStatus().equals(status))
+      if(task.getStatus().equals(new Status(false,status)))
         tasks.add(task);
     return tasks;
   }

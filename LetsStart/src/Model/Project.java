@@ -3,78 +3,68 @@ package Model;
 public class Project
 {
   private double progress;
-  private String id;
+  private Id id;
   private Customer customer;
   private RequirementList requirementList;
   private TeamMemberList teamMemberList;
   private MyDate deadline;
   private String description;
-  public Project(String id, TeamMemberList teamMemberList, RequirementList requirementList, Customer customer, MyDate deadline, String description)
-  {
+
+  public Project(Customer customer, MyDate deadline, String description){
     this.customer=customer;
     this.deadline=deadline;
-    this.requirementList=requirementList;
-    this.teamMemberList=teamMemberList;
-    this.id=id;
+    this.requirementList=new RequirementList();
+    this.teamMemberList=new TeamMemberList();
+    this.id= new Id();
     this.progress=0;
     this.description = description;
-
   }
+
   public void updateProgress()
   {
     int count=0;
     for(int i = 0; i < requirementList.getNumberOfRequirements(); i++)
     {
-      if(requirementList.getRequirementId(i).getStatus().toString().equals(Status.APPROVED))
+      requirementList.getRequirementIndex(i).updateStatus();
+      if(requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.APPROVED))||
+          requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.ENDED)))
         count++;
     }
     progress=(double)count*100/requirementList.getNumberOfRequirements();
   }
-  public void removeTeamMember(String ID)
-  {
-    teamMemberList.removeTeamMember(ID);
-  }
-  public void addTeamMember(TeamMember member)
-  {
-    teamMemberList.addTeamMember(member);
-  }
-  public void addRequirement(Requirement requirement)
-  {
-    requirementList.addRequirement(requirement);
-  }
 
-  public double getProgress()
-  {
+  public double getProgress() {
     return progress;
   }
-  public MyDate getDeadline()
-  {
+
+  public Customer getCustomer() {
+    return customer;
+  }
+
+  public MyDate getDeadline() {
     return deadline;
   }
-  public String getId(){
-    return id;
+
+  public int getId(){
+    return id.getId();
   }
-  public TeamMemberList getTeamMemberList()
-  {
+
+  public TeamMemberList getTeamMemberList() {
     return teamMemberList;
   }
-  public RequirementList getRequirementList()
-  {
+
+  public RequirementList getRequirementList() {
     return requirementList;
   }
-  public void setDeadline(MyDate date)
-  {
-    deadline=date;
-  }
-  public int getTotalHoursSpent()
-  {
+
+  public int getTotalHoursSpent() {
     int sum=0;
     for(int i=0;i<requirementList.getNumberOfRequirements();i++)
       sum+=requirementList.getRequirementId(i).getTimeSpent();
     return sum;
   }
-  @Override public String toString()
-  {
+
+  @Override public String toString() {
     return id+" "+ progress+" "+customer.toString()+" "+requirementList.toString()+" "+teamMemberList.toString()+" "+deadline.toString();
   }
 }

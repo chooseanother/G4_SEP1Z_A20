@@ -23,7 +23,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addRequirement(int projectID, Requirement requirement) {
-   projectList.getProject(projectID).addRequirement(requirement);
+   projectList.getProject(projectID).getRequirementList().addRequirement(requirement);
 	}
 
 
@@ -31,7 +31,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTask(int projectID, int requirementID, Task task) {
-  projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).addTask(task);
+  projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).getAllTasks().addTask(task);
 	}
 
 
@@ -100,12 +100,12 @@ public class ManagementSystem implements ManagementSystemModel
 
 	@Override public void removeTask(Task task, int reqID, int projectID)
 	{
-   projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).removeTask(task);
+   projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().removeTask(task);
 	}
 
-	@Override public void updateRequirementStatus(String requirementStatus, int projectID, int reqID)
+	@Override public void updateRequirementStatus(int projectID, int reqID)
 	{
-    projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).updateStatus(requirementStatus);
+    projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).updateStatus();
 	}
 
 	@Override public void updateTaskStatus(String taskStatus, int taskID, int reqID, int projectID)
@@ -143,7 +143,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void addTeamMember(TeamMember member, int projectID) {
-   projectList.getProject(projectID).addTeamMember(member);
+   projectList.getProject(projectID).getTeamMemberList().addTeamMember(member);
 	}
 
 
@@ -151,7 +151,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public void removeTeamMember(String ID, int projectID) {
-   projectList.getProject(projectID).removeTeamMember(ID);
+   projectList.getProject(projectID).getTeamMemberList().removeTeamMember(ID);
 	}
 
 
@@ -197,7 +197,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	public String getTaskStatus(int taskID, int reqID, int projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID).getStatus();
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID).getStatus().toString();
 	}
 
 
