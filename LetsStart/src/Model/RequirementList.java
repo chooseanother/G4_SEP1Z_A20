@@ -21,16 +21,17 @@ public class RequirementList
   {
     list.remove(requirement);
   }
-  public Requirement getRequirement(String ID)
+  public Requirement getRequirementId(int ID)
   {
     for(Requirement requirement:list)
-      if(requirement.getReqID().equals(ID))
+      if(requirement.getId()==(ID))
       {
         return requirement;
       }
     return null;
   }
-  public Requirement getRequirement(int index)
+
+  public Requirement getRequirementIndex(int index)
   {
     return list.get(index);
   }

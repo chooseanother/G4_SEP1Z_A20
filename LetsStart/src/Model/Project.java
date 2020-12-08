@@ -22,13 +22,13 @@ public class Project
   }
   public void updateProgress()
   {
-    int nr=0;
-    for(int i=0;i<requirementList.getNumberOfRequirements();i++)
+    int count=0;
+    for(int i = 0; i < requirementList.getNumberOfRequirements(); i++)
     {
-      if(requirementList.getRequirement(i).getStatus().equals(Status.APPROVED))
-        nr++;
+      if(requirementList.getRequirementId(i).getStatus().toString().equals(Status.APPROVED))
+        count++;
     }
-    progress=nr*100/requirementList.getNumberOfRequirements();
+    progress=(double)count*100/requirementList.getNumberOfRequirements();
   }
   public void removeTeamMember(String ID)
   {
@@ -70,7 +70,7 @@ public class Project
   {
     int sum=0;
     for(int i=0;i<requirementList.getNumberOfRequirements();i++)
-      sum+=requirementList.getRequirement(i).getTimeSpent();
+      sum+=requirementList.getRequirementId(i).getTimeSpent();
     return sum;
   }
   @Override public String toString()

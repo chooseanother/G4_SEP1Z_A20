@@ -22,7 +22,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void addRequirement(String projectID, Requirement requirement) {
+	public void addRequirement(int projectID, Requirement requirement) {
    projectList.getProject(projectID).addRequirement(requirement);
 	}
 
@@ -30,15 +30,15 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void addTask(String projectID, String requirementID, Task task) {
-  projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).addTask(task,requirementID);
+	public void addTask(int projectID, int requirementID, Task task) {
+  projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).addTask(task);
 	}
 
 
 	/**
 	 *
 	 */
-	public Project getProject(String id) {
+	public Project getProject(int id) {
 		return projectList.getProject(id);
 	}
 
@@ -46,16 +46,16 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public Requirement getRequirement(String projectID, String reqID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(reqID);
+	public Requirement getRequirement(int projectID, int reqID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID);
 	}
 
 
 	/**
 	 *
 	 */
-	public Task getTask(String projectID, String reqID, String taskID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTask(taskID);
+	public Task getTask(int projectID, int reqID, int taskID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID);
 	}
 
 
@@ -70,7 +70,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public RequirementList getAllRequirements(String projectID) {
+	public RequirementList getAllRequirements(int projectID) {
 		return projectList.getProject(projectID).getRequirementList();
 	}
 
@@ -78,8 +78,8 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public TaskList getAllTasks(String projectID, String reqID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks();
+	public TaskList getAllTasks(int projectID, int reqID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks();
 	}
 
 
@@ -94,26 +94,26 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void removeRequirement(Requirement requirement, String projectID) {
+	public void removeRequirement(Requirement requirement, int projectID) {
   projectList.getProject(projectID).getRequirementList().removeRequirement(requirement);
 	}
 
-	@Override public void removeTask(Task task, String reqID, String projectID)
+	@Override public void removeTask(Task task, int reqID, int projectID)
 	{
-   projectList.getProject(projectID).getRequirementList().getRequirement(reqID).removeTask(task);
+   projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).removeTask(task);
 	}
 
-	@Override public void updateRequirementStatus(String requirementStatus, String projectID, String reqID)
+	@Override public void updateRequirementStatus(String requirementStatus, int projectID, int reqID)
 	{
-    projectList.getProject(projectID).getRequirementList().getRequirement(reqID).updateStatus(requirementStatus);
+    projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).updateStatus(requirementStatus);
 	}
 
-	@Override public void updateTaskStatus(String taskStatus, String taskID, String reqID, String projectID)
+	@Override public void updateTaskStatus(String taskStatus, int taskID, int reqID, int projectID)
 	{
-    projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).updateStatus(taskStatus);
+    projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID).updateStatus(taskStatus);
 	}
 
-	@Override public void updateProjectProgress(String projectID)
+	@Override public void updateProjectProgress(int projectID)
 	{
     projectList.getProject(projectID).updateProgress();
 	}
@@ -121,30 +121,28 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void removeTask(String taskID,String reqID, String projectID) {
-  projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID);
+	public void removeTask(int taskID,int reqID, int projectID) {
+  projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID);
 	}
 
 	/**
 	 *
 	 */
-	public void changeTaskPriority(Priority priority, String taskID, String reqID, String projectID) {
-   projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).setPriority(priority);
+
+
+
+	/**
+	 *
+	 */
+	public void changeRequirementPriority(Priority priority, int reqID, int projectID) {
+   projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).setPriority(priority);
 	}
 
 
 	/**
 	 *
 	 */
-	public void changeRequirementPriority(Priority priority, String reqID, String projectID) {
-   projectList.getProject(projectID).getRequirementList().getRequirement(reqID).setPriority(priority);
-	}
-
-
-	/**
-	 *
-	 */
-	public void addTeamMember(TeamMember member, String projectID) {
+	public void addTeamMember(TeamMember member, int projectID) {
    projectList.getProject(projectID).addTeamMember(member);
 	}
 
@@ -152,7 +150,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void removeTeamMember(String ID, String projectID) {
+	public void removeTeamMember(String ID, int projectID) {
    projectList.getProject(projectID).removeTeamMember(ID);
 	}
 
@@ -160,7 +158,7 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public void assignRole(Role role, String memberID, String projectID) {
+	public void assignRole(Role role, String memberID, int projectID) {
    projectList.getProject(projectID).getTeamMemberList().getTeamMember(memberID).assignRole(role);
 	}
 
@@ -168,53 +166,45 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public TeamMember getResponsibleTeamMember(String requirementID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getResponsibleTeamMember();
+	public TeamMember getResponsibleTeamMember(int requirementID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).getResponsibleTeamMember();
 	}
 
 
 	/**
 	 *
 	 */
-	public TeamMember getResponsibleTeamMember(String taskID, String reqID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).getResponsibleTeamMember();
+	public TeamMember getResponsibleTeamMember(int taskID, int reqID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID).getResponsibleTeamMember();
 	}
 
 
 	/**
 	 *
 	 */
-	public void setProjectDeadline(MyDate date, String projectID) {
-  projectList.getProject(projectID).setDeadline(date);
-	}
-  public void setRequirementDeadline(MyDate date, String reqID, String projectID){
-		projectList.getProject(projectID).getRequirementList().getRequirement(reqID).setDeadline(date);
-	}
-	public void setTaskDeadline(MyDate date, String taskID, String reqID, String projectID)
-	{
-    projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).setDeadline(date);
-	}
+
+
 
 	/**
 	 *
 	 */
-	public Status getRequirementStatus(String requirementID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getStatus();
+	public Status getRequirementStatus(int requirementID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).getStatus();
 	}
 
 
 	/**
 	 *
 	 */
-	public Status getTaskStatus(String taskID, String reqID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).getStatus();
+	public String getTaskStatus(int taskID, int reqID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(reqID).getAllTasks().getTaskId(taskID).getStatus();
 	}
 
 
 	/**
 	 *
 	 */
-	public double getProjectProgress(String projectID) {
+	public double getProjectProgress(int projectID) {
 		return projectList.getProject(projectID).getProgress();
 	}
 
@@ -222,40 +212,22 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	public int getTotalTimeSpent(String projectID) {
+	public int getTotalTimeSpent(int projectID) {
 		return projectList.getProject(projectID).getTotalHoursSpent();
 	}
 
-
 	/**
 	 *
 	 */
-	public void setEstimatedTime(int time, String requirementID, String projectID) {
-    projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).setEstimatedTime(time);
+	public int getEstimatedRequirementTime(int requirementID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).getEstimatedTime();
 	}
 
-
 	/**
 	 *
 	 */
-	public void setEstimatedTime(int time, String taskID, String reqID, String projectID) {
-  projectList.getProject(projectID).getRequirementList().getRequirement(reqID).getTasks().getTask(taskID).setEstimatedTime(time);
-	}
-
-
-	/**
-	 *
-	 */
-	public int getEstimatedRequirementTime(String requirementID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getEstimatedTime();
-	}
-
-
-	/**
-	 *
-	 */
-	public int getEstimatedTaskTime(String taskID, String requirementID, String projectID) {
-		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getTasks().getTask(taskID).getEstimatedHours();
+	public int getEstimatedTaskTime(int taskID, int requirementID, int projectID) {
+		return projectList.getProject(projectID).getRequirementList().getRequirementId(requirementID).getAllTasks().getTaskId(taskID).getEstimatedTime();
 	}
 
 }

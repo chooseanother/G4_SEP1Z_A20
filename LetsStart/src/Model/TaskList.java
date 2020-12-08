@@ -5,62 +5,62 @@ import java.util.ArrayList;
 public class TaskList
 {
   private ArrayList<Task> list;
+
   public TaskList()
   {
     list=new ArrayList<>();
   }
+
   public void addTask(Task task){
     list.add(task);
   }
-  public Task getTask(int index){
-    return list.get(index);
-  }
-  public Task getTask(String taskID)
+
+  public Task getTaskId(int taskID)
   {
     for(Task task:list)
     {
-      if(task.getTaskID().equals(taskID))
+      if(task.getId() == taskID)
         return task;
     }
     return null;
   }
+
+  public Task getTaskIndex(int index)
+  {
+    return list.get(index);
+  }
+
   public void removeTask(Task task)
   {
     list.remove(task);
   }
-  public void removeTask(int index)
+
+  public void removeTask(int taskID)
   {
-    list.remove(index);
+    list.removeIf(task -> task.getId()==taskID);
   }
-  public void removeTask(String taskID)
-  {
-    for(Task task:list)
-    {
-      if(task.getTaskID().equals(taskID)){
-        list.remove(task);
-      }
-    }
-  }
+
   public int numberOfTasks()
   {
     return list.size();
   }
-  public ArrayList<Task> getTaskByStatus(Status status){
+
+  public ArrayList<Task> getTaskByStatus(String status){
     ArrayList<Task> tasks=new ArrayList<>();
     for(Task task:list)
       if(task.getStatus().equals(status))
         tasks.add(task);
     return tasks;
   }
+
   @Override public String toString()
   {
-    String s="";
+    StringBuilder arrayAsString = new StringBuilder("Tasks\n");
     for(Task task:list)
     {
-      if(!task.equals(null))
-       s=s+" "+task;
+      arrayAsString.append(task.toString()).append("\n");
     }
-    return s;
+    return arrayAsString.toString();
   }
 
 }
