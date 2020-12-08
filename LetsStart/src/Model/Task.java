@@ -15,7 +15,13 @@ public class Task {
   public Task(String title, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember, int reqId) {
     this.title = title;
     this.estimatedHours = estimatedTime;
-
+    this.deadline = deadline;
+    this.responsibleTeamMember = responsibleTeamMember;
+    this.reqId = reqId;
+    totalHoursWorked = 0;
+    this.status = new Status(false);
+    this.id = new Id();
+    this.teamMemberList = new TeamMemberList();
   }
 
   public void updateStatus(String status) {
@@ -27,15 +33,26 @@ public class Task {
   }
 
   public void changeResponsibleTeamMember(TeamMember responsibleTeamMember) {
-
+    this.responsibleTeamMember = responsibleTeamMember;
+  }
+  public void addTeamMember(TeamMember teamMember) {
+    teamMemberList.addTeamMember(teamMember);
   }
 
   public int getId() {
-    return 0;
+    return id.getId();
+  }
+
+  public int getReqId() {
+    return reqId;
+  }
+
+  public TeamMemberList getAllTeamMembers() {
+    return teamMemberList;
   }
 
   public String getTitle() {
-    return null;
+    return title;
   }
 
   public MyDate getDeadline() {
@@ -62,16 +79,6 @@ public class Task {
     return false;
   }
 
-  public void addTeamMember(TeamMember teamMember) {
 
-  }
-
-  public TeamMemberList getAllTeamMembers() {
-    return null;
-  }
-
-  public int getReqId() {
-    return 0;
-  }
 
 }
