@@ -67,6 +67,10 @@ public class Task {
     return totalHoursWorked;
   }
 
+  public Status getStatus(){
+    return status;
+  }
+
   public TeamMember getResponsibleTeamMember() {
     return responsibleTeamMember;
   }
