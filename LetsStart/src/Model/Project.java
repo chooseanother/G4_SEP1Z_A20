@@ -17,7 +17,7 @@ public class Project
     this.teamMemberList=teamMemberList;
     this.id=id;
     this.progress=0;
-    this.description = description
+    this.description = description;
   }
   public void updateProgress()
   {
@@ -59,6 +59,10 @@ public class Project
   public RequirementList getRequirementList()
   {
     return requirementList;
+  }
+  public void setDeadline(MyDate date)
+  {
+    deadline=date;
   }
   public int getTotalHoursSpent()
   {
