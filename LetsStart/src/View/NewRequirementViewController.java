@@ -3,6 +3,10 @@ package View;
 import Model.ManagementSystemModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
@@ -46,10 +50,6 @@ public class NewRequirementViewController {
 	}
 
 	@FXML private void saveButtonPressed() {
-
-	}
-
-	@FXML private void backButtonPressed() {
 
 	}
 
