@@ -18,13 +18,14 @@ public class Project
     this.id=id;
     this.progress=0;
     this.description = description;
+
   }
   public void updateProgress()
   {
     int nr=0;
     for(int i=0;i<requirementList.getNumberOfRequirements();i++)
     {
-      if(requirementList.getRequirement(i).getStatus().equals(Status.APPROVED_STATUS))
+      if(requirementList.getRequirement(i).getStatus().equals(Status.APPROVED))
         nr++;
     }
     progress=nr*100/requirementList.getNumberOfRequirements();
@@ -41,6 +42,7 @@ public class Project
   {
     requirementList.addRequirement(requirement);
   }
+
   public double getProgress()
   {
     return progress;

@@ -15,11 +15,6 @@ public class Name
     setLastName(fullName.split(" ")[1]);
   }
 
-  public Name(){
-    setFirstName("");
-    setLastName("");
-  }
-
   private void setFirstName(String firstName)
   {
     this.firstName = firstName;

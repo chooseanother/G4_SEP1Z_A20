@@ -55,7 +55,7 @@ public class NewProjectViewController {
 				projectName.getText(),
 				new TeamMemberList(),
 				new RequirementList(),
-				new Customer(),
+				new Customer("Test"),
 				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
 				description.getText()));
 	}
