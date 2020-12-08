@@ -3,12 +3,11 @@ package Model;
 public class Priority
 {
   private int priority;
-  public static  String [] PRIORITIES = {"Low", "Medium", "High", "Critical"};
+  public static final String [] PRIORITIES = {"Low", "Medium", "High", "Critical"};
 
   public Priority(int priority)
   {
     this.priority = priority;
-    PRIORITIES = null;
   }
 
   public void setPriority(int priority)
@@ -16,13 +15,23 @@ public class Priority
     this.priority = priority;
   }
 
-  public int getPriority()
+  public String getPriorityString()
   {
+    return PRIORITIES[priority];
+  }
+
+  public int getPriorityNumber(){
     return priority;
   }
 
   @Override public boolean equals(Object obj)
   {
+    if(this == obj){
+      return false;
+    }
+    if(obj == null){
+      return false;
+    }
     if (!(obj instanceof Priority))
     {
       return false;
@@ -33,7 +42,7 @@ public class Priority
 
   @Override public String toString()
   {
-    return String.valueOf(priority);
+    return PRIORITIES[priority];
   }
 }
 
