@@ -26,9 +26,9 @@ public class ProjectList
   {
     list.remove(project);
   }
-  public void removeProject(int index)
+  public void removeProject(int Id)
   {
-    list.remove(index);
+    list.removeIf(p -> p.getId() == Id);
   }
   public int numberOfProjects()
   {
