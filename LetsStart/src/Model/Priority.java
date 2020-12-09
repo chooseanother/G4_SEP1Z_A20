@@ -3,7 +3,7 @@ package Model;
 public class Priority
 {
   private int priority;
-  private static final String [] PRIORITIES = {"Low", "Medium", "High", "Critical"};
+  public static final String [] PRIORITIES = {"Low", "Medium", "High", "Critical"};
 
   public Priority(int priority)
   {
