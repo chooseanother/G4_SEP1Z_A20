@@ -1,27 +1,30 @@
 package View;
 
 import Model.ManagementSystemModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 public class NewRequirementViewController {
 
-	@FXML private Label requirementTitleID;
-	@FXML private TextField requirementID;
 	@FXML private TextField descriptionID;
-	@FXML private TextField totalHoursWorkedID;
 	@FXML private TextField estimatedHoursID;
 	@FXML private TextField statusID;
 	@FXML private TextField priorityID;
 	@FXML private TextField deadlineID;
 	@FXML private TextField responsibleTeamMemberID;
+	@FXML private ChoiceBox priorityBox;
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
 	private ViewHandler viewHandler;
+	private String low = "Low";
+	private String medium = "Medium";
+	private String high = "High";
+	private String critical = "Critical";
 
-
+	ObservableList<String> priorities = FXCollections.observableArrayList("Low","Medium","High","Critical");
 
 	public NewRequirementViewController() {
 
@@ -47,6 +50,14 @@ public class NewRequirementViewController {
 
 	@FXML private void saveButtonPressed() {
 
+	}
+
+	@FXML public void newPriority() {
+
+	}
+
+	@FXML public void initialize() {
+		priorityBox.setItems(priorities);
 	}
 
 }
