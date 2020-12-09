@@ -19,12 +19,8 @@ public class NewRequirementViewController {
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
 	private ViewHandler viewHandler;
-	private String low = "Low";
-	private String medium = "Medium";
-	private String high = "High";
-	private String critical = "Critical";
 
-	ObservableList<String> priorities = FXCollections.observableArrayList("Low","Medium","High","Critical");
+	private ObservableList<String> priorities = FXCollections.observableArrayList("Low","Medium","High","Critical");
 
 	public NewRequirementViewController() {
 
@@ -45,14 +41,10 @@ public class NewRequirementViewController {
 	}
 
 	@FXML private void cancelButtonPressed() {
-
+		viewHandler.openView("requirementList");
 	}
 
 	@FXML private void saveButtonPressed() {
-
-	}
-
-	@FXML public void newPriority() {
 
 	}
 
