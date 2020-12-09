@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.NewTaskViewController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.NewTaskViewController">
+   <children>
+      <Label alignment="CENTER" layoutX="246.0" layoutY="40.0" text="New Task" textAlignment="CENTER">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#homeButtonPressed" text="Home" />
+      <Button layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#projectOverviewPressed" text="Project Overview" />
+      <Button layoutX="14.0" layoutY="100.0" mnemonicParsing="false" onAction="#requirementsPressed" text="Requirements" />
+      <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" onAction="#tasksPressed" text="Tasks" />
+      <Label layoutX="179.0" layoutY="92.0" text="Title" />
+      <Label layoutX="188.0" layoutY="128.0" text="ID" />
+      <Label layoutX="170.0" layoutY="166.0" text="Deadline" />
+      <Label layoutX="176.0" layoutY="201.0" text="Status" />
+      <Label layoutX="162.0" layoutY="236.0" text="Total Hours" />
+      <Label layoutX="134.0" layoutY="272.0" text="Estimated Hours" />
+      <Label layoutX="77.0" layoutY="314.0" text="Responsible Team Member" />
+      <TextField fx:id="taskTitleID" layoutX="236.0" layoutY="87.0" onAction="#taskTitlePressed" />
+      <TextField fx:id="taskID" layoutX="236.0" layoutY="123.0" onAction="#taskIDPressed" />
+      <DatePicker fx:id="deadlineID" layoutX="237.0" layoutY="161.0" onAction="#deadlinePressed" />
+      <TextField fx:id="totalHoursWorkedID" layoutX="236.0" layoutY="231.0" onAction="#totalHoursWorkedPressed" />
+      <TextField fx:id="estimatedHoursID" layoutX="236.0" layoutY="267.0" onAction="#estimatedHoursPressed" />
+      <Button layoutX="13.0" layoutY="175.0" mnemonicParsing="false" onAction="#teamMembersPressed" text="Team Members" />
+      <Button layoutX="470.0" layoutY="359.0" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
+      <Button layoutX="540.0" layoutY="359.0" mnemonicParsing="false" onAction="#saveButtonPressed" text="Save" />
+      <Label layoutX="183.0" layoutY="351.0" text="Priority" />
+      <ChoiceBox fx:id="statusID" layoutX="236.0" layoutY="196.0" onDragDetected="#statusPressed" prefWidth="150.0" />
+      <ChoiceBox fx:id="priorityID" layoutX="236.0" layoutY="346.0" onDragDetected="#priorityPressed" prefWidth="150.0" />
+      <ChoiceBox fx:id="responsibleTeamMembersID" layoutX="236.0" layoutY="309.0" onDragDetected="#responsibleTeamMembersPressed" prefWidth="150.0" />
+   </children>
 </AnchorPane>

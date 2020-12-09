@@ -28,7 +28,9 @@ public class ManagementSystem implements ManagementSystemModel
 	public void addRequirement(String projectID, Requirement requirement) {
    projectList.getProject(projectID).addRequirement(requirement);
 	}
-
+  public TeamMember getTeamMember(String ID, int projectID){
+		return projectList.getProject(projectID).getTeamMemberList().getTeamMember(ID);
+  }
 
 	/**
 	 *
@@ -261,5 +263,8 @@ public class ManagementSystem implements ManagementSystemModel
 	public int getEstimatedTime(String taskID, String requirementID, String projectID) {
 		return projectList.getProject(projectID).getRequirementList().getRequirement(requirementID).getTasks().getTask(taskID).getEstimatedHours();
 	}
-
+  public TeamMember getTeamMember(int projectID, int memberID)
+	{
+		return projectList.getProject(projectID).getTeamMemberList().getTeamMember(memberID);
+	}
 }
