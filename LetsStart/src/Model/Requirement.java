@@ -12,15 +12,15 @@ public class Requirement
   private Priority priority;
   private TeamMember responsibleTeamMember;
 
-  public Requirement(String description, MyDate deadline, TaskList tasks, Status status, Priority priority, TeamMember responsibleTeamMember)
+  public Requirement(String description, MyDate deadline, Priority priority, TeamMember responsibleTeamMember)
   {
     this.reqID = new Id();
     this.description = description;
     this.timeSpent = 0;
     this.estimatedTime = 0;
     this.deadline = deadline;
-    this.tasks = tasks;
-    this.status = status;
+    this.tasks = new TaskList();
+    this.status = new Status(true);
     this.priority = priority;
     this.responsibleTeamMember = responsibleTeamMember;
   }
