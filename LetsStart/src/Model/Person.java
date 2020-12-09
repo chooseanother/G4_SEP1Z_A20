@@ -4,11 +4,16 @@ public class Person
 {
   private Name name;
 
-  public Person(){name = new Name();}
+
   public Person(Name name)
   {
     this.name = name;
   }
+  public Person(String name)
+  {
+    this.name = new Name(name);
+  }
+  public Person(String firstName, String lastName){name = new Name(firstName,lastName);}
 
   public Name getName()
   {

@@ -1,94 +1,111 @@
 package Model;
 
-public class Task
-{
-  private String requirementID;
+public class Task {
 
-  public String getTaskID()
-  {
-    return taskID;
-  }
-
-  public String getTitle()
-  {
-    return title;
-  }
-
-  public int getEstimatedHours()
-  {
-    return estimatedHours;
-  }
-
-  public int getTotalHoursWorked()
-  {
-    return totalHoursWorked;
-  }
-
-  public Status getStatus()
-  {
-    return status;
-  }
-
-  public MyDate getDeadline()
-  {
-    return deadline;
-  }
-
-  public TeamMember getResponsibleTeamMember()
-  {
-    return responsibleTeamMember;
-  }
-
-  private String taskID;
   private String title;
   private int estimatedHours;
   private int totalHoursWorked;
+  private int reqId;
+  private TeamMember responsibleTeamMember;
   private Status status;
   private MyDate deadline;
-  private TeamMember responsibleTeamMember;
-  private Priority priority;
-  public Task(String requirementID, String taskID, String title,int estimatedHours, MyDate deadline, TeamMember responsibleTeamMember, Status status, Priority priority)
-  {
-    this.requirementID=requirementID;
-    this.taskID=taskID;
-    this.title=title;
-    this.estimatedHours=estimatedHours;
-    this.deadline=deadline;
-    this.responsibleTeamMember=responsibleTeamMember;
-    this.status=status;
-    this.priority=priority;
-    totalHoursWorked=0;
+  private Id id;
+  private TeamMemberList teamMemberList;
+
+  public Task(String title, int estimatedTime, MyDate deadline, TeamMember responsibleTeamMember, int reqId) {
+    this.title = title;
+    this.estimatedHours = estimatedTime;
+    this.deadline = deadline;
+    this.responsibleTeamMember = responsibleTeamMember;
+    this.reqId = reqId;
+    totalHoursWorked = 0;
+    this.status = new Status(false);
+    this.id = new Id();
+    this.teamMemberList = new TeamMemberList();
   }
-  public void updateStatus(String status)
-  {
-    this.status.update(status);
+
+  public void updateStatus(String status) {
+    this.status.setStatus(status);
   }
-  public void setDeadline(MyDate date)
-  {
-    deadline=date;
+
+  public void updateHoursSpent(int hours) {
+    totalHoursWorked += hours;
   }
-  public void setPriority(Priority priority)
-  {
-    this.priority=priority;
+
+  public void changeResponsibleTeamMember(TeamMember responsibleTeamMember) {
+    this.responsibleTeamMember = responsibleTeamMember;
   }
-  public void updateHoursSpent(int hours)
-  {
-    totalHoursWorked=hours;
+  public void addTeamMember(TeamMember teamMember) {
+    teamMemberList.addTeamMember(teamMember);
   }
-  public void setEstimatedTime(int time)
-  {
-    estimatedHours=time;
+
+  public void removeTeamMember(String name){
+    teamMemberList.removeTeamMember(name);
   }
-  public void updateResponsibleTeamMember(TeamMember responsibleTeamMember)
-  {
-    this.responsibleTeamMember=responsibleTeamMember;
+
+  public void removeTeamMember(TeamMember teamMember){
+    teamMemberList.removeTeamMember(teamMember);
   }
-  public String getRequirementID()
-  {
-    return requirementID;
+
+  public int getId() {
+    return id.getId();
   }
-  @Override public String toString()
-  {
-    return requirementID+" "+title+" "+taskID+" "+responsibleTeamMember.toString()+" "+estimatedHours+" "+deadline.toString()+" "+status.toString();
+
+  public int getReqId() {
+    return reqId;
+  }
+
+  public TeamMemberList getAllTeamMembers() {
+    return teamMemberList;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public MyDate getDeadline() {
+    return deadline;
+  }
+
+  public int getEstimatedTime() {
+    return estimatedHours;
+  }
+
+  public int getHoursSpent() {
+    return totalHoursWorked;
+  }
+
+  public Status getStatus(){
+    return status;
+  }
+
+  public TeamMember getResponsibleTeamMember() {
+    return responsibleTeamMember;
+  }
+
+  public boolean equals(Object obj) {
+    if (this == obj){
+      return true;
+    }
+    if (obj == null){
+      return false;
+    }
+    if (!(obj instanceof Task)){
+      return false;
+    }
+    Task comp = (Task) obj;
+    return id.equals(comp.id);
+  }
+
+  public String toString() {
+    return title +
+        "\nID: "+id+
+        "\nRequirement Id: "+ reqId+
+        "\nDeadline: "+ deadline.toString()+
+        "\nStatus: "+ status+
+        "\nEstimated time: "+ estimatedHours +
+        "\nHours spend: " + totalHoursWorked +
+        "\nResponsible: " + responsibleTeamMember.toString()+
+        "\nAssigned employees: " + teamMemberList.toString();
   }
 }

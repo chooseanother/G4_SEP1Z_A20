@@ -2,39 +2,61 @@ package Model;
 
 public class Status
 {
-  public static final String ENDED_STATUS="Ended";
-  public static final String STARTED_STATUS="Started";
-  public static final String NOT_STARTED_STATUS="Not started";
-  public static final String IN_PROGRESS_STATUS="In progress";
-  public static final String APPROVED_STATUS="Approved";
-  public static final String REJECTED_STATUS="Rejected";
+  public static final String ENDED="Ended";
+  public static final String STARTED="Started";
+  public static final String NOT_STARTED="Not started";
+  public static final String FINISHED="Finished";
+  public static final String IN_PROGRESS="In progress";
+  public static final String APPROVED="Approved";
+  public static final String REJECTED="Rejected";
   private String status;
   private boolean isRequirement;
+
   public Status(boolean isRequirement)
   {
     this.isRequirement=isRequirement;
     if(isRequirement)
     {
-      status=IN_PROGRESS_STATUS;
+      status=IN_PROGRESS;
     }
     else
     {
-      status=NOT_STARTED_STATUS;
+      status=NOT_STARTED;
     }
   }
-  public void update(String status){
-    this.status=status;
+
+  public Status(boolean isRequirement, String status)
+  {
+    this.isRequirement=isRequirement;
+    this.status = status;
   }
+
+  public void setStatus(String status){
+    if (isRequirement && status.equalsIgnoreCase(REJECTED) || status.equalsIgnoreCase(APPROVED) || status.equalsIgnoreCase(ENDED) || status.equalsIgnoreCase(IN_PROGRESS))
+      this.status=status;
+    else if (!isRequirement && status.equalsIgnoreCase(NOT_STARTED) || status.equalsIgnoreCase(STARTED) || status.equalsIgnoreCase(FINISHED)){
+      this.status = status;
+    }
+  }
+
   public String getStatus(){
     return status;
   }
+
   @Override public boolean equals(Object obj)
   {
-    if(!(obj instanceof String))
+    if (this == obj){
+      return true;
+    }
+    if(obj == null){
       return false;
-    String other=(String) obj;
-    return status.equals(other);
+    }
+    if(!(obj instanceof Status))
+      return false;
+    Status other=(Status) obj;
+    return status.equals(other.getStatus()) && isRequirement == other.isRequirement;
   }
+
   @Override public String toString()
   {
     return status;

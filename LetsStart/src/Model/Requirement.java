@@ -2,9 +2,47 @@ package Model;
 
 public class Requirement
 {
-  public String getReqID()
+  private Id reqID;
+  private String description;
+  private int timeSpent;
+  private int estimatedTime;
+  private MyDate deadline;
+  private TaskList tasks;
+  private Status status;
+  private Priority priority;
+  private TeamMember responsibleTeamMember;
+
+  public Requirement(String description, MyDate deadline, TaskList tasks, Status status, Priority priority, TeamMember responsibleTeamMember)
   {
-    return reqID;
+    this.reqID = new Id();
+    this.description = description;
+    this.timeSpent = 0;
+    this.estimatedTime = 0;
+    this.deadline = deadline;
+    this.tasks = tasks;
+    this.status = status;
+    this.priority = priority;
+    this.responsibleTeamMember = responsibleTeamMember;
+  }
+
+  public TaskList getAllTasks()
+  {
+    return tasks;
+  }
+
+  public MyDate getDeadline()
+  {
+    return deadline;
+  }
+
+  public int getEstimatedTime()
+  {
+    return estimatedTime;
+  }
+
+  public int getId()
+  {
+    return reqID.getId();
   }
 
   public String getDescription()
@@ -15,21 +53,6 @@ public class Requirement
   public int getTimeSpent()
   {
     return timeSpent;
-  }
-
-  public int getEstimatedTime()
-  {
-    return estimatedTime;
-  }
-
-  public MyDate getDeadline()
-  {
-    return deadline;
-  }
-
-  public TaskList getTasks()
-  {
-    return tasks;
   }
 
   public Status getStatus()
@@ -47,72 +70,47 @@ public class Requirement
     return responsibleTeamMember;
   }
 
-  private String reqID;
-  private String description;
-  private int timeSpent;
-  private int estimatedTime;
-  private MyDate deadline;
-  private TaskList tasks;
-  private Status status;
-  private Priority priority;
-  private TeamMember responsibleTeamMember;
+  public void changeResponsibleTeamMember(TeamMember teamMember){
+    this.responsibleTeamMember = teamMember;
+  }
 
-  public Requirement(String reqID, String description, int timeSpent, int estimatedTime, MyDate deadline, TaskList tasks, Status status, Priority priority, TeamMember responsibleTeamMember)
-  {
-    this.reqID = reqID;
-    this.description = description;
-    this.timeSpent = timeSpent;
-    this.estimatedTime = estimatedTime;
-    this.deadline = deadline;
-    this.tasks = tasks;
-    this.status = status;
-    this.priority = priority;
-    this.responsibleTeamMember = responsibleTeamMember;
+  public void setStatus(String status){
+    this.status.setStatus(status);
   }
-  public void updateStatus (String status)
+
+  public void updateStatus ()
   {
-    this.status.update(status);
+    for (int i = 0; i < tasks.numberOfTasks();i++){
+      if (!tasks.getTaskIndex(i).getStatus().toString().equals(Status.FINISHED)){
+        status.setStatus(Status.IN_PROGRESS);
+        return;
+      }
+    }
+    status.setStatus(Status.ENDED);
   }
+
   public void setPriority(Priority priority)
   {
     this.priority=priority;
   }
-  public void addTask(Task task, String reqID){
-    this.reqID=reqID;
-    tasks.addTask(task);
-  }
-  public void removeTask(Task task)
+
+  public void updateTotalHoursSpent()
   {
-    tasks.removeTask(task);
+    int total = 0;
+    for (int i = 0 ; i < tasks.numberOfTasks(); i++){
+      total += tasks.getTaskIndex(i).getHoursSpent();
+    }
+    timeSpent = total;
   }
-  public void removeTask(int index)
+  public void updateEstimatedTime()
   {
-    tasks.removeTask(index);
+    int total = 0;
+    for (int i = 0 ; i < tasks.numberOfTasks(); i++){
+      total += tasks.getTaskIndex(i).getEstimatedTime();
+    }
+    estimatedTime = total;
   }
-  public void removeTask(String taskID)
-  {
-        tasks.removeTask(taskID);
-  }
-  public Task getTask(String taskID)
-  {
-    return tasks.getTask(taskID);
-  }
-  public Task getTask(int index)
-  {
-    return tasks.getTask(index);
-  }
-  public void updateTotalHoursSpent(int hoursWorked)
-  {
-    timeSpent+=hoursWorked;
-  }
-  public void setEstimatedTime(int time)
-  {
-    estimatedTime=time;
-  }
-  public void setDeadline(MyDate date)
-  {
-    deadline=date;
-  }
+
   @Override public String toString()
   {
     String s="";

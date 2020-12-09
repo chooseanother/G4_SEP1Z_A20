@@ -13,10 +13,10 @@ public class ProjectList
   {
     list.add(project);
   }
-  public Project getProject(String id)
+  public Project getProject(int id)
   {
     for (Project p : list){
-      if (p.getId().equals(id)){
+      if (p.getId() == id){
         return p;
       }
     }
