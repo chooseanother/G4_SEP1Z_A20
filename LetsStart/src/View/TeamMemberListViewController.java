@@ -38,7 +38,8 @@ public class TeamMemberListViewController {
 	@FXML private void addButtonPressed() {
 
 	}
-
+	//operation35? The fuck? :D
+	// Do we need a remove button here maybe?
 	@FXML public void operation35() {
 
 	}

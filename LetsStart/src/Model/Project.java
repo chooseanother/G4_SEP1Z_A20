@@ -10,7 +10,9 @@ public class Project
   private MyDate deadline;
   private String description;
 
-  public Project(Customer customer, MyDate deadline, String description){
+  public Project(String text, TeamMemberList teamMemberList,
+      RequirementList requirementList, Customer customer, MyDate deadline,
+      String description){
     this.customer=customer;
     this.deadline=deadline;
     this.requirementList=new RequirementList();
