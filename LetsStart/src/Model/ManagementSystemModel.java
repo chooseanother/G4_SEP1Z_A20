@@ -2,31 +2,41 @@ package Model;
 
 public interface ManagementSystemModel {
 	void addProject(Project project);
-	void addRequirement(int projectID, Requirement requirement);
-	void addTask(int projectID, int requirementID, Task task);
+	void addRequirement(int projectId, Requirement requirement);
+	void addTask(int projectId, int requirementId, Task task);
+	void addTeamMember(int projectId, TeamMember member);
+	void addTeamMember(int projectId, int requirementId, int taskId, TeamMember member);
+	void assignRole(int projectId, TeamMember member, Role role);
+	void assignRequirementPriority(int projectId, int requirementId, Priority priority);
+
 	Project getProject(int id);
-	Requirement getRequirement(int projectID, int reqID);
-	Task getTask(int projectID, int reqID, int taskID);
 	ProjectList getAllProjects();
-	RequirementList getAllRequirements(int projectID);
-	TaskList getAllTasks(int projectID, int reqID);
-	void removeProject(Project project);
-	void removeRequirement(Requirement requirement, int projectID);
-	void removeTask(Task task, int reqID, int projectID);
-	void updateRequirementStatus(int projectID, int reqID);
-	void updateTaskStatus(String taskStatus, int taskID, int reqID, int projectID);
-	void updateProjectProgress(int projectID);
-	void removeTask(int taskID,int reqID, int projectID);
-	void changeRequirementPriority(Priority priority, int reqID, int projectID);
-	void addTeamMember(TeamMember member, int projectID);
-	void removeTeamMember(String ID, int projectID);
-	void assignRole(Role role, String memberID, int projectID);
-	TeamMember getResponsibleTeamMember(int requirementID, int projectID);
-	TeamMember getResponsibleTeamMember(int taskID, int reqID, int projectID);
-	Status getRequirementStatus(int requirementID, int projectID);
-	String getTaskStatus(int taskID, int reqID, int projectID);
-	double getProjectProgress(int projectID);
-	int getTotalTimeSpent(int projectID);
-	int getEstimatedRequirementTime(int requirementID, int projectID);
-	int getEstimatedTaskTime(int taskID, int requirementID, int projectID);
+	double getProjectProgress(int projectId);
+	TeamMember getTeamMember(int projectId, String name);
+	TeamMemberList getAllTeamMembers(int projectId);
+	int getTotalTimeSpent(int projectId);
+
+	Requirement getRequirement(int projectId, int requirementId);
+	RequirementList getAllRequirements(int projectId);
+	Status getRequirementStatus(int projectId, int requirementId);
+	TeamMember getResponsibleTeamMember(int projectId, int requirementId);
+	int getEstimatedTime(int projectId, int requirementId);
+
+	Task getTask(int projectId, int requirementId, int taskId);
+	TaskList getAllTasks(int projectId, int requirementId);
+	Status getTaskStatus(int projectId, int requirementId, int taskId);
+	TeamMember getResponsibleTeamMember(int projectId, int requirementId, int taskId);
+	TeamMember getTeamMember(int projectId, int requirementId, int taskId, String name);
+	TeamMemberList getAllTeamMembers(int projectId, int requirementId, int taskId);
+	int getEstimatedTime(int projectId, int requirementId, int taskId);
+
+	void removeProject(int projectId);
+	void removeRequirement(int projectId, int requirementId);
+	void removeTask(int projectId, int requirementId, int taskId);
+	void removeTeamMember(int projectId, String name);
+	void removeTeamMember(int projectId, int requirementId, int taskId, String name);
+
+	void updateProjectProgress(int projectId);
+	void updateRequirementStatus(int projectId, int requirementId);
+	void updateTaskStatus(int projectId, int requirementId, int taskId);
 }
