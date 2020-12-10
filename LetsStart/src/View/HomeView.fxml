@@ -5,49 +5,54 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox prefHeight="402.0" prefWidth="551.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
-   <children>
-      <HBox>
-         <children>
-            <VBox prefHeight="430.0" prefWidth="232.0">
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-               <VBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="215.0">
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-                  <Label text="Projects" />
-               </VBox>
-               <VBox prefHeight="433.0" prefWidth="215.0">
-                  <ListView prefHeight="380.0" prefWidth="215.0" />
-               </VBox>
-            </VBox>
-            <VBox prefHeight="332.0" prefWidth="269.0">
-               <children>
-                  <VBox>
-                     <children>
-                        <TextField fx:id="searchProjectBar" promptText="search : ID etc." />
-                     </children>
-                  </VBox>
-                  <HBox>
-                     <children>
-                        <Label text="Awesome Company">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <VBox alignment="CENTER">
-                     <children>
-                        <Button fx:id="newProject" mnemonicParsing="false" onAction="#newProjectButtonPressed" text="New Project" />
-                     </children>
-                  </VBox>
-               </children>
-            </VBox>
-         </children>
+<VBox prefHeight="661.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
+   <HBox prefHeight="72.0" prefWidth="803.0">
+      <Label alignment="CENTER" prefHeight="101.0" prefWidth="804.0" text="Home">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </HBox>
+   <VBox prefHeight="595.0" prefWidth="803.0">
+      <HBox prefHeight="66.0" prefWidth="664.0">
+         <Label alignment="BOTTOM_LEFT" prefHeight="52.0" prefWidth="784.0" text="Projects">
+            <font>
+               <Font size="18.0" />
+            </font>
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin>
+         </Label>
       </HBox>
-   </children>
+      <TableView fx:id="projectListTable" prefHeight="444.0" prefWidth="803.0">
+         <columns>
+            <TableColumn fx:id="idCollum" prefWidth="44.0" text="ID" />
+            <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="397.0" text="Title" />
+            <TableColumn fx:id="deadlineCollum" minWidth="0.0" prefWidth="223.0" text="Deadline" />
+            <TableColumn fx:id="progressCollum" minWidth="0.0" prefWidth="144.0" text="Progress" />
+         </columns>
+      </TableView>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <Button mnemonicParsing="false" onAction="#addProjectButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Add Project">
+            <HBox.margin>
+               <Insets left="100.0" top="20.0" />
+            </HBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#openButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Open">
+            <HBox.margin>
+               <Insets left="40.0" top="20.0" />
+            </HBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Remove">
+            <HBox.margin>
+               <Insets left="40.0" top="20.0" />
+            </HBox.margin>
+         </Button>
+         <Button mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Exit">
+            <HBox.margin>
+               <Insets left="40.0" top="20.0" />
+            </HBox.margin>
+         </Button>
+      </HBox>
+   </VBox>
 </VBox>

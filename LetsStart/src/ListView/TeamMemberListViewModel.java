@@ -24,12 +24,16 @@ public class TeamMemberListViewModel
   private ObservableList<TeamMemberViewModel> list;
   private ManagementSystemModel model;
   private int projectId;
+  private int requirementId;
+  private int taskId;
 
-  public TeamMemberListViewModel(ManagementSystemModel model, int projectId)
+  public TeamMemberListViewModel(ManagementSystemModel model, int projectId, int requirementId, int taskId)
   {
     this.model = model;
     this.list = FXCollections.observableArrayList();
     this.projectId = projectId;
+    this.requirementId = requirementId;
+    this.taskId = taskId;
     update();
   }
 

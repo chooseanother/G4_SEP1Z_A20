@@ -36,10 +36,10 @@ public class ProjectListViewModel
     list.add(new ProjectViewModel(project));
   }
 
-  public void remove(Project project)
+  public void remove(int projectId)
   {
     for (ProjectViewModel p : list) {
-      if(p.getIdProperty() == project.getId()) {
+      if(p.getIdProperty() == projectId) {
         list.remove(p);
         break;
       }
