@@ -22,6 +22,10 @@ public class ProjectList
     }
     return null;
   }
+  public Project getProjectIndex(int index)
+  {
+    return list.get(index);
+  }
   public void removeProject(Project project)
   {
     list.remove(project);
