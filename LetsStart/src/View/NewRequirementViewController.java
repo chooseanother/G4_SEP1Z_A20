@@ -19,6 +19,7 @@ public class NewRequirementViewController {
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
 	private ViewHandler viewHandler;
+	private ViewState state;
 
 	private ObservableList<String> priorities = FXCollections.observableArrayList("Low","Medium","High","Critical");
 
@@ -26,7 +27,7 @@ public class NewRequirementViewController {
 
 	}
 
-	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root, ViewState state) {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;

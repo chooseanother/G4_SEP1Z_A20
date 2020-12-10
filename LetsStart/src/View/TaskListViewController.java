@@ -12,6 +12,7 @@ public class TaskListViewController {
 	//Missing stuff here
 	private ArrayList<String> questionMark;
 	@FXML private ListView<ObservableList<String>> taskList;
+	private ViewState state;
 
 	private Region root;
 
@@ -25,7 +26,7 @@ public class TaskListViewController {
 
 	}
 
-	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root, ViewState state) {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;	}

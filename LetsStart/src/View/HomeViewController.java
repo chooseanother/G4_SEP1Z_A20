@@ -15,13 +15,13 @@ public class HomeViewController {
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
 	private ViewHandler viewHandler;
-
+	private ViewState state;
 
 	public HomeViewController() {
 
 	}
 
-	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root, ViewState state) {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;

@@ -13,36 +13,29 @@ import javafx.scene.layout.Region;
 
 public class NewTaskViewController {
 
-	@FXML private Region root;
-
+	private Region root;
 	@FXML private TextField taskTitleID;
-
 	@FXML private TextField taskID;
-
 	@FXML private DatePicker deadlineID;
-
 	@FXML private ChoiceBox statusID;
-
 	@FXML private TextField totalHoursWorkedID;
-
 	@FXML private TextField estimatedHoursID;
-
 	@FXML private ChoiceBox responsibleTeamMembersID;
+	@FXML private ChoiceBox priorityID;
+	private ViewHandler viewHandler;
+	private ManagementSystemModel managementSystemModel;
+	private ViewState state;
 
-	@FXML private ViewHandler viewHandler;
-
-	@FXML private ManagementSystemModel managementSystemModel;
-
-  @FXML private String requirement;
-  @FXML private ChoiceBox priorityID;
   private ObservableList<String> status= FXCollections.observableArrayList("Not Started", "Started", "Ended");
   private ObservableList<TeamMember> members=FXCollections.observableArrayList(managementSystemModel.);
   private ObservableList<String> priorities=FXCollections.observableArrayList("Low", "Medium", "High", "Critical");
- 	public NewTaskViewController() {
+
+
+  public NewTaskViewController() {
 
 	}
 
-	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root, ViewState state) {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;

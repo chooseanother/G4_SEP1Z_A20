@@ -13,12 +13,13 @@ public class TeamMemberListViewController {
 	private Region root;
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
+	private ViewState state;
 
 	public TeamMemberListViewController() {
 
 	}
 
-	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root) {
+	public void init(ViewHandler viewHandler, ManagementSystemModel model, Region root, ViewState state) {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;	}
