@@ -39,4 +39,7 @@ public interface ManagementSystemModel {
 	void updateProjectProgress(int projectId);
 	void updateRequirementStatus(int projectId, int requirementId);
 	void updateTaskStatus(int projectId, int requirementId, int taskId);
+
+	void saveToFile();
+	void loadFromFile();
 }

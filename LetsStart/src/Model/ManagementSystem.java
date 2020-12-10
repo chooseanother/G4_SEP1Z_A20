@@ -1,12 +1,18 @@
 package Model;
+
+import Model.mediator.ManagementSystemFile;
+import Model.mediator.ManagementSystemPersistence;
+
 public class ManagementSystem implements ManagementSystemModel
 {
 
 	private ProjectList projectList;
+	private ManagementSystemPersistence MSP;
 
 	public ManagementSystem()
 	{
 		projectList = new ProjectList();
+		MSP = new ManagementSystemFile();
 	}
 
 	/**
@@ -311,4 +317,11 @@ public class ManagementSystem implements ManagementSystemModel
 
 	}
 
+	@Override public void saveToFile(){
+		MSP.save(projectList, "Project_List.xml");
+	}
+
+	@Override public void loadFromFile(){
+		projectList = MSP.load("Project_List.xml");
+	}
 }
