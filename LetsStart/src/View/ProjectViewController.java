@@ -63,11 +63,11 @@ public class ProjectViewController
 		// written name is not accepted or if deadline is before today or
 		//not far enough into the future
 
-		LocalDate dl = deadline.getValue();
+		LocalDate dl = deadlineDate.getValue();
 		//errorLabel.setText(dl.getDayOfMonth()+"/"+dl.getMonthValue()+"/"+dl.getYear());
-		Project tmp = new Project("asd",new Customer(customer.getText()),
+		Project tmp = new Project(titleText.getText(),new Customer(customerText.getText()),
 				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
-				description.getText());
+				descriptionText.getText());
 
 		managementSystemModel.addProject(tmp);
 		managementSystemModel.saveToFile();
@@ -75,7 +75,7 @@ public class ProjectViewController
 	}
 
 	@FXML private void customerNameTyped(){
-		if (customer.getText().split(" ").length !=2){
+		if (customerText.getText().split(" ").length !=2){
 			errorLabel.setText("Customer name must be in the form off \"Name Surname\"");
 		}
 		else{
@@ -88,7 +88,7 @@ public class ProjectViewController
 	}
 
 	@FXML private void reqDButtonPressed() {
-		state.setRequirementId();
+		state.setRequirementId(5);
 		viewHandler.openView("requirementList");
 	}
 }
