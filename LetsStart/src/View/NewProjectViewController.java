@@ -52,9 +52,6 @@ public class NewProjectViewController {
 		LocalDate dl = deadline.getValue();
 		//errorLabel.setText(dl.getDayOfMonth()+"/"+dl.getMonthValue()+"/"+dl.getYear());
 		managementSystemModel.addProject(new Project(
-				projectName.getText(),
-				new TeamMemberList(),
-				new RequirementList(),
 				new Customer("Test"),
 				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
 				description.getText()));
