@@ -35,6 +35,26 @@ public class Project
     progress=(double)count*100/requirementList.getNumberOfRequirements();
   }
 
+  public void setCustomer(Customer customer)
+  {
+    this.customer = customer;
+  }
+
+  public String getDescription()
+  {
+    return description;
+  }
+
+  public void setDescription(String description)
+  {
+    this.description = description;
+  }
+
+  public void setDeadline(MyDate deadline)
+  {
+    this.deadline = deadline;
+  }
+
   public double getProgress() {
     return progress;
   }
@@ -79,4 +99,6 @@ public class Project
   @Override public String toString() {
     return id+" "+ progress+" "+customer.toString()+" "+requirementList.toString()+" "+teamMemberList.toString()+" "+deadline.toString();
   }
+
+
 }

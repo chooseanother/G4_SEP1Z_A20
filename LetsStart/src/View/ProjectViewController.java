@@ -2,6 +2,7 @@ package View;
 
 import Model.*;
 import ListView.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
@@ -42,6 +43,9 @@ public class ProjectViewController
 		this.root = root;
 		this.state = state;
 		errorLabel.setText("");
+		if (state.getProjectId()==-1){
+			projectLabel.setText("New Project");
+		}
 	}
 
 	public void reset() {
@@ -54,7 +58,9 @@ public class ProjectViewController
 		return root;
 	}
 
-	@FXML private void cancelButtonPressed() {
+	@FXML private void backButtonPressed() {
+		state.setProjectId(-1);
+		//check if there are changes not save, ask if user wants to save
 		viewHandler.openView("home");
 	}
 
@@ -62,16 +68,27 @@ public class ProjectViewController
 		//try and catch exceptions base on if any field is missing,
 		// written name is not accepted or if deadline is before today or
 		//not far enough into the future
-
 		LocalDate dl = deadlineDate.getValue();
-		//errorLabel.setText(dl.getDayOfMonth()+"/"+dl.getMonthValue()+"/"+dl.getYear());
-		Project tmp = new Project(titleText.getText(),new Customer(customerText.getText()),
-				new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
-				descriptionText.getText());
+		if (state.getProjectId()==-1){
+			Project tmp = new Project(titleText.getText(),new Customer(customerText.getText()),
+					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()),
+					descriptionText.getText());
+			state.setProjectId(tmp.getId());
+			managementSystemModel.addProject(tmp);
+			titleText.setText(tmp.getTitle());
+		}
+		else{
+			managementSystemModel.getProject(state.getProjectId()).
+					setTitle(titleText.getText());
+			managementSystemModel.getProject(state.getProjectId()).
+					setCustomer(new Customer(customerText.getText()));
+			managementSystemModel.getProject(state.getProjectId()).
+					setDescription(descriptionText.getText());
+			managementSystemModel.getProject(state.getProjectId()).setDeadline(
+					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()));
+		}
 
-		managementSystemModel.addProject(tmp);
 		managementSystemModel.saveToFile();
-		viewHandler.openView("project");
 	}
 
 	@FXML private void customerNameTyped(){
@@ -88,7 +105,27 @@ public class ProjectViewController
 	}
 
 	@FXML private void reqDButtonPressed() {
-		state.setRequirementId(5);
+		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
 		viewHandler.openView("requirementList");
+	}
+
+	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
+	{
+	}
+
+	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
+	{
+	}
+
+	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
+	{
+	}
+
+	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
+	{
+	}
+
+	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)
+	{
 	}
 }
