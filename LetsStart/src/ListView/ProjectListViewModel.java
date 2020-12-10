@@ -7,19 +7,17 @@ import javafx.collections.ObservableList;
 
 public class ProjectListViewModel
 {
-  private ObservableList<TeamMemberViewModel> list;
+  private ObservableList<ProjectViewModel> list;
   private ManagementSystemModel model;
-
 
   public ProjectListViewModel(ManagementSystemModel model)
   {
     this.model = model;
     this.list = FXCollections.observableArrayList();
-
     update();
   }
 
-  public ObservableList<TeamMemberViewModel> getList()
+  public ObservableList<ProjectViewModel> getList()
   {
     return list;
   }
@@ -27,25 +25,22 @@ public class ProjectListViewModel
   public void update()
   {
     list.clear();
-    for (int i = 0; i < model.getProject(projectId).getTeamMemberList().numberOfTeamMembers(); i++)
+    for (int i = 0; i < model.getAllProjects().numberOfProjects(); i++)
     {
-      list.add(new TeamMemberViewModel(model.getProject(projectId).getTeamMemberList().getTeamMember(i)));
+      list.add(new ProjectViewModel(model.getAllProjects().getProjectIndex(i)));
     }
   }
 
-  public void add(TeamMember member)
+  public void add(Project project)
   {
-    list.add(new TeamMemberViewModel(member));
+    list.add(new ProjectViewModel(project));
   }
 
-  public void remove(TeamMember member)
+  public void remove(Project project)
   {
-    for (int i = 0; i < list.size(); i++)
-    {
-      if (list.get(i).getNameProperty().get().equals(member.getName().getFullName())
-          && list.get(i).getRoleProperty().get().equals(member.getRole().getRole()))
-      {
-        list.remove(i);
+    for (ProjectViewModel p : list) {
+      if(p.getIdProperty() == project.getId()) {
+        list.remove(p);
         break;
       }
     }

@@ -9,8 +9,10 @@ public class Project
   private TeamMemberList teamMemberList;
   private MyDate deadline;
   private String description;
+  private String title;
 
-  public Project(Customer customer, MyDate deadline, String description){
+  public Project(String title, Customer customer, MyDate deadline, String description){
+    this.title = title;
     this.customer=customer;
     this.deadline=deadline;
     this.requirementList=new RequirementList();
@@ -43,6 +45,16 @@ public class Project
 
   public MyDate getDeadline() {
     return deadline;
+  }
+
+  public String getTitle()
+  {
+    return title;
+  }
+
+  public void setTitle(String title)
+  {
+    this.title = title;
   }
 
   public int getId(){

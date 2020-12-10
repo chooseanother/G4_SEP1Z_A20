@@ -54,12 +54,11 @@ public class TeamMemberListViewModel
 
   public void remove(TeamMember member)
   {
-    for (int i = 0; i < list.size(); i++)
-    {
-      if (list.get(i).getNameProperty().equals(member.getName().getFullName())
-          && list.get(i).getRoleProperty().equals(member.getRole().getRole()))
+    for (TeamMemberViewModel t : list){
+      if (t.getNameProperty().equals(member.getName().getFullName())
+          && t.getRoleProperty().equals(member.getRole().getRole()))
       {
-        list.remove(i);
+        list.remove(t);
         break;
       }
     }
