@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import Model.ManagementSystemModel;
 import javafx.collections.ObservableList;

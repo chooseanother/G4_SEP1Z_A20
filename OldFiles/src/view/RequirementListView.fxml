@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="634.0" prefWidth="510.0" userData="Requirements" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequirementListViewController">
+<VBox prefHeight="634.0" prefWidth="510.0" userData="Requirements" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.RequirementListViewController">
    <VBox prefHeight="609.0" prefWidth="362.0" spacing="10.0">
       <Label text="Requirements">
          <font>

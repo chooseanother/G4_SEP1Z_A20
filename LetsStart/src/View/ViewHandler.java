@@ -15,6 +15,9 @@ public class ViewHandler
 	private ManagementSystemModel model;
 	private HomeViewController homeViewController;
 	private ProjectViewController projectViewController;
+	private RequirementViewController requirementViewController;
+	private TaskViewController taskViewController;
+	private TeamMemberViewController teamMemberViewController;
 	private ViewState state;
 
 	public ViewHandler(ManagementSystemModel model)
@@ -40,6 +43,15 @@ public class ViewHandler
 				break;
 			case "project":
 				root = loadProjectView("ProjectView.fxml", state);
+				break;
+			case "requirement":
+				root = loadRequirementView("RequirementView.fxml", state);
+				break;
+			case "task":
+				root = loadTaskView("TaskView.fxml", state);
+				break;
+			case "teamMember":
+				root = loadTeamMemberView("TeamMemberView.fxml", state);
 				break;
 		}
 
@@ -103,5 +115,71 @@ public class ViewHandler
 		else
 			projectViewController.reset();
 		return projectViewController.getRoot();
+	}
+
+	private Region loadRequirementView(String fxmlFile, ViewState state)
+	{
+		if (requirementViewController == null)
+		{
+			try
+			{
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource(fxmlFile));
+				root = loader.load();
+				requirementViewController = loader.getController();
+				requirementViewController.init(this, model, root, state);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+			requirementViewController.reset();
+		return requirementViewController.getRoot();
+	}
+
+	private Region loadTaskView(String fxmlFile, ViewState state)
+	{
+		if (taskViewController == null)
+		{
+			try
+			{
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource(fxmlFile));
+				root = loader.load();
+				taskViewController = loader.getController();
+				taskViewController.init(this, model, root, state);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+			taskViewController.reset();
+		return taskViewController.getRoot();
+	}
+
+	private Region loadTeamMemberView(String fxmlFile, ViewState state)
+	{
+		if (teamMemberViewController == null)
+		{
+			try
+			{
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(getClass().getResource(fxmlFile));
+				root = loader.load();
+				teamMemberViewController = loader.getController();
+				teamMemberViewController.init(this, model, root, state);
+			}
+			catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		}
+		else
+			teamMemberViewController.reset();
+		return teamMemberViewController.getRoot();
 	}
 }
