@@ -43,7 +43,8 @@ public class ProjectViewController
 		this.root = root;
 		this.state = state;
 		errorLabel.setText("");
-		if (state.getProjectId()==-1){
+		System.out.println(state.getProjectId());
+		if (state.getProjectId()<0){
 			projectLabel.setText("New Project");
 		}
 		else{
@@ -66,7 +67,8 @@ public class ProjectViewController
 		progressText.setText("");
 		titleText.setText("");
 		//how to reset date picker? deadlineDate.
-
+		hoursSpentText.setText("");
+		idText.setText("");
 	}
 
 	public Region getRoot() {

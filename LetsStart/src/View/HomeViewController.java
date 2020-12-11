@@ -58,6 +58,7 @@ public class HomeViewController {
 	@FXML private  void openButtonPressed(ActionEvent actionEvent)
 	{
 		state.setProjectId(projectListTable.getSelectionModel().getSelectedItem().getIdProperty());
+		System.out.println(state.getProjectId());
 		viewHandler.openView("project");
 	}
 
