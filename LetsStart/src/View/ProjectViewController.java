@@ -43,12 +43,11 @@ public class ProjectViewController
 		this.root = root;
 		this.state = state;
 		errorLabel.setText("");
-		System.out.println(state.getProjectId());
 		if (state.getProjectId()<0){
 			projectLabel.setText("New Project");
 		}
 		else{
-			Project display = model.getProject(state.getProjectId());
+			Project display = managementSystemModel.getProject(state.getProjectId());
 			projectLabel.setText("Project");
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
@@ -61,14 +60,28 @@ public class ProjectViewController
 	}
 
 	public void reset() {
-		descriptionText.setText("");
-		errorLabel.setText("");
-		customerText.setText("");
-		progressText.setText("");
-		titleText.setText("");
-		//how to reset date picker? deadlineDate.
-		hoursSpentText.setText("");
-		idText.setText("");
+		if (state.getProjectId() < 0) {
+			projectLabel.setText("New Project");
+			descriptionText.setText("");
+			errorLabel.setText("");
+			customerText.setText("");
+			progressText.setText("");
+			titleText.setText("");
+			//how to reset date picker? deadlineDate.
+			hoursSpentText.setText("");
+			idText.setText("");
+		}
+		else{
+			Project display = managementSystemModel.getProject(state.getProjectId());
+			projectLabel.setText("Project");
+			titleText.setText(display.getTitle());
+			customerText.setText(display.getCustomer().toString());
+			descriptionText.setText(display.getDescription());
+			//how to set deadline? deadlineDate.
+			progressText.setText(String.format("%.2f",display.getProgress())+"%");
+			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
+			idText.setText(display.getId()+"");
+		}
 	}
 
 	public Region getRoot() {
@@ -93,18 +106,18 @@ public class ProjectViewController
 			state.setProjectId(tmp.getId());
 			managementSystemModel.addProject(tmp);
 			titleText.setText(tmp.getTitle());
+			progressText.setText(String.format("%.2f",tmp.getProgress())+"%");
+			hoursSpentText.setText(tmp.getTotalHoursSpent()+"");
+			idText.setText(tmp.getId()+"");
 		}
 		else{
-			managementSystemModel.getProject(state.getProjectId()).
-					setTitle(titleText.getText());
-			managementSystemModel.getProject(state.getProjectId()).
-					setCustomer(new Customer(customerText.getText()));
-			managementSystemModel.getProject(state.getProjectId()).
-					setDescription(descriptionText.getText());
-			managementSystemModel.getProject(state.getProjectId()).setDeadline(
+			Project edit = managementSystemModel.getProject(state.getProjectId());
+			edit.setTitle(titleText.getText());
+			edit.setCustomer(new Customer(customerText.getText()));
+			edit.setDescription(descriptionText.getText());
+			edit.setDeadline(
 					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()));
 		}
-
 		managementSystemModel.saveToFile();
 	}
 
