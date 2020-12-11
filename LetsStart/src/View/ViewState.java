@@ -5,13 +5,11 @@ public class ViewState
   private int projectId;
   private int requirementId;
   private int taskId;
-  private int memberId;
 
   public ViewState(){
     projectId = -1;
     requirementId = -1;
     taskId = -1;
-    memberId = -1;
   }
 
   public int getProjectId()
@@ -42,15 +40,5 @@ public class ViewState
   public void setTaskId(int taskId)
   {
     this.taskId = taskId;
-  }
-
-  public int getMemberId()
-  {
-    return memberId;
-  }
-
-  public void setMemberId(int memberId)
-  {
-    this.memberId = memberId;
   }
 }

@@ -75,6 +75,7 @@ public class TeamMemberViewController {
 			managementSystemModel.addTeamMember(state.getProjectId(),
 					state.getRequirementId(),state.getTaskId(),
 					new TeamMember(new Name(nameText.getText()),roleChoice.getValue()));
+		viewHandler.openView("project");
 	}
 
 	@FXML private void nameTyped(){

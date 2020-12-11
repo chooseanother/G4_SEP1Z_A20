@@ -32,6 +32,7 @@ public class ProjectViewController
 	private RequirementListViewModel requirementListViewModel;
 	private TeamMemberListViewModel teamMemberListViewModel;
 
+
 	public ProjectViewController() {
 
 	}
@@ -133,6 +134,7 @@ public class ProjectViewController
 					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()));
 		}
 		managementSystemModel.saveToFile();
+
 	}
 
 	@FXML private void customerNameTyped(){
@@ -154,27 +156,30 @@ public class ProjectViewController
 		viewHandler.openView("requirementList");
 	}
 
-	@FXML private void tMDButtonPressed(ActionEvent actionEvent) {
+	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
+	{
 		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
 		viewHandler.openView("teamMember"); //how to parse team member info that should be displayed
 	}
 
-	@FXML private void addReqButtonPressed(ActionEvent actionEvent) {
-
+	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
+	{
 	}
 
-	@FXML private void removeReqButtonPressed(ActionEvent actionEvent) {
-
+	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
+	{
 		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
 	}
 
-	@FXML private void addTMButtonPressed(ActionEvent actionEvent) {
-
+	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
+	{
 		viewHandler.openView("teamMember"); //how to make sure its a new team member window state
 	}
 
-	@FXML private void removeTMButtonPressed(ActionEvent actionEvent) {
-
+	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)
+	{
 		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
+		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getTeamMemberList().removeTeamMember(tmv.getNameProperty());
+		teamMemberListViewModel.update();
 	}
 }
