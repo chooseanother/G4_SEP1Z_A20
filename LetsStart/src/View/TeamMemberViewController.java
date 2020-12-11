@@ -79,7 +79,7 @@ public class TeamMemberViewController {
 
 	@FXML private void nameTyped(){
 		if (nameText.getText().split(" ").length !=2){
-			errorLabel.setText("Name must be in the form off \"Name Surname\"");
+			errorLabel.setText("Name must be in the form of \"Name Surname\"");
 		}
 		else{
 			errorLabel.setText("");
