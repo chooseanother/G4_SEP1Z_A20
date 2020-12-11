@@ -164,11 +164,15 @@ public class ProjectViewController
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
 	{
+		state.setProjectId(-1);
+		viewHandler.openView("requirement");
 	}
 
 	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
 	{
 		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
+		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getRequirementList().removeRequirement(state.getRequirementId());
+		requirementListViewModel.update();
 	}
 
 	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
