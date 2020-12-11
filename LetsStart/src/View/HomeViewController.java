@@ -66,7 +66,7 @@ public class HomeViewController {
 		try
 		{
 			ProjectViewModel selectedItem = projectListTable.getSelectionModel().getSelectedItem();
-			boolean remove = confirmation();
+			boolean remove = removeConfirmation();
 			if (remove)
 			{
 				managementSystemModel.removeProject(selectedItem.getIdProperty());
@@ -83,11 +83,13 @@ public class HomeViewController {
 
 	@FXML private  void exitButtonPressed(ActionEvent actionEvent)
 	{
-		managementSystemModel.saveToFile();
+		if (exitConfirmation()){
+			managementSystemModel.saveToFile();
+		}
 		viewHandler.closeView();
 	}
 
-	private boolean confirmation()
+	private boolean removeConfirmation()
 	{
 		int index = projectListTable.getSelectionModel().getSelectedIndex();
 		ProjectViewModel selectedItem = projectListTable.getItems().get(index);
@@ -100,6 +102,15 @@ public class HomeViewController {
 		alert.setHeaderText(
 				"Removing project " + selectedItem.getTitleProperty() + " "
 						+ selectedItem.getIdProperty());
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
+
+	private boolean exitConfirmation()
+	{
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText("You are about to exit, want to save changes?");
 		Optional<ButtonType> result = alert.showAndWait();
 		return (result.isPresent()) && (result.get() == ButtonType.OK);
 	}

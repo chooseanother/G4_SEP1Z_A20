@@ -46,12 +46,27 @@ public class ProjectViewController
 		if (state.getProjectId()==-1){
 			projectLabel.setText("New Project");
 		}
+		else{
+			Project display = model.getProject(state.getProjectId());
+			projectLabel.setText("Project");
+			titleText.setText(display.getTitle());
+			customerText.setText(display.getCustomer().toString());
+			descriptionText.setText(display.getDescription());
+			//how to set deadline? deadlineDate.
+			progressText.setText(String.format("%.2f",display.getProgress())+"%");
+			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
+			idText.setText(display.getId()+"");
+		}
 	}
 
 	public void reset() {
 		descriptionText.setText("");
 		errorLabel.setText("");
 		customerText.setText("");
+		progressText.setText("");
+		titleText.setText("");
+		//how to reset date picker? deadlineDate.
+
 	}
 
 	public Region getRoot() {

@@ -12,11 +12,10 @@ public class ManagementSystemFile implements ManagementSystemPersistence
 
   @Override public void save(ProjectList projectList, String fileName)
   {
-    String filenameParse = "config.xml";
     File file = null;
     try
     {
-      file = parser.toXml(projectList, fileName);
+      file = parser.toJson(projectList, fileName);
     }
     catch (ParserException e)
     {
@@ -30,7 +29,7 @@ public class ManagementSystemFile implements ManagementSystemPersistence
     ProjectList projectList = new ProjectList();
     try
     {
-      projectList = parser.fromXml(fileName, ProjectList.class);
+      projectList = parser.fromJson(fileName, ProjectList.class);
     }
     catch (ParserException e)
     {

@@ -318,10 +318,10 @@ public class ManagementSystem implements ManagementSystemModel
 	}
 
 	@Override public void saveToFile(){
-		MSP.save(projectList, "Project_List.xml");
+		MSP.save(projectList, "Project_List.json");
 	}
 
 	@Override public void loadFromFile(){
-		projectList = MSP.load("Project_List.xml");
+		projectList = MSP.load("Project_List.json");
 	}
 }
