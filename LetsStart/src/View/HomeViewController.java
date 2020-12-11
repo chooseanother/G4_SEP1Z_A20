@@ -110,7 +110,7 @@ public class HomeViewController {
 	{
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Confirmation");
-		alert.setHeaderText("You are about to exit.\nPress OK to save changes, press Cancel to exit without saving.");
+		alert.setHeaderText("You are about to exit.\nPress OK to save changes\nPress Cancel to exit without saving.");
 		Optional<ButtonType> result = alert.showAndWait();
 		return (result.isPresent()) && (result.get() == ButtonType.OK);
 	}

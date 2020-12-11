@@ -90,7 +90,17 @@
         "list": []
       },
       "teamMemberList": {
-        "list": []
+        "list": [
+          {
+            "role": {
+              "role": "Product Owner"
+            },
+            "name": {
+              "firstName": "Alex",
+              "lastName": "Bawstrup"
+            }
+          }
+        ]
       },
       "deadline": {
         "day": 22,

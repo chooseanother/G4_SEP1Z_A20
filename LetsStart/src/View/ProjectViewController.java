@@ -18,7 +18,7 @@ public class ProjectViewController
 	@FXML private  TextField progressText,hoursSpentText,idText, customerText, titleText;
 	@FXML private  TableView<RequirementViewModel> requirementListTable;
 	@FXML private  TableColumn<RequirementViewModel, String> descriptionCollum;
-	@FXML private  TableColumn<RequirementViewModel, Integer> idCollum;
+	@FXML private  TableColumn<RequirementViewModel, Number> idCollum;
 	@FXML private  TableColumn<RequirementViewModel, String> statusCollum;
 	@FXML private  TableColumn<RequirementViewModel, String> priorityCollum;
 	@FXML private  TableView<TeamMemberViewModel> teamMemberListTable;
@@ -43,26 +43,32 @@ public class ProjectViewController
 		this.root = root;
 		this.state = state;
 		errorLabel.setText("");
-		if (state.getProjectId()<0){
+		if (this.state.getProjectId()<0){
 			projectLabel.setText("New Project");
 		}
 		else{
-			Project display = managementSystemModel.getProject(state.getProjectId());
+			Project display = managementSystemModel.getProject(this.state.getProjectId());
 			projectLabel.setText("Project");
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
 			descriptionText.setText(display.getDescription());
-			//how to set deadline? deadlineDate.
+			MyDate tmp = display.getDeadline();
+			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
 			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
 			idText.setText(display.getId()+"");
-		}
-		requirementListViewModel = new RequirementListViewModel(managementSystemModel, state);
+			requirementListViewModel = new RequirementListViewModel(managementSystemModel, this.state);
+			descriptionCollum.setCellValueFactory(cellData -> cellData.getValue().descriptionPropertyProperty());
+			idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
+			statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
+			priorityCollum.setCellValueFactory(cellData -> cellData.getValue().priorityPropertyProperty());
+			requirementListTable.setItems(requirementListViewModel.getList());
 
-		teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, state);
-		nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
-		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
-    teamMemberListTable.setItems(teamMemberListViewModel.getList());
+			teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, this.state);
+			nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
+			roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
+			teamMemberListTable.setItems(teamMemberListViewModel.getList());
+		}
 	}
 
 	public void reset() {
@@ -73,7 +79,7 @@ public class ProjectViewController
 			customerText.setText("");
 			progressText.setText("");
 			titleText.setText("");
-			//how to reset date picker? deadlineDate.
+			deadlineDate.getEditor().setText("");
 			hoursSpentText.setText("");
 			idText.setText("");
 		}
@@ -83,7 +89,8 @@ public class ProjectViewController
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
 			descriptionText.setText(display.getDescription());
-			//how to set deadline? deadlineDate.
+			MyDate tmp = display.getDeadline();
+			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
 			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
 			idText.setText(display.getId()+"");
@@ -97,7 +104,7 @@ public class ProjectViewController
 	}
 
 	@FXML private void backButtonPressed() {
-		state.setProjectId(-1);
+		state = new ViewState();
 		//check if there are changes not save, ask if user wants to save
 		viewHandler.openView("home");
 	}
@@ -139,6 +146,7 @@ public class ProjectViewController
 	}
 
 	@FXML private void homeButtonPressed() {
+		state = new ViewState();
 		viewHandler.openView("home");
 	}
 
@@ -150,7 +158,7 @@ public class ProjectViewController
 	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
 	{
 		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
-		viewHandler.openView("teamMember");
+		viewHandler.openView("teamMember"); //how to parse team member info that should be displayed
 	}
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
@@ -164,6 +172,7 @@ public class ProjectViewController
 
 	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
 	{
+		viewHandler.openView("teamMember"); //how to make sure its a new team member window state
 	}
 
 	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)

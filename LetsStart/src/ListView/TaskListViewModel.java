@@ -2,6 +2,7 @@ package ListView;
 
 import Model.ManagementSystemModel;
 import Model.Task;
+import View.ViewState;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,11 +12,11 @@ public class TaskListViewModel
   private ManagementSystemModel model;
   private int projectId, requirementId;
 
-  public TaskListViewModel(ManagementSystemModel model, int projectId, int requirementId){
+  public TaskListViewModel(ManagementSystemModel model, ViewState state){
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = projectId;
-    this.requirementId = requirementId;
+    this.projectId = state.getProjectId();
+    this.requirementId = state.getRequirementId();
     update();
   }
 

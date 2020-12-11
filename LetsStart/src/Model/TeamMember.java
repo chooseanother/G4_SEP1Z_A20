@@ -3,10 +3,10 @@ package Model;
 public class TeamMember extends Person
 {
   private Role role;
-  public TeamMember(Name name, String id, String role)
+  public TeamMember(Name name, String role)
   {
     super(name);
-    this.role.setRole(role);
+    this.role = new Role(role);
   }
 
   public Role getRole()
