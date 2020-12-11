@@ -2,6 +2,7 @@ package ListView;
 
 import Model.ManagementSystemModel;
 import Model.Requirement;
+import View.ViewState;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -11,10 +12,10 @@ public class RequirementListViewModel
   private ManagementSystemModel model;
   private int projectId;
 
-  public RequirementListViewModel(ManagementSystemModel model, int projectId){
+  public RequirementListViewModel(ManagementSystemModel model, ViewState state){
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = projectId;
+    this.projectId = state.getProjectId();
     update();
   }
 

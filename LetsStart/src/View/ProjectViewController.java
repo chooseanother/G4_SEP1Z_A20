@@ -57,6 +57,12 @@ public class ProjectViewController
 			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
 			idText.setText(display.getId()+"");
 		}
+		requirementListViewModel = new RequirementListViewModel(managementSystemModel, state);
+
+		teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, state);
+		nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
+		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
+    teamMemberListTable.setItems(teamMemberListViewModel.getList());
 	}
 
 	public void reset() {
@@ -82,6 +88,8 @@ public class ProjectViewController
 			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
 			idText.setText(display.getId()+"");
 		}
+		requirementListViewModel.update();
+		teamMemberListViewModel.update();
 	}
 
 	public Region getRoot() {
@@ -141,6 +149,8 @@ public class ProjectViewController
 
 	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
 	{
+		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
+		viewHandler.openView("teamMember");
 	}
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
@@ -149,6 +159,7 @@ public class ProjectViewController
 
 	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
 	{
+		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
 	}
 
 	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
@@ -157,5 +168,6 @@ public class ProjectViewController
 
 	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)
 	{
+		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
 	}
 }

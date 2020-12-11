@@ -4,19 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Model.TeamMember;
 import Model.ManagementSystemModel;
-
-/**
- * Add this in viewcontroller
- *
- *     @FXML private TableView<TeamMemberViewModel> teamMemberListTable;
- *     @FXML private TableColumn<TeamMemberViewModel, String> nameColumn;
- *     @FXML private TableColumn<TeamMemberViewModel, String> roleColumn;
- *
- *     this.teamMemberListViewModel = new TeamMemberListViewModel(ManagementSystem, projectId);
- *     nameColumn.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
- *     roleColumn.setCellValueFactory(cellData -> cellData.getValue().getRoleProperty());
- *     teamMemberListTable.setItems(teamMemberListViewModel.getList());
- */
+import View.ViewState;
 
 public class TeamMemberListViewModel
 {
@@ -27,13 +15,13 @@ public class TeamMemberListViewModel
   private int requirementId;
   private int taskId;
 
-  public TeamMemberListViewModel(ManagementSystemModel model, int projectId, int requirementId, int taskId)
+  public TeamMemberListViewModel(ManagementSystemModel model, ViewState state)
   {
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = projectId;
-    this.requirementId = requirementId;
-    this.taskId = taskId;
+    this.projectId = state.getProjectId();
+    this.requirementId = state.getRequirementId();
+    this.taskId = state.getTaskId();
     update();
   }
 
