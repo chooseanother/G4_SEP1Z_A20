@@ -123,19 +123,24 @@ public class ProjectViewController
 
 	@FXML private void reqDButtonPressed() {
 		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		viewHandler.openView("requirementList");
+		viewHandler.openView("requirement");
 	}
 
 	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
 	{
+
 	}
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
 	{
+		state.setRequirementId(-1);
+		viewHandler.openView("requirement");
 	}
 
 	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
 	{
+		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
+		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getRequirementList().removeRequirement(state.getRequirementId());
 	}
 
 	@FXML private void addTMButtonPressed(ActionEvent actionEvent)

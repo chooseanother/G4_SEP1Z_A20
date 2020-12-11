@@ -21,6 +21,8 @@ public class RequirementViewController {
 		this.viewHandler = viewHandler;
 		this.managementSystemModel = model;
 		this.root = root;
+		this.state=state;
+
 	}
 
 	public void reset() {

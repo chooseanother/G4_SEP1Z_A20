@@ -6,10 +6,12 @@ public class ViewState
   private int requirementId;
   private int taskId;
 
+
   public ViewState(){
     projectId = -1;
     requirementId = -1;
     taskId = -1;
+
   }
 
   public int getProjectId()
@@ -41,4 +43,5 @@ public class ViewState
   {
     this.taskId = taskId;
   }
+
 }
