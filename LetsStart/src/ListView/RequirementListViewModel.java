@@ -10,12 +10,12 @@ public class RequirementListViewModel
 {
   private ObservableList<RequirementViewModel> list;
   private ManagementSystemModel model;
-  private int projectId;
+  private ViewState state;
 
   public RequirementListViewModel(ManagementSystemModel model, ViewState state){
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = state.getProjectId();
+    this.state = state;
     update();
   }
 
@@ -24,12 +24,16 @@ public class RequirementListViewModel
   }
 
   public void update(){
+
     list.clear();
-    for (int i = 0; i < model.getProject(projectId).getRequirementList().
-        getNumberOfRequirements(); i++){
-      list.add(new RequirementViewModel(
-          model.getProject(projectId).getRequirementList()
-              .getRequirementIndex(i)));
+    if (state.getProjectId()>0)
+    {
+      for (int i = 0; i < model.getProject(state.getProjectId()).getRequirementList().
+          getNumberOfRequirements(); i++)
+      {
+        list.add(new RequirementViewModel(
+            model.getProject(state.getProjectId()).getRequirementList().getRequirementIndex(i)));
+      }
     }
   }
 

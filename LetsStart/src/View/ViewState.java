@@ -53,4 +53,11 @@ public class ViewState
   {
     this.memberId = memberId;
   }
+
+  public void reset(){
+    projectId = -1;
+    requirementId = -1;
+    taskId = -1;
+    memberId = -1;
+  }
 }

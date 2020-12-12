@@ -26,7 +26,7 @@ public interface ManagementSystemModel {
 	TaskList getAllTasks(int projectId, int requirementId);
 	Status getTaskStatus(int projectId, int requirementId, int taskId);
 	TeamMember getResponsibleTeamMember(int projectId, int requirementId, int taskId);
-	TeamMember getTeamMember(int projectId, int requirementId, int taskId, String name);
+	TeamMember getTeamMember(int projectId, int requirementId, int taskId, );//implement member id in all model classes
 	TeamMemberList getAllTeamMembers(int projectId, int requirementId, int taskId);
 	int getEstimatedTime(int projectId, int requirementId, int taskId);
 

@@ -24,7 +24,7 @@
             </HBox.margin>
          </Label>
       </HBox>
-      <TableView fx:id="projectListTable" prefHeight="444.0" prefWidth="803.0">
+      <TableView fx:id="projectListTable" onMouseClicked="#testDoubleClick" prefHeight="444.0" prefWidth="803.0">
          <columns>
             <TableColumn fx:id="idCollum" prefWidth="44.0" text="ID" />
             <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="397.0" text="Title" />

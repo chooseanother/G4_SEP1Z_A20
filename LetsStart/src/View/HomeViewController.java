@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
 import java.util.Optional;
@@ -39,6 +40,7 @@ public class HomeViewController {
 		deadlineCollum.setCellValueFactory(cellData -> cellData.getValue().deadlinePropertyProperty());
 		progressCollum.setCellValueFactory(cellData -> cellData.getValue().progressPropertyProperty());
 		projectListTable.setItems(projectListViewModel.getList());
+		projectListViewModel.update();
 	}
 
 	public void reset() {
@@ -113,5 +115,10 @@ public class HomeViewController {
 		alert.setHeaderText("You are about to exit.\nPress OK to save changes\nPress Cancel to exit without saving.");
 		Optional<ButtonType> result = alert.showAndWait();
 		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
+
+	@FXML private void testDoubleClick(MouseEvent mouseEvent)
+	{
+
 	}
 }

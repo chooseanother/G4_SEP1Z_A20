@@ -18,7 +18,7 @@ public class TeamMemberViewController {
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
 	private ViewState state;
-	@FXML private TextField nameText;
+	@FXML private TextField nameText, idText;
 	@FXML private ChoiceBox<String> roleChoice;
 	@FXML private Label title, errorLabel;
 	private final ObservableList<String> roles = FXCollections.observableArrayList(
@@ -40,6 +40,12 @@ public class TeamMemberViewController {
 
 	public void reset() {
 		errorLabel.setText("");
+		if (state.getMemberId()>0){
+			managementSystemModel.getTeamMember();//implement team member id in all model classes
+			nameText.setText("");
+			idText.setText(state.getMemberId()+"");
+			roleChoice.setValue("");
+		}
 	}
 
 	public Region getRoot() {
@@ -55,11 +61,12 @@ public class TeamMemberViewController {
 	}
 
 	@FXML private void homeButtonPressed() {
-		state = new ViewState();
+		state.reset();
 		viewHandler.openView("home");
 	}
 
 	@FXML private void backButtonPressed() {
+		state.setMemberId(-1);
 		if (state.getTaskId() < 0)
 			viewHandler.openView("project");
 		else

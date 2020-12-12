@@ -11,17 +11,13 @@ public class TeamMemberListViewModel
 
   private ObservableList<TeamMemberViewModel> list;
   private ManagementSystemModel model;
-  private int projectId;
-  private int requirementId;
-  private int taskId;
+  private ViewState state;
 
   public TeamMemberListViewModel(ManagementSystemModel model, ViewState state)
   {
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = state.getProjectId();
-    this.requirementId = state.getRequirementId();
-    this.taskId = state.getTaskId();
+    this.state = state;
     update();
   }
 
@@ -33,9 +29,13 @@ public class TeamMemberListViewModel
   public void update()
   {
     list.clear();
-    for (int i = 0; i < model.getProject(projectId).getTeamMemberList().numberOfTeamMembers(); i++)
+    if(state.getProjectId() > 0)
     {
-      list.add(new TeamMemberViewModel(model.getProject(projectId).getTeamMemberList().getTeamMember(i)));
+      for (int i = 0; i < model.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
+      {
+        list.add(new TeamMemberViewModel(
+            model.getProject(state.getProjectId()).getTeamMemberList().getTeamMember(i)));
+      }
     }
   }
 

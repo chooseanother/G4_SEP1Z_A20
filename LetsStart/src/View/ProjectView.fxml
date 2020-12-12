@@ -157,11 +157,12 @@
                </columns>
             </TableView>
          </VBox>
-         <VBox prefHeight="342.0" prefWidth="289.0">
-            <TableView fx:id="teamMemberListTable" prefHeight="462.0" prefWidth="289.0">
+         <VBox prefHeight="371.0" prefWidth="367.0">
+            <TableView fx:id="teamMemberListTable" prefHeight="371.0" prefWidth="494.0">
                <columns>
                   <TableColumn fx:id="nameCollum" prefWidth="157.59992063045502" text="Name" />
                   <TableColumn fx:id="roleCollum" minWidth="7.199951171875" prefWidth="132.0001220703125" text="Role" />
+                  <TableColumn fx:id="teamMemberIdCollum" prefWidth="75.0" text="ID" />
                </columns>
             </TableView>
          </VBox>

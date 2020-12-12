@@ -7,83 +7,8 @@
       },
       "customer": {
         "name": {
-          "firstName": "Your",
-          "lastName": "Boss"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 17,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "This might work",
-      "title": "Test1"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 2
-      },
-      "customer": {
-        "name": {
-          "firstName": "My",
-          "lastName": "Boss"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 30,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "sdksdfgkjsdgkj",
-      "title": "Test2"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 3
-      },
-      "customer": {
-        "name": {
-          "firstName": "id",
-          "lastName": "wrong"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 30,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "fix id",
-      "title": "test3id"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 4
-      },
-      "customer": {
-        "name": {
           "firstName": "mr",
-          "lastName": "4"
+          "lastName": "it"
         }
       },
       "requirementList": {
@@ -95,20 +20,98 @@
             "role": {
               "role": "Product Owner"
             },
+            "id": {
+              "id": 2
+            },
             "name": {
-              "firstName": "Alex",
-              "lastName": "Bawstrup"
+              "firstName": "j",
+              "lastName": "j"
+            }
+          },
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 3
+            },
+            "name": {
+              "firstName": "k",
+              "lastName": "k"
             }
           }
         ]
       },
       "deadline": {
-        "day": 22,
+        "day": 18,
         "month": 12,
         "year": 2020
       },
-      "description": "mr 4 4 4 4",
-      "title": "testnr4"
+      "description": "yes\t",
+      "title": "project 1"
+    },
+    {
+      "progress": 0.0,
+      "id": {
+        "id": 4
+      },
+      "customer": {
+        "name": {
+          "firstName": "h",
+          "lastName": "h"
+        }
+      },
+      "requirementList": {
+        "list": []
+      },
+      "teamMemberList": {
+        "list": [
+          {
+            "role": {
+              "role": "Project Creator"
+            },
+            "id": {
+              "id": 5
+            },
+            "name": {
+              "firstName": "1",
+              "lastName": "1"
+            }
+          }
+        ]
+      },
+      "deadline": {
+        "day": 24,
+        "month": 12,
+        "year": 2020
+      },
+      "description": "h",
+      "title": "h½"
+    },
+    {
+      "progress": 0.0,
+      "id": {
+        "id": 6
+      },
+      "customer": {
+        "name": {
+          "firstName": "k",
+          "lastName": "k"
+        }
+      },
+      "requirementList": {
+        "list": []
+      },
+      "teamMemberList": {
+        "list": []
+      },
+      "deadline": {
+        "day": 30,
+        "month": 12,
+        "year": 2020
+      },
+      "description": "kkk",
+      "title": "k"
     }
   ]
 }
