@@ -164,7 +164,7 @@ public class ProjectViewController
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
 	{
-		state.setProjectId(-1);
+		state.setProjectId(-1); //this is wrong, you need to know what project id you are working from
 		viewHandler.openView("requirement");
 	}
 
