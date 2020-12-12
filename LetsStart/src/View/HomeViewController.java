@@ -40,7 +40,6 @@ public class HomeViewController {
 		deadlineCollum.setCellValueFactory(cellData -> cellData.getValue().deadlinePropertyProperty());
 		progressCollum.setCellValueFactory(cellData -> cellData.getValue().progressPropertyProperty());
 		projectListTable.setItems(projectListViewModel.getList());
-		projectListViewModel.update();
 	}
 
 	public void reset() {

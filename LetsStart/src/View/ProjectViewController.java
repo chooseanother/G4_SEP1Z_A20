@@ -176,8 +176,13 @@ public class ProjectViewController
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
 	{
 		state.setRequirementId(-1);//this is wrong, you need to know what project id you are working from
-		state.setProjectId(Integer.parseInt(idText.getText()));
-		viewHandler.openView("requirement");
+		//project id is already set to current id. state.setProjectId(Integer.parseInt(idText.getText()));
+		if (state.getProjectId()<0){
+			errorLabel.setText("\"Save project before adding requirements\"");
+		}
+		else{
+			viewHandler.openView("requirement");
+		}
 	}
 
 	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
