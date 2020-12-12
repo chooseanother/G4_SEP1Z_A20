@@ -8,7 +8,11 @@ import java.io.File;
 
 public class ManagementSystemFile implements ManagementSystemPersistence
 {
-  XmlJsonParser parser = new XmlJsonParser();
+  private XmlJsonParser parser;
+
+  public ManagementSystemFile(){
+    parser = new XmlJsonParser();
+  }
 
   @Override public void save(ProjectList projectList, String fileName)
   {
