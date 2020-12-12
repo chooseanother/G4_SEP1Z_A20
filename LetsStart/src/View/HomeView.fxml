@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="661.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
    <HBox prefHeight="72.0" prefWidth="803.0">
@@ -26,10 +30,9 @@
       </HBox>
       <TableView fx:id="projectListTable" onMouseClicked="#testDoubleClick" prefHeight="444.0" prefWidth="803.0">
          <columns>
-            <TableColumn fx:id="idCollum" prefWidth="44.0" text="ID" />
-            <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="397.0" text="Title" />
-            <TableColumn fx:id="deadlineCollum" minWidth="0.0" prefWidth="223.0" text="Deadline" />
-            <TableColumn fx:id="progressCollum" minWidth="0.0" prefWidth="144.0" text="Progress" />
+            <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="340.79995119571686" text="Title" />
+            <TableColumn fx:id="deadlineCollum" minWidth="0.0" prefWidth="248.80001831054688" text="Deadline" />
+            <TableColumn fx:id="progressCollum" minWidth="0.0" prefWidth="211.9999877929688" text="Progress" />
          </columns>
       </TableView>
       <HBox prefHeight="100.0" prefWidth="200.0">

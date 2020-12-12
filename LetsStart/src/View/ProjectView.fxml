@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="762.0" prefWidth="920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectViewController">
    <VBox prefHeight="815.0" prefWidth="920.0">
@@ -150,19 +157,18 @@
          <VBox prefHeight="342.0" prefWidth="526.0">
             <TableView fx:id="requirementListTable" prefHeight="422.0" prefWidth="526.0">
                <columns>
-                  <TableColumn fx:id="idCollum" prefWidth="75.0" text="ID" />
-                  <TableColumn fx:id="descriptionCollum" prefWidth="217.60003662109375" text="Description" />
-                  <TableColumn fx:id="priorityCollum" prefWidth="120.79998779296875" text="Priority" />
-                  <TableColumn fx:id="statusCollum" prefWidth="111.19998779296873" text="Status" />
+                  <TableColumn fx:id="descriptionCollum" prefWidth="133.6000002026558" text="Estimated time" />
+                  <TableColumn fx:id="priorityCollum" prefWidth="148.80007934570312" text="Used time" />
+                  <TableColumn fx:id="statusCollum" prefWidth="128.79998779296875" text="Status" />
+                  <TableColumn prefWidth="118.4000244140625" text="Deadline" />
                </columns>
             </TableView>
          </VBox>
          <VBox prefHeight="371.0" prefWidth="367.0">
             <TableView fx:id="teamMemberListTable" prefHeight="371.0" prefWidth="494.0">
                <columns>
-                  <TableColumn fx:id="nameCollum" prefWidth="157.59992063045502" text="Name" />
-                  <TableColumn fx:id="roleCollum" minWidth="7.199951171875" prefWidth="132.0001220703125" text="Role" />
-                  <TableColumn fx:id="teamMemberIdCollum" prefWidth="75.0" text="ID" />
+                  <TableColumn fx:id="nameCollum" prefWidth="183.99999392032623" text="Name" />
+                  <TableColumn fx:id="roleCollum" minWidth="7.199951171875" prefWidth="183.20001220703125" text="Role" />
                </columns>
             </TableView>
          </VBox>
