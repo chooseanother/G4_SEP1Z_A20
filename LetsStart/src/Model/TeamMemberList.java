@@ -16,10 +16,10 @@ public class TeamMemberList
     list.add(teamMember);
   }
 
-  public TeamMember getTeamMember (String name)
+  public TeamMember getTeamMember (int memberId)
   {
     for(TeamMember teamMember : list)
-      if(teamMember.getName().equals(new Name(name)))
+      if(teamMember.getId() == memberId)
       {
         return teamMember;
       }
@@ -30,7 +30,7 @@ public class TeamMemberList
     return list.size();
   }
 
-  public TeamMember getTeamMember (int index)
+  public TeamMember getTeamMemberIndex (int index)
   {
     return list.get(index);
   }

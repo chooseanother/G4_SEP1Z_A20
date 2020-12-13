@@ -24,6 +24,7 @@ public class ProjectViewController
 	@FXML private  TableView<TeamMemberViewModel> teamMemberListTable;
 	@FXML private  TableColumn<TeamMemberViewModel, String> nameCollum;
 	@FXML private  TableColumn<TeamMemberViewModel, String> roleCollum;
+	@FXML private  TableColumn<TeamMemberViewModel, Number> tmIdCollum;
 
 	private Region root;
 	private ViewHandler viewHandler;
@@ -52,6 +53,7 @@ public class ProjectViewController
 		requirementListTable.setItems(requirementListViewModel.getList());
 		nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
 		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
+		tmIdCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		teamMemberListTable.setItems(teamMemberListViewModel.getList());
 		if (this.state.getProjectId()<0){
 			projectLabel.setText("New Project");
@@ -169,7 +171,8 @@ public class ProjectViewController
 
 	@FXML private void tMDButtonPressed(ActionEvent actionEvent)
 	{
-		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
+		teamMemberListTable.getSelectionModel().getSelectedItem().getIdProperty();
+		state.setMemberId(teamMemberListTable.getSelectionModel().getSelectedItem().getIdProperty());
 		viewHandler.openView("teamMember"); //how to parse team member info that should be displayed
 	}
 

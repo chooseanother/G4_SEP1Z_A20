@@ -77,19 +77,19 @@
                </HBox>
                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <TextField fx:id="idText" editable="false" prefWidth="200.0" />
+                     <TextField fx:id="idText" editable="false" focusTraversable="false" prefWidth="200.0" />
                   </children>
                </HBox>
             </children>
          </HBox>
         </VBox>
     </HBox>
-   <Label fx:id="errorLabel" prefWidth="250.0" text="Label" textFill="RED">
+   <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="34.0" prefWidth="325.0" text="Label" textFill="RED">
       <VBox.margin>
          <Insets left="20.0" />
       </VBox.margin>
    </Label>
-    <HBox alignment="CENTER" prefHeight="71.0" prefWidth="442.0" spacing="10.0">
+    <HBox alignment="CENTER" prefHeight="39.0" prefWidth="358.0" spacing="10.0">
         <Button mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="26.0" text="Remove">
             <HBox.margin>
                 <Insets />

@@ -6,13 +6,13 @@ public interface ManagementSystemModel {
 	void addTask(int projectId, int requirementId, Task task);
 	void addTeamMember(int projectId, TeamMember member);
 	void addTeamMember(int projectId, int requirementId, int taskId, TeamMember member);
-	void assignRole(int projectId, TeamMember member, Role role);
+	void assignRole(int projectId, int memberId, Role role);
 	void assignRequirementPriority(int projectId, int requirementId, Priority priority);
 
 	Project getProject(int id);
 	ProjectList getAllProjects();
 	double getProjectProgress(int projectId);
-	TeamMember getTeamMember(int projectId, String name);
+	TeamMember getTeamMember(int projectId, int memberId);
 	TeamMemberList getAllTeamMembers(int projectId);
 	int getTotalTimeSpent(int projectId);
 
@@ -26,7 +26,7 @@ public interface ManagementSystemModel {
 	TaskList getAllTasks(int projectId, int requirementId);
 	Status getTaskStatus(int projectId, int requirementId, int taskId);
 	TeamMember getResponsibleTeamMember(int projectId, int requirementId, int taskId);
-	TeamMember getTeamMember(int projectId, int requirementId, int taskId, );//implement member id in all model classes
+	TeamMember getTeamMember(int projectId, int requirementId, int taskId, int memberId);//implement member id in all model classes
 	TeamMemberList getAllTeamMembers(int projectId, int requirementId, int taskId);
 	int getEstimatedTime(int projectId, int requirementId, int taskId);
 

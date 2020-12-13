@@ -7,83 +7,8 @@
       },
       "customer": {
         "name": {
-          "firstName": "Your",
-          "lastName": "Boss"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 17,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "This might work",
-      "title": "Test1"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 2
-      },
-      "customer": {
-        "name": {
-          "firstName": "My",
-          "lastName": "Boss"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 30,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "sdksdfgkjsdgkj",
-      "title": "Test2"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 3
-      },
-      "customer": {
-        "name": {
-          "firstName": "id",
-          "lastName": "wrong"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 30,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "fix id",
-      "title": "test3id"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 4
-      },
-      "customer": {
-        "name": {
-          "firstName": "mr",
-          "lastName": "4"
+          "firstName": "Bob",
+          "lastName": "BoBo"
         }
       },
       "requirementList": {
@@ -93,22 +18,37 @@
         "list": [
           {
             "role": {
-              "role": "Product Owner"
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 3
             },
             "name": {
-              "firstName": "Alex",
-              "lastName": "Bawstrup"
+              "firstName": "lol",
+              "lastName": "noob"
+            }
+          },
+          {
+            "role": {
+              "role": "Scrum Master"
+            },
+            "id": {
+              "id": 5
+            },
+            "name": {
+              "firstName": "rr",
+              "lastName": "rr"
             }
           }
         ]
       },
       "deadline": {
-        "day": 22,
+        "day": 18,
         "month": 12,
         "year": 2020
       },
-      "description": "mr 4 4 4 4",
-      "title": "testnr4"
+      "description": "bo bobo boob ob o boob o boob obo ",
+      "title": "Bob"
     }
   ]
 }

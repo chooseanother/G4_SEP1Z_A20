@@ -183,7 +183,7 @@
               <children>
                     <TableView prefHeight="330.0" prefWidth="823.0">
                         <columns>
-                            <TableColumn prefWidth="116.00000303983688" text="ID" />
+                            <TableColumn fx:id="idCollum" prefWidth="116.00000303983688" text="ID" visible="false" />
                             <TableColumn prefWidth="437.59996032714844" text="Title" />
                   <TableColumn minWidth="0.0" prefWidth="262.4000244140625" text="Status" />
                         </columns>

@@ -29,12 +29,12 @@ public class TeamMemberListViewModel
   public void update()
   {
     list.clear();
-    if(state.getProjectId() > 0)
+    if(state.getProjectId() > 0 && model.getAllTeamMembers(state.getProjectId()).numberOfTeamMembers()>0)
     {
       for (int i = 0; i < model.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
       {
         list.add(new TeamMemberViewModel(
-            model.getProject(state.getProjectId()).getTeamMemberList().getTeamMember(i)));
+            model.getAllTeamMembers(state.getProjectId()).getTeamMemberIndex(i)));
       }
     }
   }
@@ -47,8 +47,7 @@ public class TeamMemberListViewModel
   public void remove(TeamMember member)
   {
     for (TeamMemberViewModel t : list){
-      if (t.getNameProperty().equals(member.getName().getFullName())
-          && t.getRoleProperty().equals(member.getRole().getRole()))
+      if (t.getIdProperty() == member.getId())
       {
         list.remove(t);
         break;

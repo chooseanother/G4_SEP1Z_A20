@@ -63,10 +63,10 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	@Override public void assignRole(int projectId, TeamMember member, Role role)
+	@Override public void assignRole(int projectId, int memberId, Role role)
 	{
 		projectList.getProject(projectId).getTeamMemberList().
-				getTeamMember(member.toString()).assignRole(role);
+				getTeamMember(memberId).assignRole(role);
 	}
 
 	/**
@@ -106,10 +106,10 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	@Override public TeamMember getTeamMember(int projectId, String name)
+	@Override public TeamMember getTeamMember(int projectId, int memberId)
 	{
 		return projectList.getProject(projectId).getTeamMemberList().
-				getTeamMember(name);
+				getTeamMember(memberId);
 	}
 
 	/**
@@ -216,11 +216,11 @@ public class ManagementSystem implements ManagementSystemModel
 	 *
 	 */
 	@Override public TeamMember getTeamMember(int projectId, int requirementId,
-			int taskId, String name)
+			int taskId, int memberId)
 	{
 		return projectList.getProject(projectId).getRequirementList().
 				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				getAllTeamMembers().getTeamMember(name);
+				getAllTeamMembers().getTeamMember(memberId);
 	}
 
 	/**
