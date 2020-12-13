@@ -27,7 +27,7 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="idText" prefWidth="200.0">
+                <TextField fx:id="idText" editable="false" prefWidth="200.0">
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin>
@@ -167,57 +167,50 @@
     <HBox prefHeight="35.0" prefWidth="816.0">
         <HBox prefHeight="36.0" prefWidth="195.0" spacing="5.0">
             <padding>
-                <Insets bottom="5.0" left="5.0" right="5.0"/>
+                <Insets bottom="5.0" left="5.0" right="5.0" />
             </padding>
-            <Button mnemonicParsing="false" onAction="#addButtonPressed"
-                    prefHeight="26.0" text="Add">
+            <Button mnemonicParsing="false" onAction="#addButtonPressed" prefHeight="26.0" text="Add">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#removeButtonPressed"
-                    prefHeight="26.0" text="Remove">
+            <Button mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="26.0" text="Remove">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#openButtonPressed"
-                    prefHeight="26.0" text="Open">
+            <Button mnemonicParsing="false" onAction="#openButtonPressed" prefHeight="26.0" text="Open">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
         </HBox>
-        <Label alignment="CENTER" prefHeight="35.0" prefWidth="443.0"
-               text="errorLabel" textFill="RED">
+        <Label fx:id="errorLabel" alignment="CENTER" prefHeight="35.0" prefWidth="443.0" text="errorLabel" textFill="RED">
            <padding>
-               <Insets bottom="5.0"/>
+               <Insets bottom="5.0" />
            </padding>
         </Label>
         <HBox prefHeight="36.0" prefWidth="181.0" spacing="5.0">
-            <Button mnemonicParsing="false" onAction="#saveButtonPressed"
-                    prefHeight="26.0" text="Save">
+            <Button mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="26.0" text="Save">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#backButtonPressed"
-                    prefHeight="26.0" text="Back">
+            <Button mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="26.0" text="Back">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#homeButtonPressed"
-                    prefHeight="26.0" text="Home">
+            <Button mnemonicParsing="false" onAction="#homeButtonPressed" prefHeight="26.0" text="Home">
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Button>
           <padding>
-              <Insets bottom="5.0" left="5.0" right="5.0"/>
+              <Insets bottom="5.0" left="5.0" right="5.0" />
           </padding>
           <HBox.margin>
-              <Insets/>
+              <Insets />
           </HBox.margin>
         </HBox>
     </HBox>

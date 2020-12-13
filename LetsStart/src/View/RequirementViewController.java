@@ -15,7 +15,7 @@ public class RequirementViewController {
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
 	private ViewState state;
-	@FXML private Label requirementLabel;
+	@FXML private Label requirementLabel, errorLabel;
 	@FXML private TextField idText, statusText, hoursSpentText, estimateText;
 	@FXML private TextArea descriptionText;
 	@FXML private ChoiceBox<String> responsibleChoice, priorityChoice;
@@ -48,6 +48,7 @@ public class RequirementViewController {
 		statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		taskListTable.setItems(taskListViewModel.getList());
+		errorLabel.setText("");
 		if(this.state.getRequirementId()<0){
 			requirementLabel.setText("New Requirement");
 		}
@@ -69,6 +70,7 @@ public class RequirementViewController {
 	}
 
 	public void reset() {
+		errorLabel.setText("");
 		if(this.state.getRequirementId()<0){
 			requirementLabel.setText("New Requirement");
 			idText.setText("");
@@ -79,7 +81,6 @@ public class RequirementViewController {
 			hoursSpentText.setText("");
 			//priority
 			estimateText.setText("");
-			taskListViewModel.update();
 		}
 		else
 		{
@@ -94,8 +95,8 @@ public class RequirementViewController {
 			hoursSpentText.setText(display.getTimeSpent()+" H");
 			//priority
 			//Estimated time
-			taskListViewModel.update();
 		}
+		taskListViewModel.update();
 	}
 
 	public Region getRoot() {
@@ -117,7 +118,8 @@ public class RequirementViewController {
 	}
 
 	@FXML private void saveButtonPressed() {
-
+		//check if deadline is valid
+		//
 	}
 
 	@FXML private void backButtonPressed() {
