@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="259.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TeamMemberViewController">
-    <HBox prefHeight="74.0" prefWidth="816.0">
-        <Label fx:id="title" alignment="CENTER" prefHeight="117.0" prefWidth="734.0" text="Team Member">
+<VBox prefHeight="239.0" prefWidth="358.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TeamMemberViewController">
+    <HBox alignment="CENTER" prefHeight="51.0" prefWidth="358.0">
+        <Label fx:id="title" alignment="CENTER" text="Team Member">
             <font>
                 <Font size="24.0" />
             </font>
