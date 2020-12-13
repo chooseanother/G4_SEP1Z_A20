@@ -146,9 +146,9 @@
             </HBox.margin>
          </Label>
       </HBox>
-      <HBox prefHeight="469.0" spacing="5.0">
+      <HBox prefHeight="496.0" prefWidth="908.0" spacing="5.0">
          <VBox prefHeight="342.0" prefWidth="526.0">
-            <TableView fx:id="requirementListTable" prefHeight="422.0" prefWidth="526.0">
+            <TableView fx:id="requirementListTable" prefHeight="452.0" prefWidth="526.0">
                <columns>
                   <TableColumn fx:id="descriptionCollum" prefWidth="133.6000002026558" text="Estimated time" />
                   <TableColumn fx:id="priorityCollum" prefWidth="148.80007934570312" text="Used time" />
@@ -177,7 +177,7 @@
             </HBox>
          </VBox>
          <VBox prefHeight="371.0" prefWidth="367.0">
-            <TableView fx:id="teamMemberListTable" prefHeight="399.0" prefWidth="367.0">
+            <TableView fx:id="teamMemberListTable" prefHeight="427.0" prefWidth="367.0">
                <columns>
                   <TableColumn fx:id="nameCollum" prefWidth="183.99999392032623" text="Name" />
                   <TableColumn fx:id="roleCollum" minWidth="7.199951171875" prefWidth="183.20001220703125" text="Role" />
@@ -206,14 +206,13 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
       </HBox>
-      <VBox prefHeight="66.0">
-         <HBox alignment="CENTER_LEFT" prefHeight="31.0" spacing="10.0">
-            <Label fx:id="errorLabel" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="55.0" text="Label" textFill="RED" />
-            <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-            </padding>
-         </HBox>
+      <VBox prefHeight="40.0" prefWidth="908.0">
          <HBox alignment="CENTER_RIGHT" prefHeight="25.0" spacing="5.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="716.0">
+               <children>
+                  <Label fx:id="errorLabel" prefHeight="26.0" prefWidth="718.0" text="Label" textFill="RED" />
+               </children>
+            </HBox>
             <Button mnemonicParsing="false" onAction="#homeButtonPressed" text="Home">
                <HBox.margin>
                   <Insets />
