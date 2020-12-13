@@ -159,11 +159,6 @@ public class ProjectViewController
 		}
 	}
 
-	@FXML private void homeButtonPressed() {
-		state.setProjectId(-1);
-		viewHandler.openView("home");
-	}
-
 	@FXML private void reqDButtonPressed() {
 		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
 		viewHandler.openView("requirementList");
