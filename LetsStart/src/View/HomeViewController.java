@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
 import java.util.Optional;
@@ -58,7 +59,6 @@ public class HomeViewController {
 	@FXML private  void openButtonPressed(ActionEvent actionEvent)
 	{
 		state.setProjectId(projectListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		System.out.println(state.getProjectId());
 		viewHandler.openView("project");
 	}
 
@@ -111,8 +111,13 @@ public class HomeViewController {
 	{
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Confirmation");
-		alert.setHeaderText("You are about to exit, want to save changes?");
+		alert.setHeaderText("You are about to exit.\nPress OK to save changes\nPress Cancel to exit without saving.");
 		Optional<ButtonType> result = alert.showAndWait();
 		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
+
+	@FXML private void testDoubleClick(MouseEvent mouseEvent)
+	{
+
 	}
 }

@@ -24,12 +24,12 @@
             </HBox.margin>
          </Label>
       </HBox>
-      <TableView fx:id="projectListTable" prefHeight="444.0" prefWidth="803.0">
+      <TableView fx:id="projectListTable" onMouseClicked="#testDoubleClick" prefHeight="444.0" prefWidth="803.0">
          <columns>
-            <TableColumn fx:id="idCollum" prefWidth="44.0" text="ID" />
-            <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="397.0" text="Title" />
-            <TableColumn fx:id="deadlineCollum" minWidth="0.0" prefWidth="223.0" text="Deadline" />
-            <TableColumn fx:id="progressCollum" minWidth="0.0" prefWidth="144.0" text="Progress" />
+            <TableColumn fx:id="titleCollum" minWidth="0.0" prefWidth="340.79995119571686" text="Title" />
+            <TableColumn fx:id="deadlineCollum" minWidth="0.0" prefWidth="248.80001831054688" text="Deadline" />
+            <TableColumn fx:id="progressCollum" minWidth="0.0" prefWidth="211.9999877929688" text="Progress" />
+            <TableColumn fx:id="idCollum" prefWidth="75.0" text="Id" visible="false" />
          </columns>
       </TableView>
       <HBox prefHeight="100.0" prefWidth="200.0">

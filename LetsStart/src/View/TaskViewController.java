@@ -19,7 +19,10 @@ public class TaskViewController
   public void reset() {
 
   }
-
+  //check if estimated time is allowed
+  // (estimated time for requirement minus total estimated time from all tasks
+  // related to requirement should be above estimated time form a new task
+  // else there will be an error/warning)
   public Region getRoot() {
     return root;
   }

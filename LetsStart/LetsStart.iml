@@ -12,7 +12,7 @@
     <orderEntry type="library" name="lib" level="application" />
     <orderEntry type="library" name="javafx-swt" level="application" />
     <orderEntry type="library" name="javafx-swt1" level="application" />
-    <orderEntry type="library" name="XmlJsonParser-1.4 (4)" level="project" />
+    <orderEntry type="library" name="XmlJsonParser-1.4 (2)" level="project" />
     <orderEntry type="module-library" scope="TEST">
       <library name="JUnit5.4">
         <CLASSES>

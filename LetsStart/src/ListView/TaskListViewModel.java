@@ -2,6 +2,7 @@ package ListView;
 
 import Model.ManagementSystemModel;
 import Model.Task;
+import View.ViewState;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -9,13 +10,12 @@ public class TaskListViewModel
 {
   private ObservableList<TaskViewModel> list;
   private ManagementSystemModel model;
-  private int projectId, requirementId;
+  private ViewState state;
 
-  public TaskListViewModel(ManagementSystemModel model, int projectId, int requirementId){
+  public TaskListViewModel(ManagementSystemModel model, ViewState state){
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = projectId;
-    this.requirementId = requirementId;
+    this.state = state;
     update();
   }
 
@@ -25,10 +25,14 @@ public class TaskListViewModel
 
   public void update(){
     list.clear();
-    for(int i = 0;
-        i < model.getProject(projectId).getRequirementList().
-            getRequirementId(requirementId).getAllTasks().numberOfTasks(); i++){
-      list.add(new TaskViewModel(model.getRequirement(projectId,requirementId).getAllTasks().getTaskIndex(i)));
+    if (state.getRequirementId()>0)
+    {
+      for (int i = 0; i < model.getProject(state.getProjectId()).getRequirementList().
+          getRequirementId(state.getRequirementId()).getAllTasks().numberOfTasks(); i++)
+      {
+        list.add(new TaskViewModel(
+            model.getRequirement(state.getProjectId(), state.getRequirementId()).getAllTasks().getTaskIndex(i)));
+      }
     }
   }
 

@@ -7,73 +7,86 @@
       },
       "customer": {
         "name": {
-          "firstName": "Your",
-          "lastName": "Boss"
+          "firstName": "Bob",
+          "lastName": "BoBo"
         }
       },
       "requirementList": {
         "list": []
       },
       "teamMemberList": {
-        "list": []
+        "list": [
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 3
+            },
+            "name": {
+              "firstName": "lol",
+              "lastName": "noob"
+            }
+          },
+          {
+            "role": {
+              "role": "Scrum Master"
+            },
+            "id": {
+              "id": 5
+            },
+            "name": {
+              "firstName": "rr",
+              "lastName": "rr"
+            }
+          }
+        ]
       },
       "deadline": {
-        "day": 17,
+        "day": 18,
         "month": 12,
         "year": 2020
       },
-      "description": "This might work",
-      "title": "Test1"
+      "description": "bo bobo boob ob o boob o boob obo ",
+      "title": "Bob"
     },
     {
       "progress": 0.0,
       "id": {
-        "id": 2
+        "id": 4
       },
       "customer": {
         "name": {
-          "firstName": "My",
-          "lastName": "Boss"
+          "firstName": "lksdfl",
+          "lastName": "sdflksdf"
         }
       },
       "requirementList": {
         "list": []
       },
       "teamMemberList": {
-        "list": []
+        "list": [
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 5
+            },
+            "name": {
+              "firstName": "kjdfg",
+              "lastName": "dfkgj"
+            }
+          }
+        ]
       },
       "deadline": {
-        "day": 10,
+        "day": 24,
         "month": 12,
         "year": 2020
       },
-      "description": "sdksdfgkjsdgkj",
-      "title": "Test2"
-    },
-    {
-      "progress": 0.0,
-      "id": {
-        "id": 3
-      },
-      "customer": {
-        "name": {
-          "firstName": "id",
-          "lastName": "wrong"
-        }
-      },
-      "requirementList": {
-        "list": []
-      },
-      "teamMemberList": {
-        "list": []
-      },
-      "deadline": {
-        "day": 30,
-        "month": 12,
-        "year": 2020
-      },
-      "description": "fix id",
-      "title": "test3id"
+      "description": "lksdflksdflk\t\t",
+      "title": "kdlflslk"
     }
   ]
 }

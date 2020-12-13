@@ -4,36 +4,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import Model.TeamMember;
 import Model.ManagementSystemModel;
-
-/**
- * Add this in viewcontroller
- *
- *     @FXML private TableView<TeamMemberViewModel> teamMemberListTable;
- *     @FXML private TableColumn<TeamMemberViewModel, String> nameColumn;
- *     @FXML private TableColumn<TeamMemberViewModel, String> roleColumn;
- *
- *     this.teamMemberListViewModel = new TeamMemberListViewModel(ManagementSystem, projectId);
- *     nameColumn.setCellValueFactory(cellData -> cellData.getValue().getNameProperty());
- *     roleColumn.setCellValueFactory(cellData -> cellData.getValue().getRoleProperty());
- *     teamMemberListTable.setItems(teamMemberListViewModel.getList());
- */
+import View.ViewState;
 
 public class TeamMemberListViewModel
 {
 
   private ObservableList<TeamMemberViewModel> list;
   private ManagementSystemModel model;
-  private int projectId;
-  private int requirementId;
-  private int taskId;
+  private ViewState state;
 
-  public TeamMemberListViewModel(ManagementSystemModel model, int projectId, int requirementId, int taskId)
+  public TeamMemberListViewModel(ManagementSystemModel model, ViewState state)
   {
     this.model = model;
     this.list = FXCollections.observableArrayList();
-    this.projectId = projectId;
-    this.requirementId = requirementId;
-    this.taskId = taskId;
+    this.state = state;
     update();
   }
 
@@ -45,9 +29,13 @@ public class TeamMemberListViewModel
   public void update()
   {
     list.clear();
-    for (int i = 0; i < model.getProject(projectId).getTeamMemberList().numberOfTeamMembers(); i++)
+    if(state.getProjectId() > 0 && model.getAllTeamMembers(state.getProjectId()).numberOfTeamMembers()>0)
     {
-      list.add(new TeamMemberViewModel(model.getProject(projectId).getTeamMemberList().getTeamMember(i)));
+      for (int i = 0; i < model.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
+      {
+        list.add(new TeamMemberViewModel(
+            model.getAllTeamMembers(state.getProjectId()).getTeamMemberIndex(i)));
+      }
     }
   }
 
@@ -59,8 +47,7 @@ public class TeamMemberListViewModel
   public void remove(TeamMember member)
   {
     for (TeamMemberViewModel t : list){
-      if (t.getNameProperty().equals(member.getName().getFullName())
-          && t.getRoleProperty().equals(member.getRole().getRole()))
+      if (t.getIdProperty() == member.getId())
       {
         list.remove(t);
         break;

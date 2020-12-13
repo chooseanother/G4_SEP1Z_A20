@@ -1,7 +1,9 @@
 package View;
 
 import Model.ManagementSystemModel;
+import Model.Requirement;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 
 public class RequirementViewController {
@@ -10,6 +12,7 @@ public class RequirementViewController {
 	private ViewHandler viewHandler;
 	private ManagementSystemModel managementSystemModel;
 	private ViewState state;
+	@FXML private Label requirementLabel;
 
 
 
@@ -23,6 +26,13 @@ public class RequirementViewController {
 		this.root = root;
 		this.state=state;
 
+		if(this.state.getRequirementId()<0)
+			requirementLabel.setText("New Requirement");
+		else
+		{
+			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
+			requirementLabel.setText("Requirement");
+		}
 	}
 
 	public void reset() {
