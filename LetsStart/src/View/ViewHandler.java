@@ -106,6 +106,7 @@ public class ViewHandler
 				root = loader.load();
 				projectViewController = loader.getController();
 				projectViewController.init(this, model, root, state);
+
 			}
 			catch (Exception e)
 			{
@@ -115,6 +116,7 @@ public class ViewHandler
 		else
 			projectViewController.reset();
 		return projectViewController.getRoot();
+
 	}
 
 	private Region loadRequirementView(String fxmlFile, ViewState state)
