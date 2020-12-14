@@ -119,7 +119,7 @@ public class RequirementViewController {
 
 	@FXML private void saveButtonPressed() {
 		//check if deadline is valid
-		//
+		//check if other stuff is valid
 	}
 
 	@FXML private void backButtonPressed() {
