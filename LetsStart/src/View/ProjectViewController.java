@@ -144,14 +144,18 @@ public class ProjectViewController
 			}
 		}
 		else{
-			Project edit = managementSystemModel.getProject(state.getProjectId());
-			edit.setTitle(titleText.getText());
-			edit.setCustomer(new Customer(customerText.getText()));
-			edit.setDescription(descriptionText.getText());
-			edit.setDeadline(
-					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()));
+			try
+			{
+				Project edit = managementSystemModel.getProject(state.getProjectId());
+				edit.setTitle(titleText.getText());
+				edit.setCustomer(new Customer(customerText.getText()));
+				edit.setDescription(descriptionText.getText());
+				edit.setDeadline(new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear()));
+			}
+			catch (Exception e){
+				errorLabel.setText(e.getMessage());
+			}
 		}
-
 		managementSystemModel.saveToFile();
 	}
 
