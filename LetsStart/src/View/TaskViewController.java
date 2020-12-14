@@ -14,9 +14,23 @@ public class TaskViewController
     this.viewHandler = viewHandler;
     this.managementSystemModel = model;
     this.root = root;
+    if (state.getTaskId()>0)
+    {
+      root.setUserData("Task");
+    }
+    else
+      root.setUserData("New Task");
+
   }
 
   public void reset() {
+
+    if (state.getTaskId()>0)
+    {
+      root.setUserData("Task");
+    }
+    else
+      root.setUserData("New Task");
 
   }
   //check if estimated time is allowed
