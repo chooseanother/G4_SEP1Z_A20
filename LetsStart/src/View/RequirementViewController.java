@@ -26,8 +26,12 @@ public class RequirementViewController {
 		this.root = root;
 		this.state=state;
 
+
 		if(this.state.getRequirementId()<0)
+		{
 			requirementLabel.setText("New Requirement");
+			root.setUserData("New Requirement");
+		}
 		else
 		{
 			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
@@ -36,6 +40,13 @@ public class RequirementViewController {
 	}
 
 	public void reset() {
+		if (state.getRequirementId()>0)
+		{
+			root.setUserData("Requirement");
+		}
+		else
+			root.setUserData("New Requirement");
+
 
 	}
 

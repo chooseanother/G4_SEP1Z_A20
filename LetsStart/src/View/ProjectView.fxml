@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="814.0" prefWidth="907.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectViewController">
+<VBox prefHeight="814.0" prefWidth="907.0" userData="Project" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectViewController">
    <VBox prefHeight="815.0">
       <HBox prefHeight="74.0">
          <Label fx:id="projectLabel" alignment="CENTER" prefHeight="80.0" prefWidth="816.0" text="Project">
