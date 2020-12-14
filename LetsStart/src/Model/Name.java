@@ -28,7 +28,7 @@ public class Name
   }
 
   /**
-   * Constructor that handles a name split in two strings
+   * Constructor that handles a name in one strings
    *
    * @param fullName a full name
    */
