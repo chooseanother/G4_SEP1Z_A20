@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="681.0" prefWidth="816.0"
+<VBox prefHeight="681.0" prefWidth="816.0" userData="Task"
       xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="View.TaskViewController">

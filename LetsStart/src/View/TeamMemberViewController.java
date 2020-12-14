@@ -38,6 +38,7 @@ public class TeamMemberViewController {
 		errorLabel.setText("");
 		if (state.getMemberId()>0){
 			TeamMember tmp;
+			root.setUserData("Team Member");
 			//check if its from project or task
 			if (state.getTaskId()<0)
 			{
@@ -55,12 +56,14 @@ public class TeamMemberViewController {
 		}
 		else{
 			title.setText("New Team Member");
+			root.setUserData("New Team Member");
 		}
 	}
 
 	public void reset() {
 		errorLabel.setText("");
 		if (state.getMemberId()>0){
+			root.setUserData("Team Member");
 			TeamMember tmp;
 			//check if its from project or task
 			if (state.getTaskId()<0)
@@ -83,6 +86,7 @@ public class TeamMemberViewController {
 			nameText.setText("");
 			idText.setText("");
 			roleChoice.setValue("");
+			root.setUserData("New Team Member");
 		}
 	}
 
