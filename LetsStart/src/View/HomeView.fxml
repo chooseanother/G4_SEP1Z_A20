@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="661.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
+<VBox prefHeight="661.0" prefWidth="803.0" userData="Home" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
    <HBox prefHeight="72.0" prefWidth="803.0">
       <Label alignment="CENTER" prefHeight="101.0" prefWidth="804.0" text="Home">
          <font>

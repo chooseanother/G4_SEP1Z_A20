@@ -51,6 +51,7 @@ public class RequirementViewController {
 		errorLabel.setText("");
 		if(this.state.getRequirementId()<0){
 			requirementLabel.setText("New Requirement");
+			root.setUserData("New Requirement");
 		}
 		else
 		{
@@ -72,6 +73,7 @@ public class RequirementViewController {
 	public void reset() {
 		errorLabel.setText("");
 		if(this.state.getRequirementId()<0){
+			root.setUserData("Requirement");
 			requirementLabel.setText("New Requirement");
 			idText.setText("");
 			//Responsible
@@ -84,6 +86,7 @@ public class RequirementViewController {
 		}
 		else
 		{
+			root.setUserData("New Requirement");
 			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
 			requirementLabel.setText("Requirement");
 			idText.setText(display.getId()+"");

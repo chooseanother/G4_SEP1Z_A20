@@ -55,8 +55,10 @@ public class ProjectViewController
 		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
 		tmIdCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		teamMemberListTable.setItems(teamMemberListViewModel.getList());
-		if (this.state.getProjectId()<0){
+		if (this.state.getProjectId()<0)
+		{
 			projectLabel.setText("New Project");
+			root.setUserData("New Project");
 		}
 		else{
 
@@ -78,7 +80,8 @@ public class ProjectViewController
 	}
 
 	public void reset() {
-		if (state.getProjectId() < 0) {
+		if (state.getProjectId() < 0)
+		{
 			projectLabel.setText("New Project");
 			descriptionText.setText("");
 			customerText.setText("");
@@ -87,6 +90,7 @@ public class ProjectViewController
 			deadlineDate.setValue(null);
 			hoursSpentText.setText("");
 			idText.setText("");
+			root.setUserData("New Project");
 		}
 		else{
 			Project display = managementSystemModel.getProject(state.getProjectId());
@@ -99,6 +103,7 @@ public class ProjectViewController
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
 			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
 			idText.setText(display.getId()+"");
+			root.setUserData("Project");
 
 		}
 		errorLabel.setText("");
@@ -139,14 +144,18 @@ public class ProjectViewController
 			}
 		}
 		else{
-			Project edit = managementSystemModel.getProject(state.getProjectId());
-			edit.setTitle(titleText.getText());
-			edit.setCustomer(new Customer(customerText.getText()));
-			edit.setDescription(descriptionText.getText());
-			edit.setDeadline(
-					new MyDate(dl.getDayOfMonth(),dl.getMonthValue(),dl.getYear()));
+			try
+			{
+				Project edit = managementSystemModel.getProject(state.getProjectId());
+				edit.setTitle(titleText.getText());
+				edit.setCustomer(new Customer(customerText.getText()));
+				edit.setDescription(descriptionText.getText());
+				edit.setDeadline(new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear()));
+			}
+			catch (Exception e){
+				errorLabel.setText(e.getMessage());
+			}
 		}
-
 		managementSystemModel.saveToFile();
 	}
 
