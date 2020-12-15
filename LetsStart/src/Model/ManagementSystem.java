@@ -86,7 +86,15 @@ public class ManagementSystem implements ManagementSystemModel
 		edit.setStatus(status);
 		edit.setPriority(priority);
 		edit.changeResponsibleTeamMember(responsible);
+	}
 
+	@Override public void editTask(int projectId, int requirementId, int taskId, String title, TeamMember responsible, String status, int timeSpent, int estimate){
+		Task edit = getTask(projectId,requirementId,taskId);
+		edit.setTitle(title);
+		edit.changeResponsibleTeamMember(responsible);
+		edit.updateStatus(status);
+		edit.updateHoursSpent(timeSpent);
+		edit.setEstimatedHours(estimate);
 	}
 	/**
 	 *
@@ -283,21 +291,21 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	@Override public void removeTeamMember(int projectId, String name)
+	@Override public void removeTeamMember(int projectId, int id)
 	{
 		projectList.getProject(projectId).getTeamMemberList().
-				removeTeamMember(name);
+				removeTeamMember(id);
 	}
 
 	/**
 	 *
 	 */
 	@Override public void removeTeamMember(int projectId, int requirementId,
-			int taskId, String name)
+			int taskId, int id)
 	{
 		projectList.getProject(projectId).getRequirementList().
 				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				removeTeamMember(name);
+				removeTeamMember(id);
 	}
 
 	/**

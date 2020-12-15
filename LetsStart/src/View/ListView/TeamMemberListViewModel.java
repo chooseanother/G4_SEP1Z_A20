@@ -29,12 +29,29 @@ public class TeamMemberListViewModel
   public void update()
   {
     list.clear();
-    if(state.getProjectId() > 0 && model.getAllTeamMembers(state.getProjectId()).numberOfTeamMembers()>0)
+    if (state.getTaskId()>0){
+      if (model.getTask(state.getProjectId(), state.getRequirementId(),
+          state.getTaskId()).getAllTeamMembers().numberOfTeamMembers()> 0 && model.getTask(state.getProjectId(), state.getRequirementId(),
+          state.getTaskId()).getAllTeamMembers() != null){
+        for (int i = 0; i < model.getTask(state.getProjectId(), state.getRequirementId(),
+            state.getTaskId()).getAllTeamMembers().numberOfTeamMembers(); i++){
+          list.add(new TeamMemberViewModel(model.getTask(state.getProjectId(), state.getRequirementId(),
+              state.getTaskId()).getAllTeamMembers().getTeamMemberIndex(i)));
+        }
+      }
+    }
+    else
     {
-      for (int i = 0; i < model.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
+      if (state.getProjectId() > 0
+          && model.getAllTeamMembers(state.getProjectId()).numberOfTeamMembers()
+          > 0)
       {
-        list.add(new TeamMemberViewModel(
-            model.getAllTeamMembers(state.getProjectId()).getTeamMemberIndex(i)));
+        for (int i = 0;
+             i < model.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
+        {
+          list.add(new TeamMemberViewModel(
+              model.getAllTeamMembers(state.getProjectId()).getTeamMemberIndex(i)));
+        }
       }
     }
   }
@@ -44,10 +61,10 @@ public class TeamMemberListViewModel
     list.add(new TeamMemberViewModel(member));
   }
 
-  public void remove(TeamMember member)
+  public void remove(int id)
   {
     for (TeamMemberViewModel t : list){
-      if (t.getIdProperty() == member.getId())
+      if (t.getIdProperty() == id)
       {
         list.remove(t);
         break;

@@ -134,7 +134,7 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="estimateText">
+                <TextField fx:id="estimateText" prefWidth="173.0">
                     <HBox.margin>
                         <Insets left="10.0" />
                     </HBox.margin>
