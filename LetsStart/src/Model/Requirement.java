@@ -86,7 +86,12 @@ public class Requirement
         return;
       }
     }
-    status.setStatus(Status.ENDED);
+    if (tasks.numberOfTasks()>0){
+      status.setStatus(Status.ENDED);
+    }
+    else {
+      status.setStatus(Status.IN_PROGRESS);
+    }
   }
 
   public void setPriority(Priority priority)

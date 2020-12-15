@@ -24,6 +24,14 @@ public class Task {
     this.teamMemberList = new TeamMemberList();
   }
 
+  public void setTitle(String title){
+    this.title = title;
+  }
+
+  public void setEstimatedHours(int estimate){
+    this.estimatedHours = estimate;
+  }
+
   public void updateStatus(String status) {
     this.status.setStatus(status);
   }

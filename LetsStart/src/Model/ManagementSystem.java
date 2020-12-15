@@ -86,7 +86,15 @@ public class ManagementSystem implements ManagementSystemModel
 		edit.setStatus(status);
 		edit.setPriority(priority);
 		edit.changeResponsibleTeamMember(responsible);
+	}
 
+	@Override public void editTask(int projectId, int requirementId, int taskId, String title, TeamMember responsible, String status, int timeSpent, int estimate){
+		Task edit = getTask(projectId,requirementId,taskId);
+		edit.setTitle(title);
+		edit.changeResponsibleTeamMember(responsible);
+		edit.updateStatus(status);
+		edit.updateHoursSpent(timeSpent);
+		edit.setEstimatedHours(estimate);
 	}
 	/**
 	 *

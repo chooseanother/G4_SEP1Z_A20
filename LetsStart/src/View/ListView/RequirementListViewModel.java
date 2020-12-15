@@ -41,9 +41,9 @@ public class RequirementListViewModel
     list.add(new RequirementViewModel(requirement));
   }
 
-  public void remove(Requirement requirement){
+  public void remove(int id){
     for (RequirementViewModel r : list){
-      if(r.getIdProperty() == requirement.getId()){
+      if(r.getIdProperty() == id){
         list.remove(r);
         break;
       }

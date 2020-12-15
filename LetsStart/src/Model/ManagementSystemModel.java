@@ -10,7 +10,7 @@ public interface ManagementSystemModel {
 	void assignRequirementPriority(int projectId, int requirementId, Priority priority);
 
 	void editRequirement(int projectId, int requirementId, String description, int time, String status, Priority priority, TeamMember responsible);
-
+	void editTask(int projectId, int requirementId, int taskId, String title, TeamMember responsible, String status, int timeSpent, int estimate);
 	Project getProject(int id);
 	ProjectList getAllProjects();
 	double getProjectProgress(int projectId);

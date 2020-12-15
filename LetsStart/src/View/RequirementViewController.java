@@ -81,10 +81,10 @@ public class RequirementViewController {
 			root.setUserData("Requirement");
 			requirementLabel.setText("Requirement");
 			Requirement display=managementSystemModel.getRequirement(this.state.getProjectId(),this.state.getRequirementId());
+			display.updateStatus();
 			statusChoice.setItems(statuses);
 			idText.setText(display.getId()+"");
 			responsibleChoice.setValue(display.getResponsibleTeamMember().getName().toString());
-			System.out.println(display.getResponsibleTeamMember().toString());
 			descriptionText.setText(display.getDescription());
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));

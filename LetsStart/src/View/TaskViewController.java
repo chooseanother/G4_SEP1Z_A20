@@ -1,8 +1,6 @@
 package View;
 
-import Model.ManagementSystemModel;
-import Model.Priority;
-import Model.Status;
+import Model.*;
 import View.ListView.TaskViewModel;
 import View.ListView.TeamMemberListViewModel;
 import View.ListView.TeamMemberViewModel;
@@ -12,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class TaskViewController
@@ -21,7 +20,7 @@ public class TaskViewController
   private ManagementSystemModel managementSystemModel;
   private ViewState state;
   private TeamMemberListViewModel teamMemberListViewModel;
-  @FXML private TableView<TeamMemberViewModel> teamMemberListTable;
+  @FXML private TableView<TeamMemberViewModel> taskTeamMemberListTable;
   @FXML private TableColumn<TeamMemberViewModel, String> nameCollum;
   @FXML private TableColumn<TeamMemberViewModel, Number> idCollum;
   @FXML private Label titleLabel, errorLabel;
@@ -38,21 +37,20 @@ public class TaskViewController
     this.viewHandler = viewHandler;
     this.managementSystemModel = model;
     this.root = root;
+    this.state = state;
     teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, this.state);
     nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
     idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
-    teamMemberListTable.setItems(teamMemberListViewModel.getList());
+    taskTeamMemberListTable.setItems(teamMemberListViewModel.getList());
     reset();
   }
 
   public void reset() {
+    errorLabel.setText("");
     allowedTeamMembers.clear();
-    int amount = managementSystemModel.getTask(this.state.getProjectId(),
-        state.getRequirementId(), state.getTaskId()).getAllTeamMembers().numberOfTeamMembers();
-    if (amount > 0){
-      for (int i = 0; i <amount; i++){
-        allowedTeamMembers.add(managementSystemModel.getTask(this.state.getProjectId(),
-            state.getRequirementId(), state.getTaskId()).getAllTeamMembers().getTeamMemberIndex(i).getName().toString());
+    if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
+      for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
+        allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString());
       }
     }
     responsibleChoice.setItems(allowedTeamMembers);
@@ -64,13 +62,31 @@ public class TaskViewController
       reqIdText.setText("");
       taskIdText.setText("");
       responsibleChoice.setValue(null);
+      deadlineDate.setValue(null);
       statusChoice.setItems(FXCollections.observableArrayList(Status.NOT_STARTED));
+      enterHoursText.setVisible(false);
     }
     else{
+      Task display = managementSystemModel.getTask(state.getProjectId(),
+          state.getRequirementId(), state.getTaskId());
+      enterHoursText.setVisible(true);
+      enterHoursText.setText("");
+      enterHoursText.setPromptText("Enter hours");
       root.setUserData("Task");
       titleLabel.setText("Task");
       statusChoice.setItems(statuses);
+      titleText.setText(display.getTitle());
+      reqIdText.setText(display.getReqId()+"");
+      taskIdText.setText(display.getId()+"");
+      responsibleChoice.setValue(display.getResponsibleTeamMember().getName().toString());
+      MyDate tmp = display.getDeadline();
+      deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
+      statusChoice.setValue(display.getStatus().toString());
+      hoursText.setText(display.getHoursSpent()+"");
+      estimateText.setText(display.getEstimatedTime()+"");
     }
+    System.out.println();
+    teamMemberListViewModel.update();
   }
 
   public Region getRoot() {
@@ -82,26 +98,59 @@ public class TaskViewController
     // (estimated time for requirement minus total estimated time from all tasks
     // related to requirement should be above estimated time form a new task
     // else there will be an error/warning)
-  }
-
-  @FXML private void deletePressed() {
-
+    try {
+    LocalDate dl = deadlineDate.getValue();
+    MyDate deadline = new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear());
+    int estimatedTime = Integer.parseInt(estimateText.getText().split(" ")[0]);
+    TeamMember responsible = null;
+    for (int i = 0;
+         i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++) {
+      if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString()
+          .equalsIgnoreCase(responsibleChoice.getValue())) {
+        responsible = managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList()
+            .getTeamMemberIndex(i);
+      }
+    }
+    if (state.getTaskId()<0){
+      Task save = new Task(titleText.getText(),estimatedTime,deadline,responsible,state.getRequirementId());
+      managementSystemModel.addTask(state.getProjectId(),state.getRequirementId(),save);
+      state.setTaskId(save.getId());
+    }
+    else{
+      int addedHours = 0;
+      if (enterHoursText.getText().matches("[0-9]+")){
+        addedHours = Integer.parseInt(enterHoursText.getText());
+      }
+      managementSystemModel.editTask(state.getProjectId(), state.getRequirementId(), state.getTaskId(),
+          titleText.getText(), responsible, statusChoice.getValue(),addedHours,estimatedTime);
+    }
+      managementSystemModel.saveToFile();
+    reset();
+    }
+    catch (Exception e){
+      errorLabel.setText("Error: " + e.getMessage());
+    }
   }
 
   @FXML private void addPressed() {
-
+    if (state.getTaskId()<0){
+      errorLabel.setText("Save task before adding team members");
+    }
+    else {
+      viewHandler.openView("teamMember");
+    }
   }
 
   @FXML private void removePressed() {
     try
     {
-      TeamMemberViewModel selectedItem = teamMemberListTable.getSelectionModel().getSelectedItem();
+      TeamMemberViewModel selectedItem = taskTeamMemberListTable.getSelectionModel().getSelectedItem();
       boolean remove = removeConfirmation();
       if (remove)
       {
         managementSystemModel.removeTeamMember(state.getProjectId(),state.getRequirementId(),state.getTaskId(),selectedItem.getIdProperty());
         teamMemberListViewModel.remove(selectedItem.getIdProperty());
-        teamMemberListTable.getSelectionModel().clearSelection();
+        taskTeamMemberListTable.getSelectionModel().clearSelection();
       }
     }
     catch (Exception e)
@@ -127,9 +176,9 @@ public class TaskViewController
 
   private boolean removeConfirmation()
   {
-    int index = teamMemberListTable.getSelectionModel().getSelectedIndex();
-    TeamMemberViewModel selectedItem = teamMemberListTable.getItems().get(index);
-    if (index < 0 || index >= teamMemberListTable.getItems().size())
+    int index = taskTeamMemberListTable.getSelectionModel().getSelectedIndex();
+    TeamMemberViewModel selectedItem = taskTeamMemberListTable.getItems().get(index);
+    if (index < 0 || index >= taskTeamMemberListTable.getItems().size())
     {
       return false;
     }

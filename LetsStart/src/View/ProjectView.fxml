@@ -158,22 +158,24 @@
                </columns>
             </TableView>
             <HBox prefHeight="22.0" prefWidth="526.0" spacing="5.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#reqDButtonPressed" text="Requirement details" />
-                  <Button mnemonicParsing="false" onAction="#addReqButtonPressed" text="Add requirement">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#removeReqButtonPressed" text="Remove requirement">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                </padding>
+               <Button mnemonicParsing="false" onAction="#reqDButtonPressed"
+                       text="Requirement details"/>
+               <Button mnemonicParsing="false" onAction="#addReqButtonPressed"
+                       text="Add requirement">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </Button>
+               <Button mnemonicParsing="false"
+                       onAction="#removeReqButtonPressed"
+                       text="Remove requirement">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </Button>
             </HBox>
          </VBox>
          <VBox prefHeight="371.0" prefWidth="367.0">
@@ -185,21 +187,21 @@
                </columns>
             </TableView>
             <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#removeTMButtonPressed" text="Remove Team member" />
-               </children>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                </padding>
+               <Button mnemonicParsing="false" onAction="#removeTMButtonPressed"
+                       text="Remove Team member"/>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0" spacing="5.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#addTMButtonPressed" text="Add Team member" />
-                  <Button mnemonicParsing="false" onAction="#tMDButtonPressed" text="Edit team member" />
-               </children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0"
+                  spacing="5.0">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                </padding>
+               <Button mnemonicParsing="false" onAction="#addTMButtonPressed"
+                       text="Add Team member"/>
+               <Button mnemonicParsing="false" onAction="#tMDButtonPressed"
+                       text="Edit team member"/>
             </HBox>
          </VBox>
          <padding>
@@ -209,23 +211,23 @@
       <VBox prefHeight="40.0" prefWidth="908.0">
          <HBox alignment="CENTER_LEFT" prefHeight="25.0" spacing="5.0">
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="733.0">
-               <children>
-                  <Label fx:id="errorLabel" alignment="CENTER" prefHeight="26.0" prefWidth="691.0" text="errorLabel" textFill="RED" />
-               </children>
+               <Label fx:id="errorLabel" alignment="CENTER" prefHeight="26.0"
+                      prefWidth="691.0" text="errorLabel" textFill="RED"/>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="192.0" spacing="5.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="Save">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#backButtonPressed" text="Back">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-               </children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="192.0"
+                  spacing="5.0">
+               <Button mnemonicParsing="false" onAction="#saveButtonPressed"
+                       text="Save">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </Button>
+               <Button mnemonicParsing="false" onAction="#backButtonPressed"
+                       text="Back">
+                  <HBox.margin>
+                     <Insets/>
+                  </HBox.margin>
+               </Button>
             </HBox>
             <padding>
                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

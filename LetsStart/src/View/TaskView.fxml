@@ -161,7 +161,7 @@
                         </font>
                     </Label>
                 </HBox>
-                 <TableView fx:id="teamMemberListTable" prefHeight="263.0" prefWidth="275.0">
+                 <TableView fx:id="taskTeamMemberListTable" prefHeight="263.0" prefWidth="275.0">
                      <columns>
                          <TableColumn fx:id="nameCollum" prefWidth="275.0" text="Name" />
                          <TableColumn fx:id="idCollum" prefWidth="75.0" text="Column X" visible="false" />
@@ -183,14 +183,11 @@
    <HBox>
       <children>
          <HBox>
-            <children>
-                 <Button mnemonicParsing="false" onAction="#deletePressed" prefHeight="26.0" prefWidth="104.0" text="Delete task" />
-            </children>
             <padding>
                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </HBox>
-         <Label fx:id="errorLabel" alignment="CENTER" prefHeight="35.0" prefWidth="342.0" text="errorLabel" textFill="RED" />
+         <Label fx:id="errorLabel" prefHeight="35.0" prefWidth="445.0" text="errorLabel" textFill="RED" />
          <HBox spacing="5.0">
             <children>
                  <Button mnemonicParsing="false" onAction="#savePressed" prefHeight="26.0" text="Save" />

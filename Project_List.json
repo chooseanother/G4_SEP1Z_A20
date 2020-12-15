@@ -26,7 +26,41 @@
               "year": 2020
             },
             "tasks": {
-              "list": []
+              "list": [
+                {
+                  "title": "test",
+                  "estimatedHours": 3,
+                  "totalHoursWorked": 36,
+                  "reqId": 10,
+                  "responsibleTeamMember": {
+                    "role": {
+                      "role": "Team Member"
+                    },
+                    "id": {
+                      "id": 3
+                    },
+                    "name": {
+                      "firstName": "lol",
+                      "lastName": "noob"
+                    }
+                  },
+                  "status": {
+                    "status": "Finished",
+                    "isRequirement": false
+                  },
+                  "deadline": {
+                    "day": 31,
+                    "month": 12,
+                    "year": 2020
+                  },
+                  "id": {
+                    "id": 14
+                  },
+                  "teamMemberList": {
+                    "list": []
+                  }
+                }
+              ]
             },
             "status": {
               "status": "Ended",
@@ -45,6 +79,75 @@
               "name": {
                 "firstName": "lol",
                 "lastName": "noob"
+              }
+            }
+          },
+          {
+            "reqID": {
+              "id": 16
+            },
+            "description": "rgerg",
+            "timeSpent": 0,
+            "estimatedTime": 55,
+            "deadline": {
+              "day": 24,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": [
+                {
+                  "title": "utriu",
+                  "estimatedHours": 32,
+                  "totalHoursWorked": 0,
+                  "reqId": 16,
+                  "responsibleTeamMember": {
+                    "role": {
+                      "role": "Team Member"
+                    },
+                    "id": {
+                      "id": 3
+                    },
+                    "name": {
+                      "firstName": "lol",
+                      "lastName": "noob"
+                    }
+                  },
+                  "status": {
+                    "status": "Not started",
+                    "isRequirement": false
+                  },
+                  "deadline": {
+                    "day": 31,
+                    "month": 12,
+                    "year": 2020
+                  },
+                  "id": {
+                    "id": 17
+                  },
+                  "teamMemberList": {
+                    "list": []
+                  }
+                }
+              ]
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 0
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Scrum Master"
+              },
+              "id": {
+                "id": 5
+              },
+              "name": {
+                "firstName": "rr",
+                "lastName": "rr"
               }
             }
           }
@@ -98,7 +201,43 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 11
+            },
+            "description": "kllkkllklk",
+            "timeSpent": 0,
+            "estimatedTime": 76,
+            "deadline": {
+              "day": 31,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": []
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 0
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Team Member"
+              },
+              "id": {
+                "id": 5
+              },
+              "name": {
+                "firstName": "kjdfg",
+                "lastName": "dfkgj"
+              }
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": [
@@ -161,7 +300,31 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 13
+            },
+            "description": "yutyu",
+            "timeSpent": 0,
+            "estimatedTime": 56,
+            "deadline": {
+              "day": 23,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": []
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 2
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": []

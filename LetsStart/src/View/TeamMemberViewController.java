@@ -20,10 +20,10 @@ public class TeamMemberViewController {
 	private ViewState state;
 	@FXML private TextField nameText, idText;
 	@FXML private ChoiceBox<String> roleChoice;
-	@FXML private Label title, errorLabel;
+	@FXML private Label title, errorLabel, roleLabel, idLabel;
 	private final ObservableList<String> roles = FXCollections.observableArrayList(
-					Role.TEAM_MEMBER,Role.SCRUM_MASTER,
-					Role.PRODUCT_OWNER,Role.PROJECT_CREATOR);
+			Role.TEAM_MEMBER,Role.SCRUM_MASTER,
+			Role.PRODUCT_OWNER,Role.PROJECT_CREATOR);
 
 	public TeamMemberViewController() {
 
@@ -35,71 +35,47 @@ public class TeamMemberViewController {
 		this.root = root;
 		this.state = state;
 		roleChoice.setItems(roles);
-		errorLabel.setText("");
-		if (state.getMemberId()>0){
-			TeamMember tmp;
-			root.setUserData("Team Member");
-			//check if its from project or task
-			if (state.getTaskId()<0)
-			{
-				tmp = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getMemberId());//implement team member id in all model classes
-			}
-			else{
-				tmp = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getRequirementId(),
-								state.getTaskId(), state.getMemberId());//implement team member id in all model classes
-			}
-			nameText.setText(tmp.getName().getFullName());
-			idText.setText(state.getMemberId() + "");
-			roleChoice.setValue(tmp.getRole().getRole());
-		}
-		else{
-			title.setText("New Team Member");
-			root.setUserData("New Team Member");
-		}
+		reset();
 	}
 
 	public void reset() {
 		errorLabel.setText("");
-		if (state.getMemberId()>0){
-			root.setUserData("Team Member");
-			TeamMember tmp;
-			//check if its from project or task
-			if (state.getTaskId()<0)
-			{
+		if (state.getTaskId()<0)
+		{
+			roleChoice.setVisible(true);
+			roleLabel.setVisible(true);
+			idLabel.setVisible(true);
+			idText.setVisible(true);
+			if (state.getMemberId() > 0)
+			{//check if its new or existing team member
+				root.setUserData("Team Member");
+				TeamMember tmp;
 				tmp = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getMemberId());//implement team member id in all model classes
+						.getTeamMember(state.getProjectId(), state.getMemberId());
 
+				nameText.setText(tmp.getName().getFullName());
+				idText.setText(state.getMemberId() + "");
+				roleChoice.setValue(tmp.getRole().getRole());
 			}
-			else{
-				tmp = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getRequirementId(),
-								state.getTaskId(), state.getMemberId());//implement team member id in all model classes
+			else
+			{
+				title.setText("New Team Member");
+				root.setUserData("New Team Member");
+				nameText.setText("");
+				idText.setText("");
+				roleChoice.setValue("");
 			}
-			nameText.setText(tmp.getName().getFullName());
-			idText.setText(state.getMemberId() + "");
-			roleChoice.setValue(tmp.getRole().getRole());
 		}
-		else{
-			title.setText("New Team Member");
-			nameText.setText("");
-			idText.setText("");
-			roleChoice.setValue("");
-			root.setUserData("New Team Member");
+		else {
+			roleChoice.setVisible(false);
+			roleLabel.setVisible(false);
+			idLabel.setVisible(false);
+			idText.setVisible(false);
 		}
 	}
 
 	public Region getRoot() {
 		return root;
-	}
-
-	@FXML private void removeButtonPressed() {
-		//need some kind of state that handles what team member is displayed that needs to be removed
-		if (state.getTaskId() < 0)
-		 viewHandler.openView("project");
-		else
-			viewHandler.openView("task");
 	}
 
 	@FXML private void homeButtonPressed() {
@@ -118,38 +94,41 @@ public class TeamMemberViewController {
 	@FXML private void saveButtonPressed(){
 		//check state if its a new tm that needs to be added, or existing tm that needs to be edited
 		//check if role is available
-
-		if (state.getMemberId()<0) {
-			TeamMember tmp;
-			tmp = new TeamMember(new Name(nameText.getText()),
-					roleChoice.getSelectionModel().getSelectedItem());
-			if (state.getTaskId() < 0)
-				//if it is a task then it should be a team member from the project list
-				//maybe a different view with a choice box where you can select
-				// team members from related project that can be added.
-				managementSystemModel.addTeamMember(state.getProjectId(), tmp);
-			else
-				managementSystemModel.addTeamMember(state.getProjectId(),
-						state.getRequirementId(),state.getTaskId(),
-						tmp);
-		}
-		else{
-			TeamMember edit;
-			if (state.getTaskId() < 0)
+		if (state.getTaskId()<0)
+		{
+			if (state.getMemberId() < 0)
 			{
+				TeamMember tmp;
+				tmp = new TeamMember(new Name(nameText.getText()),
+						roleChoice.getSelectionModel().getSelectedItem());
+
+				managementSystemModel.addTeamMember(state.getProjectId(), tmp);
+				managementSystemModel.addTeamMember(state.getProjectId(), state.getRequirementId(),
+						state.getTaskId(), tmp);
+			}
+			else
+			{
+				TeamMember edit;
+
 				edit = managementSystemModel
 						.getTeamMember(state.getProjectId(), state.getMemberId());
+
+				edit.setName(new Name(nameText.getText()));
+				edit.assignRole(new Role(roleChoice.getSelectionModel().getSelectedItem()));
 			}
-			else{
-				edit = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getRequirementId(),
-								state.getTaskId(), state.getMemberId());
-			}
-			edit.setName(new Name(nameText.getText()));
-			edit.assignRole(new Role(roleChoice.getSelectionModel().getSelectedItem()));
+			state.setMemberId(-1);
+			viewHandler.openView("project");
 		}
-		state.setMemberId(-1);
-		viewHandler.openView("project");
+		else {
+			TeamMember add = managementSystemModel
+					.getTeamMember(state.getProjectId(), state.getMemberId());
+
+			managementSystemModel.addTeamMember(state.getProjectId(), state.getRequirementId(),
+					state.getTaskId(), add);
+			state.setMemberId(-1);
+			viewHandler.openView("task");
+		}
+
 	}
 
 	@FXML private void nameTyped(){
