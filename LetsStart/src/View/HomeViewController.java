@@ -1,10 +1,8 @@
 package View;
 
-import ListView.ProjectListViewModel;
-import ListView.ProjectViewModel;
+import View.ListView.ProjectListViewModel;
+import View.ListView.ProjectViewModel;
 import Model.ManagementSystemModel;
-import Model.Project;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -18,6 +16,7 @@ public class HomeViewController {
 	@FXML private TableColumn<ProjectViewModel, Number> idCollum;
 	@FXML private TableColumn<ProjectViewModel, String> titleCollum, deadlineCollum, progressCollum;
 	@FXML private TableView<ProjectViewModel> projectListTable;
+	@FXML private Label errorLabel;
 	private Region root;
 	private ManagementSystemModel managementSystemModel;
 	private ViewHandler viewHandler;
@@ -33,7 +32,13 @@ public class HomeViewController {
 		this.managementSystemModel = model;
 		this.root = root;
 		this.state = state;
+		errorLabel.setText("");
 		managementSystemModel.loadFromFile();
+		for (int i = 0; i < managementSystemModel.getAllProjects().numberOfProjects(); i++){
+			if (managementSystemModel.getAllProjects().getProjectIndex(i).getRequirementList().getNumberOfRequirements()>0){
+				managementSystemModel.getAllProjects().getProjectIndex(i).updateProgress();
+			}
+		}
 		projectListViewModel = new ProjectListViewModel(managementSystemModel);
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		titleCollum.setCellValueFactory(cellData -> cellData.getValue().titlePropertyProperty());
@@ -43,6 +48,7 @@ public class HomeViewController {
 	}
 
 	public void reset() {
+		errorLabel.setText("");
 		projectListViewModel.update();
 	}
 
@@ -77,8 +83,7 @@ public class HomeViewController {
 		}
 		catch (Exception e)
 		{
-			//errorLabel.setText("Item not found: " + e.getMessage());
-			System.out.println(e.getMessage());
+			errorLabel.setText("Item not found: " + e.getMessage());
 		}
 	}
 

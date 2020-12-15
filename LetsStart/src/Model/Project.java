@@ -10,16 +10,18 @@ public class Project
   private MyDate deadline;
   private String description;
   private String title;
+  private int totalTime;
 
   public Project(String title, Customer customer, MyDate deadline, String description){
     this.title = title;
     this.customer=customer;
     this.deadline=deadline;
-    this.requirementList=new RequirementList();
-    this.teamMemberList=new TeamMemberList();
-    this.id= new Id();
-    this.progress=0;
     this.description = description;
+    requirementList=new RequirementList();
+    teamMemberList=new TeamMemberList();
+    id= new Id();
+    progress=0;
+    totalTime = 0;
   }
 
   public void updateProgress()
@@ -28,8 +30,8 @@ public class Project
     for(int i = 0; i < requirementList.getNumberOfRequirements(); i++)
     {
       requirementList.getRequirementIndex(i).updateStatus();
-      if(requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.APPROVED))||
-          requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.ENDED)))
+      if(requirementList.getRequirementIndex(i).getStatus().equals(new Status(true,Status.APPROVED))||
+          requirementList.getRequirementIndex(i).getStatus().equals(new Status(true,Status.ENDED)))
         count++;
     }
     progress=(double)count*100/requirementList.getNumberOfRequirements();
@@ -92,8 +94,13 @@ public class Project
   public int getTotalHoursSpent() {
     int sum=0;
     for(int i=0;i<requirementList.getNumberOfRequirements();i++)
-      sum+=requirementList.getRequirementId(i).getTimeSpent();
-    return sum;
+      sum+=requirementList.getRequirementIndex(i).getTimeSpent();
+    totalTime = sum;
+    return totalTime;
+  }
+
+  public void addRequirement(Requirement requirement){
+    requirementList.addRequirement(requirement);
   }
 
   @Override public String toString() {

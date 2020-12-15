@@ -1,4 +1,4 @@
-package ListView;
+package View.ListView;
 
 import Model.TeamMember;
 import javafx.beans.property.IntegerProperty;

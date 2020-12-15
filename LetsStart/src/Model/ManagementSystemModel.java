@@ -9,6 +9,8 @@ public interface ManagementSystemModel {
 	void assignRole(int projectId, int memberId, Role role);
 	void assignRequirementPriority(int projectId, int requirementId, Priority priority);
 
+	void editRequirement(int projectId, int requirementId, String description, int time, String status, Priority priority, TeamMember responsible);
+	void editTask(int projectId, int requirementId, int taskId, String title, TeamMember responsible, String status, int timeSpent, int estimate);
 	Project getProject(int id);
 	ProjectList getAllProjects();
 	double getProjectProgress(int projectId);
@@ -33,8 +35,8 @@ public interface ManagementSystemModel {
 	void removeProject(int projectId);
 	void removeRequirement(int projectId, int requirementId);
 	void removeTask(int projectId, int requirementId, int taskId);
-	void removeTeamMember(int projectId, String name);
-	void removeTeamMember(int projectId, int requirementId, int taskId, String name);
+	void removeTeamMember(int projectId, int id);
+	void removeTeamMember(int projectId, int requirementId, int taskId, int id);
 
 	void updateProjectProgress(int projectId);
 	void updateRequirementStatus(int projectId, int requirementId);

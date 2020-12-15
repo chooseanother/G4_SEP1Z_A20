@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "progress": 0.0,
+      "progress": 50.0,
       "id": {
         "id": 1
       },
@@ -12,7 +12,159 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 10
+            },
+            "description": "kkkkk",
+            "timeSpent": 36,
+            "estimatedTime": 1,
+            "deadline": {
+              "day": 24,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": [
+                {
+                  "title": "test",
+                  "estimatedHours": 3,
+                  "totalHoursWorked": 36,
+                  "reqId": 10,
+                  "responsibleTeamMember": {
+                    "role": {
+                      "role": "Team Member"
+                    },
+                    "id": {
+                      "id": 3
+                    },
+                    "name": {
+                      "firstName": "lol",
+                      "lastName": "noob"
+                    }
+                  },
+                  "status": {
+                    "status": "Finished",
+                    "isRequirement": false
+                  },
+                  "deadline": {
+                    "day": 31,
+                    "month": 12,
+                    "year": 2020
+                  },
+                  "id": {
+                    "id": 14
+                  },
+                  "teamMemberList": {
+                    "list": [
+                      {
+                        "role": {
+                          "role": "Team Member"
+                        },
+                        "id": {
+                          "id": 20
+                        },
+                        "name": {
+                          "firstName": "test",
+                          "lastName": "test"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "status": {
+              "status": "Ended",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 3
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Team Member"
+              },
+              "id": {
+                "id": 3
+              },
+              "name": {
+                "firstName": "lol",
+                "lastName": "noob"
+              }
+            }
+          },
+          {
+            "reqID": {
+              "id": 16
+            },
+            "description": "rgerg",
+            "timeSpent": 2,
+            "estimatedTime": 55,
+            "deadline": {
+              "day": 24,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": [
+                {
+                  "title": "utriu",
+                  "estimatedHours": 32,
+                  "totalHoursWorked": 2,
+                  "reqId": 16,
+                  "responsibleTeamMember": {
+                    "role": {
+                      "role": "Team Member"
+                    },
+                    "id": {
+                      "id": 3
+                    },
+                    "name": {
+                      "firstName": "lol",
+                      "lastName": "noob"
+                    }
+                  },
+                  "status": {
+                    "status": "Not started",
+                    "isRequirement": false
+                  },
+                  "deadline": {
+                    "day": 31,
+                    "month": 12,
+                    "year": 2020
+                  },
+                  "id": {
+                    "id": 17
+                  },
+                  "teamMemberList": {
+                    "list": []
+                  }
+                }
+              ]
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 0
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Scrum Master"
+              },
+              "id": {
+                "id": 5
+              },
+              "name": {
+                "firstName": "rr",
+                "lastName": "rr"
+              }
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": [
@@ -30,7 +182,7 @@
           },
           {
             "role": {
-              "role": "Scrum Master"
+              "role": "Team Member"
             },
             "id": {
               "id": 5
@@ -38,6 +190,18 @@
             "name": {
               "firstName": "rr",
               "lastName": "rr"
+            }
+          },
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 20
+            },
+            "name": {
+              "firstName": "test",
+              "lastName": "test"
             }
           }
         ]
@@ -48,7 +212,8 @@
         "year": 2020
       },
       "description": "bo bobo boob ob o boob o boob obo ",
-      "title": "Bob"
+      "title": "Bob",
+      "totalTime": 38
     },
     {
       "progress": 0.0,
@@ -62,7 +227,43 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 11
+            },
+            "description": "kllkkllklk",
+            "timeSpent": 0,
+            "estimatedTime": 76,
+            "deadline": {
+              "day": 31,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": []
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 0
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Team Member"
+              },
+              "id": {
+                "id": 5
+              },
+              "name": {
+                "firstName": "kjdfg",
+                "lastName": "dfkgj"
+              }
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": [
@@ -86,7 +287,8 @@
         "year": 2020
       },
       "description": "lksdflksdflk\t\t",
-      "title": "kdlflslk"
+      "title": "kdlflslk",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -111,7 +313,8 @@
         "year": 2021
       },
       "description": "asdfg",
-      "title": "Hola"
+      "title": "Hola",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -125,7 +328,31 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 13
+            },
+            "description": "yutyu",
+            "timeSpent": 0,
+            "estimatedTime": 56,
+            "deadline": {
+              "day": 23,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": []
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 2
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": []
@@ -136,7 +363,8 @@
         "year": 2021
       },
       "description": "asdsdsa",
-      "title": "2143324"
+      "title": "2143324",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -161,7 +389,8 @@
         "year": 2021
       },
       "description": "sdsfsafsafffa",
-      "title": "asdsaa "
+      "title": "asdsaa ",
+      "totalTime": 0
     }
   ]
 }

@@ -5,219 +5,213 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="681.0" prefWidth="816.0" userData="Requirement"
-      xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequirementViewController">
+<VBox prefHeight="681.0" prefWidth="816.0" userData="Requirement" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequirementViewController">
     <HBox prefHeight="74.0" prefWidth="816.0">
-        <Label fx:id="requirementLabel" alignment="CENTER"
-               prefHeight="80.0" prefWidth="816.0" text="Requirement">
+        <Label fx:id="requirementLabel" alignment="CENTER" prefHeight="80.0" prefWidth="816.0" text="Requirement">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
     </HBox>
     <HBox prefHeight="194.0" prefWidth="816.0">
-        <VBox prefHeight="142.0" prefWidth="407.0">
+        <VBox prefHeight="142.0" prefWidth="407.0" spacing="5.0">
             <HBox prefHeight="50.0" prefWidth="408.0">
                 <VBox.margin>
-                    <Insets/>
+                    <Insets />
                 </VBox.margin>
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="ID:">
+                <Label prefHeight="25.0" prefWidth="100.0" text="ID:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField>
+                <TextField fx:id="idText" editable="false" prefWidth="175.0">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="50.0"
-                  prefWidth="408.0">
-                <Label prefHeight="26.0" prefWidth="80.0"
-                       text="Responsible:">
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="408.0">
+                <Label prefHeight="26.0" prefWidth="100.0" text="Responsible:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField prefHeight="25.0" prefWidth="150.0">
-                    <HBox.margin>
-                        <Insets left="10.0"/>
-                    </HBox.margin>
-                </TextField>
+            <ChoiceBox fx:id="responsibleChoice" prefWidth="175.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
             </HBox>
-            <HBox layoutX="10.0" layoutY="60.0" prefHeight="94.0"
-                  prefWidth="408.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Description:">
+            <HBox layoutX="10.0" layoutY="60.0" prefHeight="168.0" prefWidth="407.0">
+                <Label prefHeight="25.0" prefWidth="100.0" text="Description:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextArea prefHeight="69.0" prefWidth="232.0">
+                <TextArea fx:id="descriptionText" prefHeight="162.0" prefWidth="232.0">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextArea>
             </HBox>
         </VBox>
-        <VBox layoutX="10.0" layoutY="10.0" prefHeight="122.0"
-              prefWidth="410.0">
-            <HBox prefHeight="49.0" prefWidth="407.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Deadline:">
+        <VBox layoutX="10.0" layoutY="10.0" prefHeight="122.0" prefWidth="410.0" spacing="5.0">
+            <HBox>
+                <Label prefHeight="25.0" prefWidth="100.0" text="Deadline:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <DatePicker>
+                <DatePicker fx:id="deadlineDate" prefWidth="200.0">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </DatePicker>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="49.0"
-                  prefWidth="407.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Status:">
+            <HBox layoutX="10.0" layoutY="10.0">
+                <Label prefHeight="25.0" prefWidth="100.0" text="Status:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField editable="false">
+            <ChoiceBox fx:id="statusChoice" prefWidth="173.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="60.0">
+                <Label prefHeight="25.0" prefWidth="100.0" text="Hours spent:">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="hoursSpentText" editable="false" prefWidth="173.0">
+                    <HBox.margin>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
             </HBox>
-            <HBox layoutX="10.0" layoutY="60.0" prefHeight="49.0"
-                  prefWidth="407.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Hours spent:">
+            <HBox layoutX="10.0" layoutY="109.0">
+                <Label prefHeight="25.0" prefWidth="100.0" text="Priority:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField editable="false">
-                    <HBox.margin>
-                        <Insets left="10.0"/>
-                    </HBox.margin>
-                </TextField>
+            <ChoiceBox fx:id="priorityChoice" prefWidth="173.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
             </HBox>
-            <HBox layoutX="10.0" layoutY="109.0" prefHeight="49.0"
-                  prefWidth="407.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Priority:">
+            <HBox layoutX="10.0" layoutY="159.0">
+                <Label prefHeight="25.0" prefWidth="100.0" text="Estimate:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField editable="false">
+                <TextField fx:id="estimateText" prefWidth="173.0">
                     <HBox.margin>
-                        <Insets left="10.0"/>
-                    </HBox.margin>
-                </TextField>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="159.0" prefHeight="49.0"
-                  prefWidth="407.0">
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="Estimate:">
-                    <HBox.margin>
-                        <Insets left="20.0"/>
-                    </HBox.margin>
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-                <TextField>
-                    <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
             </HBox>
         </VBox>
     </HBox>
-    <HBox prefHeight="58.0" prefWidth="816.0">
-        <Label prefHeight="63.0" prefWidth="380.0" text="Tasks">
+    <HBox prefHeight="23.0" prefWidth="816.0">
+        <Label prefHeight="21.0" prefWidth="380.0" text="Tasks">
             <HBox.margin>
-                <Insets left="20.0"/>
+                <Insets left="20.0" />
             </HBox.margin>
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
     </HBox>
     <HBox prefHeight="342.0" prefWidth="816.0">
-        <TableView prefHeight="330.0" prefWidth="823.0">
+        <TableView fx:id="taskListTable" prefHeight="330.0" prefWidth="823.0">
             <columns>
-                <TableColumn fx:id="idCollum"
-                             prefWidth="116.00000303983688" text="ID"
-                             visible="false"/>
-                <TableColumn prefWidth="437.59996032714844" text="Title"/>
-                <TableColumn minWidth="0.0" prefWidth="262.4000244140625"
-                             text="Status"/>
+                <TableColumn fx:id="idCollum" prefWidth="116.00000303983688" text="ID" visible="false" />
+                <TableColumn fx:id="titleCollum" prefWidth="437.59996032714844" text="Title" />
+                <TableColumn fx:id="statusCollum" minWidth="0.0" prefWidth="262.4000244140625" text="Status" />
             </columns>
         </TableView>
+      <padding>
+         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+      </padding>
     </HBox>
-    <HBox prefHeight="73.0" prefWidth="816.0">
-        <Button mnemonicParsing="false" prefHeight="26.0"
-                prefWidth="115.0" text="Add task">
-            <HBox.margin>
-                <Insets left="20.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
-        <Button mnemonicParsing="false" prefHeight="26.0"
-                prefWidth="134.0" text="Remove task">
-            <HBox.margin>
-                <Insets left="10.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
-        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0"
-                text="Open">
-            <HBox.margin>
-                <Insets left="100.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
-        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0"
-                text="Home">
-            <HBox.margin>
-                <Insets left="130.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
-        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="52.0"
-                text="Back">
-            <HBox.margin>
-                <Insets left="30.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
-        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="54.0"
-                text="Save">
-            <HBox.margin>
-                <Insets left="10.0" top="20.0"/>
-            </HBox.margin>
-        </Button>
+    <HBox prefHeight="35.0" prefWidth="816.0">
+        <HBox prefHeight="36.0" prefWidth="195.0" spacing="5.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" />
+            </padding>
+            <Button mnemonicParsing="false" onAction="#addButtonPressed" prefHeight="26.0" text="Add">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="26.0" text="Remove">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#openButtonPressed" prefHeight="26.0" text="Open">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+        </HBox>
+        <Label fx:id="errorLabel" alignment="CENTER" prefHeight="35.0" prefWidth="443.0" text="errorLabel" textFill="RED">
+           <padding>
+               <Insets bottom="5.0" />
+           </padding>
+        </Label>
+        <HBox prefHeight="36.0" prefWidth="181.0" spacing="5.0">
+            <Button mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="26.0" text="Save">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#backButtonPressed" prefHeight="26.0" text="Back">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#homeButtonPressed" prefHeight="26.0" text="Home">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+          <padding>
+              <Insets bottom="5.0" left="5.0" right="5.0" />
+          </padding>
+          <HBox.margin>
+              <Insets />
+          </HBox.margin>
+        </HBox>
     </HBox>
 </VBox>

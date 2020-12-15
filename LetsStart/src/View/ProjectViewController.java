@@ -1,13 +1,14 @@
 package View;
 
 import Model.*;
-import ListView.*;
+import View.ListView.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class ProjectViewController
 {
@@ -17,10 +18,11 @@ public class ProjectViewController
 	@FXML private  DatePicker deadlineDate;
 	@FXML private  TextField progressText,hoursSpentText,idText, customerText, titleText;
 	@FXML private  TableView<RequirementViewModel> requirementListTable;
-	@FXML private  TableColumn<RequirementViewModel, String> descriptionCollum;
+	@FXML private  TableColumn<RequirementViewModel, Number> estimatedCollum;
 	@FXML private  TableColumn<RequirementViewModel, Number> idCollum;
 	@FXML private  TableColumn<RequirementViewModel, String> statusCollum;
-	@FXML private  TableColumn<RequirementViewModel, String> priorityCollum;
+	@FXML private  TableColumn<RequirementViewModel, Number> usedCollum;
+	@FXML private  TableColumn<RequirementViewModel, String> deadlineCollum;
 	@FXML private  TableView<TeamMemberViewModel> teamMemberListTable;
 	@FXML private  TableColumn<TeamMemberViewModel, String> nameCollum;
 	@FXML private  TableColumn<TeamMemberViewModel, String> roleCollum;
@@ -46,37 +48,17 @@ public class ProjectViewController
 		errorLabel.setText("");
 		requirementListViewModel = new RequirementListViewModel(managementSystemModel, this.state);
 		teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, this.state);
-		descriptionCollum.setCellValueFactory(cellData -> cellData.getValue().descriptionPropertyProperty());
+		estimatedCollum.setCellValueFactory(cellData -> cellData.getValue().estimatedPropertyProperty());
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
-		priorityCollum.setCellValueFactory(cellData -> cellData.getValue().priorityPropertyProperty());
+		usedCollum.setCellValueFactory(cellData -> cellData.getValue().usedPropertyProperty());
+		deadlineCollum.setCellValueFactory(cellData -> cellData.getValue().deadlinePropertyProperty());
 		requirementListTable.setItems(requirementListViewModel.getList());
 		nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
 		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
 		tmIdCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		teamMemberListTable.setItems(teamMemberListViewModel.getList());
-		if (this.state.getProjectId()<0)
-		{
-			projectLabel.setText("New Project");
-			root.setUserData("New Project");
-		}
-		else{
-
-			Project display = managementSystemModel.getProject(this.state.getProjectId());
-			projectLabel.setText("Project");
-			titleText.setText(display.getTitle());
-			customerText.setText(display.getCustomer().toString());
-			descriptionText.setText(display.getDescription());
-			MyDate tmp = display.getDeadline();
-			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
-			progressText.setText(String.format("%.2f",display.getProgress())+"%");
-			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
-			idText.setText(display.getId()+"");
-			requirementListViewModel.update();
-			teamMemberListViewModel.update();
-		}
-
-
+		reset();
 	}
 
 	public void reset() {
@@ -93,18 +75,21 @@ public class ProjectViewController
 			root.setUserData("New Project");
 		}
 		else{
-			Project display = managementSystemModel.getProject(state.getProjectId());
 			projectLabel.setText("Project");
+			root.setUserData("Project");
+			Project display = managementSystemModel.getProject(state.getProjectId());
+			if (display.getRequirementList().getNumberOfRequirements()>0){
+				display.updateProgress();
+			}
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
 			descriptionText.setText(display.getDescription());
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
-			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
+			hoursSpentText.setText(display.getTotalHoursSpent()+" H");
 			idText.setText(display.getId()+"");
-			root.setUserData("Project");
-
+			deadlineDate.setEditable(false);
 		}
 		errorLabel.setText("");
 		requirementListViewModel.update();
@@ -117,7 +102,7 @@ public class ProjectViewController
 
 	@FXML private void backButtonPressed() {
 		state.setProjectId(-1);
-		//check if there are changes not save, ask if user wants to save
+		//check if there are changes not saved, ask if user wants to save
 		viewHandler.openView("home");
 	}
 
@@ -181,42 +166,99 @@ public class ProjectViewController
 	{
 		teamMemberListTable.getSelectionModel().getSelectedItem().getIdProperty();
 		state.setMemberId(teamMemberListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		viewHandler.openView("teamMember"); //how to parse team member info that should be displayed
+		viewHandler.openView("teamMember");
 	}
 
 	@FXML private void addReqButtonPressed(ActionEvent actionEvent)
 	{
-		state.setRequirementId(-1);//this is wrong, you need to know what project id you are working from
-		//project id is already set to current id. state.setProjectId(Integer.parseInt(idText.getText()));
-		if (state.getProjectId()<0){
-			errorLabel.setText("\"Save project before adding requirements\"");
+		if (state.getProjectId() < 0){
+			errorLabel.setText("Save project before adding requirements");
 		}
-		else{
-			viewHandler.openView("requirement");
+		else {
+			state.setRequirementId(-1);
+			if (managementSystemModel.getProject(state.getProjectId()).getTeamMemberList().numberOfTeamMembers()<1)
+			{
+				errorLabel.setText("Add team members before adding requirements");
+			}
+			else
+			{
+				viewHandler.openView("requirement");
+			}
 		}
 	}
 
-	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
-	{
-		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getRequirementList().removeRequirement(state.getRequirementId());
-		requirementListViewModel.update();
+	@FXML private void removeReqButtonPressed(ActionEvent actionEvent) {
+		try
+		{
+			RequirementViewModel selectedItem = requirementListTable.getSelectionModel().getSelectedItem();
+			boolean remove = removeConfirmationReq();
+			if (remove)
+			{
+				managementSystemModel.removeRequirement(state.getProjectId(),selectedItem.getIdProperty());
+				requirementListViewModel.remove(selectedItem.getIdProperty());
+				requirementListTable.getSelectionModel().clearSelection();
+			}
+		}
+		catch (Exception e)
+		{
+			errorLabel.setText("Item not found: " + e.getMessage());
+		}
 	}
 
-	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
-	{
+	@FXML private void addTMButtonPressed(ActionEvent actionEvent) {
 		if (state.getProjectId() < 0){
 			errorLabel.setText("Save project before adding team members");
 		}
 		else {
-			viewHandler.openView("teamMember"); //how to make sure its a new team member window state
+			viewHandler.openView("teamMember"); }
+	}
+
+	@FXML private void removeTMButtonPressed(ActionEvent actionEvent) {
+		try {
+			TeamMemberViewModel selectedItem = teamMemberListTable.getSelectionModel().getSelectedItem();
+			boolean remove = removeConfirmationTM();
+			if (remove)
+			{
+				managementSystemModel.removeTeamMember(state.getProjectId(),selectedItem.getIdProperty());
+				teamMemberListViewModel.remove(selectedItem.getIdProperty());
+				teamMemberListTable.getSelectionModel().clearSelection();
+			}
+		}
+		catch (Exception e)
+		{
+			errorLabel.setText("Item not found: " + e.getMessage());
 		}
 	}
 
-	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)
+	private boolean removeConfirmationReq()
 	{
-		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
-		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getTeamMemberList().removeTeamMember(tmv.getNameProperty());
-		teamMemberListViewModel.update();
+		int index = requirementListTable.getSelectionModel().getSelectedIndex();
+		RequirementViewModel selectedItem = requirementListTable.getItems().get(index);
+		if (index < 0 || index >= requirementListTable.getItems().size())
+		{
+			return false;
+		}
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText(
+				"Removing Selected Requirement with id: " + selectedItem.getIdProperty());
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
+
+	private boolean removeConfirmationTM()
+	{
+		int index = teamMemberListTable.getSelectionModel().getSelectedIndex();
+		TeamMemberViewModel selectedItem = teamMemberListTable.getItems().get(index);
+		if (index < 0 || index >= teamMemberListTable.getItems().size())
+		{
+			return false;
+		}
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText(
+				"Removing Team Member " + selectedItem.getNameProperty());
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
 	}
 }
