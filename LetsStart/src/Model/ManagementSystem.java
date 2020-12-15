@@ -28,7 +28,7 @@ public class ManagementSystem implements ManagementSystemModel
 	 */
 	@Override public void addRequirement(int projectId, Requirement requirement)
 	{
-		projectList.getProject(projectId).getRequirementList().
+		projectList.getProject(projectId).
 				addRequirement(requirement);
 	}
 
@@ -79,6 +79,15 @@ public class ManagementSystem implements ManagementSystemModel
 				getRequirementId(requirementId).setPriority(priority);
 	}
 
+	@Override public void editRequirement(int projectId, int requirementId, String description, int time, String status, Priority priority, TeamMember responsible){
+		Requirement edit = projectList.getProject(projectId).getRequirementList().getRequirementId(requirementId);
+		edit.setDescription(description);
+		edit.setEstimatedTime(time);
+		edit.setStatus(status);
+		edit.setPriority(priority);
+		edit.changeResponsibleTeamMember(responsible);
+
+	}
 	/**
 	 *
 	 */

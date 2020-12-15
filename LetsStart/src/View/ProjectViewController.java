@@ -1,7 +1,7 @@
 package View;
 
 import Model.*;
-import ListView.*;
+import View.ListView.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -17,10 +17,11 @@ public class ProjectViewController
 	@FXML private  DatePicker deadlineDate;
 	@FXML private  TextField progressText,hoursSpentText,idText, customerText, titleText;
 	@FXML private  TableView<RequirementViewModel> requirementListTable;
-	@FXML private  TableColumn<RequirementViewModel, String> descriptionCollum;
+	@FXML private  TableColumn<RequirementViewModel, Number> estimatedCollum;
 	@FXML private  TableColumn<RequirementViewModel, Number> idCollum;
 	@FXML private  TableColumn<RequirementViewModel, String> statusCollum;
-	@FXML private  TableColumn<RequirementViewModel, String> priorityCollum;
+	@FXML private  TableColumn<RequirementViewModel, Number> usedCollum;
+	@FXML private  TableColumn<RequirementViewModel, String> deadlineCollum;
 	@FXML private  TableView<TeamMemberViewModel> teamMemberListTable;
 	@FXML private  TableColumn<TeamMemberViewModel, String> nameCollum;
 	@FXML private  TableColumn<TeamMemberViewModel, String> roleCollum;
@@ -46,10 +47,11 @@ public class ProjectViewController
 		errorLabel.setText("");
 		requirementListViewModel = new RequirementListViewModel(managementSystemModel, this.state);
 		teamMemberListViewModel = new TeamMemberListViewModel(managementSystemModel, this.state);
-		descriptionCollum.setCellValueFactory(cellData -> cellData.getValue().descriptionPropertyProperty());
+		estimatedCollum.setCellValueFactory(cellData -> cellData.getValue().estimatedPropertyProperty());
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
-		priorityCollum.setCellValueFactory(cellData -> cellData.getValue().priorityPropertyProperty());
+		usedCollum.setCellValueFactory(cellData -> cellData.getValue().usedPropertyProperty());
+		deadlineCollum.setCellValueFactory(cellData -> cellData.getValue().deadlinePropertyProperty());
 		requirementListTable.setItems(requirementListViewModel.getList());
 		nameCollum.setCellValueFactory(cellData -> cellData.getValue().namePropertyProperty());
 		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
@@ -63,6 +65,7 @@ public class ProjectViewController
 		else{
 
 			Project display = managementSystemModel.getProject(this.state.getProjectId());
+			display.updateProgress();
 			projectLabel.setText("Project");
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
@@ -70,13 +73,11 @@ public class ProjectViewController
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
-			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
+			hoursSpentText.setText(display.getTotalHoursSpent()+" H");
 			idText.setText(display.getId()+"");
 			requirementListViewModel.update();
 			teamMemberListViewModel.update();
 		}
-
-
 	}
 
 	public void reset() {
@@ -101,10 +102,9 @@ public class ProjectViewController
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
-			hoursSpentText.setText(display.getTotalHoursSpent()+"H");
+			hoursSpentText.setText(display.getTotalHoursSpent()+" H");
 			idText.setText(display.getId()+"");
 			root.setUserData("Project");
-
 		}
 		errorLabel.setText("");
 		requirementListViewModel.update();

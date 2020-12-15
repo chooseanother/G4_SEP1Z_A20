@@ -15,7 +15,7 @@
    </HBox>
    <VBox prefHeight="595.0" prefWidth="803.0">
       <HBox prefHeight="66.0" prefWidth="664.0">
-         <Label alignment="BOTTOM_LEFT" prefHeight="52.0" prefWidth="784.0" text="Projects">
+         <Label alignment="BOTTOM_LEFT" prefHeight="64.0" prefWidth="784.0" text="Projects">
             <font>
                <Font size="18.0" />
             </font>
@@ -32,27 +32,38 @@
             <TableColumn fx:id="idCollum" prefWidth="75.0" text="Id" visible="false" />
          </columns>
       </TableView>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="61.0" prefWidth="803.0">
+         <children>
+            <Label fx:id="errorLabel" prefHeight="41.0" prefWidth="803.0" text="errorLabel" textFill="RED" />
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="803.0" spacing="5.0">
          <Button mnemonicParsing="false" onAction="#addProjectButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Add Project">
             <HBox.margin>
-               <Insets left="100.0" top="20.0" />
+               <Insets />
             </HBox.margin>
          </Button>
          <Button mnemonicParsing="false" onAction="#openButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Open">
             <HBox.margin>
-               <Insets left="40.0" top="20.0" />
+               <Insets />
             </HBox.margin>
          </Button>
          <Button mnemonicParsing="false" onAction="#removeButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Remove">
             <HBox.margin>
-               <Insets left="40.0" top="20.0" />
+               <Insets />
             </HBox.margin>
          </Button>
          <Button mnemonicParsing="false" onAction="#exitButtonPressed" prefHeight="30.0" prefWidth="120.0" text="Exit">
             <HBox.margin>
-               <Insets left="40.0" top="20.0" />
+               <Insets />
             </HBox.margin>
          </Button>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
       </HBox>
    </VBox>
 </VBox>

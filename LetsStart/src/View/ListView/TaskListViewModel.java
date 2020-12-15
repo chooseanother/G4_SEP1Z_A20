@@ -1,4 +1,4 @@
-package ListView;
+package View.ListView;
 
 import Model.ManagementSystemModel;
 import Model.Task;
@@ -40,9 +40,9 @@ public class TaskListViewModel
     list.add(new TaskViewModel(task));
   }
 
-  public void remove(Task task){
+  public void remove(int id){
     for (TaskViewModel t:list){
-      if (t.getIdProperty() == task.getId()){
+      if (t.getIdProperty() == id){
         list.remove(t);
         break;
       }

@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "progress": 0.0,
+      "progress": 100.0,
       "id": {
         "id": 1
       },
@@ -12,7 +12,43 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 10
+            },
+            "description": "kkkkk",
+            "timeSpent": 0,
+            "estimatedTime": 1,
+            "deadline": {
+              "day": 24,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": []
+            },
+            "status": {
+              "status": "Ended",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 3
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Team Member"
+              },
+              "id": {
+                "id": 3
+              },
+              "name": {
+                "firstName": "lol",
+                "lastName": "noob"
+              }
+            }
+          }
+        ]
       },
       "teamMemberList": {
         "list": [

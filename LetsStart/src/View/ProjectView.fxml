@@ -150,10 +150,10 @@
          <VBox prefHeight="342.0" prefWidth="526.0">
             <TableView fx:id="requirementListTable" prefHeight="452.0" prefWidth="526.0">
                <columns>
-                  <TableColumn fx:id="descriptionCollum" prefWidth="133.6000002026558" text="Estimated time" />
-                  <TableColumn fx:id="priorityCollum" prefWidth="148.80007934570312" text="Used time" />
-                  <TableColumn fx:id="statusCollum" prefWidth="128.79998779296875" text="Status" />
-                  <TableColumn prefWidth="118.4000244140625" text="Deadline" />
+                  <TableColumn fx:id="estimatedCollum" prefWidth="129.0" text="Estimated time" />
+                  <TableColumn fx:id="usedCollum" prefWidth="94.0" text="Used time" />
+                  <TableColumn fx:id="statusCollum" prefWidth="155.0" text="Status" />
+                  <TableColumn fx:id="deadlineCollum" prefWidth="153.0" text="Deadline" />
                   <TableColumn fx:id="idCollum" prefWidth="75.0" text="Column X" visible="false" />
                </columns>
             </TableView>

@@ -1,4 +1,4 @@
-package ListView;
+package View.ListView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

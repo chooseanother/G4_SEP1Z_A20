@@ -9,6 +9,8 @@ public interface ManagementSystemModel {
 	void assignRole(int projectId, int memberId, Role role);
 	void assignRequirementPriority(int projectId, int requirementId, Priority priority);
 
+	void editRequirement(int projectId, int requirementId, String description, int time, String status, Priority priority, TeamMember responsible);
+
 	Project getProject(int id);
 	ProjectList getAllProjects();
 	double getProjectProgress(int projectId);
