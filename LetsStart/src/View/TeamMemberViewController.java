@@ -80,7 +80,10 @@ public class TeamMemberViewController {
 			allowedTeamMembers.clear();
 			if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
 				for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
-					allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString());
+					if (!managementSystemModel.getTask(state.getProjectId(),state.getRequirementId(),
+							state.getTaskId()).getAllTeamMembers().contains(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i))){
+						allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString());
+					}
 				}
 			}
 			saveButton.setText("Add");
@@ -116,25 +119,33 @@ public class TeamMemberViewController {
 		//check if role is available
 		if (state.getTaskId()<0)
 		{
-			if (state.getMemberId() < 0)
-			{
-				TeamMember tmp;
-				tmp = new TeamMember(new Name(nameText.getText()),
-						roleChoice.getSelectionModel().getSelectedItem());
-
-				managementSystemModel.addTeamMember(state.getProjectId(), tmp);
+			if (roleChoice.getValue().equals("")){
+				errorLabel.setText("Select a role");
 			}
 			else
 			{
-				TeamMember edit = managementSystemModel.getTeamMember(
-						state.getProjectId(), state.getMemberId());
-				edit.setName(new Name(nameText.getText()));
-				edit.assignRole(new Role(roleChoice.getSelectionModel().getSelectedItem()));
+				if (state.getMemberId() < 0)
+				{
+					TeamMember tmp;
+					tmp = new TeamMember(new Name(nameText.getText()),
+							roleChoice.getSelectionModel().getSelectedItem());
+
+					managementSystemModel.addTeamMember(state.getProjectId(), tmp);
+				}
+				else
+				{
+					TeamMember edit = managementSystemModel.getTeamMember(state.getProjectId(), state.getMemberId());
+					edit.setName(new Name(nameText.getText()));
+					edit.assignRole(new Role(roleChoice.getSelectionModel().getSelectedItem()));
+				}
+				state.setMemberId(-1);
+				viewHandler.openView("project");
 			}
-			state.setMemberId(-1);
-			viewHandler.openView("project");
 		}
 		else {
+			if (roleChoice.getValue().equals("")){
+				errorLabel.setText("Select a team member");
+			}
 			TeamMember add = null;
 			for (int i = 0;
 					 i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++) {

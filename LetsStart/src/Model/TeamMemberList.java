@@ -55,6 +55,10 @@ public class TeamMemberList
     return null;
   }
 
+  public boolean contains(TeamMember member){
+    return list.contains(member);
+  }
+
   public void removeTeamMember(int id)
   {
      for (TeamMember tm : list){
