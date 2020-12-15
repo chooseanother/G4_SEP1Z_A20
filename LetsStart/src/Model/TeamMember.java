@@ -63,6 +63,6 @@ public class TeamMember extends Person
    */
   @Override public String toString()
   {
-    return super.toString()+" "+role.toString();
+    return super.toString()+" "+role.toString()+" Id: " + id;
   }
 }
