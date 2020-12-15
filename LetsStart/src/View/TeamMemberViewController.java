@@ -49,8 +49,8 @@ public class TeamMemberViewController {
 			roleChoice.setItems(roles);
 			roleLabel.setText("Role:");
 			saveButton.setText("Save");
-			nameText.setVisible(false);
-			nameLabel.setVisible(false);
+			nameText.setVisible(true);
+			nameLabel.setVisible(true);
 			idLabel.setVisible(true);
 			idText.setVisible(true);
 			if (state.getMemberId() > 0)

@@ -6,6 +6,9 @@ import parser.XmlJsonParser;
 
 import java.io.File;
 
+/**
+ * Handles loading and saving the projectList to a Json file
+ */
 public class ManagementSystemFile implements ManagementSystemPersistence
 {
   private XmlJsonParser parser;
