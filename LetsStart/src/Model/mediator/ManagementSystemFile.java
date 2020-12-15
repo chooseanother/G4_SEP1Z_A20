@@ -8,15 +8,28 @@ import java.io.File;
 
 /**
  * Handles loading and saving the projectList to a Json file
+ *
+ * @author Kim
  */
 public class ManagementSystemFile implements ManagementSystemPersistence
 {
+  /**
+   * Imported parser that writes the json file
+   */
   private XmlJsonParser parser;
 
+  /**
+   * Initializing the parser
+   */
   public ManagementSystemFile(){
     parser = new XmlJsonParser();
   }
 
+  /**
+   *
+   * @param projectList
+   * @param fileName
+   */
   @Override public void save(ProjectList projectList, String fileName)
   {
     File file = null;
@@ -31,6 +44,11 @@ public class ManagementSystemFile implements ManagementSystemPersistence
     System.out.println("Saved to file: " + file.getAbsolutePath());
   }
 
+  /**
+   *
+   * @param fileName
+   * @return
+   */
   @Override public ProjectList load(String fileName)
   {
     ProjectList projectList = new ProjectList();
