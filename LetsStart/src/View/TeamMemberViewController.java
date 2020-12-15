@@ -7,6 +7,7 @@ import Model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -19,11 +20,14 @@ public class TeamMemberViewController {
 	private ManagementSystemModel managementSystemModel;
 	private ViewState state;
 	@FXML private TextField nameText, idText;
+	@FXML private Button saveButton;
 	@FXML private ChoiceBox<String> roleChoice;
-	@FXML private Label title, errorLabel, roleLabel, idLabel;
+	@FXML private Label title, errorLabel, roleLabel, idLabel, nameLabel;
 	private final ObservableList<String> roles = FXCollections.observableArrayList(
 			Role.TEAM_MEMBER,Role.SCRUM_MASTER,
 			Role.PRODUCT_OWNER,Role.PROJECT_CREATOR);
+
+	private ObservableList<String> allowedTeamMembers = FXCollections.observableArrayList();
 
 	public TeamMemberViewController() {
 
@@ -34,7 +38,7 @@ public class TeamMemberViewController {
 		this.managementSystemModel = model;
 		this.root = root;
 		this.state = state;
-		roleChoice.setItems(roles);
+
 		reset();
 	}
 
@@ -42,13 +46,17 @@ public class TeamMemberViewController {
 		errorLabel.setText("");
 		if (state.getTaskId()<0)
 		{
-			roleChoice.setVisible(true);
-			roleLabel.setVisible(true);
+			roleChoice.setItems(roles);
+			roleLabel.setText("Role:");
+			saveButton.setText("Save");
+			nameText.setVisible(false);
+			nameLabel.setVisible(false);
 			idLabel.setVisible(true);
 			idText.setVisible(true);
 			if (state.getMemberId() > 0)
 			{//check if its new or existing team member
 				root.setUserData("Team Member");
+				title.setText("Team Member");
 				TeamMember tmp;
 				tmp = managementSystemModel
 						.getTeamMember(state.getProjectId(), state.getMemberId());
@@ -67,8 +75,20 @@ public class TeamMemberViewController {
 			}
 		}
 		else {
-			roleChoice.setVisible(false);
-			roleLabel.setVisible(false);
+			root.setUserData("Team Member");
+			title.setText("Choose team member");
+			allowedTeamMembers.clear();
+			if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
+				for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
+					allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString());
+				}
+			}
+			saveButton.setText("Add");
+			roleLabel.setText("Cho0se:");
+			roleChoice.setItems(allowedTeamMembers);
+			roleChoice.setValue(null);
+			nameText.setVisible(false);
+			nameLabel.setVisible(false);
 			idLabel.setVisible(false);
 			idText.setVisible(false);
 		}
@@ -106,11 +126,8 @@ public class TeamMemberViewController {
 			}
 			else
 			{
-				TeamMember edit;
-
-				edit = managementSystemModel
-						.getTeamMember(state.getProjectId(), state.getMemberId());
-
+				TeamMember edit = managementSystemModel.getTeamMember(
+						state.getProjectId(), state.getMemberId());
 				edit.setName(new Name(nameText.getText()));
 				edit.assignRole(new Role(roleChoice.getSelectionModel().getSelectedItem()));
 			}
@@ -118,9 +135,15 @@ public class TeamMemberViewController {
 			viewHandler.openView("project");
 		}
 		else {
-			TeamMember add = managementSystemModel
-					.getTeamMember(state.getProjectId(), state.getMemberId());
-
+			TeamMember add = null;
+			for (int i = 0;
+					 i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++) {
+				if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString()
+						.equalsIgnoreCase(roleChoice.getValue())) {
+					add = managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList()
+							.getTeamMemberIndex(i);
+				}
+			}
 			managementSystemModel.addTeamMember(state.getProjectId(), state.getRequirementId(),
 					state.getTaskId(), add);
 			state.setMemberId(-1);

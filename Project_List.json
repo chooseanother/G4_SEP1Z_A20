@@ -57,7 +57,20 @@
                     "id": 14
                   },
                   "teamMemberList": {
-                    "list": []
+                    "list": [
+                      {
+                        "role": {
+                          "role": "Team Member"
+                        },
+                        "id": {
+                          "id": 20
+                        },
+                        "name": {
+                          "firstName": "test",
+                          "lastName": "test"
+                        }
+                      }
+                    ]
                   }
                 }
               ]
