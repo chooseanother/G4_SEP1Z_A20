@@ -52,6 +52,7 @@ public class Requirement
 
   public int getTimeSpent()
   {
+    updateTotalHoursSpent();
     return timeSpent;
   }
 

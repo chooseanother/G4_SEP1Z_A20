@@ -63,7 +63,7 @@ public class TeamMemberViewController {
 				root.setUserData("New Team Member");
 				nameText.setText("");
 				idText.setText("");
-				roleChoice.setValue("");
+				roleChoice.setValue(null);
 			}
 		}
 		else {
@@ -103,8 +103,6 @@ public class TeamMemberViewController {
 						roleChoice.getSelectionModel().getSelectedItem());
 
 				managementSystemModel.addTeamMember(state.getProjectId(), tmp);
-				managementSystemModel.addTeamMember(state.getProjectId(), state.getRequirementId(),
-						state.getTaskId(), tmp);
 			}
 			else
 			{
@@ -128,7 +126,6 @@ public class TeamMemberViewController {
 			state.setMemberId(-1);
 			viewHandler.openView("task");
 		}
-
 	}
 
 	@FXML private void nameTyped(){

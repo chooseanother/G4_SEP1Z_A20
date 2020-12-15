@@ -85,7 +85,6 @@ public class TaskViewController
       hoursText.setText(display.getHoursSpent()+"");
       estimateText.setText(display.getEstimatedTime()+"");
     }
-    System.out.println();
     teamMemberListViewModel.update();
   }
 
@@ -137,6 +136,7 @@ public class TaskViewController
       errorLabel.setText("Save task before adding team members");
     }
     else {
+      state.setMemberId(-1);
       viewHandler.openView("teamMember");
     }
   }

@@ -31,7 +31,8 @@ public class TeamMemberListViewModel
     list.clear();
     if (state.getTaskId()>0){
       if (model.getTask(state.getProjectId(), state.getRequirementId(),
-          state.getTaskId()).getAllTeamMembers().numberOfTeamMembers()> 0){
+          state.getTaskId()).getAllTeamMembers().numberOfTeamMembers()> 0 && model.getTask(state.getProjectId(), state.getRequirementId(),
+          state.getTaskId()).getAllTeamMembers() != null){
         for (int i = 0; i < model.getTask(state.getProjectId(), state.getRequirementId(),
             state.getTaskId()).getAllTeamMembers().numberOfTeamMembers(); i++){
           list.add(new TeamMemberViewModel(model.getTask(state.getProjectId(), state.getRequirementId(),

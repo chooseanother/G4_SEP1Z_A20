@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "progress": 100.0,
+      "progress": 50.0,
       "id": {
         "id": 1
       },
@@ -18,7 +18,7 @@
               "id": 10
             },
             "description": "kkkkk",
-            "timeSpent": 0,
+            "timeSpent": 36,
             "estimatedTime": 1,
             "deadline": {
               "day": 24,
@@ -87,7 +87,7 @@
               "id": 16
             },
             "description": "rgerg",
-            "timeSpent": 0,
+            "timeSpent": 2,
             "estimatedTime": 55,
             "deadline": {
               "day": 24,
@@ -99,7 +99,7 @@
                 {
                   "title": "utriu",
                   "estimatedHours": 32,
-                  "totalHoursWorked": 0,
+                  "totalHoursWorked": 2,
                   "reqId": 16,
                   "responsibleTeamMember": {
                     "role": {
@@ -169,7 +169,7 @@
           },
           {
             "role": {
-              "role": "Scrum Master"
+              "role": "Team Member"
             },
             "id": {
               "id": 5
@@ -177,6 +177,18 @@
             "name": {
               "firstName": "rr",
               "lastName": "rr"
+            }
+          },
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 20
+            },
+            "name": {
+              "firstName": "test",
+              "lastName": "test"
             }
           }
         ]
@@ -187,7 +199,8 @@
         "year": 2020
       },
       "description": "bo bobo boob ob o boob o boob obo ",
-      "title": "Bob"
+      "title": "Bob",
+      "totalTime": 38
     },
     {
       "progress": 0.0,
@@ -261,7 +274,8 @@
         "year": 2020
       },
       "description": "lksdflksdflk\t\t",
-      "title": "kdlflslk"
+      "title": "kdlflslk",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -286,7 +300,8 @@
         "year": 2021
       },
       "description": "asdfg",
-      "title": "Hola"
+      "title": "Hola",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -335,7 +350,8 @@
         "year": 2021
       },
       "description": "asdsdsa",
-      "title": "2143324"
+      "title": "2143324",
+      "totalTime": 0
     },
     {
       "progress": 0.0,
@@ -360,7 +376,8 @@
         "year": 2021
       },
       "description": "sdsfsafsafffa",
-      "title": "asdsaa "
+      "title": "asdsaa ",
+      "totalTime": 0
     }
   ]
 }

@@ -141,6 +141,7 @@ public class RequirementViewController {
 		}
 		catch (Exception e)
 		{
+			state.setTaskId(-1);
 			errorLabel.setText("Item not found: " + e.getMessage());
 		}
 	}
