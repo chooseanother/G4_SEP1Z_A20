@@ -69,6 +69,18 @@
                           "firstName": "test",
                           "lastName": "test"
                         }
+                      },
+                      {
+                        "role": {
+                          "role": "Team Member"
+                        },
+                        "id": {
+                          "id": 3
+                        },
+                        "name": {
+                          "firstName": "lol",
+                          "lastName": "noob"
+                        }
                       }
                     ]
                   }

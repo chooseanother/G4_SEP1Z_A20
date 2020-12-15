@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
+<!--Author: Aleksandrs-->
 <VBox prefHeight="445.0" prefWidth="634.0" userData="Task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TaskViewController">
     <HBox alignment="CENTER" prefHeight="74.0" prefWidth="383.0">
         <Label fx:id="titleLabel" alignment="CENTER" prefHeight="74.0" prefWidth="375.0" text="Task">

@@ -7,7 +7,7 @@ import parser.XmlJsonParser;
 import java.io.File;
 
 /**
- * Handles loading and saving the projectList to a Json file
+ * Handles loading and saving a ProjectList from and to Json file
  *
  * @author Kim
  */
@@ -15,6 +15,8 @@ public class ManagementSystemFile implements ManagementSystemPersistence
 {
   /**
    * Imported parser that writes the json file
+   *
+   * @see <a href="https://ict-engineering.dk/javadoc/XmlJsonParser/">Documentation</a>
    */
   private XmlJsonParser parser;
 
@@ -26,9 +28,9 @@ public class ManagementSystemFile implements ManagementSystemPersistence
   }
 
   /**
-   *
-   * @param projectList
-   * @param fileName
+   * Saves a ProjectList to a specified file path
+   * @param projectList List that is going to be saved
+   * @param fileName Path or name of file
    */
   @Override public void save(ProjectList projectList, String fileName)
   {
@@ -45,9 +47,9 @@ public class ManagementSystemFile implements ManagementSystemPersistence
   }
 
   /**
-   *
-   * @param fileName
-   * @return
+   * Loads a json file that contains a ProjectList
+   * @param fileName Path or name of file
+   * @return ProjectList
    */
   @Override public ProjectList load(String fileName)
   {
