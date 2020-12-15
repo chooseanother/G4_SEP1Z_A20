@@ -283,21 +283,21 @@ public class ManagementSystem implements ManagementSystemModel
 	/**
 	 *
 	 */
-	@Override public void removeTeamMember(int projectId, String name)
+	@Override public void removeTeamMember(int projectId, int id)
 	{
 		projectList.getProject(projectId).getTeamMemberList().
-				removeTeamMember(name);
+				removeTeamMember(id);
 	}
 
 	/**
 	 *
 	 */
 	@Override public void removeTeamMember(int projectId, int requirementId,
-			int taskId, String name)
+			int taskId, int id)
 	{
 		projectList.getProject(projectId).getRequirementList().
 				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				removeTeamMember(name);
+				removeTeamMember(id);
 	}
 
 	/**

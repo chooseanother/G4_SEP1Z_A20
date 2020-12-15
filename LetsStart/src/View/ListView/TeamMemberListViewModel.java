@@ -44,10 +44,10 @@ public class TeamMemberListViewModel
     list.add(new TeamMemberViewModel(member));
   }
 
-  public void remove(TeamMember member)
+  public void remove(int id)
   {
     for (TeamMemberViewModel t : list){
-      if (t.getIdProperty() == member.getId())
+      if (t.getIdProperty() == id)
       {
         list.remove(t);
         break;

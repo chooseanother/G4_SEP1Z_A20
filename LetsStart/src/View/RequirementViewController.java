@@ -148,33 +148,27 @@ public class RequirementViewController {
 	@FXML private void saveButtonPressed() {
 		//check if deadline is valid
 		//check if other stuff is valid
-		try
-		{
-
+		try {
 			LocalDate dl = deadlineDate.getValue();
 			Priority priority = new Priority(priorityChoice.getSelectionModel().getSelectedIndex());
 			MyDate deadline = new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear());
 			int estimatedTime = Integer.parseInt(estimateText.getText().split(" ")[0]);
 			TeamMember responsible = null;
 			for (int i = 0;
-					 i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
-			{
+					 i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++) {
 				if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString()
-						.equalsIgnoreCase(responsibleChoice.getValue()))
-				{
+						.equalsIgnoreCase(responsibleChoice.getValue())) {
 					responsible = managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList()
 							.getTeamMemberIndex(i);
 				}
 			}
-			if (state.getRequirementId() < 0)
-			{
+			if (state.getRequirementId() < 0) {
 				Requirement tmp = new Requirement(descriptionText.getText(), deadline, priority,
 						responsible, estimatedTime);
 				managementSystemModel.addRequirement(state.getProjectId(),tmp);
 				state.setRequirementId(tmp.getId());
 			}
-			else
-			{
+			else {
 				managementSystemModel.editRequirement(state.getProjectId(), state.getRequirementId(),
 						descriptionText.getText(), estimatedTime, statusChoice.getValue(),
 						priority, responsible);

@@ -35,8 +35,8 @@ public interface ManagementSystemModel {
 	void removeProject(int projectId);
 	void removeRequirement(int projectId, int requirementId);
 	void removeTask(int projectId, int requirementId, int taskId);
-	void removeTeamMember(int projectId, String name);
-	void removeTeamMember(int projectId, int requirementId, int taskId, String name);
+	void removeTeamMember(int projectId, int id);
+	void removeTeamMember(int projectId, int requirementId, int taskId, int id);
 
 	void updateProjectProgress(int projectId);
 	void updateRequirementStatus(int projectId, int requirementId);

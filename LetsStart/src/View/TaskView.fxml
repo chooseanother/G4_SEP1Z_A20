@@ -7,7 +7,7 @@
 
 <VBox prefHeight="445.0" prefWidth="634.0" userData="Task" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.TaskViewController">
     <HBox alignment="CENTER" prefHeight="74.0" prefWidth="383.0">
-        <Label alignment="CENTER" prefHeight="74.0" prefWidth="375.0" text="Task">
+        <Label fx:id="titleLabel" alignment="CENTER" prefHeight="74.0" prefWidth="375.0" text="Task">
             <font>
                 <Font size="24.0" />
             </font>
@@ -29,7 +29,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField prefWidth="173.0">
+                      <TextField fx:id="titleText" prefWidth="173.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -44,7 +44,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField editable="false" prefHeight="25.0" prefWidth="173.0">
+                      <TextField fx:id="reqIdText" editable="false" prefHeight="25.0" prefWidth="173.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -59,7 +59,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField editable="false" prefWidth="173.0">
+                      <TextField fx:id="taskIdText" editable="false" prefWidth="173.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -74,7 +74,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                  <ChoiceBox prefWidth="173.0" />
+                  <ChoiceBox fx:id="responsibleChoice" prefWidth="173.0" />
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefWidth="407.0">
                       <Label prefHeight="25.0" prefWidth="100.0" text="Deadline:">
@@ -85,7 +85,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <DatePicker prefWidth="200.0">
+                      <DatePicker fx:id="deadlineDate" prefWidth="200.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -100,7 +100,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <ChoiceBox prefWidth="173.0">
+                      <ChoiceBox fx:id="statusChoice" prefWidth="173.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -115,10 +115,18 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField prefWidth="173.0">
+                  <TextField fx:id="hoursText" editable="false" prefWidth="84.0">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </TextField>
+                      <TextField fx:id="enterHoursText" prefWidth="84.0" promptText="Enter hours">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font>
                       </TextField>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefWidth="407.0">
@@ -130,7 +138,7 @@
                               <Font size="14.0" />
                           </font>
                       </Label>
-                      <TextField prefWidth="173.0">
+                      <TextField fx:id="estimateText" prefWidth="173.0">
                           <HBox.margin>
                               <Insets />
                           </HBox.margin>
@@ -153,19 +161,19 @@
                         </font>
                     </Label>
                 </HBox>
-                 <TableView prefHeight="263.0" prefWidth="275.0">
+                 <TableView fx:id="teamMemberListTable" prefHeight="263.0" prefWidth="275.0">
                      <columns>
-                         <TableColumn prefWidth="275.0" text="Name" />
+                         <TableColumn fx:id="nameCollum" prefWidth="275.0" text="Name" />
                          <TableColumn fx:id="idCollum" prefWidth="75.0" text="Column X" visible="false" />
                      </columns>
                  </TableView>
                <HBox alignment="CENTER_RIGHT" spacing="5.0">
                   <children>
-                       <Button mnemonicParsing="false" prefHeight="26.0" text="Add" />
-                       <Button mnemonicParsing="false" prefHeight="26.0" text="Remove" />
+                       <Button mnemonicParsing="false" onAction="#addPressed" prefHeight="26.0" text="Add" />
+                       <Button mnemonicParsing="false" onAction="#removePressed" prefHeight="26.0" text="Remove" />
                   </children>
                   <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     <Insets bottom="5.0" left="5.0" right="5.0" />
                   </padding>
                </HBox>
             </children>
@@ -176,18 +184,18 @@
       <children>
          <HBox>
             <children>
-                 <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="Delete task" />
+                 <Button mnemonicParsing="false" onAction="#deletePressed" prefHeight="26.0" prefWidth="104.0" text="Delete task" />
             </children>
             <padding>
                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </HBox>
-         <Label alignment="CENTER" prefHeight="35.0" prefWidth="342.0" text="errorLabel" textFill="RED" />
+         <Label fx:id="errorLabel" alignment="CENTER" prefHeight="35.0" prefWidth="342.0" text="errorLabel" textFill="RED" />
          <HBox spacing="5.0">
             <children>
-                 <Button mnemonicParsing="false" prefHeight="26.0" text="Home" />
-                 <Button mnemonicParsing="false" prefHeight="26.0" text="Back" />
-                 <Button mnemonicParsing="false" prefHeight="26.0" text="Save" />
+                 <Button mnemonicParsing="false" onAction="#savePressed" prefHeight="26.0" text="Save" />
+                 <Button mnemonicParsing="false" onAction="#backPressed" prefHeight="26.0" text="Back" />
+                 <Button mnemonicParsing="false" onAction="#homePressed" prefHeight="26.0" text="Home" />
             </children>
             <padding>
                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

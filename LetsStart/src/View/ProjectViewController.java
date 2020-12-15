@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class ProjectViewController
 {
@@ -57,27 +58,7 @@ public class ProjectViewController
 		roleCollum.setCellValueFactory(cellData -> cellData.getValue().rolePropertyProperty());
 		tmIdCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		teamMemberListTable.setItems(teamMemberListViewModel.getList());
-		if (this.state.getProjectId()<0)
-		{
-			projectLabel.setText("New Project");
-			root.setUserData("New Project");
-		}
-		else{
-
-			Project display = managementSystemModel.getProject(this.state.getProjectId());
-			display.updateProgress();
-			projectLabel.setText("Project");
-			titleText.setText(display.getTitle());
-			customerText.setText(display.getCustomer().toString());
-			descriptionText.setText(display.getDescription());
-			MyDate tmp = display.getDeadline();
-			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
-			progressText.setText(String.format("%.2f",display.getProgress())+"%");
-			hoursSpentText.setText(display.getTotalHoursSpent()+" H");
-			idText.setText(display.getId()+"");
-			requirementListViewModel.update();
-			teamMemberListViewModel.update();
-		}
+		reset();
 	}
 
 	public void reset() {
@@ -94,8 +75,10 @@ public class ProjectViewController
 			root.setUserData("New Project");
 		}
 		else{
-			Project display = managementSystemModel.getProject(state.getProjectId());
 			projectLabel.setText("Project");
+			root.setUserData("Project");
+			Project display = managementSystemModel.getProject(state.getProjectId());
+			display.updateProgress();
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
 			descriptionText.setText(display.getDescription());
@@ -104,7 +87,7 @@ public class ProjectViewController
 			progressText.setText(String.format("%.2f",display.getProgress())+"%");
 			hoursSpentText.setText(display.getTotalHoursSpent()+" H");
 			idText.setText(display.getId()+"");
-			root.setUserData("Project");
+			deadlineDate.setEditable(false);
 		}
 		errorLabel.setText("");
 		requirementListViewModel.update();
@@ -198,9 +181,7 @@ public class ProjectViewController
 
 	@FXML private void removeReqButtonPressed(ActionEvent actionEvent)
 	{
-		state.setRequirementId(requirementListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getRequirementList().removeRequirement(state.getRequirementId());
-		requirementListViewModel.update();
+
 	}
 
 	@FXML private void addTMButtonPressed(ActionEvent actionEvent)
@@ -213,10 +194,37 @@ public class ProjectViewController
 		}
 	}
 
-	@FXML private void removeTMButtonPressed(ActionEvent actionEvent)
+	@FXML private void removeTMButtonPressed(ActionEvent actionEvent) {
+		try
+		{
+			TeamMemberViewModel selectedItem = teamMemberListTable.getSelectionModel().getSelectedItem();
+			boolean remove = removeConfirmation();
+			if (remove)
+			{
+				managementSystemModel.removeTeamMember(state.getProjectId(),selectedItem.getIdProperty());
+				teamMemberListViewModel.remove(selectedItem.getIdProperty());
+				teamMemberListTable.getSelectionModel().clearSelection();
+			}
+		}
+		catch (Exception e)
+		{
+			errorLabel.setText("Item not found: " + e.getMessage());
+		}
+	}
+
+	private boolean removeConfirmation()
 	{
-		TeamMemberViewModel tmv = teamMemberListTable.getSelectionModel().getSelectedItem();
-		managementSystemModel.getProject(Integer.parseInt(idText.getText())).getTeamMemberList().removeTeamMember(tmv.getNameProperty());
-		teamMemberListViewModel.update();
+		int index = teamMemberListTable.getSelectionModel().getSelectedIndex();
+		TeamMemberViewModel selectedItem = teamMemberListTable.getItems().get(index);
+		if (index < 0 || index >= teamMemberListTable.getItems().size())
+		{
+			return false;
+		}
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText(
+				"Removing Team Member " + selectedItem.getNameProperty());
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
 	}
 }

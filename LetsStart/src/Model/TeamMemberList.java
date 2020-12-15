@@ -54,12 +54,15 @@ public class TeamMemberList
         return member;
     return null;
   }
-  public void removeTeamMember(String name){
-    list.removeIf(member -> member.getName().equals(new Name(name)));
-  }
-  public void removeTeamMember(int index)
+
+  public void removeTeamMember(int id)
   {
-     list.remove(index);
+     for (TeamMember tm : list){
+       if (tm.getId() == id){
+         list.remove(tm);
+         break;
+       }
+     }
   }
 
   @Override public String toString()
