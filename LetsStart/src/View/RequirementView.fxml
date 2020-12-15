@@ -5,54 +5,48 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="681.0" prefWidth="816.0" userData="Requirement"
-      xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequirementViewController">
+<VBox prefHeight="681.0" prefWidth="816.0" userData="Requirement" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequirementViewController">
     <HBox prefHeight="74.0" prefWidth="816.0">
-        <Label fx:id="requirementLabel" alignment="CENTER"
-               prefHeight="80.0" prefWidth="816.0" text="Requirement">
+        <Label fx:id="requirementLabel" alignment="CENTER" prefHeight="80.0" prefWidth="816.0" text="Requirement">
             <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
             </font>
         </Label>
     </HBox>
     <HBox prefHeight="194.0" prefWidth="816.0">
-        <VBox prefHeight="142.0" prefWidth="407.0">
+        <VBox prefHeight="142.0" prefWidth="407.0" spacing="5.0">
             <HBox prefHeight="50.0" prefWidth="408.0">
                 <VBox.margin>
-                    <Insets/>
+                    <Insets />
                 </VBox.margin>
-                <Label prefHeight="25.0" prefWidth="80.0"
-                       text="ID:">
+                <Label prefHeight="25.0" prefWidth="100.0" text="ID:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField>
+                <TextField fx:id="idText" editable="false" prefWidth="175.0">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
             </HBox>
-            <HBox layoutX="10.0" layoutY="10.0" prefHeight="50.0"
-                  prefWidth="408.0">
-                <Label prefHeight="26.0" prefWidth="80.0"
-                       text="Responsible:">
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="408.0">
+                <Label prefHeight="26.0" prefWidth="100.0" text="Responsible:">
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
                     </HBox.margin>
                     <font>
-                        <Font size="14.0"/>
+                        <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField prefHeight="25.0" prefWidth="150.0">
-                    <HBox.margin>
-                        <Insets left="10.0"/>
-                    </HBox.margin>
-                </TextField>
+            <ChoiceBox fx:id="responsibleChoice" prefWidth="175.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
             </HBox>
             <HBox layoutX="10.0" layoutY="60.0" prefHeight="168.0" prefWidth="407.0">
                 <Label prefHeight="25.0" prefWidth="100.0" text="Description:">
@@ -95,11 +89,11 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField fx:id="statusText" prefWidth="173.0">
-                    <HBox.margin>
-                        <Insets left="10.0" />
-                    </HBox.margin>
-                </TextField>
+            <ChoiceBox fx:id="statusChoice" prefWidth="173.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ChoiceBox>
             </HBox>
             <HBox layoutX="10.0" layoutY="60.0">
                 <Label prefHeight="25.0" prefWidth="100.0" text="Hours spent:">
@@ -140,9 +134,9 @@
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <TextField>
+                <TextField fx:id="estimateText">
                     <HBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </HBox.margin>
                 </TextField>
             </HBox>
@@ -154,19 +148,16 @@
                 <Insets left="20.0" />
             </HBox.margin>
             <font>
-                <Font size="18.0"/>
+                <Font size="18.0" />
             </font>
         </Label>
     </HBox>
     <HBox prefHeight="342.0" prefWidth="816.0">
-        <TableView prefHeight="330.0" prefWidth="823.0">
+        <TableView fx:id="taskListTable" prefHeight="330.0" prefWidth="823.0">
             <columns>
-                <TableColumn fx:id="idCollum"
-                             prefWidth="116.00000303983688" text="ID"
-                             visible="false"/>
-                <TableColumn prefWidth="437.59996032714844" text="Title"/>
-                <TableColumn minWidth="0.0" prefWidth="262.4000244140625"
-                             text="Status"/>
+                <TableColumn fx:id="idCollum" prefWidth="116.00000303983688" text="ID" visible="false" />
+                <TableColumn fx:id="titleCollum" prefWidth="437.59996032714844" text="Title" />
+                <TableColumn fx:id="statusCollum" minWidth="0.0" prefWidth="262.4000244140625" text="Status" />
             </columns>
         </TableView>
       <padding>

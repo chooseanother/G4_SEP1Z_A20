@@ -16,9 +16,9 @@ public class RequirementViewController {
 	private ManagementSystemModel managementSystemModel;
 	private ViewState state;
 	@FXML private Label requirementLabel, errorLabel;
-	@FXML private TextField idText, statusText, hoursSpentText, estimateText;
+	@FXML private TextField idText, hoursSpentText, estimateText;
 	@FXML private TextArea descriptionText;
-	@FXML private ChoiceBox<String> responsibleChoice, priorityChoice;
+	@FXML private ChoiceBox<String> responsibleChoice, priorityChoice, statusChoice;
 	@FXML private DatePicker deadlineDate;
 	@FXML private TableView<TaskViewModel> taskListTable;
 	@FXML private TableColumn<TaskViewModel, String> titleCollum;
@@ -28,7 +28,9 @@ public class RequirementViewController {
 	private final ObservableList<String> priorities = FXCollections.observableArrayList(
 			Priority.PRIORITIES[0],Priority.PRIORITIES[1],
 			Priority.PRIORITIES[2],Priority.PRIORITIES[3]);
-	private ObservableList<String> allowedTeamMembers = FXCollections.observableArrayList();;
+	private final ObservableList<String> statuses = FXCollections.observableArrayList(
+			Status.APPROVED,Status.ENDED, Status.REJECTED, Status.IN_PROGRESS);
+	private ObservableList<String> allowedTeamMembers = FXCollections.observableArrayList();
 
 
 
@@ -41,14 +43,22 @@ public class RequirementViewController {
 		this.managementSystemModel = model;
 		this.root = root;
 		this.state=state;
+		errorLabel.setText("");
 		priorityChoice.setItems(priorities);
-		responsibleChoice.setItems(allowedTeamMembers);
+		statusChoice.setItems(statuses);
+
 		taskListViewModel = new TaskListViewModel(managementSystemModel, this.state);
 		titleCollum.setCellValueFactory(cellData -> cellData.getValue().titlePropertyProperty());
 		statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		taskListTable.setItems(taskListViewModel.getList());
 		errorLabel.setText("");
+		if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
+			for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
+				allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).toString());
+			}
+		}
+
 		if(this.state.getRequirementId()<0){
 			requirementLabel.setText("New Requirement");
 			root.setUserData("New Requirement");
@@ -57,47 +67,55 @@ public class RequirementViewController {
 		{
 			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
 			requirementLabel.setText("Requirement");
+			root.setUserData("Requirement");
 			idText.setText(display.getId()+"");
-			//Responsible
+			responsibleChoice.setValue(display.getResponsibleTeamMember().toString());
 			descriptionText.setText(display.getDescription());
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
-			//status
+			statusChoice.setValue(display.getStatus().toString());
 			hoursSpentText.setText(display.getTimeSpent()+" H");
-			//priority
-			//Estimated time
+			priorityChoice.setValue(display.getPriority().toString());
+			estimateText.setText(display.getEstimatedTime()+" H");
 			taskListViewModel.update();
+
 		}
+		responsibleChoice.setItems(allowedTeamMembers);
 	}
 
 	public void reset() {
 		errorLabel.setText("");
+		if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
+			for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
+				allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).toString());
+			}
+		}
 		if(this.state.getRequirementId()<0){
 			root.setUserData("Requirement");
 			requirementLabel.setText("New Requirement");
 			idText.setText("");
-			//Responsible
+			responsibleChoice.setValue("");
 			descriptionText.setText("");
 			deadlineDate.setValue(null);
-			//status
+			statusChoice.setValue("");
 			hoursSpentText.setText("");
-			//priority
+			priorityChoice.setValue("");
 			estimateText.setText("");
 		}
 		else
 		{
-			root.setUserData("New Requirement");
+			root.setUserData("Requirement");
 			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
 			requirementLabel.setText("Requirement");
 			idText.setText(display.getId()+"");
-			//Responsible
+			responsibleChoice.setValue(display.getResponsibleTeamMember().toString());
 			descriptionText.setText(display.getDescription());
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
-			//status
+			statusChoice.setValue(display.getStatus().toString());
 			hoursSpentText.setText(display.getTimeSpent()+" H");
-			//priority
-			//Estimated time
+			priorityChoice.setValue(display.getPriority().toString());
+			estimateText.setText(display.getEstimatedTime()+" H");
 		}
 		taskListViewModel.update();
 	}
