@@ -87,7 +87,7 @@ public class TeamMemberViewController {
 				}
 			}
 			saveButton.setText("Add");
-			roleLabel.setText("Cho0se:");
+			roleLabel.setText("Choose:");
 			roleChoice.setItems(allowedTeamMembers);
 			roleChoice.setValue(null);
 			nameText.setVisible(false);
