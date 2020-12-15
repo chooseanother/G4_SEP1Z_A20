@@ -28,8 +28,8 @@ public class Project
     for(int i = 0; i < requirementList.getNumberOfRequirements(); i++)
     {
       requirementList.getRequirementIndex(i).updateStatus();
-      if(requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.APPROVED))||
-          requirementList.getRequirementId(i).getStatus().equals(new Status(true,Status.ENDED)))
+      if(requirementList.getRequirementIndex(i).getStatus().equals(new Status(true,Status.APPROVED))||
+          requirementList.getRequirementIndex(i).getStatus().equals(new Status(true,Status.ENDED)))
         count++;
     }
     progress=(double)count*100/requirementList.getNumberOfRequirements();
@@ -92,8 +92,12 @@ public class Project
   public int getTotalHoursSpent() {
     int sum=0;
     for(int i=0;i<requirementList.getNumberOfRequirements();i++)
-      sum+=requirementList.getRequirementId(i).getTimeSpent();
+      sum+=requirementList.getRequirementIndex(i).getTimeSpent();
     return sum;
+  }
+
+  public void addRequirement(Requirement requirement){
+    requirementList.addRequirement(requirement);
   }
 
   @Override public String toString() {

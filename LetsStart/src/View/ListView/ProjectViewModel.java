@@ -1,4 +1,4 @@
-package ListView;
+package View.ListView;
 
 import Model.Project;
 import javafx.beans.property.*;
@@ -16,7 +16,7 @@ public class ProjectViewModel
     deadlineProperty =
         new SimpleStringProperty(project.getDeadline().toString());
     progressProperty =
-        new SimpleStringProperty(String.format("%.2f",project.getProgress()*100)+"%");
+        new SimpleStringProperty(project.getProgress()+"%");
     idProperty = new SimpleIntegerProperty(project.getId());
 
   }

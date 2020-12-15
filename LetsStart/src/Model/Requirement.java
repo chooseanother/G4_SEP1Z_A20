@@ -12,12 +12,12 @@ public class Requirement
   private Priority priority;
   private TeamMember responsibleTeamMember;
 
-  public Requirement(String description, MyDate deadline, Priority priority, TeamMember responsibleTeamMember)
+  public Requirement(String description, MyDate deadline, Priority priority, TeamMember responsibleTeamMember, int estimatedTime)
   {
     this.reqID = new Id();
     this.description = description;
     this.timeSpent = 0;
-    this.estimatedTime = 0;
+    this.estimatedTime = estimatedTime;
     this.deadline = deadline;
     this.tasks = new TaskList();
     this.status = new Status(true);
@@ -102,13 +102,13 @@ public class Requirement
     }
     timeSpent = total;
   }
-  public void updateEstimatedTime()
+  public void setEstimatedTime(int time)
   {
-    int total = 0;
-    for (int i = 0 ; i < tasks.numberOfTasks(); i++){
-      total += tasks.getTaskIndex(i).getEstimatedTime();
-    }
-    estimatedTime = total;
+    estimatedTime = time;
+  }
+
+  public void setDescription(String description){
+    this.description = description;
   }
 
   @Override public String toString()

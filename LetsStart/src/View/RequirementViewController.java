@@ -1,7 +1,7 @@
 package View;
 
-import ListView.TaskViewModel;
-import ListView.TaskListViewModel;
+import View.ListView.TaskViewModel;
+import View.ListView.TaskListViewModel;
 import Model.*;
 import javafx.collections.*;
 import javafx.fxml.FXML;
@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class RequirementViewController {
 	private Region root;
@@ -45,70 +46,45 @@ public class RequirementViewController {
 		this.state=state;
 		errorLabel.setText("");
 		priorityChoice.setItems(priorities);
-		statusChoice.setItems(statuses);
-
 		taskListViewModel = new TaskListViewModel(managementSystemModel, this.state);
 		titleCollum.setCellValueFactory(cellData -> cellData.getValue().titlePropertyProperty());
 		statusCollum.setCellValueFactory(cellData -> cellData.getValue().statusPropertyProperty());
 		idCollum.setCellValueFactory(cellData -> cellData.getValue().idPropertyProperty());
 		taskListTable.setItems(taskListViewModel.getList());
-		errorLabel.setText("");
-		if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
-			for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
-				allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).toString());
-			}
-		}
-
-		if(this.state.getRequirementId()<0){
-			requirementLabel.setText("New Requirement");
-			root.setUserData("New Requirement");
-		}
-		else
-		{
-			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
-			requirementLabel.setText("Requirement");
-			root.setUserData("Requirement");
-			idText.setText(display.getId()+"");
-			responsibleChoice.setValue(display.getResponsibleTeamMember().toString());
-			descriptionText.setText(display.getDescription());
-			MyDate tmp = display.getDeadline();
-			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
-			statusChoice.setValue(display.getStatus().toString());
-			hoursSpentText.setText(display.getTimeSpent()+" H");
-			priorityChoice.setValue(display.getPriority().toString());
-			estimateText.setText(display.getEstimatedTime()+" H");
-			taskListViewModel.update();
-
-		}
-		responsibleChoice.setItems(allowedTeamMembers);
+		reset();
 	}
 
 	public void reset() {
 		errorLabel.setText("");
+		allowedTeamMembers.clear();
 		if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers() > 0){
 			for (int i = 0; i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++){
-				allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).toString());
+				allowedTeamMembers.add(managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString());
 			}
 		}
+		responsibleChoice.setItems(allowedTeamMembers);
 		if(this.state.getRequirementId()<0){
-			root.setUserData("Requirement");
+			root.setUserData("New Requirement");
 			requirementLabel.setText("New Requirement");
 			idText.setText("");
 			responsibleChoice.setValue("");
 			descriptionText.setText("");
 			deadlineDate.setValue(null);
-			statusChoice.setValue("");
+			statusChoice.setValue(null);
+			statusChoice.setItems(FXCollections.observableArrayList(Status.IN_PROGRESS));
 			hoursSpentText.setText("");
-			priorityChoice.setValue("");
+			priorityChoice.setValue(null);
 			estimateText.setText("");
 		}
 		else
 		{
 			root.setUserData("Requirement");
-			Requirement display=managementSystemModel.getProject(this.state.getProjectId()).getRequirementList().getRequirementId(this.state.getRequirementId());
 			requirementLabel.setText("Requirement");
+			Requirement display=managementSystemModel.getRequirement(this.state.getProjectId(),this.state.getRequirementId());
+			statusChoice.setItems(statuses);
 			idText.setText(display.getId()+"");
-			responsibleChoice.setValue(display.getResponsibleTeamMember().toString());
+			responsibleChoice.setValue(display.getResponsibleTeamMember().getName().toString());
+			System.out.println(display.getResponsibleTeamMember().toString());
 			descriptionText.setText(display.getDescription());
 			MyDate tmp = display.getDeadline();
 			deadlineDate.setValue(LocalDate.of(tmp.getYear(),tmp.getMonth(),tmp.getDay()));
@@ -116,6 +92,7 @@ public class RequirementViewController {
 			hoursSpentText.setText(display.getTimeSpent()+" H");
 			priorityChoice.setValue(display.getPriority().toString());
 			estimateText.setText(display.getEstimatedTime()+" H");
+			deadlineDate.setEditable(false);
 		}
 		taskListViewModel.update();
 	}
@@ -125,32 +102,127 @@ public class RequirementViewController {
 	}
 
 	@FXML private void addButtonPressed() {
-
+		if (state.getRequirementId()>0){
+			errorLabel.setText("");
+			viewHandler.openView("task");
+		}
+		else {
+			errorLabel.setText("Save requirement before adding tasks");
+		}
 	}
 
 	@FXML private void removeButtonPressed() {
-
+		//confirmation
+		errorLabel.setText("");
+		try
+		{
+			TaskViewModel selectedItem = taskListTable.getSelectionModel().getSelectedItem();
+			boolean remove = removeConfirmation();
+			if (remove)
+			{
+				managementSystemModel.getRequirement(state.getProjectId(),state.getRequirementId()).getAllTasks().removeTask(selectedItem.getIdProperty());
+				taskListViewModel.remove(selectedItem.getIdProperty());
+				taskListTable.getSelectionModel().clearSelection();
+			}
+		}
+		catch (Exception e)
+		{
+			errorLabel.setText("Item not found: " + e.getMessage());
+		}
 	}
 
 	@FXML private void openButtonPressed() {
-		state.setTaskId(
-				taskListTable.getSelectionModel().getSelectedItem().getIdProperty());
-		viewHandler.openView("task");
+		errorLabel.setText("");
+		try
+		{
+			state.setTaskId(
+					taskListTable.getSelectionModel().getSelectedItem().getIdProperty());
+			viewHandler.openView("task");
+		}
+		catch (Exception e)
+		{
+			errorLabel.setText("Item not found: " + e.getMessage());
+		}
 	}
 
 	@FXML private void saveButtonPressed() {
 		//check if deadline is valid
 		//check if other stuff is valid
+		try
+		{
+
+			LocalDate dl = deadlineDate.getValue();
+			Priority priority = new Priority(priorityChoice.getSelectionModel().getSelectedIndex());
+			MyDate deadline = new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear());
+			int estimatedTime = Integer.parseInt(estimateText.getText().split(" ")[0]);
+			TeamMember responsible = null;
+			for (int i = 0;
+					 i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++)
+			{
+				if (managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().getTeamMemberIndex(i).getName().toString()
+						.equalsIgnoreCase(responsibleChoice.getValue()))
+				{
+					responsible = managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList()
+							.getTeamMemberIndex(i);
+				}
+			}
+			if (state.getRequirementId() < 0)
+			{
+				Requirement tmp = new Requirement(descriptionText.getText(), deadline, priority,
+						responsible, estimatedTime);
+				managementSystemModel.addRequirement(state.getProjectId(),tmp);
+				state.setRequirementId(tmp.getId());
+			}
+			else
+			{
+				managementSystemModel.editRequirement(state.getProjectId(), state.getRequirementId(),
+						descriptionText.getText(), estimatedTime, statusChoice.getValue(),
+						priority, responsible);
+			}
+			managementSystemModel.saveToFile();
+			reset();
+		}
+		catch (Exception e){
+			errorLabel.setText("Error: " + e.getMessage());
+		}
 	}
 
 	@FXML private void backButtonPressed() {
-		state.setRequirementId(-1);
-		viewHandler.openView("project");
+		if (exitConfirmation()){
+			state.setRequirementId(-1);
+			viewHandler.openView("project");
+		}
 	}
 
 	@FXML private void homeButtonPressed() {
-		state.reset();
-		viewHandler.openView("home");
+		if (exitConfirmation()){
+			state.reset();
+			viewHandler.openView("home");
+		}
 	}
 
+	private boolean removeConfirmation()
+	{
+		int index = taskListTable.getSelectionModel().getSelectedIndex();
+		TaskViewModel selectedItem = taskListTable.getItems().get(index);
+		if (index < 0 || index >= taskListTable.getItems().size())
+		{
+			return false;
+		}
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText(
+				"Removing task " + selectedItem.getTitleProperty() + " "
+						+ selectedItem.getIdProperty());
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
+
+	private boolean exitConfirmation(){
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		alert.setTitle("Confirmation");
+		alert.setHeaderText("You are about to exit.\nPress OK to lose unsaved changes");
+		Optional<ButtonType> result = alert.showAndWait();
+		return (result.isPresent()) && (result.get() == ButtonType.OK);
+	}
 }
