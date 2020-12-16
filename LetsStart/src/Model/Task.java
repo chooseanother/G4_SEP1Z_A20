@@ -171,7 +171,7 @@ public class Task {
    * Compares another object with current task object
    *
    * @param obj object you want to compare
-   * @return returns the result of comparing the two objects as boolean
+   * @return the result of comparing the two objects as boolean
    */
   public boolean equals(Object obj) {
     if (this == obj){

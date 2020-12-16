@@ -7,7 +7,7 @@ import parser.XmlJsonParser;
 import java.io.File;
 
 /**
- * Handles loading and saving a ProjectList from and to Json file
+ * Handles loading and saving a {@link ProjectList} from and to Json file
  *
  * @author Kim
  */
@@ -28,7 +28,7 @@ public class ManagementSystemFile implements ManagementSystemPersistence
   }
 
   /**
-   * Saves a ProjectList to a specified file path
+   * Saves a {@link ProjectList} to a specified file path
    * @param projectList List that is going to be saved
    * @param fileName Path or name of file
    */
@@ -47,9 +47,9 @@ public class ManagementSystemFile implements ManagementSystemPersistence
   }
 
   /**
-   * Loads a json file that contains a ProjectList
+   * Loads a json file that contains a {@link ProjectList}
    * @param fileName Path or name of file
-   * @return ProjectList
+   * @return {@link ProjectList}
    */
   @Override public ProjectList load(String fileName)
   {

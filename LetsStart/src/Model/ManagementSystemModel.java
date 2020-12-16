@@ -1,6 +1,14 @@
 package Model;
 
+/**
+ *
+ * @author
+ */
 public interface ManagementSystemModel {
+	/**
+	 * This the real deal? YES! all javadocs here
+	 * @param project
+	 */
 	void addProject(Project project);
 	void addRequirement(int projectId, Requirement requirement);
 	void addTask(int projectId, int requirementId, Task task);

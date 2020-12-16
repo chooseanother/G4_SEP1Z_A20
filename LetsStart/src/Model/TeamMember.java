@@ -32,7 +32,7 @@ public class TeamMember extends Person
 
   /**
    * Returns the role of a team member
-   * @return Returns a Role object
+   * @return a {@link Role} object
    */
   public Role getRole()
   {
@@ -41,7 +41,7 @@ public class TeamMember extends Person
 
   /**
    * Returns the id of a team member
-   * @return Returns id as an integer
+   * @return id as an integer
    */
   public int getId(){
     return id.getId();

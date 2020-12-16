@@ -95,7 +95,7 @@ public class Status
    * Compares another object with current Status object
    *
    * @param obj object you want to compare
-   * @return returns the result of comparing the two objects as boolean
+   * @return the result of comparing the two objects as boolean
    */
   @Override public boolean equals(Object obj)
   {
@@ -114,7 +114,7 @@ public class Status
   /**
    * Returns the status
    *
-   * @return returns the status as a string
+   * @return the status as a string
    */
   @Override public String toString()
   {
