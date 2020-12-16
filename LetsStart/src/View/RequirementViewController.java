@@ -216,7 +216,7 @@ public class RequirementViewController {
 	private boolean exitConfirmation(){
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		alert.setTitle("Confirmation");
-		alert.setHeaderText("You are about to exit.\nPress OK to lose unsaved changes");
+		alert.setHeaderText("You are about to exit.\nPress OK to continue");
 		Optional<ButtonType> result = alert.showAndWait();
 		return (result.isPresent()) && (result.get() == ButtonType.OK);
 	}
