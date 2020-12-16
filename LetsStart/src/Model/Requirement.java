@@ -1,5 +1,10 @@
 package Model;
 
+/**
+ * Handles all relevant information of a requirement
+ *
+ * @author Kim
+ */
 public class Requirement
 {
   private Id reqID;
@@ -12,6 +17,16 @@ public class Requirement
   private Priority priority;
   private TeamMember responsibleTeamMember;
 
+  /**
+   * Creates a {@link Requirement} based on given parameters.
+   * <p>{@link Id} gives this an unique id</p>
+   * <p>Remaining fields are initialized to default values</p>
+   * @param description of a requirement as a {@link String}
+   * @param deadline {@link MyDate} as the requirements deadline
+   * @param priority of a requirement as a {@link Priority}
+   * @param responsibleTeamMember of r
+   * @param estimatedTime
+   */
   public Requirement(String description, MyDate deadline, Priority priority, TeamMember responsibleTeamMember, int estimatedTime)
   {
     this.reqID = new Id();
