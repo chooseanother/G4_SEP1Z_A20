@@ -10,7 +10,18 @@ public interface ManagementSystemModel {
 	 * @param project
 	 */
 	void addProject(Project project);
+	/**
+	 *
+	 * @param projectId
+	 * @param requirement
+	 */
 	void addRequirement(int projectId, Requirement requirement);
+	/**
+	 *
+	 * @param projectId
+	 * @param requirementId
+	 * @param task
+	 */
 	void addTask(int projectId, int requirementId, Task task);
 	void addTeamMember(int projectId, TeamMember member);
 	void addTeamMember(int projectId, int requirementId, int taskId, TeamMember member);
