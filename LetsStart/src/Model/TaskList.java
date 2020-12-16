@@ -2,19 +2,36 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * Handles an {@link ArrayList} of {@link Task} objects
+ *
+ * @author Kim
+ */
 public class TaskList
 {
   private ArrayList<Task> list;
 
+  /**
+   * Initialization of {@link ArrayList}
+   */
   public TaskList()
   {
     list=new ArrayList<>();
   }
 
+  /**
+   * Adds a task to a {@link TaskList}
+   * @param task that has to be added
+   */
   public void addTask(Task task){
     list.add(task);
   }
 
+  /**
+   * Returns a task specified by provided id
+   * @param taskID
+   * @return
+   */
   public Task getTaskId(int taskID)
   {
     for(Task task:list)

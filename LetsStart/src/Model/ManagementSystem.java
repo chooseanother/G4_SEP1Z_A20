@@ -3,12 +3,18 @@ package Model;
 import Model.mediator.ManagementSystemFile;
 import Model.mediator.ManagementSystemPersistence;
 
+/**
+ *
+ */
 public class ManagementSystem implements ManagementSystemModel
 {
 
 	private ProjectList projectList;
 	private ManagementSystemPersistence MSP;
 
+	/**
+	 *
+	 */
 	public ManagementSystem()
 	{
 		projectList = new ProjectList();
@@ -34,6 +40,9 @@ public class ManagementSystem implements ManagementSystemModel
 
 	/**
 	 *
+	 * @param projectId
+	 * @param requirementId
+	 * @param task
 	 */
 	@Override public void addTask(int projectId, int requirementId, Task task)
 	{
@@ -43,6 +52,8 @@ public class ManagementSystem implements ManagementSystemModel
 
 	/**
 	 *
+	 * @param projectId
+	 * @param member
 	 */
 	@Override public void addTeamMember(int projectId, TeamMember member)
 	{
@@ -51,6 +62,10 @@ public class ManagementSystem implements ManagementSystemModel
 
 	/**
 	 *
+	 * @param projectId
+	 * @param requirementId
+	 * @param taskId
+	 * @param member
 	 */
 	@Override public void addTeamMember(int projectId, int requirementId,
 			int taskId, TeamMember member)
@@ -62,22 +77,14 @@ public class ManagementSystem implements ManagementSystemModel
 
 	/**
 	 *
+	 * @param projectId
+	 * @param requirementId
+	 * @param description
+	 * @param time
+	 * @param status
+	 * @param priority
+	 * @param responsible
 	 */
-	@Override public void assignRole(int projectId, int memberId, Role role)
-	{
-		projectList.getProject(projectId).getTeamMemberList().
-				getTeamMember(memberId).assignRole(role);
-	}
-
-	/**
-	 *
-	 */
-	@Override public void assignRequirementPriority(int projectId,
-			int requirementId, Priority priority)
-	{
-		projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).setPriority(priority);
-	}
 
 	@Override public void editRequirement(int projectId, int requirementId, String description, int time, String status, Priority priority, TeamMember responsible){
 		Requirement edit = projectList.getProject(projectId).getRequirementList().getRequirementId(requirementId);
@@ -88,6 +95,17 @@ public class ManagementSystem implements ManagementSystemModel
 		edit.changeResponsibleTeamMember(responsible);
 	}
 
+	/**
+	 *
+	 * @param projectId
+	 * @param requirementId
+	 * @param taskId
+	 * @param title
+	 * @param responsible
+	 * @param status
+	 * @param timeSpent
+	 * @param estimate
+	 */
 	@Override public void editTask(int projectId, int requirementId, int taskId, String title, TeamMember responsible, String status, int timeSpent, int estimate){
 		Task edit = getTask(projectId,requirementId,taskId);
 		edit.setTitle(title);
@@ -112,13 +130,7 @@ public class ManagementSystem implements ManagementSystemModel
 		return projectList;
 	}
 
-	/**
-	 *
-	 */
-	@Override public double getProjectProgress(int projectId)
-	{
-		return projectList.getProject(projectId).getProgress();
-	}
+
 
 	/**
 	 *
@@ -136,15 +148,6 @@ public class ManagementSystem implements ManagementSystemModel
 	{
 		return projectList.getProject(projectId).getTeamMemberList();
 	}
-
-	/**
-	 *
-	 */
-	@Override public int getTotalTimeSpent(int projectId)
-	{
-		return projectList.getProject(projectId).getTotalHoursSpent();
-	}
-
 	/**
 	 *
 	 */
@@ -154,41 +157,6 @@ public class ManagementSystem implements ManagementSystemModel
 				getRequirementId(requirementId);
 	}
 
-	/**
-	 *
-	 */
-	@Override public RequirementList getAllRequirements(int projectId)
-	{
-		return projectList.getProject(projectId).getRequirementList();
-	}
-
-	/**
-	 *
-	 */
-	@Override public Status getRequirementStatus(int projectId, int requirementId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getStatus();
-	}
-
-	/**
-	 *
-	 */
-	@Override public TeamMember getResponsibleTeamMember(int projectId,
-			int requirementId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getResponsibleTeamMember();
-	}
-
-	/**
-	 *
-	 */
-	@Override public int getEstimatedTime(int projectId, int requirementId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getEstimatedTime();
-	}
 
 	/**
 	 *
@@ -197,69 +165,6 @@ public class ManagementSystem implements ManagementSystemModel
 	{
 		return projectList.getProject(projectId).getRequirementList().
 				getRequirementId(requirementId).getAllTasks().getTaskId(taskId);
-	}
-
-	/**
-	 *
-	 */
-	@Override public TaskList getAllTasks(int projectId, int requirementId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks();
-	}
-
-	/**
-	 *
-	 */
-	@Override public Status getTaskStatus(int projectId, int requirementId,
-			int taskId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).getStatus();
-	}
-
-	/**
-	 *
-	 */
-	@Override public TeamMember getResponsibleTeamMember(int projectId,
-			int requirementId, int taskId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				getResponsibleTeamMember();
-	}
-
-	/**
-	 *
-	 */
-	@Override public TeamMember getTeamMember(int projectId, int requirementId,
-			int taskId, int memberId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				getAllTeamMembers().getTeamMember(memberId);
-	}
-
-	/**
-	 *
-	 */
-	@Override public TeamMemberList getAllTeamMembers(int projectId,
-			int requirementId, int taskId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				getAllTeamMembers();
-	}
-
-	/**
-	 *
-	 */
-	@Override public int getEstimatedTime(int projectId, int requirementId,
-			int taskId)
-	{
-		return projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().getTaskId(taskId).
-				getEstimatedTime();
 	}
 
 	/**
@@ -279,14 +184,6 @@ public class ManagementSystem implements ManagementSystemModel
 				removeRequirement(requirementId);
 	}
 
-	/**
-	 *
-	 */
-	@Override public void removeTask(int projectId, int requirementId, int taskId)
-	{
-		projectList.getProject(projectId).getRequirementList().
-				getRequirementId(requirementId).getAllTasks().removeTask(taskId);
-	}
 
 	/**
 	 *
@@ -316,23 +213,6 @@ public class ManagementSystem implements ManagementSystemModel
 		projectList.getProject(projectId).updateProgress();
 	}
 
-	/**
-	 *
-	 */
-	@Override public void updateRequirementStatus(int projectId,
-			int requirementId)
-	{
-
-	}
-
-	/**
-	 *
-	 */
-	@Override public void updateTaskStatus(int projectId, int requirementId,
-			int taskId)
-	{
-
-	}
 
 	@Override public void saveToFile(){
 		MSP.save(projectList, "Project_List.json");
