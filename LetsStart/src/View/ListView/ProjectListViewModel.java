@@ -27,7 +27,11 @@ public class ProjectListViewModel
     list.clear();
     for (int i = 0; i < model.getAllProjects().numberOfProjects(); i++)
     {
-      list.add(new ProjectViewModel(model.getAllProjects().getProjectIndex(i)));
+      Project tmp = model.getAllProjects().getProjectIndex(i);
+      if (tmp.getRequirementList().getNumberOfRequirements()>0){
+        model.updateProjectProgress(tmp.getId());
+      }
+      list.add(new ProjectViewModel(tmp));
     }
   }
 

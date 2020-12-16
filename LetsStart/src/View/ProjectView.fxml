@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
+<!--Author: Aleksandrs-->
 <VBox prefHeight="814.0" prefWidth="907.0" userData="Project" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectViewController">
    <VBox prefHeight="815.0">
       <HBox prefHeight="74.0">

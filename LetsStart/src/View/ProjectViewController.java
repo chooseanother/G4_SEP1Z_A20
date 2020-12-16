@@ -79,7 +79,7 @@ public class ProjectViewController
 			root.setUserData("Project");
 			Project display = managementSystemModel.getProject(state.getProjectId());
 			if (display.getRequirementList().getNumberOfRequirements()>0){
-				display.updateProgress();
+				managementSystemModel.updateProjectProgress(state.getProjectId());
 			}
 			titleText.setText(display.getTitle());
 			customerText.setText(display.getCustomer().toString());
