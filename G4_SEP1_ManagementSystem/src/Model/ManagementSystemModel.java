@@ -6,7 +6,7 @@ package Model;
  */
 public interface ManagementSystemModel {
 	/**
-	 * This the real deal? YES! all javadocs here
+	 *
 	 * @param project
 	 */
 	void addProject(Project project);
