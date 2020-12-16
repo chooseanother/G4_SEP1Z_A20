@@ -12,10 +12,129 @@
         }
       },
       "requirementList": {
-        "list": []
+        "list": [
+          {
+            "reqID": {
+              "id": 8
+            },
+            "description": "Very informative and descriptive requirement description in who, what, why format",
+            "timeSpent": 0,
+            "estimatedTime": 24,
+            "deadline": {
+              "day": 18,
+              "month": 12,
+              "year": 2020
+            },
+            "tasks": {
+              "list": [
+                {
+                  "title": "kk",
+                  "estimatedHours": 24,
+                  "totalHoursWorked": 0,
+                  "reqId": 8,
+                  "responsibleTeamMember": {
+                    "role": {
+                      "role": "Team Member"
+                    },
+                    "id": {
+                      "id": 3
+                    },
+                    "name": {
+                      "firstName": "Atleast",
+                      "lastName": "one"
+                    }
+                  },
+                  "status": {
+                    "status": "Not started",
+                    "isRequirement": false
+                  },
+                  "deadline": {
+                    "day": 18,
+                    "month": 12,
+                    "year": 2020
+                  },
+                  "id": {
+                    "id": 9
+                  },
+                  "teamMemberList": {
+                    "list": []
+                  }
+                }
+              ]
+            },
+            "status": {
+              "status": "In progress",
+              "isRequirement": true
+            },
+            "priority": {
+              "priority": 3
+            },
+            "responsibleTeamMember": {
+              "role": {
+                "role": "Team Member"
+              },
+              "id": {
+                "id": 3
+              },
+              "name": {
+                "firstName": "Atleast",
+                "lastName": "one"
+              }
+            }
+          }
+        ]
       },
       "teamMemberList": {
-        "list": []
+        "list": [
+          {
+            "role": {
+              "role": "Team Member"
+            },
+            "id": {
+              "id": 3
+            },
+            "name": {
+              "firstName": "Atleast",
+              "lastName": "one"
+            }
+          },
+          {
+            "role": {
+              "role": "Scrum Master"
+            },
+            "id": {
+              "id": 5
+            },
+            "name": {
+              "firstName": "Maybe",
+              "lastName": "two"
+            }
+          },
+          {
+            "role": {
+              "role": "Product Owner"
+            },
+            "id": {
+              "id": 6
+            },
+            "name": {
+              "firstName": "What",
+              "lastName": "about"
+            }
+          },
+          {
+            "role": {
+              "role": "Project Creator"
+            },
+            "id": {
+              "id": 7
+            },
+            "name": {
+              "firstName": "Three",
+              "lastName": "Four"
+            }
+          }
+        ]
       },
       "deadline": {
         "day": 18,

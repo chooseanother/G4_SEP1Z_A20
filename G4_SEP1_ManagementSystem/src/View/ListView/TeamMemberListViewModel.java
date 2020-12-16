@@ -41,8 +41,7 @@ public class TeamMemberListViewModel
       }
     }
     else
-    {
-      if (state.getProjectId() > 0
+      if (state.getProjectId() > 0 && state.getRequirementId()<0
           && model.getAllTeamMembers(state.getProjectId()).numberOfTeamMembers()
           > 0)
       {
@@ -53,7 +52,7 @@ public class TeamMemberListViewModel
               model.getAllTeamMembers(state.getProjectId()).getTeamMemberIndex(i)));
         }
       }
-    }
+
   }
 
   public void add(TeamMember member)
