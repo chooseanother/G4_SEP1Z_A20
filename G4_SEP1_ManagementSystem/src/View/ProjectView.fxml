@@ -4,7 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+
 <!--Author: Aleksandrs-->
+
 <VBox prefHeight="814.0" prefWidth="907.0" userData="Project" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectViewController">
    <VBox prefHeight="815.0">
       <HBox prefHeight="74.0">
@@ -58,7 +60,7 @@
                      <Font size="14.0" />
                   </font>
                </Label>
-               <TextArea fx:id="descriptionText" prefHeight="120.0" prefWidth="232.0">
+               <TextArea fx:id="descriptionText" prefHeight="120.0" prefWidth="232.0" wrapText="true">
                   <HBox.margin>
                      <Insets left="10.0" />
                   </HBox.margin>
@@ -159,21 +161,17 @@
             </TableView>
             <HBox prefHeight="22.0" prefWidth="526.0" spacing="5.0">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <Button mnemonicParsing="false" onAction="#reqDButtonPressed"
-                       text="Requirement details"/>
-               <Button mnemonicParsing="false" onAction="#addReqButtonPressed"
-                       text="Add requirement">
+               <Button mnemonicParsing="false" onAction="#reqDButtonPressed" text="Requirement details" />
+               <Button mnemonicParsing="false" onAction="#addReqButtonPressed" text="Add requirement">
                   <HBox.margin>
-                     <Insets/>
+                     <Insets />
                   </HBox.margin>
                </Button>
-               <Button mnemonicParsing="false"
-                       onAction="#removeReqButtonPressed"
-                       text="Remove requirement">
+               <Button mnemonicParsing="false" onAction="#removeReqButtonPressed" text="Remove requirement">
                   <HBox.margin>
-                     <Insets/>
+                     <Insets />
                   </HBox.margin>
                </Button>
             </HBox>
@@ -188,20 +186,16 @@
             </TableView>
             <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <Button mnemonicParsing="false" onAction="#removeTMButtonPressed"
-                       text="Remove Team member"/>
+               <Button mnemonicParsing="false" onAction="#removeTMButtonPressed" text="Remove Team member" />
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0"
-                  spacing="5.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="367.0" spacing="5.0">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <Button mnemonicParsing="false" onAction="#addTMButtonPressed"
-                       text="Add Team member"/>
-               <Button mnemonicParsing="false" onAction="#tMDButtonPressed"
-                       text="Edit team member"/>
+               <Button mnemonicParsing="false" onAction="#addTMButtonPressed" text="Add Team member" />
+               <Button mnemonicParsing="false" onAction="#tMDButtonPressed" text="Edit team member" />
             </HBox>
          </VBox>
          <padding>
@@ -211,21 +205,17 @@
       <VBox prefHeight="40.0" prefWidth="908.0">
          <HBox alignment="CENTER_LEFT" prefHeight="25.0" spacing="5.0">
             <HBox alignment="CENTER" prefHeight="26.0" prefWidth="733.0">
-               <Label fx:id="errorLabel" alignment="CENTER" prefHeight="26.0"
-                      prefWidth="691.0" text="errorLabel" textFill="RED"/>
+               <Label fx:id="errorLabel" alignment="CENTER" prefHeight="26.0" prefWidth="691.0" text="errorLabel" textFill="RED" />
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="192.0"
-                  spacing="5.0">
-               <Button mnemonicParsing="false" onAction="#saveButtonPressed"
-                       text="Save">
+            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="192.0" spacing="5.0">
+               <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="Save">
                   <HBox.margin>
-                     <Insets/>
+                     <Insets />
                   </HBox.margin>
                </Button>
-               <Button mnemonicParsing="false" onAction="#backButtonPressed"
-                       text="Back">
+               <Button mnemonicParsing="false" onAction="#backButtonPressed" text="Back">
                   <HBox.margin>
-                     <Insets/>
+                     <Insets />
                   </HBox.margin>
                </Button>
             </HBox>
