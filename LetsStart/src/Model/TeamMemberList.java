@@ -87,6 +87,15 @@ public class TeamMemberList
   }
 
   /**
+   * Checsk if the list contains specified team member
+   * @param member {@link TeamMember}
+   * @return {@link Boolean}
+   */
+  public boolean contains(TeamMember member){
+    return list.contains(member);
+  }
+
+  /**
    * Finds a {@link TeamMember} with specified {@link Role}
    * @param role object containing {@link Role} information
    * @return first {@link TeamMember} with specified {@link Role}
