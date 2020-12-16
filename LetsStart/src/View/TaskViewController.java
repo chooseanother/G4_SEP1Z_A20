@@ -93,14 +93,35 @@ public class TaskViewController
   }
 
   @FXML private void savePressed() {
-    //check if estimated time is allowed
-    // (estimated time for requirement minus total estimated time from all tasks
-    // related to requirement should be above estimated time form a new task
-    // else there will be an error/warning)
+    int estimatedTime = 0;
+    try{
+      estimatedTime = Integer.parseInt(estimateText.getText().split(" ")[0]);
+    }
+    catch (Exception e){
+      errorLabel.setText("Error: "+e.getMessage());
+      return;
+    }
+    TaskList tasks = managementSystemModel.getRequirement(state.getProjectId(),state.getRequirementId()).getAllTasks();
+    int total = 0;
+    if (tasks.numberOfTasks()>0)
+    {
+      for (int i = 0; i < tasks.numberOfTasks(); i++)
+      {
+        total += (tasks.getTaskIndex(i).getId() == state.getTaskId() ? estimatedTime : tasks.getTaskIndex(i).getEstimatedTime());
+      }
+    }
+    else{
+      total = estimatedTime;
+    }
+    int reqEstimate = managementSystemModel.getRequirement(state.getProjectId(),state.getRequirementId()).getEstimatedTime();
+    if (total>reqEstimate){
+      errorLabel.setText("Error: Current estimated time exceeds estimated time for related requirement, which is "+reqEstimate+" hours");
+      return;
+    }
     try {
     LocalDate dl = deadlineDate.getValue();
     MyDate deadline = new MyDate(dl.getDayOfMonth(), dl.getMonthValue(), dl.getYear());
-    int estimatedTime = Integer.parseInt(estimateText.getText().split(" ")[0]);
+
     TeamMember responsible = null;
     for (int i = 0;
          i < managementSystemModel.getProject(this.state.getProjectId()).getTeamMemberList().numberOfTeamMembers(); i++) {

@@ -123,7 +123,7 @@
               "list": [
                 {
                   "title": "utriu",
-                  "estimatedHours": 32,
+                  "estimatedHours": 55,
                   "totalHoursWorked": 2,
                   "reqId": 16,
                   "responsibleTeamMember": {
@@ -139,7 +139,7 @@
                     }
                   },
                   "status": {
-                    "status": "Not started",
+                    "status": "Started",
                     "isRequirement": false
                   },
                   "deadline": {
