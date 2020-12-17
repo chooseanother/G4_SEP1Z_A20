@@ -15,9 +15,9 @@ class MyDateTest
   {
     date.set(1,3,2020);
 
-    assertEquals(1, date.getDay(), "No correct");
-    assertEquals(3, date.getMonth(), "No correct");
-    assertEquals(2020, date.getYear(), "No correct");
+    assertEquals(1, date.getDay(), "No correct day");
+    assertEquals(3, date.getMonth(), "No correct month");
+    assertEquals(2020, date.getYear(), "No correct year");
   }
 
   @Test void getMonthName()
