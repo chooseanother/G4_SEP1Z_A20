@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "progress": 0.0,
+      "progress": 50.0,
       "id": {
         "id": 1
       },
@@ -17,7 +17,7 @@
             "reqID": {
               "id": 8
             },
-            "description": "Very informative and descriptive requirement description in who, what, why format",
+            "description": "34343",
             "timeSpent": 0,
             "estimatedTime": 24,
             "deadline": {
@@ -28,8 +28,8 @@
             "tasks": {
               "list": [
                 {
-                  "title": "kk",
-                  "estimatedHours": 24,
+                  "title": "sdfs",
+                  "estimatedHours": 2,
                   "totalHoursWorked": 0,
                   "reqId": 8,
                   "responsibleTeamMember": {
@@ -49,12 +49,12 @@
                     "isRequirement": false
                   },
                   "deadline": {
-                    "day": 18,
-                    "month": 12,
-                    "year": 2020
+                    "day": 6,
+                    "month": 1,
+                    "year": 2024
                   },
                   "id": {
-                    "id": 9
+                    "id": 15
                   },
                   "teamMemberList": {
                     "list": []
@@ -132,7 +132,7 @@
               ]
             },
             "status": {
-              "status": "In progress",
+              "status": "Ended",
               "isRequirement": true
             },
             "priority": {
@@ -212,7 +212,7 @@
       },
       "description": "Very thorough description of a project",
       "title": "Project Title",
-      "totalTime": 0
+      "totalTime": 1
     }
   ]
 }

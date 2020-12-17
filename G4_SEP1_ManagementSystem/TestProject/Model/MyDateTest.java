@@ -15,9 +15,9 @@ class MyDateTest
   {
     date.set(1,3,2020);
 
-    assertEquals(1, date.getDay(), "No bueno");
-    assertEquals(3, date.getMonth(), "No bueno");
-    assertEquals(2020, date.getYear(), "No bueno");
+    assertEquals(1, date.getDay(), "No correct");
+    assertEquals(3, date.getMonth(), "No correct");
+    assertEquals(2020, date.getYear(), "No correct");
   }
 
   @Test void getMonthName()
@@ -32,9 +32,9 @@ class MyDateTest
     date.set(31,12,2020);
     date.stepForward();
 
-    assertEquals(1, date.getDay(), "No bueno");
-    assertEquals(1, date.getMonth(), "No bueno");
-    assertEquals(2021, date.getYear(), "No bueno");
+    assertEquals(1, date.getDay(), "No correct");
+    assertEquals(1, date.getMonth(), "No correct");
+    assertEquals(2021, date.getYear(), "No correct");
   }
 
   @Test void numberOfDaysInMonth()
