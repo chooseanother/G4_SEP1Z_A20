@@ -1,0 +1,2339 @@
+commit de1c0a6d4e49f78670cde8b9284dfc318a011c7d
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 20:30:01 2020 +0100
+
+    Test information
+
+ Project_List.json | 69 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 69 insertions(+)
+
+commit 74209d499f2ccbefa5868de009903f850ade42ac
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 20:17:08 2020 +0100
+
+    Fixed new task view. It was loading project team members into task view team member list
+
+ .../src/View/ListView/TeamMemberListViewModel.java |   5 +-
+ Project_List.json                                  | 123 ++++++++++++-
+ gitlog.txt                                         | 200 +++++++++++++++++++++
+ 3 files changed, 323 insertions(+), 5 deletions(-)
+
+commit f536c6c142f5f3f75c9327b33e0d137e2bc03350
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 19:06:33 2020 +0100
+
+    Text wraps in descriptions
+
+ G4_SEP1_ManagementSystem/src/View/ProjectView.fxml |  52 ++-
+ .../src/View/RequirementView.fxml                  |   4 +-
+ Project_List.json                                  | 392 +--------------------
+ 3 files changed, 31 insertions(+), 417 deletions(-)
+
+commit 0a5cba708d80d1abb4b62c39b944637d56104784
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 19:01:50 2020 +0100
+
+    More JavaDoc
+
+ G4_SEP1_ManagementSystem/src/Model/ManagementSystemModel.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a3f3d49f942e7a98754d3c69488113df0c8a7035
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 18:32:11 2020 +0100
+
+    More JavaDoc
+
+ .idea/misc.xml                                     |   1 +
+ .../src/Model/ManagementSystemModel.java           | 101 ++++++++++++++++++++-
+ 2 files changed, 100 insertions(+), 2 deletions(-)
+
+commit ed069f0475a9366f9a3e91088cb1711d5956d5f0
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 18:20:03 2020 +0100
+
+    changed name
+
+ .idea/misc.xml                                              |   4 ++++
+ .idea/modules.xml                                           |   2 +-
+ .../G4_SEP1_ManagementSystem.iml                            |   0
+ .../TestProject/Model/IdTest.java                           |   0
+ .../TestProject/Model/MyDateTest.java                       |   0
+ .../TestProject/Model/ProjectTest.java                      |   0
+ .../XmlJsonParser-1.4.jar                                   | Bin
+ {LetsStart => G4_SEP1_ManagementSystem}/src/Main.java       |   0
+ .../src/ManagementSystemApplication.java                    |   0
+ .../src/Model/Customer.java                                 |   0
+ {LetsStart => G4_SEP1_ManagementSystem}/src/Model/Id.java   |   0
+ .../src/Model/ManagementSystem.java                         |   0
+ .../src/Model/ManagementSystemModel.java                    |  11 +++++++++++
+ .../src/Model/MyDate.java                                   |   0
+ {LetsStart => G4_SEP1_ManagementSystem}/src/Model/Name.java |   0
+ .../src/Model/Person.java                                   |   0
+ .../src/Model/Priority.java                                 |   0
+ .../src/Model/Project.java                                  |   0
+ .../src/Model/ProjectList.java                              |   0
+ .../src/Model/Requirement.java                              |   0
+ .../src/Model/RequirementList.java                          |   0
+ {LetsStart => G4_SEP1_ManagementSystem}/src/Model/Role.java |   0
+ .../src/Model/Status.java                                   |   0
+ {LetsStart => G4_SEP1_ManagementSystem}/src/Model/Task.java |   0
+ .../src/Model/TaskList.java                                 |   0
+ .../src/Model/TeamMember.java                               |   0
+ .../src/Model/TeamMemberList.java                           |   0
+ .../src/Model/mediator/ManagementSystemFile.java            |   0
+ .../src/Model/mediator/ManagementSystemPersistence.java     |   0
+ .../src/View/HomeView.fxml                                  |   0
+ .../src/View/HomeViewController.java                        |   0
+ .../src/View/ListView/ProjectListViewModel.java             |   0
+ .../src/View/ListView/ProjectViewModel.java                 |   0
+ .../src/View/ListView/RequirementListViewModel.java         |   0
+ .../src/View/ListView/RequirementViewModel.java             |   0
+ .../src/View/ListView/TaskListViewModel.java                |   0
+ .../src/View/ListView/TaskViewModel.java                    |   0
+ .../src/View/ListView/TeamMemberListViewModel.java          |   0
+ .../src/View/ListView/TeamMemberViewModel.java              |   0
+ .../src/View/ProjectView.fxml                               |   0
+ .../src/View/ProjectViewController.java                     |   0
+ .../src/View/RequirementView.fxml                           |   0
+ .../src/View/RequirementViewController.java                 |   0
+ .../src/View/TaskView.fxml                                  |   0
+ .../src/View/TaskViewController.java                        |   0
+ .../src/View/TeamMemberView.fxml                            |   0
+ .../src/View/TeamMemberViewController.java                  |   0
+ .../src/View/ViewHandler.java                               |   0
+ .../src/View/ViewState.java                                 |   0
+ 49 files changed, 16 insertions(+), 1 deletion(-)
+
+commit d9b45eafc79a58ed329c31ceadfe644641e11afa
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 18:06:40 2020 +0100
+
+    Ups
+
+ LetsStart/src/Model/TeamMemberList.java            |   9 +
+ OldFiles/src/view/HomeView.fxml                    |  73 ------
+ OldFiles/src/view/NewProjectView.fxml              |  71 ------
+ OldFiles/src/view/NewProjectViewController.java    |  80 -------
+ OldFiles/src/view/NewRequirementView.fxml          | 120 ----------
+ .../src/view/NewRequirementViewController.java     |  56 -----
+ OldFiles/src/view/NewTaskView.fxml                 |  38 ----
+ OldFiles/src/view/NewTaskViewController.java       | 128 -----------
+ OldFiles/src/view/NewTeamMemberView.fxml           | 116 ----------
+ OldFiles/src/view/NewTeamMemberViewController.java |  57 -----
+ OldFiles/src/view/ProjectView.fxml                 | 251 ---------------------
+ OldFiles/src/view/RequirementListView.fxml         |  40 ----
+ .../src/view/RequirementListViewController.java    |  72 ------
+ OldFiles/src/view/RequirementView.fxml             | 183 ---------------
+ OldFiles/src/view/TaskListView.fxml                |  81 -------
+ OldFiles/src/view/TaskListViewController.java      |  62 -----
+ OldFiles/src/view/TaskView.fxml                    | 205 -----------------
+ OldFiles/src/view/TeamMemberListView.fxml          |  71 ------
+ .../src/view/TeamMemberListViewController.java     |  48 ----
+ OldFiles/src/view/TeamMemberView.fxml              | 110 ---------
+ 20 files changed, 9 insertions(+), 1862 deletions(-)
+
+commit cf230198aea2bda64ab6092ef251b02d79ae6f03
+Merge: 650d5a7 1454a8b
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Wed Dec 16 17:53:34 2020 +0100
+
+    Merge pull request #16 from chooseanother/Documentation
+    
+    Documentation
+
+commit 1454a8b634ae062f0f99186ca036a7d44129c78e
+Merge: 919a8f4 650d5a7
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Wed Dec 16 17:53:23 2020 +0100
+
+    Merge branch 'master' into Documentation
+
+commit 919a8f479bea0b457338541262be974ae2fa9efd
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 17:44:39 2020 +0100
+
+    Added check for legal estimated time. (don't do this in documentation branch duh)
+
+ LetsStart/src/Model/Requirement.java | 83 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 78 insertions(+), 5 deletions(-)
+
+commit 36b731cd413b9fc8a314a1517bae2cd93243af71
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 17:44:28 2020 +0100
+
+    Added check for legal estimated time. (don't do this in documentation branch duh)
+
+ LetsStart/src/Model/RequirementList.java | 54 +++++++++++++++++++++++++++-----
+ 1 file changed, 47 insertions(+), 7 deletions(-)
+
+commit 4e9061df0a822e4e03c6ac9ed2c1f21e2a3464f2
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 16:17:52 2020 +0100
+
+    Added check for legal estimated time. (don't do this in documentation branch duh)
+
+ LetsStart/src/View/TaskView.fxml           |  4 +++-
+ LetsStart/src/View/TaskViewController.java | 31 +++++++++++++++++++++++++-----
+ Project_List.json                          |  4 ++--
+ 3 files changed, 31 insertions(+), 8 deletions(-)
+
+commit 0ec62de331a26da6a7aa75d84fe74945926c9e70
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 15:51:39 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/ProjectList.java | 53 +++++++++++++++++++++++++++++++++---
+ LetsStart/src/Model/Requirement.java | 15 ++++++++++
+ 2 files changed, 64 insertions(+), 4 deletions(-)
+
+commit 77ab894c6e726f9f54bf8f626eda419d4b0b3c12
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 15:11:16 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/Project.java | 76 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 76 insertions(+)
+
+commit b545b33369beae16fa752c7651edd9afc3e2f9b7
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 14:58:41 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/ManagementSystem.java          |  97 ++----------
+ LetsStart/src/Model/ManagementSystemModel.java     |   8 +
+ LetsStart/src/Model/MyDate.java                    | 164 ++++++++++++++++-----
+ LetsStart/src/Model/Person.java                    |  40 ++++-
+ LetsStart/src/Model/Priority.java                  |  37 ++++-
+ LetsStart/src/Model/Role.java                      |  46 ++++++
+ LetsStart/src/Model/Status.java                    |   4 +-
+ LetsStart/src/Model/Task.java                      |   2 +-
+ LetsStart/src/Model/TaskList.java                  |  31 +++-
+ LetsStart/src/Model/TeamMember.java                |   4 +-
+ .../src/Model/mediator/ManagementSystemFile.java   |   8 +-
+ .../mediator/ManagementSystemPersistence.java      |   8 +-
+ 12 files changed, 308 insertions(+), 141 deletions(-)
+
+commit 1f4040831c82440d02cdaa35f2a205885e4832d4
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 16 12:44:23 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/ManagementSystem.java          | 188 ++++-----------------
+ LetsStart/src/Model/ManagementSystemModel.java     |  23 ---
+ LetsStart/src/Model/Status.java                    |  59 +++++++
+ LetsStart/src/Model/Task.java                      |  88 +++++++++-
+ LetsStart/src/Model/TaskList.java                  |  17 ++
+ .../src/View/ListView/ProjectListViewModel.java    |   6 +-
+ LetsStart/src/View/ProjectViewController.java      |   2 +-
+ 7 files changed, 203 insertions(+), 180 deletions(-)
+
+commit 0ceca27b70c1918b41326f01cb021f5adc213b9d
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 23:50:57 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/TeamMember.java     |  2 +-
+ LetsStart/src/Model/TeamMemberList.java | 37 +++++++++++++++++++--------------
+ 2 files changed, 22 insertions(+), 17 deletions(-)
+
+commit 3f5742bd914f796087fffed3482c309f23f0cd3a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 23:22:44 2020 +0100
+
+    JavaDocs
+
+ LetsStart/src/Model/Customer.java                  | 26 +++++++++++-
+ LetsStart/src/Model/TeamMember.java                | 35 ++++++++++++++++
+ LetsStart/src/Model/TeamMemberList.java            | 46 ++++++++++++++++++++++
+ .../src/Model/mediator/ManagementSystemFile.java   | 16 ++++----
+ .../mediator/ManagementSystemPersistence.java      | 17 +++++++-
+ LetsStart/src/View/HomeView.fxml                   |  2 +-
+ LetsStart/src/View/ProjectView.fxml                |  2 +-
+ LetsStart/src/View/RequirementView.fxml            |  2 +-
+ LetsStart/src/View/TaskView.fxml                   |  2 +-
+ LetsStart/src/View/TeamMemberView.fxml             |  2 +-
+ Project_List.json                                  | 12 ++++++
+ 11 files changed, 148 insertions(+), 14 deletions(-)
+
+commit 650d5a72cecc25950e9bb4d7003001eba4723bd5
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:43:30 2020 +0100
+
+    typo
+
+ LetsStart/src/View/TeamMemberViewController.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 729bdbe485621c4f2e80751aa1767157ecc98820
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:42:38 2020 +0100
+
+    Should only get a list of team members not assigned to task already
+
+ LetsStart/src/Model/TeamMemberList.java          |  4 +++
+ LetsStart/src/View/TeamMemberViewController.java | 39 +++++++++++++++---------
+ 2 files changed, 29 insertions(+), 14 deletions(-)
+
+commit 3f3ec9c2436d9fcd38545dd09e7c342d303806fc
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:42:03 2020 +0100
+
+    Popup message changed
+
+ LetsStart/src/View/RequirementViewController.java | 2 +-
+ LetsStart/src/View/TaskViewController.java        | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit eb0bbdbd95c38515c40b65331be68757fbace982
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:09:44 2020 +0100
+
+    Fixed visibility
+
+ LetsStart/src/View/TeamMemberViewController.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit bcde1f198fde8c5b216177dede93fd632399393b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:09:13 2020 +0100
+
+    Comments
+
+ LetsStart/src/Model/mediator/ManagementSystemFile.java | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+commit 6f74e408281c09e502f47b72050a372943d7c6ee
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 19:03:13 2020 +0100
+
+    fixed visibility
+
+ LetsStart/src/Model/mediator/ManagementSystemFile.java | 3 +++
+ LetsStart/src/View/TeamMemberViewController.java       | 4 ++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 5e79707b46cafeb47f6e76b6bf0d1a9886d96a1e
+Merge: 88dc47e e2f4905
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 18:52:58 2020 +0100
+
+    Merge remote-tracking branch 'origin/master' into Documentation
+
+commit e2f49051485d8c2e0856e66255973467c2301abd
+Merge: 8354b1c 14cffa2
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Tue Dec 15 18:50:18 2020 +0100
+
+    Merge pull request #14 from chooseanother/Task_view
+    
+    Task view
+
+commit 14cffa2d24c023cd6613f9b153cc88f18798738a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 18:49:35 2020 +0100
+
+    Works, not tested maybe many errors
+
+ LetsStart/src/View/TeamMemberView.fxml           |  4 +-
+ LetsStart/src/View/TeamMemberViewController.java | 51 +++++++++++++++++-------
+ Project_List.json                                | 15 ++++++-
+ 3 files changed, 53 insertions(+), 17 deletions(-)
+
+commit 4799cbf7d8df63fd2abe98f14b9f70e3731ed99b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 18:23:37 2020 +0100
+
+    Messy mess
+
+ LetsStart/src/Model/Project.java                   | 13 +++++---
+ LetsStart/src/Model/Requirement.java               |  1 +
+ .../src/View/ListView/TeamMemberListViewModel.java |  3 +-
+ LetsStart/src/View/RequirementViewController.java  |  1 +
+ LetsStart/src/View/TaskViewController.java         |  2 +-
+ LetsStart/src/View/TeamMemberViewController.java   |  5 +--
+ Project_List.json                                  | 37 ++++++++++++++++------
+ 7 files changed, 41 insertions(+), 21 deletions(-)
+
+commit 3b8fd82eb6570777e6ca3f09a77dbafa6a1f3583
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 17:30:45 2020 +0100
+
+    Messy mess
+
+ LetsStart/src/Model/ManagementSystem.java          |   8 +
+ LetsStart/src/Model/ManagementSystemModel.java     |   2 +-
+ LetsStart/src/Model/Requirement.java               |   7 +-
+ LetsStart/src/Model/Task.java                      |   8 +
+ LetsStart/src/View/HomeView.fxml                   |   7 +-
+ .../View/ListView/RequirementListViewModel.java    |   4 +-
+ .../src/View/ListView/TeamMemberListViewModel.java |  24 ++-
+ LetsStart/src/View/ProjectView.fxml                |  82 +++++-----
+ LetsStart/src/View/ProjectViewController.java      |  74 ++++++---
+ LetsStart/src/View/RequirementViewController.java  |   2 +-
+ LetsStart/src/View/TaskView.fxml                   |   7 +-
+ LetsStart/src/View/TaskViewController.java         |  91 ++++++++---
+ LetsStart/src/View/TeamMemberView.fxml             | 117 ++++++--------
+ LetsStart/src/View/TeamMemberViewController.java   | 135 +++++++---------
+ Project_List.json                                  | 169 ++++++++++++++++++++-
+ 15 files changed, 489 insertions(+), 248 deletions(-)
+
+commit 04e5cb7d85906852687fd2884b0fcbf7758e9a36
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 15:55:38 2020 +0100
+
+    Lol what is this mess omg
+
+ LetsStart/src/Model/ManagementSystem.java          |   8 +-
+ LetsStart/src/Model/ManagementSystemModel.java     |   4 +-
+ LetsStart/src/Model/Task.java                      |   4 +-
+ LetsStart/src/Model/TeamMemberList.java            |  13 +-
+ .../src/View/ListView/TeamMemberListViewModel.java |   4 +-
+ LetsStart/src/View/ProjectView.fxml                |   4 +-
+ LetsStart/src/View/ProjectViewController.java      |  68 ++++++-----
+ LetsStart/src/View/RequirementViewController.java  |  16 +--
+ LetsStart/src/View/TaskView.fxml                   |  46 ++++---
+ LetsStart/src/View/TaskViewController.java         | 136 ++++++++++++++++++---
+ 10 files changed, 212 insertions(+), 91 deletions(-)
+
+commit 3665b9fb1f73e22d94525cf64c6956c55b3175cd
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 15:09:49 2020 +0100
+
+    Layout changes
+
+ LetsStart/src/View/ProjectView.fxml     |   6 +-
+ LetsStart/src/View/RequirementView.fxml |   2 +-
+ LetsStart/src/View/TaskView.fxml        | 102 +++++++++++++++-----------------
+ 3 files changed, 53 insertions(+), 57 deletions(-)
+
+commit 6e7b1c8f7d9aa560026d41ff443baca7a6220a4c
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 14:54:32 2020 +0100
+
+    Layout + id's
+
+ LetsStart/src/View/TaskView.fxml | 372 ++++++++++++++++++---------------------
+ 1 file changed, 173 insertions(+), 199 deletions(-)
+
+commit 8354b1cef3d835f61080919e99b8f7299d54bb40
+Merge: b3fb5ba d3d7136
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Tue Dec 15 14:38:29 2020 +0100
+
+    Merge pull request #13 from chooseanother/Requirement_functionality
+    
+    Requirement functionality
+
+commit d3d7136b3f95b90f3885befe9ca1e72259ee5174
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 14:35:40 2020 +0100
+
+    What a mess of a push... Requirement view works now, missing task view
+
+ LetsStart/src/Model/ManagementSystem.java          |  11 +-
+ LetsStart/src/Model/ManagementSystemModel.java     |   2 +
+ LetsStart/src/Model/Project.java                   |  10 +-
+ LetsStart/src/Model/Requirement.java               |  16 +-
+ LetsStart/src/View/HomeView.fxml                   |  23 ++-
+ LetsStart/src/View/HomeViewController.java         |  17 ++-
+ .../{ => View}/ListView/ProjectListViewModel.java  |   2 +-
+ .../src/{ => View}/ListView/ProjectViewModel.java  |   4 +-
+ .../ListView/RequirementListViewModel.java         |   2 +-
+ .../{ => View}/ListView/RequirementViewModel.java  |  39 ++++-
+ .../src/{ => View}/ListView/TaskListViewModel.java |   6 +-
+ .../src/{ => View}/ListView/TaskViewModel.java     |   2 +-
+ .../ListView/TeamMemberListViewModel.java          |   2 +-
+ .../{ => View}/ListView/TeamMemberViewModel.java   |   2 +-
+ LetsStart/src/View/ProjectView.fxml                |   8 +-
+ LetsStart/src/View/ProjectViewController.java      |  20 +--
+ LetsStart/src/View/RequirementViewController.java  | 168 +++++++++++++++------
+ OldFiles/src/view/RequirementListView.fxml         |   8 +-
+ OldFiles/src/view/TaskListView.fxml                |   6 +-
+ OldFiles/src/view/TeamMemberListView.fxml          |   6 +-
+ Project_List.json                                  |  40 ++++-
+ 21 files changed, 285 insertions(+), 109 deletions(-)
+
+commit 1c3c9b0853520bafa6a2a2ba50ef082052aa5d3c
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 15 12:58:33 2020 +0100
+
+    More functionality
+
+ LetsStart/src/View/RequirementView.fxml           | 71 ++++++++++-------------
+ LetsStart/src/View/RequirementViewController.java | 50 +++++++++++-----
+ 2 files changed, 65 insertions(+), 56 deletions(-)
+
+commit 88dc47ee6eaf48ff441aea9d2fe69a391dec216d
+Merge: 35e87f8 b3fb5ba
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 19:39:01 2020 +0100
+
+    Merge remote-tracking branch 'origin/master' into Documentation
+
+commit 05670fe881235ba31150705aa5bb8dd028d7610b
+Merge: 1a79ea9 b3fb5ba
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 19:38:28 2020 +0100
+
+    Merge remote-tracking branch 'origin/master' into Requirement_functionality
+    
+    # Conflicts:
+    #       LetsStart/src/View/RequirementView.fxml
+    #       LetsStart/src/View/RequirementViewController.java
+    #       LetsStart/src/View/TeamMemberView.fxml
+
+commit 1a79ea99d91e3a367df0e8e4368d77a7cf01576c
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 19:32:24 2020 +0100
+
+    Comment
+
+ LetsStart/src/View/RequirementViewController.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b3fb5ba00776a72f5ac2eaf31a6a3426fc93d5b5
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 13:57:43 2020 +0100
+
+    Added try catch functionality for editing/saving
+
+ LetsStart/src/View/ProjectViewController.java | 18 +++++++++++-------
+ 1 file changed, 11 insertions(+), 7 deletions(-)
+
+commit 35e87f8bd33078d224493f1b2668122eedcdf6d7
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 11:49:24 2020 +0100
+
+    Fixed description for 2nd constructor
+
+ LetsStart/src/Model/Name.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 906653a63e3fafc4693b3138da13460587cbac08
+Merge: 95d8830 5fb532b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 14 11:48:03 2020 +0100
+
+    Merge remote-tracking branch 'origin/master' into Documentation
+
+commit 5fb532bdd6dfe4d516c1ceda8bda219f85f48c15
+Merge: 8e63904 daaf53e
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Mon Dec 14 11:44:22 2020 +0100
+
+    Merge pull request #12 from chooseanother/dynamicTitles
+    
+    Dynamic titles
+
+commit daaf53e6f3166a460c5cd84128dcc194ec15a620
+Author: Alex <abistrovs@gmail.com>
+Date:   Mon Dec 14 11:41:38 2020 +0100
+
+    title dynamics
+
+ LetsStart/src/View/ProjectViewController.java     |  9 +++-
+ LetsStart/src/View/RequirementViewController.java | 11 +++++
+ LetsStart/src/View/TaskViewController.java        | 14 +++++++
+ LetsStart/src/View/TeamMemberViewController.java  |  4 ++
+ Project_List.json                                 | 50 +++++++++++++++++++++++
+ 5 files changed, 86 insertions(+), 2 deletions(-)
+
+commit 95d88301482d246c054319420180a22a884fe3e7
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 22:18:59 2020 +0100
+
+    Documentation done
+
+ LetsStart/src/Model/Id.java | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+commit 2c5f6aa694bba3b561edfab112e762274bec2627
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 22:11:49 2020 +0100
+
+    Documentation done
+
+ LetsStart/src/Model/Name.java | 64 ++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 63 insertions(+), 1 deletion(-)
+
+commit 1f526fd32f6628ce2c377a34aa27f004f588916a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 21:44:55 2020 +0100
+
+    errorLabel added
+
+ LetsStart/src/View/RequirementView.fxml           | 43 ++++++++++-------------
+ LetsStart/src/View/RequirementViewController.java | 10 +++---
+ 2 files changed, 24 insertions(+), 29 deletions(-)
+
+commit c7e27c327fc8ca60ccacf4ea3f098b2cedad215e
+Author: Alex <abistrovs@gmail.com>
+Date:   Sun Dec 13 20:12:36 2020 +0100
+
+    window titles without dynamics
+
+ LetsStart/src/View/ProjectView.fxml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b1b68cd9e9d1b6f55af4b0183f532dadae76e6eb
+Author: Alex <abistrovs@gmail.com>
+Date:   Sun Dec 13 19:50:52 2020 +0100
+
+    window titles without dynamics
+
+ LetsStart/src/View/ViewHandler.java | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 9f3e443bb64f62848424019f079c80966ae10df4
+Author: Alex <abistrovs@gmail.com>
+Date:   Sun Dec 13 19:50:03 2020 +0100
+
+    window titles without dynamics
+
+ LetsStart/src/View/ProjectView.fxml | 2 +-
+ LetsStart/src/View/ViewHandler.java | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 4ead9f12ab6e38f379b4307a199e7a4729c3cdde
+Author: Alex <abistrovs@gmail.com>
+Date:   Sun Dec 13 19:08:23 2020 +0100
+
+    window titles without dynamics
+
+ LetsStart/src/View/HomeView.fxml        |  2 +-
+ LetsStart/src/View/ProjectView.fxml     |  2 +-
+ LetsStart/src/View/RequirementView.fxml |  2 +-
+ LetsStart/src/View/TaskView.fxml        |  2 +-
+ LetsStart/src/View/TeamMemberView.fxml  |  2 +-
+ Project_List.json                       | 25 +++++++++++++++++++++++++
+ 6 files changed, 30 insertions(+), 5 deletions(-)
+
+commit f4a7bf634d59aa24ae22a1ef0b5b1d6a4422ed3a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 18:27:12 2020 +0100
+
+    Some functionality for buttons
+
+ LetsStart/src/View/RequirementView.fxml           | 257 +++++++++++-----------
+ LetsStart/src/View/RequirementViewController.java |  93 ++++++--
+ 2 files changed, 207 insertions(+), 143 deletions(-)
+
+commit 8ce06d44426ff2de6bfaebf6b28e041061366e4e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:51:35 2020 +0100
+
+    Fixed window size
+
+ LetsStart/src/View/TeamMemberView.fxml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 8e63904d7e1168ef8cc756f872466f86f9553c2e
+Merge: 26df0eb 9ce1f09
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:43:47 2020 +0100
+
+    Merge branch 'functionality_new_view'
+    
+    # Conflicts:
+    #       LetsStart/LetsStart.iml
+    #       LetsStart/src/View/ProjectViewController.java
+    #       LetsStart/src/View/RequirementViewController.java
+    #       LetsStart/src/View/TeamMemberViewController.java
+    #       LetsStart/src/View/ViewState.java
+    #       Project_List.json
+
+commit 9ce1f0974292ccabd4b17fd2e2543e4b827bc180
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:34:16 2020 +0100
+
+    Removed all <child> tags from fxml file
+
+ LetsStart/src/View/RequirementView.fxml | 437 ++++++++++++++++----------------
+ LetsStart/src/View/TaskView.fxml        | 431 ++++++++++++++++---------------
+ 2 files changed, 429 insertions(+), 439 deletions(-)
+
+commit 4624329fe2fee92d6f47146270bedd550c7ebdeb
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:33:53 2020 +0100
+
+    Changed layout slightly
+
+ LetsStart/src/View/ProjectView.fxml | 87 ++++++++++++++++++-------------------
+ 1 file changed, 43 insertions(+), 44 deletions(-)
+
+commit 5a7832504aff09ed3f88106279968fa88c484274
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:33:30 2020 +0100
+
+    Removed home button, it did the same as back button
+
+ LetsStart/src/View/ProjectViewController.java | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit 5bf520af5a34d8b7f2247a8430cb107e2f5a423a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 17:32:43 2020 +0100
+
+    Tests
+
+ Project_List.json | 38 ++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 38 insertions(+)
+
+commit 7ab407af95f1ae4f8951c21cf177ab7f3151a485
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 13:20:39 2020 +0100
+
+    Changed layout slightly
+
+ LetsStart/src/View/ProjectView.fxml | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+commit 1012d1d797dfd5ffb353203235d4e2cbe7359cd9
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 02:10:28 2020 +0100
+
+    Changed layout slightly
+
+ LetsStart/src/View/ProjectView.fxml | 85 +++++++++++++++++++++++--------------
+ 1 file changed, 52 insertions(+), 33 deletions(-)
+
+commit 866fe476d279b3299190fca31413bd38a8573c36
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sun Dec 13 01:56:34 2020 +0100
+
+    Added functionality of team member id and a few other things
+
+ .../src/ListView/TeamMemberListViewModel.java      |   7 +-
+ LetsStart/src/ListView/TeamMemberViewModel.java    |  13 +++
+ LetsStart/src/Model/ManagementSystem.java          |  12 +--
+ LetsStart/src/Model/ManagementSystemModel.java     |   6 +-
+ LetsStart/src/Model/TeamMemberList.java            |   6 +-
+ LetsStart/src/View/HomeView.fxml                   |  13 +--
+ LetsStart/src/View/ProjectView.fxml                |  17 ++--
+ LetsStart/src/View/ProjectViewController.java      |   5 +-
+ LetsStart/src/View/RequirementView.fxml            |   2 +-
+ LetsStart/src/View/TaskView.fxml                   |  16 +---
+ LetsStart/src/View/TaskViewController.java         |   5 +-
+ LetsStart/src/View/TeamMemberView.fxml             |   6 +-
+ LetsStart/src/View/TeamMemberViewController.java   |  81 ++++++++++++++--
+ Project_List.json                                  | 106 +++++----------------
+ 14 files changed, 151 insertions(+), 144 deletions(-)
+
+commit efdff3584d0f9900ffca828c56dd3b29e611cca9
+Author: Alex <abistrovs@gmail.com>
+Date:   Sun Dec 13 00:45:42 2020 +0100
+
+    view changes - homeview, projectview
+
+ LetsStart/src/View/HomeView.fxml    |  19 ++++---
+ LetsStart/src/View/ProjectView.fxml |  28 +++++----
+ Project_List.json                   | 109 ++++++++++++++++++------------------
+ 3 files changed, 81 insertions(+), 75 deletions(-)
+
+commit 30024064d1a2925309934a2f3c60298eef2a8545
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 19:54:07 2020 +0100
+
+    Many many changes, doesn't run (project report first)
+
+ LetsStart/src/ListView/ProjectListViewModel.java |  2 +-
+ LetsStart/src/ListView/TaskListViewModel.java    | 17 ++++++++++-------
+ LetsStart/src/View/HomeViewController.java       |  1 -
+ LetsStart/src/View/ProjectViewController.java    |  9 +++++++--
+ 4 files changed, 18 insertions(+), 11 deletions(-)
+
+commit 63b90c3ef147aeb27adfa81bcb6483d2f2f3eec7
+Merge: 4fde8b2 669406b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 19:47:55 2020 +0100
+
+    Merge remote-tracking branch 'origin/functionality_new_view' into functionality_new_view
+
+commit 4fde8b284f88731476a4fc9058bff0e344b4cd2b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 19:47:30 2020 +0100
+
+    Many many changes, doesn't run (project report first)
+
+ LetsStart/src/ListView/ProjectListViewModel.java   |   2 +-
+ .../src/ListView/RequirementListViewModel.java     |  18 ++--
+ .../src/ListView/TeamMemberListViewModel.java      |  16 +--
+ LetsStart/src/Model/ManagementSystemModel.java     |   2 +-
+ LetsStart/src/View/HomeView.fxml                   |   2 +-
+ LetsStart/src/View/HomeViewController.java         |   7 ++
+ LetsStart/src/View/ProjectView.fxml                |   5 +-
+ LetsStart/src/View/ProjectViewController.java      |  68 +++++++-----
+ LetsStart/src/View/TeamMemberView.fxml             | 114 +++++++++++++--------
+ LetsStart/src/View/TeamMemberViewController.java   |  11 +-
+ LetsStart/src/View/ViewState.java                  |   7 ++
+ Project_List.json                                  | 109 ++++++++++----------
+ 12 files changed, 220 insertions(+), 141 deletions(-)
+
+commit 669406b76cc3a7080d8ec10dd0b04a62ace19387
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Sat Dec 12 19:28:36 2020 +0200
+
+    a
+
+ LetsStart/src/View/ProjectViewController.java     |  3 ++-
+ LetsStart/src/View/RequirementView.fxml           | 20 ++++++--------------
+ LetsStart/src/View/RequirementViewController.java | 12 +++++++++++-
+ 3 files changed, 19 insertions(+), 16 deletions(-)
+
+commit 26df0eb4e9dab97d87755b3a89827f360f48dd04
+Merge: 48984a7 5f14dd6
+Author: Alex <abistrovs@gmail.com>
+Date:   Sat Dec 12 16:32:41 2020 +0100
+
+    merged some tests
+
+commit 0bf18fb0045399221f07b7259c2b7d9814074ebb
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 14:21:45 2020 +0100
+
+    Merge minor differences
+
+ LetsStart/src/View/ProjectViewController.java |  2 +-
+ LetsStart/src/View/ViewState.java             | 12 ++++++++++++
+ Project_List.json                             | 12 +++++++++++-
+ 3 files changed, 24 insertions(+), 2 deletions(-)
+
+commit b7b35eeff5449986a3af5676c36561a372038449
+Merge: 34eb160 bb318df
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 14:19:05 2020 +0100
+
+    Merge remote-tracking branch 'origin/functionality_new_view' into functionality_new_view
+
+commit 34eb160c49e740e6182ac1086728aea3e1b4bff5
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 12 14:16:52 2020 +0100
+
+    Private field XmlJsonParser
+
+ LetsStart/src/Model/mediator/ManagementSystemFile.java | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit bb318df24f29c07e4c409ff46f21f4c626869aec
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 11 19:33:01 2020 +0200
+
+    a
+
+ LetsStart/src/View/ProjectViewController.java     | 4 ++++
+ LetsStart/src/View/RequirementViewController.java | 1 +
+ 2 files changed, 5 insertions(+)
+
+commit a7767705e85c0e911188b36192d5383e31145343
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 11 19:18:58 2020 +0200
+
+    a
+
+ LetsStart/LetsStart.iml                          | 19 ++++++++++++++++++-
+ LetsStart/src/View/ProjectViewController.java    | 23 ++++++++++++++---------
+ LetsStart/src/View/TeamMemberViewController.java |  1 +
+ LetsStart/src/View/ViewState.java                | 12 ------------
+ Project_List.json                                | 12 +-----------
+ 5 files changed, 34 insertions(+), 33 deletions(-)
+
+commit a4a6f4d8dde08d732fca997f2e48dc1490b16d1e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 16:59:49 2020 +0100
+
+    Added id field in TeamMember and ViewState
+
+ LetsStart/src/Model/TeamMember.java           |  7 +++++++
+ LetsStart/src/View/ProjectViewController.java | 20 +++++++++-----------
+ LetsStart/src/View/ViewState.java             | 12 ++++++++++++
+ 3 files changed, 28 insertions(+), 11 deletions(-)
+
+commit 48984a7385081c0bce2cb445282b2707924fea5d
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 11 17:46:41 2020 +0200
+
+    a
+
+ LetsStart/LetsStart.iml                           | 1 +
+ LetsStart/src/View/ProjectViewController.java     | 7 ++++++-
+ LetsStart/src/View/RequirementViewController.java | 2 ++
+ LetsStart/src/View/TeamMemberViewController.java  | 1 +
+ LetsStart/src/View/ViewState.java                 | 3 +++
+ Project_List.json                                 | 2 +-
+ 6 files changed, 14 insertions(+), 2 deletions(-)
+
+commit 5f14dd69871c1ed1e6f1e7b350ecde5ce51b365d
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 11 15:38:44 2020 +0100
+
+    dunno if we should keep this :D
+
+ LetsStart/TestProject/Model/IdTest.java | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+commit 8f2f4b7405aa2f1763b7acecea7c88806354d94c
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 11 15:01:09 2020 +0100
+
+    off --> of
+
+ LetsStart/LetsStart.iml                          | 1 +
+ LetsStart/src/View/TeamMemberViewController.java | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 8b624393fb60cd0f8a3a04e34cf30b8aa9fdd85e
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 11 14:49:57 2020 +0100
+
+    Some of the test stuff
+
+ LetsStart/LetsStart.iml                      | 18 ++++++++
+ LetsStart/TestProject/Model/MyDateTest.java  | 64 ++++++++++++++++++++++++++++
+ LetsStart/TestProject/Model/ProjectTest.java | 22 ++++++++++
+ 3 files changed, 104 insertions(+)
+
+commit 99510ac68a93a6104c495e273c47921ec115f303
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 12:07:34 2020 +0100
+
+    You can add a team member
+
+ LetsStart/src/ListView/TaskListViewModel.java    |   7 +-
+ LetsStart/src/Model/TeamMember.java              |   4 +-
+ LetsStart/src/View/HomeViewController.java       |   2 +-
+ LetsStart/src/View/ProjectViewController.java    |  37 +++---
+ LetsStart/src/View/TeamMemberView.fxml           | 147 +++++++++++------------
+ LetsStart/src/View/TeamMemberViewController.java |  59 +++++++--
+ Project_List.json                                |  12 +-
+ 7 files changed, 154 insertions(+), 114 deletions(-)
+
+commit 81a4d91755fd603e1ed4efdb89849c0205cb4e7d
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 11:03:06 2020 +0100
+
+    Some functionality of TeamMember list table
+
+ .../src/ListView/RequirementListViewModel.java     |  5 +++--
+ .../src/ListView/TeamMemberListViewModel.java      | 22 +++++-----------------
+ LetsStart/src/View/ProjectViewController.java      | 12 ++++++++++++
+ 3 files changed, 20 insertions(+), 19 deletions(-)
+
+commit ed64fae30bff6a21c67673f150a505b0f842810b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 10:38:06 2020 +0100
+
+    Home view done, adding, editing and removing projects done
+
+ LetsStart/src/View/HomeViewController.java    |   3 +-
+ LetsStart/src/View/ProjectView.fxml           | 166 ++++++++++----------------
+ LetsStart/src/View/ProjectViewController.java |  49 +++++---
+ Project_List.json                             |  25 ++++
+ 4 files changed, 123 insertions(+), 120 deletions(-)
+
+commit f78fcdd790e97f254aa57247cacc66ded366517a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 10:24:36 2020 +0100
+
+    Trying to fix bugs
+
+ LetsStart/src/View/HomeViewController.java    | 1 +
+ LetsStart/src/View/ProjectViewController.java | 6 ++++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 4d66a760831e77e9acd1cd881a455614bcc3413a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 11 09:40:18 2020 +0100
+
+    You can add a project, open project and edit project
+
+ LetsStart/XmlJsonParser-1.4.jar                    | Bin 0 -> 398191 bytes
+ LetsStart/src/Model/ManagementSystem.java          |   4 +-
+ .../src/Model/mediator/ManagementSystemFile.java   |   5 +-
+ LetsStart/src/View/HomeViewController.java         |  17 ++++-
+ LetsStart/src/View/ProjectViewController.java      |  15 ++++
+ Project_List.json                                  |  79 +++++++++++++++++++++
+ 6 files changed, 112 insertions(+), 8 deletions(-)
+
+commit ed7a25fce98262628cdbee7b27b87683ab66822e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 22:35:31 2020 +0100
+
+    You can add a project, but its broken
+
+ LetsStart/src/Model/Project.java              |  22 ++
+ LetsStart/src/View/ProjectView.fxml           | 444 ++++++++++++++------------
+ LetsStart/src/View/ProjectViewController.java |  55 +++-
+ Project_List.xml                              |   2 +
+ 4 files changed, 306 insertions(+), 217 deletions(-)
+
+commit 61b14d70828e8e5b7b27f911f62ba67ec10d3c6e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 20:23:50 2020 +0100
+
+    Reworked all views
+
+ .idea/modules.xml                                  |   1 +
+ LetsStart/src/View/RequirementView.fxml            | 395 ++++++++++++---------
+ LetsStart/src/View/TaskView.fxml                   | 354 +++++++++---------
+ LetsStart/src/View/TaskViewController.java         |  21 ++
+ LetsStart/src/View/TeamMemberView.fxml             | 137 ++++---
+ LetsStart/src/View/ViewHandler.java                |  78 ++++
+ LetsStart/src/newView/RequirementView.fxml         | 236 ------------
+ LetsStart/src/newView/TaskView.fxml                | 239 -------------
+ LetsStart/src/newView/TeamMemberView.fxml          |  93 -----
+ .../newView => OldFiles/src/view}/HomeView.fxml    |   0
+ .../View => OldFiles/src/view}/NewProjectView.fxml |   2 +-
+ .../src/view}/NewProjectViewController.java        |   2 +-
+ .../src/view}/NewRequirementView.fxml              |   2 +-
+ .../src/view}/NewRequirementViewController.java    |   2 +-
+ .../View => OldFiles/src/view}/NewTaskView.fxml    |   2 +-
+ .../src/view}/NewTaskViewController.java           |   2 +-
+ .../src/view}/NewTeamMemberView.fxml               |   2 +-
+ .../src/view}/NewTeamMemberViewController.java     |   2 +-
+ .../newView => OldFiles/src/view}/ProjectView.fxml |   0
+ .../src/view}/RequirementListView.fxml             |   2 +-
+ .../src/view}/RequirementListViewController.java   |   2 +-
+ OldFiles/src/view/RequirementView.fxml             | 183 ++++++++++
+ .../View => OldFiles/src/view}/TaskListView.fxml   |   2 +-
+ .../src/view}/TaskListViewController.java          |   2 +-
+ OldFiles/src/view/TaskView.fxml                    | 205 +++++++++++
+ .../src/view}/TeamMemberListView.fxml              |   2 +-
+ .../src/view}/TeamMemberListViewController.java    |   2 +-
+ OldFiles/src/view/TeamMemberView.fxml              | 110 ++++++
+ 28 files changed, 1090 insertions(+), 990 deletions(-)
+
+commit d4eacb11f17f0209ebd17d53826cdb2f4d0f7431
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 20:01:32 2020 +0100
+
+    Test in progress
+
+ LetsStart/src/View/ProjectViewController.java | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+commit e99eda155b677b976d2152ea0fa653c87510863b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 20:00:29 2020 +0100
+
+    Test in progress
+
+ LetsStart/src/ListView/ProjectListViewModel.java   |   4 +-
+ .../src/ListView/TeamMemberListViewModel.java      |   6 +-
+ LetsStart/src/View/HomeView.fxml                   |  93 +++---
+ LetsStart/src/View/HomeViewController.java         |  78 ++++-
+ LetsStart/src/View/ProjectView.fxml                | 320 ++++++++++++++-------
+ LetsStart/src/View/ProjectViewController.java      |  70 ++++-
+ LetsStart/src/View/ViewHandler.java                | 260 ++---------------
+ 7 files changed, 416 insertions(+), 415 deletions(-)
+
+commit efe1712e79da388e4db5feac2e280cb3f0dcca27
+Merge: 57b5d2a d2212de
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 20:09:04 2020 +0100
+
+    Merge branch 'list_view_models'
+
+commit 57b5d2a1409781703e85f740703342782f369c40
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 19:17:00 2020 +0100
+
+    Made view for project, requirement, tasklist, and task
+    views done!
+
+ LetsStart/src/newView/TaskView.fxml       | 239 ++++++++++++++++++++++++++++++
+ LetsStart/src/newView/TeamMemberView.fxml |  93 ++++++++++++
+ 2 files changed, 332 insertions(+)
+
+commit a3aa37db01fcebcba7891361da5969b77f64e528
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 18:47:08 2020 +0100
+
+    Made view for project, requirement, tasklist, and task
+    RequirementView
+
+ LetsStart/src/newView/RequirementView.fxml | 457 ++++++++++++++---------------
+ 1 file changed, 221 insertions(+), 236 deletions(-)
+
+commit 6a0063a0bc64cf7e71199a533b408d4df300f085
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 18:38:32 2020 +0100
+
+    Made view for project, requirement, tasklist, and task
+    + added new controller (to be worked on)
+
+ LetsStart/src/newView/HomeView.fxml        |  73 +++++++++
+ LetsStart/src/newView/ProjectView.fxml     | 251 +++++++++++++++++++++++++++++
+ LetsStart/src/newView/RequirementView.fxml | 251 +++++++++++++++++++++++++++++
+ 3 files changed, 575 insertions(+)
+
+commit d2212de0bb36d6a1064fe79478556edd0325f6da
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 18:31:51 2020 +0100
+
+    Finished
+
+ LetsStart/src/ListView/ProjectListViewModel.java   | 25 ++++-----
+ LetsStart/src/ListView/ProjectViewModel.java       |  3 +-
+ .../src/ListView/RequirementListViewModel.java     | 42 +++++++++++++++
+ LetsStart/src/ListView/RequirementViewModel.java   | 60 ++++++++++++++++++++++
+ LetsStart/src/ListView/TaskListViewModel.java      | 42 +++++++++++++++
+ LetsStart/src/ListView/TaskViewModel.java          | 45 ++++++++++++++++
+ .../src/ListView/TeamMemberListViewModel.java      |  9 ++--
+ LetsStart/src/Model/Project.java                   | 14 ++++-
+ LetsStart/src/Model/ProjectList.java               |  4 ++
+ 9 files changed, 221 insertions(+), 23 deletions(-)
+
+commit 23ef100ad8189b7736f32297c012350a1e12fec2
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 17:10:17 2020 +0100
+
+    Added classes to handle list view
+
+ LetsStart/src/ListView/ProjectListViewModel.java   | 53 +++++++++++++++++
+ LetsStart/src/ListView/ProjectViewModel.java       | 64 +++++++++++++++++++++
+ .../src/ListView/RequirementListViewModel.java     |  5 ++
+ LetsStart/src/ListView/RequirementViewModel.java   |  5 ++
+ LetsStart/src/ListView/TaskListViewModel.java      |  5 ++
+ LetsStart/src/ListView/TaskViewModel.java          |  5 ++
+ .../src/ListView/TeamMemberListViewModel.java      | 67 ++++++++++++++++++++++
+ LetsStart/src/ListView/TeamMemberViewModel.java    | 40 +++++++++++++
+ 8 files changed, 244 insertions(+)
+
+commit 2e85d3f2fc2c47616b664ad0021d36ccf9dd811d
+Merge: f5e646e 6ab8ee0
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 15:07:43 2020 +0100
+
+    Merge remote-tracking branch 'origin/PRTLviews'
+
+commit f5e646e1f3090b52332d15ce123be265e8047995
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 14:55:42 2020 +0100
+
+    Added ViewState
+
+ LetsStart/src/View/HomeViewController.java         |   4 +-
+ LetsStart/src/View/NewProjectView.fxml             | 116 +++++++++++----------
+ LetsStart/src/View/NewProjectViewController.java   |  32 +++---
+ .../src/View/NewRequirementViewController.java     |   3 +-
+ LetsStart/src/View/NewTaskViewController.java      |  25 ++---
+ .../src/View/NewTeamMemberViewController.java      |   3 +-
+ LetsStart/src/View/ProjectViewController.java      |   3 +-
+ .../src/View/RequirementListViewController.java    |   3 +-
+ LetsStart/src/View/RequirementViewController.java  |   3 +-
+ LetsStart/src/View/TaskListViewController.java     |   3 +-
+ .../src/View/TeamMemberListViewController.java     |   3 +-
+ LetsStart/src/View/TeamMemberViewController.java   |   3 +-
+ LetsStart/src/View/ViewHandler.java                |  68 ++++++------
+ LetsStart/src/View/ViewState.java                  |  44 ++++++++
+ 14 files changed, 185 insertions(+), 128 deletions(-)
+
+commit 6ab8ee0d61ea7baa6076b1472cefb153295c9f2c
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 14:50:04 2020 +0100
+
+    Made view for project, requirement, tasklist, and task
+    + added new controller (to be worked on)
+
+ LetsStart/src/View/ProjectView.fxml        | 119 +++++++++++++++--
+ LetsStart/src/View/RequirementView.fxml    | 191 +++++++++++++++++++++++++--
+ LetsStart/src/View/TaskListView.fxml       |  89 +++++++++++--
+ LetsStart/src/View/TaskView.fxml           | 205 +++++++++++++++++++++++++++++
+ LetsStart/src/View/TaskViewController.java |   5 +
+ 5 files changed, 576 insertions(+), 33 deletions(-)
+
+commit ab0fda6506e59e12e55061d0b791352df34dfe3b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 14:37:42 2020 +0100
+
+    Saving and loading projectList to an xml file with xmlJsonParser
+
+ .idea/.gitignore                                   |  3 +-
+ LetsStart/src/Model/ManagementSystem.java          | 13 +++++++
+ LetsStart/src/Model/ManagementSystemModel.java     |  3 ++
+ .../src/Model/mediator/ManagementSystemFile.java   | 42 ++++++++++++++++++++++
+ .../mediator/ManagementSystemPersistence.java      |  9 +++++
+ 5 files changed, 69 insertions(+), 1 deletion(-)
+
+commit 140e16c2afee2db7de62ca072dbee04ab1e02f3d
+Merge: c289065 86370bd
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 12:56:49 2020 +0100
+
+    Merge remote-tracking branch 'origin/ViewControllers'
+    
+    # Conflicts:
+    #       LetsStart/src/Model/ManagementSystem.java
+    #       LetsStart/src/Model/Requirement.java
+    #       LetsStart/src/View/NewProjectViewController.java
+
+commit c289065f172c688db915aee3fa9ec5ce01613f97
+Merge: ecb8640 ee97873
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 12:53:38 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit ecb864052908425b48b55edf2fc8521145786b79
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 12:53:23 2020 +0100
+
+    Merged with TMview and fixed project class
+
+ LetsStart/src/Model/Project.java                 | 4 +---
+ LetsStart/src/View/NewProjectViewController.java | 3 ---
+ 2 files changed, 1 insertion(+), 6 deletions(-)
+
+commit 9a88f39a90efc91783a374991ceee1da97a733c4
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 12:37:31 2020 +0100
+
+    Fixed issues with libraries
+
+ .idea/.gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit ee9787391866be1227afb9ef8fe57368b2ada929
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 10 12:37:31 2020 +0100
+
+    Fixed issues with libraries
+
+ .idea/.gitignore | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit b24d4afd7918ed9888bda65ea463c756d12c6897
+Author: Alex <abistrovs@gmail.com>
+Date:   Thu Dec 10 12:34:49 2020 +0100
+
+    library test
+    hola
+    corrected req
+    two lines
+
+ LetsStart/src/Model/Project.java                   |   4 +-
+ LetsStart/src/View/NewTeamMemberView.fxml          | 122 +++++++++++++++++++--
+ LetsStart/src/View/TeamMemberListView.fxml         |  79 +++++++++++--
+ .../src/View/TeamMemberListViewController.java     |   3 +-
+ LetsStart/src/View/TeamMemberView.fxml             | 117 ++++++++++++++++++--
+ 5 files changed, 291 insertions(+), 34 deletions(-)
+
+commit 1fe665f11f89cf9a6b16262ac0a8d7be15e76156
+Merge: fdffb2e 60e3bcd
+Author: Aleksandrs Bistrovs <75436714+helloItsBob@users.noreply.github.com>
+Date:   Thu Dec 10 09:43:14 2020 +0100
+
+    Merge pull request #4 from chooseanother/ManagementSystem_revision
+    
+    Management system revision
+
+commit 60e3bcd4780b9ec7b560db45a887bcb6278f7efa
+Merge: d38efb4 fdffb2e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 9 19:54:46 2020 +0100
+
+    Merge remote-tracking branch 'origin/master' into ManagementSystem_revision
+
+commit fdffb2e8476ad29f622ed72ebff82ec4246d3b19
+Merge: 04e848b 12bf5fd
+Author: hennyg2001 <75573506+hennyg2001@users.noreply.github.com>
+Date:   Wed Dec 9 18:48:50 2020 +0000
+
+    Merge pull request #3 from chooseanother/RequirementClass
+    
+    Changed constructor so it doesn't need a taskList or status, it will …
+
+commit 12bf5fd0c088fcd26c1c4b92b1e95f7ac2ba8e04
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 9 19:47:09 2020 +0100
+
+    Changed constructor so it doesn't need a taskList or status, it will get those automatically
+
+ LetsStart/src/Model/Requirement.java | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit d38efb431d454e826f538bd749275d30cdb497c6
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 9 19:43:35 2020 +0100
+
+    Methods and more methods
+
+ LetsStart/src/Model/Priority.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 3ec704add4e1c0845c161df1410ec7b8669ae9f3
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 9 19:41:50 2020 +0100
+
+    Methods and more methods
+
+ LetsStart/src/Model/ManagementSystem.java | 239 ++++++++++++++++++++----------
+ LetsStart/src/Model/Priority.java         |   2 +-
+ LetsStart/src/Model/ProjectList.java      |   4 +-
+ 3 files changed, 163 insertions(+), 82 deletions(-)
+
+commit 86370bdb82be33d9606a37b6c77740ae195d833c
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Wed Dec 9 19:38:00 2020 +0200
+
+    a
+
+ .idea/G4_SEP1Z_A20.iml                           |  1 +
+ LetsStart/LetsStart.iml                          |  1 +
+ LetsStart/src/Model/ManagementSystem.java        |  9 ++-
+ LetsStart/src/View/NewProjectViewController.java |  8 +--
+ LetsStart/src/View/NewTaskView.fxml              | 40 +++++++++---
+ LetsStart/src/View/NewTaskViewController.java    | 77 +++++++++++++++++-------
+ 6 files changed, 97 insertions(+), 39 deletions(-)
+
+commit bda1a10fa52ac0382b971880ce5b64f331348687
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:59:19 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java | 145 +++++++++++++-----------------
+ 1 file changed, 63 insertions(+), 82 deletions(-)
+
+commit c6e1acb5cb7f51f72a9692839d306992dcfed704
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:18:43 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java      | 151 +++++++++++++++++--------
+ LetsStart/src/Model/ManagementSystemModel.java |  54 +++++----
+ 2 files changed, 130 insertions(+), 75 deletions(-)
+
+commit 12d8d3fb1b8171fe949a95b2e9c4929d225aaeed
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Wed Dec 9 19:17:03 2020 +0100
+
+    Methods and more methods
+
+ LetsStart/src/Model/ManagementSystemModel.java | 60 +++++++++++++++-----------
+ 1 file changed, 35 insertions(+), 25 deletions(-)
+
+commit 06ca52cf196fcebd9443f7b8c0d7534c1c71f9ac
+Author: henrikkoster <henrikmiki@gmail.com>
+Date:   Wed Dec 9 18:09:35 2020 +0000
+
+    Updated New Requirement View
+
+ LetsStart/src/View/NewRequirementView.fxml           |  2 +-
+ LetsStart/src/View/NewRequirementViewController.java | 12 ++----------
+ 2 files changed, 3 insertions(+), 11 deletions(-)
+
+commit 04e848b1d932ac6eaa6d426c96363ee44a076aa7
+Merge: 27c3411 1399dcc
+Author: mxniliuc <73802991+mxniliuc@users.noreply.github.com>
+Date:   Wed Dec 9 18:36:16 2020 +0100
+
+    Merge pull request #2 from chooseanother/Model_revision
+    
+    Model revision
+
+commit 07147c14cf9f9be0240b2b74211225b4b975f174
+Author: henrikkoster <henrikmiki@gmail.com>
+Date:   Wed Dec 9 17:09:56 2020 +0000
+
+    Updated New Requirement View
+
+ LetsStart/src/View/NewRequirementView.fxml         | 10 ++++------
+ .../src/View/NewRequirementViewController.java     | 23 ++++++++++++++++------
+ 2 files changed, 21 insertions(+), 12 deletions(-)
+
+commit cc57e6aeff8779b49bb0613ec8236b8f20161daf
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 18:17:54 2020 +0100
+
+    Methods and more methods
+
+ LetsStart/src/Model/ManagementSystem.java      | 16 +++----
+ LetsStart/src/Model/ManagementSystemModel.java |  2 +-
+ LetsStart/src/Model/Project.java               | 66 +++++++++++---------------
+ LetsStart/src/Model/ProjectList.java           |  2 +-
+ LetsStart/src/Model/Requirement.java           | 21 ++------
+ LetsStart/src/Model/RequirementList.java       | 40 +++++++++++-----
+ LetsStart/src/Model/Status.java                |  8 +++-
+ LetsStart/src/Model/Task.java                  |  8 ++++
+ LetsStart/src/Model/TaskList.java              |  2 +-
+ LetsStart/src/Model/TeamMemberList.java        | 20 +++++---
+ 10 files changed, 101 insertions(+), 84 deletions(-)
+
+commit 458dc7e68da0e9b707af584ac6223ae7ec6371ef
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 17:08:19 2020 +0100
+
+    Lots of things
+
+ LetsStart/src/Model/ManagementSystem.java      | 114 +++++++++--------------
+ LetsStart/src/Model/ManagementSystemModel.java |  57 +++++-------
+ LetsStart/src/Model/Project.java               |  12 +--
+ LetsStart/src/Model/ProjectList.java           |   2 +-
+ LetsStart/src/Model/Requirement.java           | 121 +++++++++++++------------
+ LetsStart/src/Model/RequirementList.java       |   7 +-
+ LetsStart/src/Model/Task.java                  |   4 +
+ LetsStart/src/Model/TaskList.java              |  42 ++++-----
+ 8 files changed, 169 insertions(+), 190 deletions(-)
+
+commit 9ff2d10d5b03bd5e74c16fdfc34ff87bb0d8f1b8
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 16:05:46 2020 +0100
+
+    Task done
+
+ LetsStart/src/Model/Task.java | 37 ++++++++++++++++++++++++++-----------
+ 1 file changed, 26 insertions(+), 11 deletions(-)
+
+commit 578c978e3cbb18fb67719051769ffecb19034a73
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 15:43:23 2020 +0100
+
+    Updated methods
+
+ LetsStart/src/Model/Task.java | 35 +++++++++++++++++++++--------------
+ 1 file changed, 21 insertions(+), 14 deletions(-)
+
+commit dd407f5d2d9d8d68f95b7d4a2e65a89c77ece642
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 15:35:49 2020 +0100
+
+    Test
+
+ LetsStart/src/Model/Task.java       | 121 ++++++++++++++++--------------------
+ LetsStart/src/Model/TeamMember.java |  14 +----
+ 2 files changed, 55 insertions(+), 80 deletions(-)
+
+commit 3ee622cfa1a66bc2f20f6872513f0e22538a5374
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 14:56:26 2020 +0100
+
+    Lots of changes to model
+
+ LetsStart/src/Model/Customer.java                |  7 ++--
+ LetsStart/src/Model/Id.java                      | 34 +++++++++++++++++++
+ LetsStart/src/Model/Name.java                    |  5 ---
+ LetsStart/src/Model/Person.java                  |  7 +++-
+ LetsStart/src/Model/Priority.java                | 17 +++++++---
+ LetsStart/src/Model/Project.java                 |  4 ++-
+ LetsStart/src/Model/Role.java                    | 23 +++++++++++--
+ LetsStart/src/Model/Status.java                  | 42 ++++++++++++++++--------
+ LetsStart/src/Model/TeamMember.java              | 13 +++-----
+ LetsStart/src/View/NewProjectViewController.java |  2 +-
+ 10 files changed, 115 insertions(+), 39 deletions(-)
+
+commit 5dc764f3bc5418c89f6824162327db7974e693c5
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:59:19 2020 +0200
+
+    More functionality
+
+ LetsStart/src/View/NewProjectViewController.java | 35 +++++++++++++++---------
+ 1 file changed, 22 insertions(+), 13 deletions(-)
+
+commit b8e3309bb3e7cd179b03fcaae1642f822f604419
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:59:19 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java        |  8 +---
+ LetsStart/src/Model/ManagementSystemModel.java   | 59 +++++++++++++-----------
+ LetsStart/src/View/NewProjectViewController.java |  5 +-
+ 3 files changed, 36 insertions(+), 36 deletions(-)
+
+commit d955792542dfe57ae0169342d4438e8e6776f67f
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:18:43 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java        | 145 ++++++++++-------------
+ LetsStart/src/Model/ManagementSystemModel.java   |   2 +-
+ LetsStart/src/Model/Project.java                 |   4 +
+ LetsStart/src/Model/Requirement.java             |   8 ++
+ LetsStart/src/Model/Task.java                    |   8 ++
+ LetsStart/src/View/NewProjectViewController.java |  34 ++----
+ 6 files changed, 96 insertions(+), 105 deletions(-)
+
+commit 6dd37476936e2117088a6985f020ea1912b0904b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 16:51:29 2020 +0100
+
+    More functionality
+
+ LetsStart/src/View/RequirementListView.fxml        | 38 ++++++++++++----------
+ .../src/View/RequirementListViewController.java    |  2 +-
+ 2 files changed, 22 insertions(+), 18 deletions(-)
+
+commit 1399dccd3bd9b2baa1a929f8771b76346b532e26
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 18:17:54 2020 +0100
+
+    Methods and more methods
+
+ LetsStart/src/Model/ManagementSystem.java      | 16 +++----
+ LetsStart/src/Model/ManagementSystemModel.java |  2 +-
+ LetsStart/src/Model/Project.java               | 66 +++++++++++---------------
+ LetsStart/src/Model/ProjectList.java           |  2 +-
+ LetsStart/src/Model/Requirement.java           | 21 ++------
+ LetsStart/src/Model/RequirementList.java       | 40 +++++++++++-----
+ LetsStart/src/Model/Status.java                |  8 +++-
+ LetsStart/src/Model/Task.java                  |  8 ++++
+ LetsStart/src/Model/TaskList.java              |  2 +-
+ LetsStart/src/Model/TeamMemberList.java        | 20 +++++---
+ 10 files changed, 101 insertions(+), 84 deletions(-)
+
+commit 2fc633319d02ebbcda29a4e87e74904fbb7a422c
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 17:08:19 2020 +0100
+
+    Lots of things
+
+ LetsStart/src/Model/ManagementSystem.java      | 114 +++++++++--------------
+ LetsStart/src/Model/ManagementSystemModel.java |  57 +++++-------
+ LetsStart/src/Model/Project.java               |  12 +--
+ LetsStart/src/Model/ProjectList.java           |   2 +-
+ LetsStart/src/Model/Requirement.java           | 121 +++++++++++++------------
+ LetsStart/src/Model/RequirementList.java       |   7 +-
+ LetsStart/src/Model/Task.java                  |   4 +
+ LetsStart/src/Model/TaskList.java              |  42 ++++-----
+ 8 files changed, 169 insertions(+), 190 deletions(-)
+
+commit 7f94172ccc35e680ef7dd8d661ccfac92d3cf6ee
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 16:05:46 2020 +0100
+
+    Task done
+
+ LetsStart/src/Model/Task.java | 37 ++++++++++++++++++++++++++-----------
+ 1 file changed, 26 insertions(+), 11 deletions(-)
+
+commit da482ea263d6a38bc77448e72090a6f31e5a7cdc
+Author: henrikkoster <henrikmiki@gmail.com>
+Date:   Tue Dec 8 14:46:16 2020 +0000
+
+    Updated New Requirement View
+
+ LetsStart/src/View/NewRequirementView.fxml | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
+
+commit 0905c5257b4aab25e91f8a843fce08d5b452180e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 15:43:23 2020 +0100
+
+    Updated methods
+
+ LetsStart/src/Model/Task.java | 35 +++++++++++++++++++++--------------
+ 1 file changed, 21 insertions(+), 14 deletions(-)
+
+commit 98f3ea61a67727c190c324c0fdea3835a6f61bde
+Author: henrikkoster <henrikmiki@gmail.com>
+Date:   Tue Dec 8 14:41:52 2020 +0000
+
+    Updated New Requirement View
+
+ LetsStart/src/View/NewRequirementView.fxml         | 90 ++++++----------------
+ .../src/View/NewRequirementViewController.java     |  4 -
+ 2 files changed, 22 insertions(+), 72 deletions(-)
+
+commit 2e52c18de804c329c228745455c43d6682739cdd
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 15:35:49 2020 +0100
+
+    Test
+
+ LetsStart/src/Model/Task.java       | 121 ++++++++++++++++--------------------
+ LetsStart/src/Model/TeamMember.java |  14 +----
+ 2 files changed, 55 insertions(+), 80 deletions(-)
+
+commit 443f49bea4d80c898e2b4b0ce2e337af5e64e399
+Author: henrikkoster <henrikmiki@gmail.com>
+Date:   Tue Dec 8 14:04:44 2020 +0000
+
+    Updated New Requirement View
+
+ LetsStart/src/View/NewRequirementView.fxml         | 165 ++++++++++++++++++++-
+ .../src/View/NewRequirementViewController.java     |   8 +-
+ 2 files changed, 166 insertions(+), 7 deletions(-)
+
+commit f607b5541803243f8d0b1d7346cff3889646407e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 14:56:26 2020 +0100
+
+    Lots of changes to model
+
+ LetsStart/src/Model/Customer.java                |  7 ++--
+ LetsStart/src/Model/Id.java                      | 34 +++++++++++++++++++
+ LetsStart/src/Model/Name.java                    |  5 ---
+ LetsStart/src/Model/Person.java                  |  7 +++-
+ LetsStart/src/Model/Priority.java                | 17 +++++++---
+ LetsStart/src/Model/Project.java                 |  4 ++-
+ LetsStart/src/Model/Role.java                    | 23 +++++++++++--
+ LetsStart/src/Model/Status.java                  | 42 ++++++++++++++++--------
+ LetsStart/src/Model/TeamMember.java              | 13 +++-----
+ LetsStart/src/View/NewProjectViewController.java |  2 +-
+ 10 files changed, 115 insertions(+), 39 deletions(-)
+
+commit 27c3411246db8d5de5ed20d55cbde4247bee3ff1
+Merge: a400a14 f3f426a
+Author: Kim Tranberg <chooseanother@users.noreply.github.com>
+Date:   Tue Dec 8 10:39:28 2020 +0100
+
+    Merge pull request #1 from chooseanother/Functionality
+    
+    Functionality
+
+commit f3f426a6f71075c5bb74929ec0da452982365bf5
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:59:19 2020 +0200
+
+    More functionality
+
+ LetsStart/src/View/NewProjectViewController.java | 35 +++++++++++++++---------
+ 1 file changed, 22 insertions(+), 13 deletions(-)
+
+commit b7a8cfe4d5573209e1f5d43b03b61df3b13282a8
+Merge: 2ea0836 3390924
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Tue Dec 8 10:13:30 2020 +0100
+
+    Merge remote-tracking branch 'origin/Functionality' into Functionality
+
+commit 3390924ee30d758db6c1ab75e98d192e4d7dbd29
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:59:19 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java        |  8 +---
+ LetsStart/src/Model/ManagementSystemModel.java   | 59 +++++++++++++-----------
+ LetsStart/src/View/NewProjectViewController.java |  5 +-
+ 3 files changed, 36 insertions(+), 36 deletions(-)
+
+commit ba58615260b611c2f57d75887b018f4932900743
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Mon Dec 7 18:18:43 2020 +0200
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java        | 145 ++++++++++-------------
+ LetsStart/src/Model/ManagementSystemModel.java   |   2 +-
+ LetsStart/src/Model/Project.java                 |   4 +
+ LetsStart/src/Model/Requirement.java             |   8 ++
+ LetsStart/src/Model/Task.java                    |   8 ++
+ LetsStart/src/View/NewProjectViewController.java |  34 ++----
+ 6 files changed, 96 insertions(+), 105 deletions(-)
+
+commit 2ea08365189b339c2362a4990370247968879e83
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 16:51:29 2020 +0100
+
+    More functionality
+
+ LetsStart/src/View/RequirementListView.fxml        | 38 ++++++++++++----------
+ .../src/View/RequirementListViewController.java    |  2 +-
+ 2 files changed, 22 insertions(+), 18 deletions(-)
+
+commit 266eceba5f4b05f2422f062900497569dd1051e3
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 16:10:28 2020 +0100
+
+    More functionality
+
+ LetsStart/src/Model/ManagementSystem.java          | 26 +++++++-------
+ LetsStart/src/Model/Project.java                   |  2 +-
+ LetsStart/src/View/NewProjectViewController.java   |  5 +--
+ LetsStart/src/View/NewRequirementView.fxml         | 13 +++----
+ LetsStart/src/View/RequirementListView.fxml        | 40 +++++++++++++++++-----
+ .../src/View/RequirementListViewController.java    | 39 ++++++++++++++++-----
+ 6 files changed, 83 insertions(+), 42 deletions(-)
+
+commit 8cc980ce28bc392fedabf3d2171482461ef9b1fb
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 12:45:20 2020 +0100
+
+    Fixed reading deadline from datepicker
+
+ LetsStart/src/View/NewProjectView.fxml           | 104 +++++++++++------------
+ LetsStart/src/View/NewProjectViewController.java |  19 +++--
+ 2 files changed, 61 insertions(+), 62 deletions(-)
+
+commit 2a972542e65096a02e37221175a26b7d00939cdb
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 12:36:29 2020 +0100
+
+    Minor changes, added comments about what has to be added
+
+ LetsStart/src/View/NewProjectView.fxml           | 10 +++++-----
+ LetsStart/src/View/NewProjectViewController.java | 16 +++++++++-------
+ 2 files changed, 14 insertions(+), 12 deletions(-)
+
+commit a400a14fa6ee4d8e5d5010116fc3fe712add7d12
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Mon Dec 7 12:21:06 2020 +0100
+
+    Changed some methods, working on new project gui and functionality
+
+ LetsStart/src/Model/Customer.java                |  2 +-
+ LetsStart/src/Model/ManagementSystem.java        | 39 ++++++++----
+ LetsStart/src/Model/ManagementSystemModel.java   |  2 +-
+ LetsStart/src/Model/Person.java                  |  6 +-
+ LetsStart/src/Model/Project.java                 |  7 ++-
+ LetsStart/src/Model/ProjectList.java             |  9 ++-
+ LetsStart/src/View/NewProjectView.fxml           | 77 +++++++++++++++++++++---
+ LetsStart/src/View/NewProjectViewController.java | 25 ++++++--
+ 8 files changed, 129 insertions(+), 38 deletions(-)
+
+commit 102da8422e21ae6251b9767680c6ba37cfef19ba
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 5 19:13:15 2020 +0100
+
+    Started on gui
+
+ LetsStart/src/View/TeamMemberView.fxml | 19 ++++++++++---------
+ 1 file changed, 10 insertions(+), 9 deletions(-)
+
+commit 30dfe5c6e59de6472606ebd6897f1661043ebd9c
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Sat Dec 5 16:53:41 2020 +0100
+
+    Added @FXML where needed
+
+ LetsStart/src/View/NewProjectViewController.java   |  8 ++--
+ .../src/View/NewRequirementViewController.java     | 42 +++++++----------
+ LetsStart/src/View/NewTaskViewController.java      | 53 ++++++++++++----------
+ .../src/View/NewTeamMemberViewController.java      | 32 ++++++-------
+ LetsStart/src/View/ProjectViewController.java      | 25 +++++-----
+ .../src/View/RequirementListViewController.java    | 33 ++++++--------
+ LetsStart/src/View/RequirementViewController.java  | 23 +++++-----
+ LetsStart/src/View/TaskListViewController.java     | 22 +++++----
+ .../src/View/TeamMemberListViewController.java     | 24 ++++------
+ LetsStart/src/View/TeamMemberViewController.java   | 22 +++++----
+ 10 files changed, 136 insertions(+), 148 deletions(-)
+
+commit 45ce2b82c63098d09be0bf68fa160ab1ac4d5176
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 20:57:50 2020 +0100
+
+    ManagementSystem started
+
+ LetsStart/src/Model/ManagementSystem.java | 59 ++++++++++++++++---------------
+ LetsStart/src/Model/Project.java          |  4 +++
+ LetsStart/src/Model/Requirement.java      | 10 ++++--
+ LetsStart/src/Model/RequirementList.java  |  4 +++
+ LetsStart/src/Model/Task.java             |  8 ++++-
+ LetsStart/src/Model/TeamMember.java       |  4 +++
+ LetsStart/src/Model/TeamMemberList.java   |  4 +++
+ 7 files changed, 60 insertions(+), 33 deletions(-)
+
+commit 29387091310242523d8905f6d1a45d7558f4c1fe
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:57:55 2020 +0100
+
+    Fixed size of window
+
+ LetsStart/src/View/HomeView.fxml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit f5f37820b2f70c6079d553396ee3177fbc6aa615
+Merge: 906138b b13e322
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:55:31 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 906138b7599220fee79a87bd73c565ccb565f43c
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:55:21 2020 +0100
+
+    ProjectList class done
+
+ LetsStart/src/Model/ProjectList.java | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+commit b13e322c6d630e905d82c276f93b046b3ba6d73c
+Merge: b65bd56 b3455bb
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:54:41 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit b65bd5650f57b7bea431b9295abee456f8205bee
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:54:29 2020 +0100
+
+    HomeView gui and NewProjectView gui created
+
+ LetsStart/src/View/HomeView.fxml                 | 51 +++++++++++++++++++++---
+ LetsStart/src/View/HomeViewController.java       | 13 +++---
+ LetsStart/src/View/NewProjectView.fxml           | 18 +++++----
+ LetsStart/src/View/NewProjectViewController.java | 22 +++++-----
+ LetsStart/src/View/ViewHandler.java              | 20 +++++-----
+ 5 files changed, 85 insertions(+), 39 deletions(-)
+
+commit b3455bbde4974611c7c09d98bc9b733c61fed8ee
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:48:04 2020 +0100
+
+    Project class done
+
+ LetsStart/src/Model/Requirement.java | 86 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 81 insertions(+), 5 deletions(-)
+
+commit 35d19793b84ee5d89cb10cc5fd4d718796aac801
+Merge: a88099d 7715813
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:44:20 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       LetsStart/src/Model/Requirement.java
+
+commit a88099d6213206d324ae690d8a15ca5ed9a19046
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:44:05 2020 +0100
+
+    Project class done
+
+ LetsStart/src/Model/Project.java     | 60 ++++++++++++++++++++++++++++++++++--
+ LetsStart/src/Model/Requirement.java | 47 +++++++++++++++++++++++++++-
+ 2 files changed, 104 insertions(+), 3 deletions(-)
+
+commit 7715813489156e0d7aa92d73c4df43010e93f740
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:27:12 2020 +0100
+
+    hmm
+
+ LetsStart/src/Model/Requirement.java | 86 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 81 insertions(+), 5 deletions(-)
+
+commit 74c5d5968b3cf7a89322c7f6a92d38d6b5572d1c
+Merge: d9f4608 5e7068b
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:24:01 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit d9f46082eb4a5fd08e1ccbd4ccc8dc0108b4168d
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:23:46 2020 +0100
+
+    TeamMemberList class done
+
+ LetsStart/src/Model/TeamMemberList.java | 30 ++++++++++++++++++++++++++++--
+ 1 file changed, 28 insertions(+), 2 deletions(-)
+
+commit 5e7068bfe287849c36c71305659f2395ea0afe04
+Merge: 40503c5 632ff3b
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:23:18 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 40503c53cc47adb752d59ee49270824851421e55
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:22:58 2020 +0100
+
+    library test
+    hola
+    corrected req
+    two lines
+
+ LetsStart/src/Model/Project.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 632ff3b9f9d1958bf0e19a7a250a874dadba3f62
+Merge: 17589d9 5453d4a
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:20:11 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       LetsStart/src/Model/Requirement.java
+
+commit 17589d97a746a22f3f02e23cd656bbbc9414b6d5
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 13:19:15 2020 +0100
+
+    Fist window test
+
+ LetsStart/src/Model/ManagementSystem.java      | 88 +++++++++++++-------------
+ LetsStart/src/Model/ManagementSystemModel.java | 10 +--
+ LetsStart/src/Model/Requirement.java           |  2 +-
+ LetsStart/src/Model/Status.java                |  2 +-
+ LetsStart/src/View/HomeViewController.java     |  6 +-
+ 5 files changed, 54 insertions(+), 54 deletions(-)
+
+commit 5453d4a0d917dd053ce09568e107591f0d8515f5
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:19:13 2020 +0100
+
+    library test
+    hola
+    corrected req
+
+ LetsStart/src/Model/Requirement.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 87e15a8f962fb529f784dd6b0154e1db96c426b5
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:16:28 2020 +0100
+
+    library test
+    hola
+
+ LetsStart/src/Model/TeamMemberList.java | 30 ++++++++++++++++++++++++++++++
+ LetsStart/src/View/ViewHandler.java     |  1 +
+ 2 files changed, 31 insertions(+)
+
+commit 25cf0b1bde9228dd3a6cd84494fb014cceebbdee
+Merge: 88f6770 e8fe2eb
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:15:55 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit e8fe2eb38b5c5e98d01c3e6676fad77871bc4c7f
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:15:41 2020 +0100
+
+    RequirementList class done
+
+ LetsStart/src/Model/Status.java | 2 +-
+ LetsStart/src/Model/Task.java   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 88f6770c7e9dc310cb4e25a913a0a52c56bfd7a6
+Merge: 988e790 f3b8b7c
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:11:31 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit f3b8b7cd23082e6922859c447b05baac8f114c5c
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:11:02 2020 +0100
+
+    RequirementList class done
+
+ LetsStart/src/Model/Requirement.java     | 45 ++++++++++++++++++++++++++++++++
+ LetsStart/src/Model/RequirementList.java | 43 ++++++++++++++++++++++++++++++
+ 2 files changed, 88 insertions(+)
+
+commit 988e79093bc28788b2846e2f1c4a4cdcfb2d265d
+Merge: 874728c 86be6bb
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 13:04:01 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       .idea/G4_SEP1Z_A20.iml
+
+commit 86be6bbdd5ace5e79f57570419e9f218487b2708
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 13:03:33 2020 +0100
+
+    Requirement class done
+
+ .idea/G4_SEP1Z_A20.iml               |  1 +
+ .idea/misc.xml                       |  2 +-
+ LetsStart/LetsStart.iml              |  1 +
+ LetsStart/src/Model/Requirement.java | 39 ++++++++++++++++++++++++++++++++----
+ LetsStart/src/Model/Task.java        |  2 +-
+ LetsStart/src/Model/TaskList.java    |  9 +++++++++
+ 6 files changed, 48 insertions(+), 6 deletions(-)
+
+commit 874728c72202159f01da7ece5d8fb5f716a04b38
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 12:50:28 2020 +0100
+
+    library test
+
+ .idea/G4_SEP1Z_A20.iml              | 1 -
+ LetsStart/LetsStart.iml             | 3 ++-
+ LetsStart/src/View/ViewHandler.java | 1 -
+ 3 files changed, 2 insertions(+), 3 deletions(-)
+
+commit 314bea93a9f2d2c3b135fbeb80356319b9e098e8
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 12:40:43 2020 +0100
+
+    test
+
+ .idea/G4_SEP1Z_A20.iml       |  1 -
+ .idea/libraries/JavaFx11.xml | 16 ----------------
+ .idea/libraries/lib.xml      | 12 ------------
+ 3 files changed, 29 deletions(-)
+
+commit b69bf814f70d87fa40adf7d94714ac9ddc16ecd3
+Merge: 84ca3bb 4423747
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 12:24:37 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 84ca3bb3e7b9a4a26e6f1cd95327e3ba540b9c94
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 12:24:07 2020 +0100
+
+    finish this
+
+ LetsStart/src/Model/Requirement.java | 30 ++++++++++++++++++++++++++++++
+ LetsStart/src/Model/Status.java      |  2 +-
+ 2 files changed, 31 insertions(+), 1 deletion(-)
+
+commit 4423747070c0af51888d4f4782fe6636a8577023
+Merge: 709b8ac b34c429
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 12:23:10 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 709b8ac79713cd6ac4b60623f1b2ad8fe5ab25dc
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 12:22:53 2020 +0100
+
+    Updated viewhandler and all controllers
+
+ .idea/libraries/JavaFx11.xml                       |  16 +-
+ LetsStart/src/Main.java                            |   9 +
+ LetsStart/src/ManagementSystemApplication.java     |  13 +
+ LetsStart/src/Model/ManagementSystemModel.java     |  31 +--
+ LetsStart/src/View/HomeView.fxml                   |  16 +-
+ LetsStart/src/View/HomeViewController.java         |   8 +-
+ LetsStart/src/View/NewProjectViewController.java   |   3 -
+ .../src/View/NewRequirementViewController.java     |  10 +-
+ LetsStart/src/View/NewTaskViewController.java      |   2 -
+ .../src/View/NewTeamMemberViewController.java      |   6 +-
+ LetsStart/src/View/ProjectViewController.java      |   2 -
+ .../src/View/RequirementListViewController.java    |   4 +-
+ LetsStart/src/View/RequirementViewController.java  |   4 -
+ LetsStart/src/View/TaskListViewController.java     |  13 +-
+ .../src/View/TeamMemberListViewController.java     |   2 -
+ LetsStart/src/View/TeamMemberViewController.java   |   6 -
+ LetsStart/src/View/ViewHandler.java                | 286 ++++++++++++++++++---
+ 17 files changed, 318 insertions(+), 113 deletions(-)
+
+commit b34c4292db2a29c576bb0b6908774bf69e06fb20
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 12:21:06 2020 +0100
+
+    TaskList class done
+
+ LetsStart/src/Model/TaskList.java | 52 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 52 insertions(+)
+
+commit e7ecd0ce673f78095d3e6e0823108bb6cda15b71
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 12:12:46 2020 +0100
+
+    TeamMember class done
+
+ LetsStart/src/Model/TeamMember.java | 28 ++++++++++++++++++++++++++++
+ 1 file changed, 28 insertions(+)
+
+commit f54364baeb5a0edaa21ca3918b7a61acbcd47f8b
+Merge: 4289fa4 b53a35e
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 12:05:09 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 4289fa41209cb52e2ea3d318e98348114606db76
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 12:04:43 2020 +0100
+
+    Task class done
+
+ LetsStart/src/Model/Task.java | 75 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+
+commit b53a35ebd646f3a9144640fb22e6a737a9149518
+Merge: 88d4929 37f3035
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:47:57 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 88d49297917c6c4d9cc6aea798a3a421b875cc9c
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:47:42 2020 +0100
+
+    Priority class
+
+ LetsStart/src/Model/Priority.java | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+
+commit 37f3035f199a0879c379bc0dce3ac986e440421c
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:42:32 2020 +0100
+
+    Person class updated
+
+ LetsStart/src/Model/Person.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 6675fdecb3fba91b733cd757d8da73974bfcbc59
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:39:24 2020 +0100
+
+    Status class done
+
+ .idea/libraries/JavaFx11.xml    | 16 ++++++++--------
+ LetsStart/src/Model/Status.java | 37 +++++++++++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 8 deletions(-)
+
+commit 699c6aa7cc75c521a30211c5b9eec8a9df87d0cd
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:20:50 2020 +0100
+
+    Added priority class
+
+ .idea/G4_SEP1Z_A20.iml        | 1 +
+ LetsStart/src/Model/Role.java | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 6b86535c5e06234175358fd6602014263cc348ea
+Merge: bd7c5d9 8c4fc7c
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:19:41 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 8c4fc7c89eee9476cc4776700be1a06924e1807e
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:18:50 2020 +0100
+
+    Role class created
+
+ LetsStart/src/Model/Role.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit bd7c5d927fc0c6374d7e97bf094f50edbed271e0
+Merge: be3b4cf 7cea5f5
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:18:18 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+
+commit be3b4cfbbe450bfc4fd325d6129b4ee59de3a70f
+Merge: d402b85 f97b940
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:18:15 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       .idea/G4_SEP1Z_A20.iml
+    #       LetsStart/LetsStart.iml
+
+commit 7cea5f54601185a411ed2ad7995276742f2346a8
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:17:46 2020 +0100
+
+    Role class created
+
+ LetsStart/src/Model/Role.java | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+commit f97b9406dfd621c40cf883483c49c3c0176406af
+Merge: 4e63963 cc42965
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:14:56 2020 +0100
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       LetsStart/src/Model/ManagementSystemModel.java
+
+commit 4e63963c37742d0f2bcfc5ed38dbde4e8764f0eb
+Author: laurentiumaniliuc <laurentiumaniliuc@gmail.com>
+Date:   Fri Dec 4 11:14:22 2020 +0100
+
+    Role class created
+
+ .idea/G4_SEP1Z_A20.iml                         |  1 +
+ LetsStart/LetsStart.iml                        |  1 +
+ LetsStart/src/Model/ManagementSystemModel.java |  1 +
+ LetsStart/src/Model/Role.java                  | 19 +++++++++++++++++++
+ 4 files changed, 22 insertions(+)
+
+commit d402b8533a5bc7d1767eb19d8ab7e55c5c854ff3
+Author: Alex <abistrovs@gmail.com>
+Date:   Fri Dec 4 11:04:10 2020 +0100
+
+    Added priority class
+
+ .idea/G4_SEP1Z_A20.iml            |  2 +-
+ .idea/libraries/JavaFx11.xml      | 16 ++++++++++++++++
+ .idea/misc.xml                    |  2 +-
+ LetsStart/LetsStart.iml           |  5 +++--
+ LetsStart/src/Model/Priority.java |  5 +++++
+ 5 files changed, 26 insertions(+), 4 deletions(-)
+
+commit cc42965b20745cfff78bd5ddd16f655be7e9273b
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 11:03:27 2020 +0100
+
+    Finished MyDate
+
+ LetsStart/src/Model/ManagementSystemModel.java |  19 ---
+ LetsStart/src/Model/MyDate.java                | 227 ++++++++++++++++++++++++-
+ 2 files changed, 226 insertions(+), 20 deletions(-)
+
+commit 231ed0a2f01560f459bbe4569ccd7b0f4e52cbb0
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 10:56:50 2020 +0100
+
+    Updated Name, Person and Customer
+
+ LetsStart/src/Model/Customer.java         | 49 ++++---------------------------
+ LetsStart/src/Model/ManagementSystem.java | 13 +-------
+ LetsStart/src/Model/Person.java           | 24 ---------------
+ 3 files changed, 7 insertions(+), 79 deletions(-)
+
+commit d154a300459abea53718c972b880e0ab469a3517
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 10:22:14 2020 +0100
+
+    Added functionality to customer, name and person
+
+ LetsStart/src/Model/Customer.java | 12 +++-----
+ LetsStart/src/Model/Name.java     |  2 ++
+ LetsStart/src/Model/Person.java   | 58 ++++++---------------------------------
+ 3 files changed, 14 insertions(+), 58 deletions(-)
+
+commit 745581a28e368a5e868b6ef8fbb88f93076b38e7
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 10:13:34 2020 +0100
+
+    Added functionality to customer, name and person
+
+ LetsStart/src/Model/Customer.java |  65 ++++++++++++++++++++--
+ LetsStart/src/Model/MyDate.java   |   5 ++
+ LetsStart/src/Model/Name.java     |  67 ++++++++++++++++++++++-
+ LetsStart/src/Model/Person.java   | 112 +++++++++++++++++++++++++++++++++++++-
+ 4 files changed, 239 insertions(+), 10 deletions(-)
+
+commit 1fc6107f49537799798df67e9b317554881ebd53
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 10:06:43 2020 +0100
+
+    Added more classes
+
+ LetsStart/src/Model/TeamMember.java     | 5 +++++
+ LetsStart/src/Model/TeamMemberList.java | 5 +++++
+ 2 files changed, 10 insertions(+)
+
+commit d39ad00673cbbe6010e062e9616edb52be75597e
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Fri Dec 4 10:05:11 2020 +0100
+
+    Added more classes
+
+ LetsStart/src/Model/Customer.java        | 5 +++++
+ LetsStart/src/Model/Name.java            | 5 +++++
+ LetsStart/src/Model/Person.java          | 5 +++++
+ LetsStart/src/Model/Project.java         | 5 +++++
+ LetsStart/src/Model/ProjectList.java     | 5 +++++
+ LetsStart/src/Model/Requirement.java     | 5 +++++
+ LetsStart/src/Model/RequirementList.java | 5 +++++
+ LetsStart/src/Model/Role.java            | 5 +++++
+ LetsStart/src/Model/Status.java          | 5 +++++
+ LetsStart/src/Model/Task.java            | 5 +++++
+ LetsStart/src/Model/TaskList.java        | 5 +++++
+ 11 files changed, 55 insertions(+)
+
+commit 982d00604570b4d5e61053b1658d678832eff24d
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 3 16:07:24 2020 +0100
+
+    Imported javafx libraries for all controllers
+
+ LetsStart/src/Model/ManagementSystem.java          | 281 +++++++++++++++++++++
+ LetsStart/src/Model/ManagementSystemModel.java     |  55 ++++
+ LetsStart/src/View/HomeViewController.java         |   6 +-
+ LetsStart/src/View/NewProjectViewController.java   |   4 +
+ .../src/View/NewRequirementViewController.java     |   7 +-
+ LetsStart/src/View/NewTaskViewController.java      |   4 +
+ .../src/View/NewTeamMemberViewController.java      |   3 +
+ LetsStart/src/View/ProjectViewController.java      |   5 +
+ .../src/View/RequirementListViewController.java    |   4 +
+ LetsStart/src/View/RequirementViewController.java  |   3 +
+ LetsStart/src/View/TaskListViewController.java     |   5 +
+ .../src/View/TeamMemberListViewController.java     |   5 +
+ LetsStart/src/View/TeamMemberViewController.java   |   3 +
+ LetsStart/src/View/ViewHandler.java                |   4 +
+ 14 files changed, 387 insertions(+), 2 deletions(-)
+
+commit 01ff46eccab6d65ac0dbe102e56bd2e556c546af
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 3 15:57:44 2020 +0100
+
+    Added shell of all fxml and controller files
+
+ .idea/G4_SEP1Z_A20.iml                             |  1 +
+ .idea/libraries/lib.xml                            | 12 +++
+ LetsStart/LetsStart.iml                            |  1 +
+ LetsStart/src/View/HomeView.fxml                   | 14 ++++
+ LetsStart/src/View/HomeViewController.java         | 47 +++++++++++
+ LetsStart/src/View/NewProjectView.fxml             | 14 ++++
+ LetsStart/src/View/NewProjectViewController.java   | 55 ++++++++++++
+ LetsStart/src/View/NewRequirementView.fxml         | 14 ++++
+ .../src/View/NewRequirementViewController.java     | 59 +++++++++++++
+ LetsStart/src/View/NewTaskView.fxml                | 14 ++++
+ LetsStart/src/View/NewTaskViewController.java      | 97 ++++++++++++++++++++++
+ LetsStart/src/View/NewTeamMemberView.fxml          | 14 ++++
+ .../src/View/NewTeamMemberViewController.java      | 55 ++++++++++++
+ LetsStart/src/View/ProjectView.fxml                | 14 ++++
+ LetsStart/src/View/ProjectViewController.java      | 51 ++++++++++++
+ LetsStart/src/View/RequirementListView.fxml        | 14 ++++
+ .../src/View/RequirementListViewController.java    | 51 ++++++++++++
+ LetsStart/src/View/RequirementView.fxml            | 14 ++++
+ LetsStart/src/View/RequirementViewController.java  | 57 +++++++++++++
+ LetsStart/src/View/TaskListView.fxml               | 14 ++++
+ LetsStart/src/View/TaskListViewController.java     | 51 ++++++++++++
+ LetsStart/src/View/TeamMemberListView.fxml         | 14 ++++
+ .../src/View/TeamMemberListViewController.java     | 47 +++++++++++
+ LetsStart/src/View/TeamMemberView.fxml             | 14 ++++
+ LetsStart/src/View/TeamMemberViewController.java   | 55 ++++++++++++
+ LetsStart/src/View/ViewHandler.java                | 91 ++++++++++++++++++++
+ 26 files changed, 884 insertions(+)
+
+commit 5903e23e039d6360234df9fb2d3b2bb266774bb0
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 3 15:27:40 2020 +0100
+
+    Start
+
+ .idea/G4_SEP1Z_A20.iml                   |  4 +++-
+ .idea/modules.xml                        |  1 +
+ Group4_SEP1Z_A20.iml => G4_SEP1Z_A20.iml |  0
+ LetsStart/LetsStart.iml                  | 11 +++++++++++
+ 4 files changed, 15 insertions(+), 1 deletion(-)
+
+commit c126c00874a0c6add1831622b632d7ebf0a5b8d0
+Author: Kim Tranberg <kim.tranberg@gmail.com>
+Date:   Thu Dec 3 15:24:55 2020 +0100
+
+    Start
+
+ .idea/.gitignore       |  3 +++
+ .idea/G4_SEP1Z_A20.iml |  9 +++++++++
+ .idea/misc.xml         |  6 ++++++
+ .idea/modules.xml      |  8 ++++++++
+ .idea/vcs.xml          |  6 ++++++
+ Group4_SEP1Z_A20.iml   | 11 +++++++++++
+ 6 files changed, 43 insertions(+)

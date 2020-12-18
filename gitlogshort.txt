@@ -1,3 +1,5 @@
+Wed, 16 Dec 2020 20:30:01 +0100 - Kim Tranberg - Test information
+Wed, 16 Dec 2020 20:17:08 +0100 - Kim Tranberg - Fixed new task view. It was loading project team members into task view team member list
 Wed, 16 Dec 2020 19:06:33 +0100 - Kim Tranberg - Text wraps in descriptions
 Wed, 16 Dec 2020 19:01:50 +0100 - Kim Tranberg - More JavaDoc
 Wed, 16 Dec 2020 18:32:11 +0100 - Kim Tranberg - More JavaDoc
